@@ -75,14 +75,11 @@ MobileNode::~MobileNode()
 
 void MobileNode::initialize()
 {
-    updateDelta = 30;//seconds
-    nextTime = 0;
+    updateDelta = 5;//seconds
     currentStep = 0;
-    x = par("startX");
-    y = par("startY");
     id = par("id");
     printf("Initializing node with id: %d\n",id);
-    nextTime = initializePositions(nextTime,updateDelta);
+    nextTime = initializePositions(0,updateDelta);
     heading = 0; //TODO: Calculate heading
     timeStep = par("timeStep");
 
@@ -136,8 +133,8 @@ void MobileNode::handleMessage(cMessage *msg)
     // TODO: Calculate heading
 
     // update position
-    x = positions[currentStep % 60][0];
-    y = positions[currentStep % 60][1];
+    x = positions[currentStep % updateDelta][1];
+    y = positions[currentStep % updateDelta][0];
 
     printf("Current position of node %d: %f, %f\n",id,x,y);
 
@@ -186,8 +183,6 @@ std::string MobileNode::getKmlFragment()
 
 int MobileNode::initializePositions(int currentPosition, int updateDelta)
 {
-    time_t t = time(0);
-    //-----------------------------------------------------------
 
     //2013-08-09 18:10:59
     //1376071859
@@ -223,26 +218,21 @@ int MobileNode::initializePositions(int currentPosition, int updateDelta)
     sprintf(stimeStr,"%04d-%02d-%02d %02d:%02d:%02d",year,month,sday,shour,sminute,ssecond);
     sprintf(etimeStr,"%04d-%02d-%02d %02d:%02d:%02d",year,month,eday,ehour,eminute,esecond);
 
-    /*printf("Starting Time:\n");
-    printf("%s",stimeStr);
-    printf("\nEndingTime:\n");
-    printf("%s",etimeStr);
-    printf("\n");*/
 
 
     char *sqlQuery = (char*)malloc(500);
     sprintf(sqlQuery,
-            "Select InterpolatedPositions.Latitude,InterpolatedPositions.Longitude,InterpolatedPositions.Time FROM InterpolatedPositions JOIN CanonicalBusId ON InterpolatedPositions.BusId=CanonicalBusId.BusId WHERE CanonicalBusId.CanonicalId=%d AND InterpolatedPositions.Time>'%s' AND InterpolatedPositions.Time<='%s' ORDER BY InterpolatedPositions.Time ASC",
+            "SELECT Latitude, Longitude, Time FROM  InterpolatedPositions WHERE CanonicalId='%d' AND Time>'%s' AND Time<='%s' ORDER BY Time ASC;",
             id,
             stimeStr,
             etimeStr);
 
-    printf("%s",sqlQuery);
+    printf("%s\n",sqlQuery);
 
 
     sqlite3 *db;
 
-    int rc = sqlite3_open("/Volumes/Data/database.sqlite", &db);
+    int rc = sqlite3_open("database.sqlite", &db);
 
     if(rc){
         fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
@@ -265,12 +255,11 @@ int MobileNode::initializePositions(int currentPosition, int updateDelta)
         if(counter >=60) break;
         double latitude     = sqlite3_column_double(stmt, 0);
         double longitude    = sqlite3_column_double(stmt, 1);
-        //int timestamp       = sqlite3_column_int(stmt, 2);
         positions[counter][0] = latitude;
         positions[counter][1] = longitude;
-        counter++;
-        //printf("%f,%f,%d\n",latitude,longitude,timestamp);
 
+        printf("%f,%f\n",positions[counter][0],positions[counter][1]);
+        counter++;
         rc = sqlite3_step(stmt);
     }
     if(rc != SQLITE_DONE){
@@ -279,9 +268,6 @@ int MobileNode::initializePositions(int currentPosition, int updateDelta)
 
     sqlite3_finalize(stmt);
     sqlite3_close(db);
-
-    int diff = (int)time(0) - (int)t;
-    printf("Database read time taken: %d\n",diff);
 
     return currentPosition + 60;
 }

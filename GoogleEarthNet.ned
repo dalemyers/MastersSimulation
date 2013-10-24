@@ -17,8 +17,8 @@ network GoogleEarthNet
         @display("bgb=2000,2000;bgi=background/terrain,s");
         double playgroundLatitude; // geographic position of the playground's north-west corner
         double playgroundLongitude; // geographic position of the playground's north-west corner
-        double playgroundWidth @unit("m") = default(1000m);  // the E-W size of playground
-        double playgroundHeight @unit("m") = default(1000m); // the N-S size of playground
+        double playgroundWidth @unit("m") = default(10000m);  // the E-W size of playground
+        double playgroundHeight @unit("m") = default(10000m); // the N-S size of playground
 
     submodules:
         chanCtrl: ChannelController {
@@ -27,7 +27,7 @@ network GoogleEarthNet
         kmlHttpServer: KmlHttpServer {
             @display("p=320,250;t=Run the simulation in Fast mode\\, then\npoint your browser to localhost:4242\nor open the provided KML file");
         }
-        car[3]: MobileNode {
+        car[146]: MobileNode {
         }
 }
 
