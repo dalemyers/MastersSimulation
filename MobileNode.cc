@@ -75,7 +75,7 @@ MobileNode::~MobileNode()
 
 void MobileNode::initialize()
 {
-    updateDelta = 5;//seconds
+    updateDelta = 60;//seconds
     currentStep = 0;
     id = par("id");
     printf("Initializing node with id: %d\n",id);
@@ -120,7 +120,7 @@ void MobileNode::handleMessage(cMessage *msg)
 {
 
     currentStep++;
-    if(currentStep > 19000){
+    if(currentStep > 86400){ //24 hours
         return;
     }
 
