@@ -23,9 +23,9 @@ simple MobileNode
         string modelURL = default(""); // the URL of the 3D model (COLLADA file format) to be used for the node
         double modelScale = default(1.0); // allows scaling of the used model
         bool showTxRange = default(true);  // whether to show the transmission range around the nodes
-        double speed @unit("mps") = default(10mps);  // the speed of the mobile nodes
-        double startX @unit("m") = default(0m); // the starting coordinates in meter
-        double startY @unit("m") = default(0m); // the starting coordinates in meter
+        double startX @unit("") = default(0); // the starting coordinates in meter
+        double startY @unit("") = default(0); // the starting coordinates in meter
+        int id = default(0); // the id of this bus
         double txRange @unit("m") = default(100m);  // the transmission range of the mobile node's radio
 }
 

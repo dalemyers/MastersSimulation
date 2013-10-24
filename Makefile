@@ -17,10 +17,10 @@ USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(TKENV_LIBS) $(CMDENV_LIBS)
 INCLUDE_PATH = -I.
 
 # Additional object and library files to link with
-EXTRA_OBJS =
+EXTRA_OBJS = 
 
 # Additional libraries (-L, -l options)
-LIBS =
+LIBS = -lsqlite3 
 
 # Output directory
 PROJECT_OUTPUT_DIR = out

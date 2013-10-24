@@ -12,6 +12,8 @@
 #include "KmlHttpServer.h"
 #include "KmlUtil.h"
 #include "ChannelController.h"
+#include <sqlite3.h>
+#include <ctime>
 
 /**
  * A mobile node.
@@ -29,19 +31,20 @@ class MobileNode : public cSimpleModule, public IKmlFragmentProvider, public IMo
     double modelScale;
     bool showTxRange;
     double txRange;
-    double speed;
+    unsigned int currentStep;
+    double positions[60][2];
+
 
     // node position and heading (speed is constant in this model)
     double heading; // in degrees
     double x, y; // in meters, relative to playground origin
+    int id; //Id of this bus
+    int updateDelta;//seconds
+
+    int nextTime;
 
     std::vector<KmlUtil::Pt2D> path; // for visualization
 
-    // utility function: converts playground-relative y coordinate (meters) to latitude
-    double y2lat(double y) { return KmlUtil::y2lat(playgroundLat, y); }
-
-    // utility function: converts playground-relative x coordinate (meters) to longitude
-    double x2lon(double x) { return KmlUtil::x2lon(playgroundLat, playgroundLon, x); }
 
   public:
      MobileNode();
@@ -50,11 +53,14 @@ class MobileNode : public cSimpleModule, public IKmlFragmentProvider, public IMo
      double getX() { return x; }
      double getY() { return y; }
      double getTxRange() { return txRange; }
+     int static_callback(void *obj, int argc, char **argv, char **azColName);
 
   protected:
     virtual void initialize();
     virtual void handleMessage(cMessage *msg);
     virtual std::string getKmlFragment();
+    int initializePositions(int currentPosition, int updateDelta);
+
 };
 
 Define_Module(MobileNode);
@@ -69,9 +75,15 @@ MobileNode::~MobileNode()
 
 void MobileNode::initialize()
 {
+    updateDelta = 30;//seconds
+    nextTime = 0;
+    currentStep = 0;
     x = par("startX");
     y = par("startY");
-    heading = 360*dblrand();
+    id = par("id");
+    printf("Initializing node with id: %d\n",id);
+    nextTime = initializePositions(nextTime,updateDelta);
+    heading = 0; //TODO: Calculate heading
     timeStep = par("timeStep");
 
     getDisplayString().setTagArg("p", 0, x);
@@ -86,7 +98,6 @@ void MobileNode::initialize()
     modelURL = par("modelURL").stringValue();
     modelScale = par("modelScale");
     showTxRange = par("showTxRange");
-    speed = par("speed");
     txRange = par("txRange");
 
     color = par("color").stringValue();
@@ -111,25 +122,28 @@ void MobileNode::initialize()
 void MobileNode::handleMessage(cMessage *msg)
 {
 
-    // update speed vector
-    heading += 120*(dblrand()-0.5) * timeStep;
-    heading = fmod(heading + 360, 360);
+    currentStep++;
+    if(currentStep > 19000){
+        return;
+    }
+
+    if(currentStep % updateDelta == 0){
+        nextTime = initializePositions(nextTime,updateDelta);
+    } else {
+        printf("Current time step: %d\n",currentStep);
+    }
+
+    // TODO: Calculate heading
 
     // update position
-    double vx = sin(heading*M_PI/180) * speed;
-    double vy = -cos(heading*M_PI/180) * speed;
-    x += vx*timeStep;
-    y += vy*timeStep;
+    x = positions[currentStep % 60][0];
+    y = positions[currentStep % 60][1];
 
-    // keep the node inside the playground
-    if (x < 0) {x=0; heading = 360 - heading; }
-    if (x > playgroundWidth) {x=playgroundWidth; heading = 360-heading;}
-    if (y < 0) {y=0; heading = 180 - heading;}
-    if (y > playgroundHeight) {y=playgroundHeight; heading = 180 - heading;}
+    printf("Current position of node %d: %f, %f\n",id,x,y);
 
     // store the position to be able to create a trail
     if (trailLength > 0)
-        path.push_back(KmlUtil::Pt2D(x2lon(x),y2lat(y)));
+        path.push_back(KmlUtil::Pt2D(x,y));
 
     // Trail is at max length. Remove the oldest point to keep it at "trailLength"
     // note: this is not very efficient because entire vector is shifted down; should use circular buffer
@@ -145,8 +159,8 @@ void MobileNode::handleMessage(cMessage *msg)
 
 std::string MobileNode::getKmlFragment()
 {
-    double longitude = x2lon(x);
-    double latitude = y2lat(y);
+    double longitude = x;
+    double latitude = y;
     char buf[16];
     sprintf(buf, "%d", getIndex());
     std::string fragment;
@@ -169,4 +183,108 @@ std::string MobileNode::getKmlFragment()
     fragment += "</Folder>\n";
     return fragment;
 }
+
+int MobileNode::initializePositions(int currentPosition, int updateDelta)
+{
+    time_t t = time(0);
+    //-----------------------------------------------------------
+
+    //2013-08-09 18:10:59
+    //1376071859
+    time_t startTime    = 1376071859 + currentPosition;
+    time_t endTime      = 1376071859 + currentPosition + updateDelta;
+
+    printf("Raw current start time: %d\n",(int)startTime);
+    printf("Raw current end   time: %d\n",(int)endTime);
+
+    tm startLocalTime   = *gmtime(&startTime);
+    tm endLocalTime     = *gmtime(&endTime);
+
+    printf("%d-%d-%d %d:%d:%d\n",startLocalTime.tm_year,startLocalTime.tm_mon+1,startLocalTime.tm_mday,startLocalTime.tm_hour,startLocalTime.tm_min,startLocalTime.tm_sec);
+    printf("%d-%d-%d %d:%d:%d\n",endLocalTime.tm_year,endLocalTime.tm_mon+1,endLocalTime.tm_mday,endLocalTime.tm_hour,endLocalTime.tm_min,endLocalTime.tm_sec);
+
+
+    //--------------
+
+    int year    = 1900 + startLocalTime.tm_year;
+    int month   = 1 + startLocalTime.tm_mon; //months since January
+    int sday    = startLocalTime.tm_mday;
+    int shour   = startLocalTime.tm_hour;
+    int sminute = startLocalTime.tm_min;
+    int ssecond = startLocalTime.tm_sec;
+    int eday    = endLocalTime.tm_mday;
+    int ehour   = endLocalTime.tm_hour;
+    int eminute = endLocalTime.tm_min;
+    int esecond = endLocalTime.tm_sec;
+
+    //YYYY-mm-dd hh:mm:ss
+    char* stimeStr = (char*)malloc(20*sizeof(char));
+    char* etimeStr = (char*)malloc(20*sizeof(char));
+    sprintf(stimeStr,"%04d-%02d-%02d %02d:%02d:%02d",year,month,sday,shour,sminute,ssecond);
+    sprintf(etimeStr,"%04d-%02d-%02d %02d:%02d:%02d",year,month,eday,ehour,eminute,esecond);
+
+    /*printf("Starting Time:\n");
+    printf("%s",stimeStr);
+    printf("\nEndingTime:\n");
+    printf("%s",etimeStr);
+    printf("\n");*/
+
+
+    char *sqlQuery = (char*)malloc(500);
+    sprintf(sqlQuery,
+            "Select InterpolatedPositions.Latitude,InterpolatedPositions.Longitude,InterpolatedPositions.Time FROM InterpolatedPositions JOIN CanonicalBusId ON InterpolatedPositions.BusId=CanonicalBusId.BusId WHERE CanonicalBusId.CanonicalId=%d AND InterpolatedPositions.Time>'%s' AND InterpolatedPositions.Time<='%s' ORDER BY InterpolatedPositions.Time ASC",
+            id,
+            stimeStr,
+            etimeStr);
+
+    printf("%s",sqlQuery);
+
+
+    sqlite3 *db;
+
+    int rc = sqlite3_open("/Volumes/Data/database.sqlite", &db);
+
+    if(rc){
+        fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+        sqlite3_close(db);
+        return(1);
+    }
+
+    //-----------------------------------------------------------------
+
+    sqlite3_stmt *stmt;
+    rc = sqlite3_prepare_v2(db, sqlQuery, -1, &stmt, NULL);
+    if (rc != SQLITE_OK){
+        printf("%s",sqlite3_errmsg(db));
+        return -1;
+    }
+
+    rc = sqlite3_step(stmt);
+    int counter = 0;
+    while(rc == SQLITE_ROW){
+        if(counter >=60) break;
+        double latitude     = sqlite3_column_double(stmt, 0);
+        double longitude    = sqlite3_column_double(stmt, 1);
+        //int timestamp       = sqlite3_column_int(stmt, 2);
+        positions[counter][0] = latitude;
+        positions[counter][1] = longitude;
+        counter++;
+        //printf("%f,%f,%d\n",latitude,longitude,timestamp);
+
+        rc = sqlite3_step(stmt);
+    }
+    if(rc != SQLITE_DONE){
+        printf("An error occurred");
+    }
+
+    sqlite3_finalize(stmt);
+    sqlite3_close(db);
+
+    int diff = (int)time(0) - (int)t;
+    printf("Database read time taken: %d\n",diff);
+
+    return currentPosition + 60;
+}
+
+
 
