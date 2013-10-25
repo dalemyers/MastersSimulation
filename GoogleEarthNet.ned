@@ -27,7 +27,7 @@ network GoogleEarthNet
         kmlHttpServer: KmlHttpServer {
             @display("p=320,250;t=Run the simulation in Fast mode\\, then\npoint your browser to localhost:4242\nor open the provided KML file");
         }
-        bus[146]: MobileNode {
+        bus[10]: MobileNode {
         }
 }
 

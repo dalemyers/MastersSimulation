@@ -17,11 +17,9 @@ simple MobileNode
 {
     parameters:
         @display("i=abstract/person");
-        double timeStep @unit("s") = default(1s); // the time granularity of movement calculation
+        double timeStep @unit("s") = default(0.1s); // the time granularity of movement calculation
         int trailLength = default(600);	// the length of the trail in time steps showing the past movement of the node. 0 disables the trail
         string color = default(""); // the color of the trail and range indicator in hex BBGGRR format or "" for random color
-        string modelURL = default(""); // the URL of the 3D model (COLLADA file format) to be used for the node
-        double modelScale = default(1.0); // allows scaling of the used model
         bool showTxRange = default(true);  // whether to show the transmission range around the nodes
         double startX @unit("") = default(0); // the starting coordinates in meter
         double startY @unit("") = default(0); // the starting coordinates in meter

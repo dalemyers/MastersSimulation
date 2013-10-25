@@ -27,8 +27,6 @@ class MobileNode : public cSimpleModule, public IKmlFragmentProvider, public IMo
     double timeStep;
     unsigned int trailLength;
     std::string color;
-    std::string modelURL;
-    double modelScale;
     bool showTxRange;
     double txRange;
     unsigned int currentStep;
@@ -75,7 +73,7 @@ MobileNode::~MobileNode()
 
 void MobileNode::initialize()
 {
-    updateDelta = 60;//seconds
+    updateDelta = 5;//seconds
     currentStep = 0;
     id = par("id");
     printf("Initializing node with id: %d\n",id);
@@ -92,8 +90,6 @@ void MobileNode::initialize()
     playgroundWidth = simulation.getSystemModule()->par("playgroundWidth");
 
     trailLength = par("trailLength");
-    modelURL = par("modelURL").stringValue();
-    modelScale = par("modelScale");
     showTxRange = par("showTxRange");
     txRange = par("txRange");
 
@@ -130,13 +126,17 @@ void MobileNode::handleMessage(cMessage *msg)
         printf("Current time step: %d\n",currentStep);
     }
 
-    // TODO: Calculate heading
 
     // update position
     x = positions[currentStep % updateDelta][1];
     y = positions[currentStep % updateDelta][0];
 
-    printf("Current position of node %d: %f, %f\n",id,x,y);
+
+    if(x == (1 << 32) || y == (1<<32)){
+        printf("Something terrible has happened: (x,y) -> (%f,%f)\n",x,y);
+    } else {
+        printf("Current position of node %d: %f, %f\n",id,x,y);
+    }
 
     // store the position to be able to create a trail
     if (trailLength > 0)
@@ -164,17 +164,13 @@ std::string MobileNode::getKmlFragment()
     fragment += KmlUtil::folderHeader((std::string("folder_")+buf).c_str(), getFullName());
 
 #ifdef USE_TRACK
-    fragment += KmlUtil::track((std::string("track_")+buf).c_str(), path, timeStep, modelScale, modelURL.c_str(), "movement trail", NULL, (std::string("ff")+color).c_str());
+    fragment += KmlUtil::track((std::string("track_")+buf).c_str(), path, timeStep, 1, "", "movement trail", NULL, (std::string("ff")+color).c_str());
 #else
-    fragment += KmlUtil::placemark((std::string("placemark_")+buf).c_str(), longitude, latitude, 2*modelScale, getFullName(), NULL);
+    fragment += KmlUtil::placemark((std::string("placemark_")+buf).c_str(), longitude, latitude, 2, getFullName(), NULL);
     if (trailLength > 0)
         fragment += KmlUtil::lineString((std::string("trail_")+buf).c_str(), path, "movement trail", NULL, (std::string("ff")+color).c_str());
     if (showTxRange)
         fragment += KmlUtil::disk((std::string("disk_")+buf).c_str(), longitude, latitude, txRange, "transmission range", NULL, (std::string("40")+color).c_str());
-    if (!modelURL.empty()) {
-        double modelheading = fmod((360 + 90 + heading), 360);
-        fragment += KmlUtil::model((std::string("model_")+buf).c_str(), longitude, latitude, modelheading, modelScale, modelURL.c_str(), "3D model", NULL);
-    }
 #endif
 
     fragment += "</Folder>\n";
@@ -255,6 +251,9 @@ int MobileNode::initializePositions(int currentPosition, int updateDelta)
         if(counter >=60) break;
         double latitude     = sqlite3_column_double(stmt, 0);
         double longitude    = sqlite3_column_double(stmt, 1);
+        if(latitude < -90){
+            printf("LATITUDE IS HUUUUUUGE");
+        }
         positions[counter][0] = latitude;
         positions[counter][1] = longitude;
 
