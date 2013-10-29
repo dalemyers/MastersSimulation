@@ -15,10 +15,10 @@ network GoogleEarthNet
 {
     parameters:
         @display("bgb=10000,10000;bgi=background/terrain,s");
-        double playgroundLatitude; // geographic position of the playground's north-west corner
-        double playgroundLongitude; // geographic position of the playground's north-west corner
-        double playgroundWidth @unit("m") = default(10000m);  // the E-W size of playground 
-        double playgroundHeight @unit("m") = default(10000m); // the N-S size of playground
+        double playgroundLatitude = default(56.0); // geographic position of the playground's north-west corner
+        double playgroundLongitude = default(-3.4); // geographic position of the playground's north-west corner
+        double playgroundWidth @unit("m") = default(40000m);  // the E-W size of playground 
+        double playgroundHeight @unit("m") = default(40000m); // the N-S size of playground
 
     submodules:
         chanCtrl: ChannelController {
