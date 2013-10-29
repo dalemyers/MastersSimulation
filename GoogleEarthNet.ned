@@ -14,7 +14,7 @@
 network GoogleEarthNet
 {
     parameters:
-        @display("bgb=10000,10000;bgi=background/terrain,s");
+        @display("bgb=40000,40000;bgi=background/terrain,s");
         double playgroundLatitude = default(56.0); // geographic position of the playground's north-west corner
         double playgroundLongitude = default(-3.4); // geographic position of the playground's north-west corner
         double playgroundWidth @unit("m") = default(40000m);  // the E-W size of playground 
@@ -23,9 +23,6 @@ network GoogleEarthNet
     submodules:
         chanCtrl: ChannelController {
             @display("p=90,250");
-        }
-        kmlHttpServer: KmlHttpServer {
-            @display("p=320,250;t=Run the simulation in Fast mode\\, then\npoint your browser to localhost:4242\nor open the provided KML file");
         }
         bus[60]: MobileNode { //146 buses in total
         }

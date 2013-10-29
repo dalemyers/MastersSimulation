@@ -57,7 +57,6 @@ void ChannelController::initialize()
 {
     playgroundLat = simulation.getSystemModule()->par("playgroundLatitude");
     playgroundLon = simulation.getSystemModule()->par("playgroundLongitude");
-    KmlHttpServer::getInstance()->addKmlFragmentProvider(this);
 }
 
 void ChannelController::handleMessage(cMessage *msg)

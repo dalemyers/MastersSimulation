@@ -11,7 +11,6 @@
 #define __CHANNELCONTROLLER_H_
 
 #include <omnetpp.h>
-#include "KmlHttpServer.h"
 #include "KmlUtil.h"
 
 /**
@@ -30,7 +29,7 @@ class IMobileNode
  * This module is responsible for tracking the distance of mobile nodes
  * and visualizing the connectivity graph via KML.
  */
-class ChannelController : public cSimpleModule, public IKmlFragmentProvider
+class ChannelController : public cSimpleModule
 {
   protected:
     static ChannelController *instance;

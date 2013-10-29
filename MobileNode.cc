@@ -9,7 +9,6 @@
 
 
 #include <omnetpp.h>
-#include "KmlHttpServer.h"
 #include "KmlUtil.h"
 #include "ChannelController.h"
 #include <sqlite3.h>
@@ -18,7 +17,7 @@
 /**
  * A mobile node.
  */
-class MobileNode : public cSimpleModule, public IKmlFragmentProvider, public IMobileNode
+class MobileNode : public cSimpleModule, public IMobileNode
 {
   protected:
     // configuration
@@ -108,7 +107,6 @@ void MobileNode::initialize()
         color = buf;
     }
 
-    KmlHttpServer::getInstance()->addKmlFragmentProvider(this);
     ChannelController::getInstance()->addMobileNode(this);
 
     // schedule first move
