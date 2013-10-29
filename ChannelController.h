@@ -11,7 +11,6 @@
 #define __CHANNELCONTROLLER_H_
 
 #include <omnetpp.h>
-#include "KmlUtil.h"
 
 /**
  * Interface to be implemented by mobile nodes to be able to
@@ -39,7 +38,6 @@ class ChannelController : public cSimpleModule
 
     virtual void initialize();
     virtual void handleMessage(cMessage *msg);
-    virtual std::string getKmlFragment();
     int findMobileNode(IMobileNode* p);
 
   public:

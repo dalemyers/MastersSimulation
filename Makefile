@@ -28,7 +28,7 @@ PROJECTRELATIVE_PATH =
 O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cc and .msg files
-OBJS = $O/ChannelController.o $O/KmlUtil.o $O/MobileNode.o $O/SocketRTScheduler.o
+OBJS = $O/ChannelController.o $O/MobileNode.o $O/SocketRTScheduler.o
 
 # Message files
 MSGFILES =
@@ -115,12 +115,8 @@ depend:
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/ChannelController.o: ChannelController.cc \
-  ./KmlUtil.h \
   ./ChannelController.h
-$O/KmlUtil.o: KmlUtil.cc \
-  ./KmlUtil.h
 $O/MobileNode.o: MobileNode.cc \
-  ./ChannelController.h \
-  ./KmlUtil.h
+  ./ChannelController.h
 $O/SocketRTScheduler.o: SocketRTScheduler.cc \
   ./SocketRTScheduler.h
