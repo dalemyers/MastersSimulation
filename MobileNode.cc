@@ -31,6 +31,7 @@ class MobileNode : public cSimpleModule, public IKmlFragmentProvider, public IMo
     double txRange;
     unsigned int currentStep;
     double positions[60][2];
+    bool hidden[60];
 
 
     // node position and heading (speed is constant in this model)
@@ -38,6 +39,7 @@ class MobileNode : public cSimpleModule, public IKmlFragmentProvider, public IMo
     double x, y; // in meters, relative to playground origin
     int id; //Id of this bus
     int updateDelta;//seconds
+    bool visible;
 
     int nextTime;
 
@@ -53,11 +55,13 @@ class MobileNode : public cSimpleModule, public IKmlFragmentProvider, public IMo
      double getTxRange() { return txRange; }
      int static_callback(void *obj, int argc, char **argv, char **azColName);
 
+
   protected:
     virtual void initialize();
     virtual void handleMessage(cMessage *msg);
     virtual std::string getKmlFragment();
     int initializePositions(int currentPosition, int updateDelta);
+    char* getTimeFromOffset(int offset);
 
 };
 
@@ -117,6 +121,7 @@ void MobileNode::handleMessage(cMessage *msg)
 
     currentStep++;
     if(currentStep > 86400){ //24 hours
+        printf("SIMULATION FINISHED. 24 HOURS HAS PAST.\n");
         return;
     }
 
@@ -124,31 +129,38 @@ void MobileNode::handleMessage(cMessage *msg)
         nextTime = initializePositions(nextTime,updateDelta);
     } else {
         printf("Current time step: %d\n",currentStep);
+        printf("Current time: %s\n", getTimeFromOffset(nextTime + (currentStep % updateDelta)));
     }
 
 
     // update position
     x = positions[currentStep % updateDelta][1];
     y = positions[currentStep % updateDelta][0];
+    visible = !hidden[currentStep % updateDelta];
 
 
-    if(x == (1 << 32) || y == (1<<32)){
-        printf("Something terrible has happened: (x,y) -> (%f,%f)\n",x,y);
-    } else {
-        printf("Current position of node %d: %f, %f\n",id,x,y);
-    }
+    //if(visible){
 
-    // store the position to be able to create a trail
-    if (trailLength > 0)
-        path.push_back(KmlUtil::Pt2D(x,y));
+        if(x == (1 << 31) || y == (1<<31)){
+            printf("Something terrible has happened: (x,y) -> (%f,%f)\n",x,y);
+        } else {
+            printf("Current position of node %d: %f, %f, %s\n",id,x,y, (visible ? "visible" : "hidden"));
+        }
 
-    // Trail is at max length. Remove the oldest point to keep it at "trailLength"
-    // note: this is not very efficient because entire vector is shifted down; should use circular buffer
-    if (path.size () > trailLength)
-        path.erase(path.begin());
+        // store the position to be able to create a trail
+        if (trailLength > 0)
+            path.push_back(KmlUtil::Pt2D(x,y));
 
-    getDisplayString().setTagArg("p", 0, x);
-    getDisplayString().setTagArg("p", 1, y);
+        // Trail is at max length. Remove the oldest point to keep it at "trailLength"
+        // note: this is not very efficient because entire vector is shifted down; should use circular buffer
+        if (path.size () > trailLength)
+            path.erase(path.begin());
+
+        getDisplayString().setTagArg("p", 0, x);
+        getDisplayString().setTagArg("p", 1, y);
+    /*} else {
+        printf("Node Hidden\n");
+    }*/
 
     // schedule next move
     scheduleAt(simTime()+timeStep, msg);
@@ -156,11 +168,13 @@ void MobileNode::handleMessage(cMessage *msg)
 
 std::string MobileNode::getKmlFragment()
 {
+    std::string fragment;
+    if(visible){
     double longitude = x;
     double latitude = y;
     char buf[16];
     sprintf(buf, "%d", getIndex());
-    std::string fragment;
+
     fragment += KmlUtil::folderHeader((std::string("folder_")+buf).c_str(), getFullName());
 
 #ifdef USE_TRACK
@@ -174,51 +188,21 @@ std::string MobileNode::getKmlFragment()
 #endif
 
     fragment += "</Folder>\n";
+    } else {
+        fragment = "";
+    }
     return fragment;
 }
 
 int MobileNode::initializePositions(int currentPosition, int updateDelta)
 {
 
-    //2013-08-09 18:10:59
-    //1376071859
-    time_t startTime    = 1376071859 + currentPosition;
-    time_t endTime      = 1376071859 + currentPosition + updateDelta;
-
-    printf("Raw current start time: %d\n",(int)startTime);
-    printf("Raw current end   time: %d\n",(int)endTime);
-
-    tm startLocalTime   = *gmtime(&startTime);
-    tm endLocalTime     = *gmtime(&endTime);
-
-    printf("%d-%d-%d %d:%d:%d\n",startLocalTime.tm_year,startLocalTime.tm_mon+1,startLocalTime.tm_mday,startLocalTime.tm_hour,startLocalTime.tm_min,startLocalTime.tm_sec);
-    printf("%d-%d-%d %d:%d:%d\n",endLocalTime.tm_year,endLocalTime.tm_mon+1,endLocalTime.tm_mday,endLocalTime.tm_hour,endLocalTime.tm_min,endLocalTime.tm_sec);
-
-
-    //--------------
-
-    int year    = 1900 + startLocalTime.tm_year;
-    int month   = 1 + startLocalTime.tm_mon; //months since January
-    int sday    = startLocalTime.tm_mday;
-    int shour   = startLocalTime.tm_hour;
-    int sminute = startLocalTime.tm_min;
-    int ssecond = startLocalTime.tm_sec;
-    int eday    = endLocalTime.tm_mday;
-    int ehour   = endLocalTime.tm_hour;
-    int eminute = endLocalTime.tm_min;
-    int esecond = endLocalTime.tm_sec;
-
-    //YYYY-mm-dd hh:mm:ss
-    char* stimeStr = (char*)malloc(20*sizeof(char));
-    char* etimeStr = (char*)malloc(20*sizeof(char));
-    sprintf(stimeStr,"%04d-%02d-%02d %02d:%02d:%02d",year,month,sday,shour,sminute,ssecond);
-    sprintf(etimeStr,"%04d-%02d-%02d %02d:%02d:%02d",year,month,eday,ehour,eminute,esecond);
-
-
+    char* stimeStr = getTimeFromOffset(currentPosition);
+    char* etimeStr = getTimeFromOffset(currentPosition + updateDelta);
 
     char *sqlQuery = (char*)malloc(500);
     sprintf(sqlQuery,
-            "SELECT Latitude, Longitude, Time FROM  InterpolatedPositions WHERE CanonicalId='%d' AND Time>'%s' AND Time<='%s' ORDER BY Time ASC;",
+            "SELECT Latitude, Longitude, Hidden FROM  InterpolatedPositions WHERE CanonicalId='%d' AND Time>'%s' AND Time<='%s' ORDER BY Time ASC;",
             id,
             stimeStr,
             etimeStr);
@@ -251,13 +235,14 @@ int MobileNode::initializePositions(int currentPosition, int updateDelta)
         if(counter >=60) break;
         double latitude     = sqlite3_column_double(stmt, 0);
         double longitude    = sqlite3_column_double(stmt, 1);
+        bool h              = (bool)sqlite3_column_int(stmt,2);
         if(latitude < -90){
             printf("LATITUDE IS HUUUUUUGE");
         }
         positions[counter][0] = latitude;
         positions[counter][1] = longitude;
-
-        printf("%f,%f\n",positions[counter][0],positions[counter][1]);
+        hidden[counter] = h;
+        printf("%f,%f, %s\n",positions[counter][0],positions[counter][1],(h ? "HIDDEN" : "VISIBLE"));
         counter++;
         rc = sqlite3_step(stmt);
     }
@@ -271,5 +256,27 @@ int MobileNode::initializePositions(int currentPosition, int updateDelta)
     return currentPosition + 60;
 }
 
+char* MobileNode::getTimeFromOffset(int offset){
+
+       //2013-08-09 18:10:59
+       //1376071859
+       time_t t    = 1376071859 + offset;
+
+       tm tLocal   = *gmtime(&t);
+
+       int year    = 1900 + tLocal.tm_year;
+       int month   = 1 + tLocal.tm_mon; //months since January
+       int day     = tLocal.tm_mday;
+       int hour    = tLocal.tm_hour;
+       int minute  = tLocal.tm_min;
+       int second  = tLocal.tm_sec;
+
+       //YYYY-mm-dd hh:mm:ss
+       char* timeStr = (char*)malloc(20*sizeof(char));
+       sprintf(timeStr,"%04d-%02d-%02d %02d:%02d:%02d",year,month,day,hour,minute,second);
+
+       return timeStr;
+
+}
 
 
