@@ -14,7 +14,7 @@
 network LothianBusNet
 {
     parameters:
-        @display("bgb=40000,40000;bgi=background/terrain,s");
+        @display("bgb=30000,20000;bgi=background/terrain,s");
         double playgroundLatitude = default(56.0); // geographic position of the playground's north-west corner
         double playgroundLongitude = default(-3.4); // geographic position of the playground's north-west corner
         double playgroundWidth @unit("m") = default(40000m);  // the E-W size of playground 
@@ -24,7 +24,7 @@ network LothianBusNet
         chanCtrl: ChannelController {
             @display("p=90,250");
         }
-        bus[60]: MobileNode { //146 buses in total
+        bus[145]: MobileNode { //146 buses in total
         }
 }
 

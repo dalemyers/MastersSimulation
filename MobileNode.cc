@@ -12,6 +12,7 @@
 #include "ChannelController.h"
 #include <sqlite3.h>
 #include <ctime>
+#include <cmath>
 
 /**
  * A mobile node.
@@ -26,13 +27,11 @@ class MobileNode : public cSimpleModule, public IMobileNode
     double txRange;
     unsigned int currentStep;
     double positions[60][2];
-    bool hidden[60];
 
 
     double x, y; // longitude and latitude,
     int id; //Id of this bus
     int updateDelta;//seconds
-    bool visible;
     int nextTime;
 
 
@@ -51,6 +50,7 @@ class MobileNode : public cSimpleModule, public IMobileNode
     virtual void handleMessage(cMessage *msg);
     int initializePositions(int currentPosition, int updateDelta);
     char* getTimeFromOffset(int offset);
+    double* getPlaygroundPosition(double x, double y);
 
 };
 
@@ -66,7 +66,7 @@ MobileNode::~MobileNode()
 
 void MobileNode::initialize()
 {
-    updateDelta = 5;//seconds
+    updateDelta = 30;//seconds
     currentStep = 0;
     id = par("id");
     printf("Initializing node with id: %d\n",id);
@@ -107,26 +107,25 @@ void MobileNode::handleMessage(cMessage *msg)
     }
 
 
-    // update position
     x = positions[currentStep % updateDelta][1];
     y = positions[currentStep % updateDelta][0];
-    visible = !hidden[currentStep % updateDelta];
+
+    double* positions = getPlaygroundPosition(x,y);
+    x = positions[0];
+    y = positions[1];
 
 
-    //if(visible){
-
-        if(x == (1 << 31) || y == (1<<31)){
-            printf("Something terrible has happened: (x,y) -> (%f,%f)\n",x,y);
-        } else {
-            printf("Current position of node %d: %f, %f, %s\n",id,x,y, (visible ? "visible" : "hidden"));
-        }
+    if(x == (1 << 31) || y == (1<<31)){
+        printf("Something terrible has happened: (x,y) -> (%f,%f)\n",x,y);
+    } else {
+        printf("Current position of node %d: %f, %f\n",id,x,y);
+    }
 
 
-        getDisplayString().setTagArg("p", 0, x);
-        getDisplayString().setTagArg("p", 1, y);
-    /*} else {
-        printf("Node Hidden\n");
-    }*/
+    //I think this sets the position in the little diagram.
+    getDisplayString().setTagArg("p", 0, x);
+    getDisplayString().setTagArg("p", 1, y);
+
 
     // schedule next move
     scheduleAt(simTime()+timeStep, msg);
@@ -141,7 +140,7 @@ int MobileNode::initializePositions(int currentPosition, int updateDelta)
 
     char *sqlQuery = (char*)malloc(500);
     sprintf(sqlQuery,
-            "SELECT Latitude, Longitude, Hidden FROM  InterpolatedPositions WHERE CanonicalId='%d' AND Time>'%s' AND Time<='%s' ORDER BY Time ASC;",
+            "SELECT Latitude, Longitude FROM  InterpolatedPositions WHERE CanonicalId='%d' AND Time>'%s' AND Time<='%s' ORDER BY Time ASC;",
             id,
             stimeStr,
             etimeStr);
@@ -171,17 +170,14 @@ int MobileNode::initializePositions(int currentPosition, int updateDelta)
     rc = sqlite3_step(stmt);
     int counter = 0;
     while(rc == SQLITE_ROW){
-        if(counter >=60) break;
+        if(counter >updateDelta) break;
         double latitude     = sqlite3_column_double(stmt, 0);
         double longitude    = sqlite3_column_double(stmt, 1);
-        bool h              = (bool)sqlite3_column_int(stmt,2);
-        if(latitude < -90){
-            printf("LATITUDE IS HUUUUUUGE");
-        }
+
         positions[counter][0] = latitude;
         positions[counter][1] = longitude;
-        hidden[counter] = h;
-        printf("%f,%f, %s\n",positions[counter][0],positions[counter][1],(h ? "HIDDEN" : "VISIBLE"));
+
+        printf("%f,%f\n",positions[counter][0],positions[counter][1]);
         counter++;
         rc = sqlite3_step(stmt);
     }
@@ -216,6 +212,26 @@ char* MobileNode::getTimeFromOffset(int offset){
 
        return timeStr;
 
+}
+
+double* MobileNode::getPlaygroundPosition(double x, double y){
+
+    //Top left corner has coordinates 56, -3.4
+
+    double TOPLEFTX = -3.4;
+    double TOPLEFTY = 56;
+
+    double* position = (double*)malloc(2*sizeof(double));
+
+    double distanceBetweenDegreesLatitude = 111340.01;
+    double distanceBetweenDegreesLongitude = 62473.28;
+    double deltaLongitude = x - TOPLEFTX;
+    double deltaLatitude = TOPLEFTY - y;
+
+    position[0] = deltaLongitude*distanceBetweenDegreesLongitude;
+    position[1] = deltaLatitude*distanceBetweenDegreesLatitude;
+
+    return position;
 }
 
 
