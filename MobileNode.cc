@@ -116,13 +116,7 @@ void MobileNode::handleMessage(cMessage *msg)
         x = positions[0];
         y = positions[1];
 
-
-        if(x == (1 << 31) || y == (1<<31)){
-            printf("Something terrible has happened: (x,y) -> (%f,%f)\n",x,y);
-        } else {
-            printf("Current position of node %d: %f, %f\n",id,x,y);
-        }
-
+        printf("Current position of node %d: %f, %f\n",id,x,y);
 
         //I think this sets the position in the little diagram.
         getDisplayString().setTagArg("p", 0, x);
