@@ -28,7 +28,7 @@ PROJECTRELATIVE_PATH =
 O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cc and .msg files
-OBJS = $O/ChannelController.o $O/MobileNode.o $O/SocketRTScheduler.o
+OBJS = $O/ChannelController.o $O/MobileNode.o
 
 # Message files
 MSGFILES =
@@ -118,5 +118,3 @@ $O/ChannelController.o: ChannelController.cc \
   ./ChannelController.h
 $O/MobileNode.o: MobileNode.cc \
   ./ChannelController.h
-$O/SocketRTScheduler.o: SocketRTScheduler.cc \
-  ./SocketRTScheduler.h
