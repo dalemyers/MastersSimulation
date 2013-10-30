@@ -11,7 +11,7 @@
 //
 // The Google Earth Demo network.
 //
-network GoogleEarthNet
+network LothianBusNet
 {
     parameters:
         @display("bgb=40000,40000;bgi=background/terrain,s");
