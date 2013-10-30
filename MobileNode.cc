@@ -110,21 +110,27 @@ void MobileNode::handleMessage(cMessage *msg)
     x = positions[currentStep % updateDelta][1];
     y = positions[currentStep % updateDelta][0];
 
-    double* positions = getPlaygroundPosition(x,y);
-    x = positions[0];
-    y = positions[1];
+    if(y < 55.9527 && y > 55.9396 && x < -3.1738 && x > -3.2197){
+
+        double* positions = getPlaygroundPosition(x,y);
+        x = positions[0];
+        y = positions[1];
 
 
-    if(x == (1 << 31) || y == (1<<31)){
-        printf("Something terrible has happened: (x,y) -> (%f,%f)\n",x,y);
+        if(x == (1 << 31) || y == (1<<31)){
+            printf("Something terrible has happened: (x,y) -> (%f,%f)\n",x,y);
+        } else {
+            printf("Current position of node %d: %f, %f\n",id,x,y);
+        }
+
+
+        //I think this sets the position in the little diagram.
+        getDisplayString().setTagArg("p", 0, x);
+        getDisplayString().setTagArg("p", 1, y);
     } else {
-        printf("Current position of node %d: %f, %f\n",id,x,y);
+        getDisplayString().setTagArg("p", 0, -10.0);
+        getDisplayString().setTagArg("p", 1, -10.0);
     }
-
-
-    //I think this sets the position in the little diagram.
-    getDisplayString().setTagArg("p", 0, x);
-    getDisplayString().setTagArg("p", 1, y);
 
 
     // schedule next move
@@ -216,7 +222,7 @@ char* MobileNode::getTimeFromOffset(int offset){
 
 double* MobileNode::getPlaygroundPosition(double x, double y){
 
-    //Top left corner has coordinates 56, -3.4
+    //Top left corner had coordinates 56, -3.4
 
     double TOPLEFTX = -3.4;
     double TOPLEFTY = 56;
