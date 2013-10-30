@@ -1,12 +1,12 @@
 #
-# OMNeT++/OMNEST Makefile for google-earth-demo
+# OMNeT++/OMNEST Makefile for lothian-bus
 #
 # This file was generated with the command:
-#  opp_makemake -f -o google-earth-demo
+#  opp_makemake -f -o lothian-bus
 #
 
 # Name of target to be created (-o option)
-TARGET = google-earth-demo$(EXE_SUFFIX)
+TARGET = lothian-bus$(EXE_SUFFIX)
 
 # User interface (uncomment one) (-u option)
 USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(TKENV_LIBS) $(CMDENV_LIBS)
@@ -28,7 +28,7 @@ PROJECTRELATIVE_PATH =
 O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cc and .msg files
-OBJS = $O/ChannelController.o $O/KmlHttpServer.o $O/KmlUtil.o $O/MobileNode.o $O/SocketRTScheduler.o
+OBJS = $O/ChannelController.o $O/MobileNode.o
 
 # Message files
 MSGFILES =
@@ -103,7 +103,7 @@ msgheaders: $(MSGFILES:.msg=_m.h)
 clean:
 	$(qecho) Cleaning...
 	$(Q)-rm -rf $O
-	$(Q)-rm -f google-earth-demo google-earth-demo.exe libgoogle-earth-demo.so libgoogle-earth-demo.a libgoogle-earth-demo.dll libgoogle-earth-demo.dylib
+	$(Q)-rm -f lothian-bus lothian-bus.exe liblothian-bus.so liblothian-bus.a liblothian-bus.dll liblothian-bus.dylib
 	$(Q)-rm -f ./*_m.cc ./*_m.h
 
 cleanall: clean
@@ -115,17 +115,6 @@ depend:
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/ChannelController.o: ChannelController.cc \
-  ./KmlHttpServer.h \
-  ./KmlUtil.h \
   ./ChannelController.h
-$O/KmlHttpServer.o: KmlHttpServer.cc \
-  ./KmlHttpServer.h \
-  ./SocketRTScheduler.h
-$O/KmlUtil.o: KmlUtil.cc \
-  ./KmlUtil.h
 $O/MobileNode.o: MobileNode.cc \
-  ./KmlHttpServer.h \
-  ./ChannelController.h \
-  ./KmlUtil.h
-$O/SocketRTScheduler.o: SocketRTScheduler.cc \
-  ./SocketRTScheduler.h
+  ./ChannelController.h

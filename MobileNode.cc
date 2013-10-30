@@ -9,8 +9,6 @@
 
 
 #include <omnetpp.h>
-#include "KmlHttpServer.h"
-#include "KmlUtil.h"
 #include "ChannelController.h"
 #include <sqlite3.h>
 #include <ctime>
@@ -18,32 +16,24 @@
 /**
  * A mobile node.
  */
-class MobileNode : public cSimpleModule, public IKmlFragmentProvider, public IMobileNode
+class MobileNode : public cSimpleModule, public IMobileNode
 {
   protected:
     // configuration
     double playgroundLat,playgroundLon;  // NW corner of playground, in degrees
     double playgroundHeight,playgroundWidth;  // in meters
     double timeStep;
-    unsigned int trailLength;
-    std::string color;
-    bool showTxRange;
     double txRange;
     unsigned int currentStep;
     double positions[60][2];
     bool hidden[60];
 
 
-    // node position and heading (speed is constant in this model)
-    double heading; // in degrees
-    double x, y; // in meters, relative to playground origin
+    double x, y; // longitude and latitude,
     int id; //Id of this bus
     int updateDelta;//seconds
     bool visible;
-
     int nextTime;
-
-    std::vector<KmlUtil::Pt2D> path; // for visualization
 
 
   public:
@@ -59,7 +49,6 @@ class MobileNode : public cSimpleModule, public IKmlFragmentProvider, public IMo
   protected:
     virtual void initialize();
     virtual void handleMessage(cMessage *msg);
-    virtual std::string getKmlFragment();
     int initializePositions(int currentPosition, int updateDelta);
     char* getTimeFromOffset(int offset);
 
@@ -82,7 +71,6 @@ void MobileNode::initialize()
     id = par("id");
     printf("Initializing node with id: %d\n",id);
     nextTime = initializePositions(0,updateDelta);
-    heading = 0; //TODO: Calculate heading
     timeStep = par("timeStep");
 
     getDisplayString().setTagArg("p", 0, x);
@@ -93,22 +81,8 @@ void MobileNode::initialize()
     playgroundHeight = simulation.getSystemModule()->par("playgroundHeight");
     playgroundWidth = simulation.getSystemModule()->par("playgroundWidth");
 
-    trailLength = par("trailLength");
-    showTxRange = par("showTxRange");
     txRange = par("txRange");
 
-    color = par("color").stringValue();
-    if (color.empty())
-    {
-        // pick a color with a random hue
-        char buf[16];
-        double red,green,blue;
-        KmlUtil::hsbToRgb(dblrand(), 1.0, 1.0, red, green, blue);
-        sprintf(buf, "%2.2x%2.2x%2.2x", int(blue*255), int(green*255), int(red*255));
-        color = buf;
-    }
-
-    KmlHttpServer::getInstance()->addKmlFragmentProvider(this);
     ChannelController::getInstance()->addMobileNode(this);
 
     // schedule first move
@@ -147,14 +121,6 @@ void MobileNode::handleMessage(cMessage *msg)
             printf("Current position of node %d: %f, %f, %s\n",id,x,y, (visible ? "visible" : "hidden"));
         }
 
-        // store the position to be able to create a trail
-        if (trailLength > 0)
-            path.push_back(KmlUtil::Pt2D(x,y));
-
-        // Trail is at max length. Remove the oldest point to keep it at "trailLength"
-        // note: this is not very efficient because entire vector is shifted down; should use circular buffer
-        if (path.size () > trailLength)
-            path.erase(path.begin());
 
         getDisplayString().setTagArg("p", 0, x);
         getDisplayString().setTagArg("p", 1, y);
@@ -166,33 +132,6 @@ void MobileNode::handleMessage(cMessage *msg)
     scheduleAt(simTime()+timeStep, msg);
 }
 
-std::string MobileNode::getKmlFragment()
-{
-    std::string fragment;
-    if(visible){
-    double longitude = x;
-    double latitude = y;
-    char buf[16];
-    sprintf(buf, "%d", getIndex());
-
-    fragment += KmlUtil::folderHeader((std::string("folder_")+buf).c_str(), getFullName());
-
-#ifdef USE_TRACK
-    fragment += KmlUtil::track((std::string("track_")+buf).c_str(), path, timeStep, 1, "", "movement trail", NULL, (std::string("ff")+color).c_str());
-#else
-    fragment += KmlUtil::placemark((std::string("placemark_")+buf).c_str(), longitude, latitude, 2, getFullName(), NULL);
-    if (trailLength > 0)
-        fragment += KmlUtil::lineString((std::string("trail_")+buf).c_str(), path, "movement trail", NULL, (std::string("ff")+color).c_str());
-    if (showTxRange)
-        fragment += KmlUtil::disk((std::string("disk_")+buf).c_str(), longitude, latitude, txRange, "transmission range", NULL, (std::string("40")+color).c_str());
-#endif
-
-    fragment += "</Folder>\n";
-    } else {
-        fragment = "";
-    }
-    return fragment;
-}
 
 int MobileNode::initializePositions(int currentPosition, int updateDelta)
 {

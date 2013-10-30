@@ -11,8 +11,6 @@
 #define __CHANNELCONTROLLER_H_
 
 #include <omnetpp.h>
-#include "KmlHttpServer.h"
-#include "KmlUtil.h"
 
 /**
  * Interface to be implemented by mobile nodes to be able to
@@ -30,7 +28,7 @@ class IMobileNode
  * This module is responsible for tracking the distance of mobile nodes
  * and visualizing the connectivity graph via KML.
  */
-class ChannelController : public cSimpleModule, public IKmlFragmentProvider
+class ChannelController : public cSimpleModule
 {
   protected:
     static ChannelController *instance;
@@ -40,7 +38,6 @@ class ChannelController : public cSimpleModule, public IKmlFragmentProvider
 
     virtual void initialize();
     virtual void handleMessage(cMessage *msg);
-    virtual std::string getKmlFragment();
     int findMobileNode(IMobileNode* p);
 
   public:
