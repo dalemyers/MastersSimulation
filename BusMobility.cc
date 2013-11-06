@@ -9,7 +9,6 @@
 
 
 #include <omnetpp.h>
-#include "ChannelController.h"
 #include <sqlite3.h>
 #include <ctime>
 #include <cmath>
@@ -17,14 +16,13 @@
 /**
  * A mobile node.
  */
-class MobileNode : public cSimpleModule, public IMobileNode
+class BusMobility : public cSimpleModule
 {
   protected:
     // configuration
     double playgroundLat,playgroundLon;  // NW corner of playground, in degrees
     double playgroundHeight,playgroundWidth;  // in meters
     double timeStep;
-    double txRange;
     unsigned int currentStep;
     double positions[60][2];
 
@@ -36,12 +34,11 @@ class MobileNode : public cSimpleModule, public IMobileNode
 
 
   public:
-     MobileNode();
-     virtual ~MobileNode();
+     BusMobility();
+     virtual ~BusMobility();
 
      double getX() { return x; }
      double getY() { return y; }
-     double getTxRange() { return txRange; }
      int static_callback(void *obj, int argc, char **argv, char **azColName);
 
 
@@ -54,21 +51,21 @@ class MobileNode : public cSimpleModule, public IMobileNode
 
 };
 
-Define_Module(MobileNode);
+Define_Module(BusMobility);
 
-MobileNode::MobileNode()
+BusMobility::BusMobility()
 {
 }
 
-MobileNode::~MobileNode()
+BusMobility::~BusMobility()
 {
 }
 
-void MobileNode::initialize()
+void BusMobility::initialize()
 {
     updateDelta = 30;//seconds
     currentStep = 0;
-    id = par("id");
+    id = getParentModule()->par("id");
     printf("Initializing node with id: %d\n",id);
     nextTime = initializePositions(0,updateDelta);
     timeStep = par("timeStep");
@@ -81,16 +78,12 @@ void MobileNode::initialize()
     playgroundHeight = simulation.getSystemModule()->par("playgroundHeight");
     playgroundWidth = simulation.getSystemModule()->par("playgroundWidth");
 
-    txRange = par("txRange");
-
-    ChannelController::getInstance()->addMobileNode(this);
-
     // schedule first move
     cMessage *timer = new cMessage("move");
     scheduleAt(simTime(), timer);
 }
 
-void MobileNode::handleMessage(cMessage *msg)
+void BusMobility::handleMessage(cMessage *msg)
 {
 
     currentStep++;
@@ -119,11 +112,11 @@ void MobileNode::handleMessage(cMessage *msg)
         printf("Current position of node %d: %f, %f\n",id,x,y);
 
         //I think this sets the position in the little diagram.
-        getDisplayString().setTagArg("p", 0, x);
-        getDisplayString().setTagArg("p", 1, y);
+        getParentModule()->getDisplayString().setTagArg("p", 0, x);
+        getParentModule()->getDisplayString().setTagArg("p", 1, y);
     } else {
-        getDisplayString().setTagArg("p", 0, -10.0);
-        getDisplayString().setTagArg("p", 1, -10.0);
+        getParentModule()->getDisplayString().setTagArg("p", 0, -10.0);
+        getParentModule()->getDisplayString().setTagArg("p", 1, -10.0);
     }
 
 
@@ -132,7 +125,7 @@ void MobileNode::handleMessage(cMessage *msg)
 }
 
 
-int MobileNode::initializePositions(int currentPosition, int updateDelta)
+int BusMobility::initializePositions(int currentPosition, int updateDelta)
 {
 
     char* stimeStr = getTimeFromOffset(currentPosition);
@@ -191,7 +184,7 @@ int MobileNode::initializePositions(int currentPosition, int updateDelta)
     return currentPosition + 60;
 }
 
-char* MobileNode::getTimeFromOffset(int offset){
+char* BusMobility::getTimeFromOffset(int offset){
 
        //2013-08-09 18:10:59
        //1376071859
@@ -214,7 +207,7 @@ char* MobileNode::getTimeFromOffset(int offset){
 
 }
 
-double* MobileNode::getPlaygroundPosition(double x, double y){
+double* BusMobility::getPlaygroundPosition(double x, double y){
 
     //Top left corner had coordinates 56, -3.4
 

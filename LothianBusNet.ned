@@ -1,17 +1,7 @@
-//
-// This file is part of an OMNeT++/OMNEST simulation example.
-//
-// Copyright (C) 2010 OpenSim Ltd.
-//
-// This file is distributed WITHOUT ANY WARRANTY. See the file
-// `license' for details on this and other legal matters.
-//
-
-
-//
-// The Google Earth Demo network.
-//
-network LothianBusNet
+package org.mixim.examples.Buses;
+import org.mixim.base.modules.BaseNetwork;
+import org.mixim.modules.node.Host80211;
+network LothianBusNet extends BaseNetwork
 {
     parameters:
         @display("bgb=30000,20000;");
@@ -19,12 +9,15 @@ network LothianBusNet
         double playgroundLongitude = default(-3.4); // geographic position of the playground's north-west corner
         double playgroundWidth @unit("m") = default(30000m);  // the E-W size of playground 
         double playgroundHeight @unit("m") = default(20000m); // the N-S size of playground
+        int numHosts; // total number of hosts in the network  
 
     submodules:
-        chanCtrl: ChannelController {
-            @display("p=90,250");
+        //bus[145]: Bus;
+        host[numHosts]: Host80211 {
+            @display("p=137,95");
         }
-        bus[145]: MobileNode;
+
+    connections allowunconnected:
 }
 
 

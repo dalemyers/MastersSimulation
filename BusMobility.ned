@@ -1,3 +1,4 @@
+package org.mixim.examples.Buses;
 //
 // This file is part of an OMNeT++/OMNEST simulation example.
 //
@@ -13,16 +14,11 @@
 // changing by a random value at each update. Able to display
 // its position, trail, transmission range etc. via KML.
 //
-simple MobileNode
+simple BusMobility
 {
     parameters:
         @display("i=abstract/person");
         double timeStep @unit("s") = default(1s); // the time granularity of movement calculation
-        string color = default(""); // the color of the trail and range indicator in hex BBGGRR format or "" for random color
-        double startX @unit("") = default(0); // the starting coordinates in meter
-        double startY @unit("") = default(0); // the starting coordinates in meter
-        int id = default(0); // the id of this bus
-        double txRange @unit("m") = default(100m);  // the transmission range of the mobile node's radio
 }
 
 

@@ -1,3 +1,5 @@
+package org.mixim.examples.Buses;
+
 //
 // This file is part of an OMNeT++/OMNEST simulation example.
 //

@@ -1,77 +1,77 @@
 version 2
-run General-0-20131105-16:10:04-58825
+run General-0-20131106-17:59:49-81482
 attr configname General
-attr datetime 20131105-16:10:04
+attr datetime 20131106-17:59:49
 attr experiment General
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
-attr network Mac80211ExampleNet
-attr processid 58825
+attr network LothianBusNet
+attr processid 81482
 attr repetition 0
 attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
 
-scalar Mac80211ExampleNet.host[0].nic.phy 	nbFramesWithInterference 	0
-scalar Mac80211ExampleNet.host[0].nic.phy 	nbFramesWithoutInterference 	0
-scalar Mac80211ExampleNet.host[0].nic.phy 	nbFramesWithInterferencePartial 	0
-scalar Mac80211ExampleNet.host[0].nic.phy 	nbFramesWithoutInterferencePartial 	0
-scalar Mac80211ExampleNet.host[0].nic.phy 	nbFramesWithInterferenceDropped 	0
-scalar Mac80211ExampleNet.host[0].nic.phy 	nbFramesWithoutInterferenceDropped 	2
-scalar Mac80211ExampleNet.host[1].nic.phy 	nbFramesWithInterference 	0
-scalar Mac80211ExampleNet.host[1].nic.phy 	nbFramesWithoutInterference 	4
-scalar Mac80211ExampleNet.host[1].nic.phy 	nbFramesWithInterferencePartial 	0
-scalar Mac80211ExampleNet.host[1].nic.phy 	nbFramesWithoutInterferencePartial 	0
-scalar Mac80211ExampleNet.host[1].nic.phy 	nbFramesWithInterferenceDropped 	0
-scalar Mac80211ExampleNet.host[1].nic.phy 	nbFramesWithoutInterferenceDropped 	0
-scalar Mac80211ExampleNet.host[2].nic.phy 	nbFramesWithInterference 	0
-scalar Mac80211ExampleNet.host[2].nic.phy 	nbFramesWithoutInterference 	2
-scalar Mac80211ExampleNet.host[2].nic.phy 	nbFramesWithInterferencePartial 	0
-scalar Mac80211ExampleNet.host[2].nic.phy 	nbFramesWithoutInterferencePartial 	0
-scalar Mac80211ExampleNet.host[2].nic.phy 	nbFramesWithInterferenceDropped 	0
-scalar Mac80211ExampleNet.host[2].nic.phy 	nbFramesWithoutInterferenceDropped 	0
-scalar Mac80211ExampleNet.host[3].nic.phy 	nbFramesWithInterference 	0
-scalar Mac80211ExampleNet.host[3].nic.phy 	nbFramesWithoutInterference 	6
-scalar Mac80211ExampleNet.host[3].nic.phy 	nbFramesWithInterferencePartial 	0
-scalar Mac80211ExampleNet.host[3].nic.phy 	nbFramesWithoutInterferencePartial 	0
-scalar Mac80211ExampleNet.host[3].nic.phy 	nbFramesWithInterferenceDropped 	0
-scalar Mac80211ExampleNet.host[3].nic.phy 	nbFramesWithoutInterferenceDropped 	0
-scalar Mac80211ExampleNet.host[4].nic.phy 	nbFramesWithInterference 	0
-scalar Mac80211ExampleNet.host[4].nic.phy 	nbFramesWithoutInterference 	2
-scalar Mac80211ExampleNet.host[4].nic.phy 	nbFramesWithInterferencePartial 	0
-scalar Mac80211ExampleNet.host[4].nic.phy 	nbFramesWithoutInterferencePartial 	0
-scalar Mac80211ExampleNet.host[4].nic.phy 	nbFramesWithInterferenceDropped 	0
-scalar Mac80211ExampleNet.host[4].nic.phy 	nbFramesWithoutInterferenceDropped 	4
-scalar Mac80211ExampleNet.host[5].nic.phy 	nbFramesWithInterference 	0
-scalar Mac80211ExampleNet.host[5].nic.phy 	nbFramesWithoutInterference 	0
-scalar Mac80211ExampleNet.host[5].nic.phy 	nbFramesWithInterferencePartial 	0
-scalar Mac80211ExampleNet.host[5].nic.phy 	nbFramesWithoutInterferencePartial 	0
-scalar Mac80211ExampleNet.host[5].nic.phy 	nbFramesWithInterferenceDropped 	0
-scalar Mac80211ExampleNet.host[5].nic.phy 	nbFramesWithoutInterferenceDropped 	6
-scalar Mac80211ExampleNet.host[6].nic.phy 	nbFramesWithInterference 	0
-scalar Mac80211ExampleNet.host[6].nic.phy 	nbFramesWithoutInterference 	2
-scalar Mac80211ExampleNet.host[6].nic.phy 	nbFramesWithInterferencePartial 	0
-scalar Mac80211ExampleNet.host[6].nic.phy 	nbFramesWithoutInterferencePartial 	0
-scalar Mac80211ExampleNet.host[6].nic.phy 	nbFramesWithInterferenceDropped 	0
-scalar Mac80211ExampleNet.host[6].nic.phy 	nbFramesWithoutInterferenceDropped 	4
-scalar Mac80211ExampleNet.host[7].nic.phy 	nbFramesWithInterference 	0
-scalar Mac80211ExampleNet.host[7].nic.phy 	nbFramesWithoutInterference 	3
-scalar Mac80211ExampleNet.host[7].nic.phy 	nbFramesWithInterferencePartial 	0
-scalar Mac80211ExampleNet.host[7].nic.phy 	nbFramesWithoutInterferencePartial 	0
-scalar Mac80211ExampleNet.host[7].nic.phy 	nbFramesWithInterferenceDropped 	0
-scalar Mac80211ExampleNet.host[7].nic.phy 	nbFramesWithoutInterferenceDropped 	3
-scalar Mac80211ExampleNet.host[8].nic.phy 	nbFramesWithInterference 	0
-scalar Mac80211ExampleNet.host[8].nic.phy 	nbFramesWithoutInterference 	0
-scalar Mac80211ExampleNet.host[8].nic.phy 	nbFramesWithInterferencePartial 	0
-scalar Mac80211ExampleNet.host[8].nic.phy 	nbFramesWithoutInterferencePartial 	0
-scalar Mac80211ExampleNet.host[8].nic.phy 	nbFramesWithInterferenceDropped 	0
-scalar Mac80211ExampleNet.host[8].nic.phy 	nbFramesWithoutInterferenceDropped 	2
-scalar Mac80211ExampleNet.host[9].nic.phy 	nbFramesWithInterference 	0
-scalar Mac80211ExampleNet.host[9].nic.phy 	nbFramesWithoutInterference 	0
-scalar Mac80211ExampleNet.host[9].nic.phy 	nbFramesWithInterferencePartial 	0
-scalar Mac80211ExampleNet.host[9].nic.phy 	nbFramesWithoutInterferencePartial 	0
-scalar Mac80211ExampleNet.host[9].nic.phy 	nbFramesWithInterferenceDropped 	0
-scalar Mac80211ExampleNet.host[9].nic.phy 	nbFramesWithoutInterferenceDropped 	2
+scalar LothianBusNet.host[0].nic.phy 	nbFramesWithInterference 	0
+scalar LothianBusNet.host[0].nic.phy 	nbFramesWithoutInterference 	0
+scalar LothianBusNet.host[0].nic.phy 	nbFramesWithInterferencePartial 	0
+scalar LothianBusNet.host[0].nic.phy 	nbFramesWithoutInterferencePartial 	0
+scalar LothianBusNet.host[0].nic.phy 	nbFramesWithInterferenceDropped 	0
+scalar LothianBusNet.host[0].nic.phy 	nbFramesWithoutInterferenceDropped 	2
+scalar LothianBusNet.host[1].nic.phy 	nbFramesWithInterference 	0
+scalar LothianBusNet.host[1].nic.phy 	nbFramesWithoutInterference 	4
+scalar LothianBusNet.host[1].nic.phy 	nbFramesWithInterferencePartial 	0
+scalar LothianBusNet.host[1].nic.phy 	nbFramesWithoutInterferencePartial 	0
+scalar LothianBusNet.host[1].nic.phy 	nbFramesWithInterferenceDropped 	0
+scalar LothianBusNet.host[1].nic.phy 	nbFramesWithoutInterferenceDropped 	0
+scalar LothianBusNet.host[2].nic.phy 	nbFramesWithInterference 	0
+scalar LothianBusNet.host[2].nic.phy 	nbFramesWithoutInterference 	2
+scalar LothianBusNet.host[2].nic.phy 	nbFramesWithInterferencePartial 	0
+scalar LothianBusNet.host[2].nic.phy 	nbFramesWithoutInterferencePartial 	0
+scalar LothianBusNet.host[2].nic.phy 	nbFramesWithInterferenceDropped 	0
+scalar LothianBusNet.host[2].nic.phy 	nbFramesWithoutInterferenceDropped 	0
+scalar LothianBusNet.host[3].nic.phy 	nbFramesWithInterference 	0
+scalar LothianBusNet.host[3].nic.phy 	nbFramesWithoutInterference 	6
+scalar LothianBusNet.host[3].nic.phy 	nbFramesWithInterferencePartial 	0
+scalar LothianBusNet.host[3].nic.phy 	nbFramesWithoutInterferencePartial 	0
+scalar LothianBusNet.host[3].nic.phy 	nbFramesWithInterferenceDropped 	0
+scalar LothianBusNet.host[3].nic.phy 	nbFramesWithoutInterferenceDropped 	0
+scalar LothianBusNet.host[4].nic.phy 	nbFramesWithInterference 	0
+scalar LothianBusNet.host[4].nic.phy 	nbFramesWithoutInterference 	2
+scalar LothianBusNet.host[4].nic.phy 	nbFramesWithInterferencePartial 	0
+scalar LothianBusNet.host[4].nic.phy 	nbFramesWithoutInterferencePartial 	0
+scalar LothianBusNet.host[4].nic.phy 	nbFramesWithInterferenceDropped 	0
+scalar LothianBusNet.host[4].nic.phy 	nbFramesWithoutInterferenceDropped 	4
+scalar LothianBusNet.host[5].nic.phy 	nbFramesWithInterference 	0
+scalar LothianBusNet.host[5].nic.phy 	nbFramesWithoutInterference 	0
+scalar LothianBusNet.host[5].nic.phy 	nbFramesWithInterferencePartial 	0
+scalar LothianBusNet.host[5].nic.phy 	nbFramesWithoutInterferencePartial 	0
+scalar LothianBusNet.host[5].nic.phy 	nbFramesWithInterferenceDropped 	0
+scalar LothianBusNet.host[5].nic.phy 	nbFramesWithoutInterferenceDropped 	6
+scalar LothianBusNet.host[6].nic.phy 	nbFramesWithInterference 	0
+scalar LothianBusNet.host[6].nic.phy 	nbFramesWithoutInterference 	2
+scalar LothianBusNet.host[6].nic.phy 	nbFramesWithInterferencePartial 	0
+scalar LothianBusNet.host[6].nic.phy 	nbFramesWithoutInterferencePartial 	0
+scalar LothianBusNet.host[6].nic.phy 	nbFramesWithInterferenceDropped 	0
+scalar LothianBusNet.host[6].nic.phy 	nbFramesWithoutInterferenceDropped 	4
+scalar LothianBusNet.host[7].nic.phy 	nbFramesWithInterference 	0
+scalar LothianBusNet.host[7].nic.phy 	nbFramesWithoutInterference 	3
+scalar LothianBusNet.host[7].nic.phy 	nbFramesWithInterferencePartial 	0
+scalar LothianBusNet.host[7].nic.phy 	nbFramesWithoutInterferencePartial 	0
+scalar LothianBusNet.host[7].nic.phy 	nbFramesWithInterferenceDropped 	0
+scalar LothianBusNet.host[7].nic.phy 	nbFramesWithoutInterferenceDropped 	3
+scalar LothianBusNet.host[8].nic.phy 	nbFramesWithInterference 	0
+scalar LothianBusNet.host[8].nic.phy 	nbFramesWithoutInterference 	0
+scalar LothianBusNet.host[8].nic.phy 	nbFramesWithInterferencePartial 	0
+scalar LothianBusNet.host[8].nic.phy 	nbFramesWithoutInterferencePartial 	0
+scalar LothianBusNet.host[8].nic.phy 	nbFramesWithInterferenceDropped 	0
+scalar LothianBusNet.host[8].nic.phy 	nbFramesWithoutInterferenceDropped 	2
+scalar LothianBusNet.host[9].nic.phy 	nbFramesWithInterference 	0
+scalar LothianBusNet.host[9].nic.phy 	nbFramesWithoutInterference 	0
+scalar LothianBusNet.host[9].nic.phy 	nbFramesWithInterferencePartial 	0
+scalar LothianBusNet.host[9].nic.phy 	nbFramesWithoutInterferencePartial 	0
+scalar LothianBusNet.host[9].nic.phy 	nbFramesWithInterferenceDropped 	0
+scalar LothianBusNet.host[9].nic.phy 	nbFramesWithoutInterferenceDropped 	2
