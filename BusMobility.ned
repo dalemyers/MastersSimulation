@@ -14,7 +14,10 @@ package org.mixim.examples.Buses;
 // changing by a random value at each update. Able to display
 // its position, trail, transmission range etc. via KML.
 //
-simple BusMobility
+
+import inet.mobility.IMobility;
+
+simple BusMobility like IMobility
 {
     parameters:
         @display("i=abstract/person");

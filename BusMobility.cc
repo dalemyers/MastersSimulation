@@ -12,11 +12,12 @@
 #include <sqlite3.h>
 #include <ctime>
 #include <cmath>
+#include "IMobility.h"
 
 /**
  * A mobile node.
  */
-class BusMobility : public cSimpleModule
+class BusMobility : public cSimpleModule, public IMobility
 {
   protected:
     // configuration
@@ -39,6 +40,8 @@ class BusMobility : public cSimpleModule
 
      double getX() { return x; }
      double getY() { return y; }
+     virtual Coord getCurrentPosition();
+     virtual Coord getCurrentSpeed();
      int static_callback(void *obj, int argc, char **argv, char **azColName);
 
 
@@ -61,17 +64,28 @@ BusMobility::~BusMobility()
 {
 }
 
+Coord BusMobility::getCurrentPosition(){
+    Coord c = Coord(x,y,0);
+    return c;
+}
+
+Coord BusMobility::getCurrentSpeed(){
+    Coord c = Coord(0,0,0);
+    return c;
+}
+
 void BusMobility::initialize()
 {
+    printf("BUS INITIALISATION\n");
     updateDelta = 30;//seconds
     currentStep = 0;
-    id = getParentModule()->par("id");
+    id = getParentModule()->getParentModule()->par("id");
     printf("Initializing node with id: %d\n",id);
     nextTime = initializePositions(0,updateDelta);
     timeStep = par("timeStep");
 
-    getDisplayString().setTagArg("p", 0, x);
-    getDisplayString().setTagArg("p", 1, y);
+    this->getParentModule()->getDisplayString().setTagArg("p", 0, x);
+    this->getParentModule()->getDisplayString().setTagArg("p", 1, y);
 
     playgroundLat = simulation.getSystemModule()->par("playgroundLatitude");
     playgroundLon = simulation.getSystemModule()->par("playgroundLongitude");
@@ -103,21 +117,15 @@ void BusMobility::handleMessage(cMessage *msg)
     x = positions[currentStep % updateDelta][1];
     y = positions[currentStep % updateDelta][0];
 
-    if(y < 55.9527 && y > 55.9396 && x < -3.1738 && x > -3.2197){
+    double* positions = getPlaygroundPosition(x,y);
+    x = positions[0];
+    y = positions[1];
 
-        double* positions = getPlaygroundPosition(x,y);
-        x = positions[0];
-        y = positions[1];
+    printf("Current position of node %d: %f, %f\n",id,x,y);
 
-        printf("Current position of node %d: %f, %f\n",id,x,y);
-
-        //I think this sets the position in the little diagram.
-        getParentModule()->getDisplayString().setTagArg("p", 0, x);
-        getParentModule()->getDisplayString().setTagArg("p", 1, y);
-    } else {
-        getParentModule()->getDisplayString().setTagArg("p", 0, -10.0);
-        getParentModule()->getDisplayString().setTagArg("p", 1, -10.0);
-    }
+    //I think this sets the position in the little diagram.
+    this->getParentModule()->getParentModule()->getDisplayString().setTagArg("p", 0, x);
+    this->getParentModule()->getParentModule()->getDisplayString().setTagArg("p", 1, y);
 
 
     // schedule next move
