@@ -14,6 +14,7 @@
 #include <cmath>
 #include "IMobility.h"
 
+
 /**
  * A mobile node.
  */
@@ -26,12 +27,11 @@ class BusMobility : public cSimpleModule, public IMobility
     double timeStep;
     unsigned int currentStep;
     double positions[60][2];
-
-
     double x, y; // longitude and latitude,
     int id; //Id of this bus
     int updateDelta;//seconds
     int nextTime;
+    simsignal_t mobilityStateChangedSignal;
 
 
   public:
@@ -51,6 +51,7 @@ class BusMobility : public cSimpleModule, public IMobility
     int initializePositions(int currentPosition, int updateDelta);
     char* getTimeFromOffset(int offset);
     double* getPlaygroundPosition(double x, double y);
+    void emitMobilityStateChangedSignal();
 
 };
 
@@ -77,6 +78,7 @@ Coord BusMobility::getCurrentSpeed(){
 void BusMobility::initialize()
 {
     printf("BUS INITIALISATION\n");
+    mobilityStateChangedSignal = registerSignal("mobilityStateChanged");
     updateDelta = 30;//seconds
     currentStep = 0;
     id = getParentModule()->getParentModule()->par("id");
@@ -123,10 +125,12 @@ void BusMobility::handleMessage(cMessage *msg)
 
     printf("Current position of node %d: %f, %f\n",id,x,y);
 
+
+    emitMobilityStateChangedSignal();
+
     //I think this sets the position in the little diagram.
     this->getParentModule()->getParentModule()->getDisplayString().setTagArg("p", 0, x);
     this->getParentModule()->getParentModule()->getDisplayString().setTagArg("p", 1, y);
-
 
     // schedule next move
     scheduleAt(simTime()+timeStep, msg);
@@ -235,4 +239,9 @@ double* BusMobility::getPlaygroundPosition(double x, double y){
     return position;
 }
 
+
+void BusMobility::emitMobilityStateChangedSignal()
+{
+    emit(mobilityStateChangedSignal, this);
+}
 
