@@ -81,7 +81,7 @@ void BusMobility::initialize()
     mobilityStateChangedSignal = registerSignal("mobilityStateChanged");
     updateDelta = 30;//seconds
     currentStep = 0;
-    id = getParentModule()->getParentModule()->par("id");
+    id = getParentModule()->par("id");
     printf("Initializing node with id: %d\n",id);
     nextTime = initializePositions(0,updateDelta);
     timeStep = par("timeStep");
@@ -129,8 +129,8 @@ void BusMobility::handleMessage(cMessage *msg)
     emitMobilityStateChangedSignal();
 
     //I think this sets the position in the little diagram.
-    this->getParentModule()->getParentModule()->getDisplayString().setTagArg("p", 0, x);
-    this->getParentModule()->getParentModule()->getDisplayString().setTagArg("p", 1, y);
+    this->getParentModule()->getDisplayString().setTagArg("p", 0, x);
+    this->getParentModule()->getDisplayString().setTagArg("p", 1, y);
 
     // schedule next move
     scheduleAt(simTime()+timeStep, msg);
