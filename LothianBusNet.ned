@@ -29,6 +29,9 @@ network LothianBusNet
                 @display("p=280,0;i=misc/globe;is=s");
         }
         bus[numHosts]: Bus;
+        ap: AP{
+            
+        }
         //host[numHosts]: Host80211 {
         //    @display("p=137,95");
         //}

@@ -220,7 +220,7 @@ char* BusMobility::getTimeFromOffset(int offset){
 }
 
 double* BusMobility::getPlaygroundPosition(double x, double y){
-
+    //This is duplicated in the access point app layer
     //Top left corner had coordinates 56, -3.4
 
     double TOPLEFTX = -3.4;

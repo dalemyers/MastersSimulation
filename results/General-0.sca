@@ -1,14 +1,14 @@
 version 2
-run General-0-20131107-14:13:18-95059
+run General-0-20131107-20:07:40-75205
 attr configname General
-attr datetime 20131107-14:13:18
+attr datetime 20131107-20:07:40
 attr experiment General
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network LothianBusNet
-attr processid 95059
+attr processid 75205
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -16,35 +16,35 @@ attr runnumber 0
 attr seedset 0
 
 scalar LothianBusNet.bus[0].nic.phy 	nbFramesWithInterference 	0
-scalar LothianBusNet.bus[0].nic.phy 	nbFramesWithoutInterference 	10
+scalar LothianBusNet.bus[0].nic.phy 	nbFramesWithoutInterference 	0
 scalar LothianBusNet.bus[0].nic.phy 	nbFramesWithInterferencePartial 	0
 scalar LothianBusNet.bus[0].nic.phy 	nbFramesWithoutInterferencePartial 	0
 scalar LothianBusNet.bus[0].nic.phy 	nbFramesWithInterferenceDropped 	0
-scalar LothianBusNet.bus[0].nic.phy 	nbFramesWithoutInterferenceDropped 	2
+scalar LothianBusNet.bus[0].nic.phy 	nbFramesWithoutInterferenceDropped 	0
 scalar LothianBusNet.bus[1].nic.phy 	nbFramesWithInterference 	0
 scalar LothianBusNet.bus[1].nic.phy 	nbFramesWithoutInterference 	0
 scalar LothianBusNet.bus[1].nic.phy 	nbFramesWithInterferencePartial 	0
 scalar LothianBusNet.bus[1].nic.phy 	nbFramesWithoutInterferencePartial 	0
 scalar LothianBusNet.bus[1].nic.phy 	nbFramesWithInterferenceDropped 	0
-scalar LothianBusNet.bus[1].nic.phy 	nbFramesWithoutInterferenceDropped 	1
+scalar LothianBusNet.bus[1].nic.phy 	nbFramesWithoutInterferenceDropped 	0
 scalar LothianBusNet.bus[2].nic.phy 	nbFramesWithInterference 	0
-scalar LothianBusNet.bus[2].nic.phy 	nbFramesWithoutInterference 	2
+scalar LothianBusNet.bus[2].nic.phy 	nbFramesWithoutInterference 	0
 scalar LothianBusNet.bus[2].nic.phy 	nbFramesWithInterferencePartial 	0
 scalar LothianBusNet.bus[2].nic.phy 	nbFramesWithoutInterferencePartial 	0
 scalar LothianBusNet.bus[2].nic.phy 	nbFramesWithInterferenceDropped 	0
-scalar LothianBusNet.bus[2].nic.phy 	nbFramesWithoutInterferenceDropped 	3
+scalar LothianBusNet.bus[2].nic.phy 	nbFramesWithoutInterferenceDropped 	0
 scalar LothianBusNet.bus[3].nic.phy 	nbFramesWithInterference 	0
 scalar LothianBusNet.bus[3].nic.phy 	nbFramesWithoutInterference 	0
 scalar LothianBusNet.bus[3].nic.phy 	nbFramesWithInterferencePartial 	0
 scalar LothianBusNet.bus[3].nic.phy 	nbFramesWithoutInterferencePartial 	0
 scalar LothianBusNet.bus[3].nic.phy 	nbFramesWithInterferenceDropped 	0
-scalar LothianBusNet.bus[3].nic.phy 	nbFramesWithoutInterferenceDropped 	1
+scalar LothianBusNet.bus[3].nic.phy 	nbFramesWithoutInterferenceDropped 	0
 scalar LothianBusNet.bus[4].nic.phy 	nbFramesWithInterference 	0
-scalar LothianBusNet.bus[4].nic.phy 	nbFramesWithoutInterference 	10
+scalar LothianBusNet.bus[4].nic.phy 	nbFramesWithoutInterference 	0
 scalar LothianBusNet.bus[4].nic.phy 	nbFramesWithInterferencePartial 	0
 scalar LothianBusNet.bus[4].nic.phy 	nbFramesWithoutInterferencePartial 	0
 scalar LothianBusNet.bus[4].nic.phy 	nbFramesWithInterferenceDropped 	0
-scalar LothianBusNet.bus[4].nic.phy 	nbFramesWithoutInterferenceDropped 	2
+scalar LothianBusNet.bus[4].nic.phy 	nbFramesWithoutInterferenceDropped 	0
 scalar LothianBusNet.bus[5].nic.phy 	nbFramesWithInterference 	0
 scalar LothianBusNet.bus[5].nic.phy 	nbFramesWithoutInterference 	0
 scalar LothianBusNet.bus[5].nic.phy 	nbFramesWithInterferencePartial 	0
@@ -56,7 +56,7 @@ scalar LothianBusNet.bus[6].nic.phy 	nbFramesWithoutInterference 	0
 scalar LothianBusNet.bus[6].nic.phy 	nbFramesWithInterferencePartial 	0
 scalar LothianBusNet.bus[6].nic.phy 	nbFramesWithoutInterferencePartial 	0
 scalar LothianBusNet.bus[6].nic.phy 	nbFramesWithInterferenceDropped 	0
-scalar LothianBusNet.bus[6].nic.phy 	nbFramesWithoutInterferenceDropped 	0
+scalar LothianBusNet.bus[6].nic.phy 	nbFramesWithoutInterferenceDropped 	2
 scalar LothianBusNet.bus[7].nic.phy 	nbFramesWithInterference 	0
 scalar LothianBusNet.bus[7].nic.phy 	nbFramesWithoutInterference 	0
 scalar LothianBusNet.bus[7].nic.phy 	nbFramesWithInterferencePartial 	0
@@ -64,14 +64,20 @@ scalar LothianBusNet.bus[7].nic.phy 	nbFramesWithoutInterferencePartial 	0
 scalar LothianBusNet.bus[7].nic.phy 	nbFramesWithInterferenceDropped 	0
 scalar LothianBusNet.bus[7].nic.phy 	nbFramesWithoutInterferenceDropped 	0
 scalar LothianBusNet.bus[8].nic.phy 	nbFramesWithInterference 	0
-scalar LothianBusNet.bus[8].nic.phy 	nbFramesWithoutInterference 	3
+scalar LothianBusNet.bus[8].nic.phy 	nbFramesWithoutInterference 	0
 scalar LothianBusNet.bus[8].nic.phy 	nbFramesWithInterferencePartial 	0
 scalar LothianBusNet.bus[8].nic.phy 	nbFramesWithoutInterferencePartial 	0
 scalar LothianBusNet.bus[8].nic.phy 	nbFramesWithInterferenceDropped 	0
-scalar LothianBusNet.bus[8].nic.phy 	nbFramesWithoutInterferenceDropped 	2
+scalar LothianBusNet.bus[8].nic.phy 	nbFramesWithoutInterferenceDropped 	0
 scalar LothianBusNet.bus[9].nic.phy 	nbFramesWithInterference 	0
 scalar LothianBusNet.bus[9].nic.phy 	nbFramesWithoutInterference 	0
 scalar LothianBusNet.bus[9].nic.phy 	nbFramesWithInterferencePartial 	0
 scalar LothianBusNet.bus[9].nic.phy 	nbFramesWithoutInterferencePartial 	0
 scalar LothianBusNet.bus[9].nic.phy 	nbFramesWithInterferenceDropped 	0
 scalar LothianBusNet.bus[9].nic.phy 	nbFramesWithoutInterferenceDropped 	0
+scalar LothianBusNet.ap.nic.phy 	nbFramesWithInterference 	0
+scalar LothianBusNet.ap.nic.phy 	nbFramesWithoutInterference 	0
+scalar LothianBusNet.ap.nic.phy 	nbFramesWithInterferencePartial 	0
+scalar LothianBusNet.ap.nic.phy 	nbFramesWithoutInterferencePartial 	0
+scalar LothianBusNet.ap.nic.phy 	nbFramesWithInterferenceDropped 	0
+scalar LothianBusNet.ap.nic.phy 	nbFramesWithoutInterferenceDropped 	2
