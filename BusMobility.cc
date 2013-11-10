@@ -77,7 +77,7 @@ Coord BusMobility::getCurrentSpeed(){
 
 void BusMobility::initialize()
 {
-    printf("BUS INITIALISATION\n");
+    //printf("BUS INITIALISATION\n");
     mobilityStateChangedSignal = registerSignal("mobilityStateChanged");
     updateDelta = 30;//seconds
     currentStep = 0;
@@ -111,8 +111,8 @@ void BusMobility::handleMessage(cMessage *msg)
     if(currentStep % updateDelta == 0){
         nextTime = initializePositions(nextTime,updateDelta);
     } else {
-        printf("Current time step: %d\n",currentStep);
-        printf("Current time: %s\n", getTimeFromOffset(nextTime + (currentStep % updateDelta)));
+        //printf("Current time step: %d\n",currentStep);
+        //printf("Current time: %s\n", getTimeFromOffset(nextTime + (currentStep % updateDelta)));
     }
 
 
@@ -123,7 +123,7 @@ void BusMobility::handleMessage(cMessage *msg)
     x = positions[0];
     y = positions[1];
 
-    printf("Current position of node %d: %f, %f\n",id,x,y);
+    //printf("Current position of node %d: %f, %f\n",id,x,y);
 
 
     emitMobilityStateChangedSignal();
@@ -150,7 +150,7 @@ int BusMobility::initializePositions(int currentPosition, int updateDelta)
             stimeStr,
             etimeStr);
 
-    printf("%s\n",sqlQuery);
+    //printf("%s\n",sqlQuery);
 
 
     sqlite3 *db;
@@ -182,7 +182,7 @@ int BusMobility::initializePositions(int currentPosition, int updateDelta)
         positions[counter][0] = latitude;
         positions[counter][1] = longitude;
 
-        printf("%f,%f\n",positions[counter][0],positions[counter][1]);
+        //printf("%f,%f\n",positions[counter][0],positions[counter][1]);
         counter++;
         rc = sqlite3_step(stmt);
     }
