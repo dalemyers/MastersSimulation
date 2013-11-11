@@ -21,7 +21,7 @@ network LothianBusNet
         }
         ap: AP {
 
-            @display("p=13000,5200");
+            @display("p=6200,7000");
         }
         bus[numHosts]: Bus;
         

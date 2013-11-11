@@ -26,6 +26,7 @@
 #include "ILifecycle.h"
 #include "LifecycleOperation.h"
 #include "mobility/models/TraCIMobility.h"
+#include "DataPacket_m.h"
 
 /**
  * Small IVC Demo
@@ -47,6 +48,7 @@ class BusChat : public cSimpleModule, protected cListener, public ILifecycle
         }
         virtual void initialize(int stage);
         virtual void handleMessage(cMessage* msg);
+        DataPacket* generateMessage(char* debugString);
 
     protected:
         bool debug;

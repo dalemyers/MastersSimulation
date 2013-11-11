@@ -23,22 +23,14 @@
 #include "ModuleAccess.h"
 #include "NotificationBoard.h"
 #include "UDPSocket.h"
-#include "DataPacket_m.h"
+
 
 Define_Module(BusChat);
 
 void BusChat::initialize(int stage) {
-    printf("Intitalizing CHAT PROTOCOL\n");
     cSimpleModule::initialize(stage);
     id = 0;
-    if (stage == 1)
-    {
-        bool isOperational;
-        isOperational = true;
-        if (!isOperational)
-            throw cRuntimeError("This module doesn't support starting in node DOWN state");
-    }
-    else if (stage == 3) {
+    if (stage == 3) {
         debug = par("debug");
         cModule* p = this->getParentModule();
         id = p->par("id");
@@ -83,7 +75,6 @@ void BusChat::handleSelfMsg(cMessage* msg) {
 
 void BusChat::handleLowerMsg(cMessage* msg) {
     printf("%d, HANDLING LOWER MESSAGE -> %s\n",id,"msg");
-    if (!sentMessage) sendMessage();
     delete msg;
 }
 
@@ -96,22 +87,29 @@ void BusChat::receiveSignal(cComponent *source, simsignal_t signalID, cObject *o
     }
 }
 
+DataPacket* BusChat::generateMessage(char* debugString){
+    DataPacket* msg = new DataPacket();
+    msg->setDebugMessage(debugString);
+    msg->setTimestamp(simTime());
+    msg->setTemperature(4);
+    msg->setBusid(id);
+    return msg;
+}
+
 void BusChat::sendMessage() {
 
     printf("Bus %d SENDING MESSAGE\n",id);
-    sentMessage = true;
 
     cPacket* newMessage = new cPacket("Hurr");
     socket.sendTo(newMessage, IPv4Address("192.168.0.3"),12345);
-    DataPacket *selfmsg = new DataPacket();
-    selfmsg->setDebugMessage("Hurr Durr Debug");
-    selfmsg->setKind(9822);
+    DataPacket *selfmsg = generateMessage((char*)"Hurr Durr");
     //socket.sendTo(selfmsg, IPv4Address::LOOPBACK_ADDRESS,12345);
+
     socket.sendTo(selfmsg, IPv4Address::ALL_HOSTS_MCAST, 12345);
-    cMessage *timer = new cMessage("broadcast");
-    scheduleAt(simTime() + 10, timer);
+
+    scheduleAt(simTime() + 10, new cMessage("broadcast"));
 }
 
 void BusChat::handlePositionUpdate() {
-    if (!sentMessage) sendMessage();
+
 }

@@ -28,7 +28,6 @@
 Define_Module(APChat);
 
 void APChat::initialize(int stage) {
-    printf("AP Intitalizing CHAT PROTOCOL\n");
     cSimpleModule::initialize(stage);
     if (stage == 1)
     {
@@ -74,7 +73,6 @@ void APChat::handleLowerMsg(cMessage* msg) {
     printf("AP HANDLING LOWER MESSAGE\n");
     if(dynamic_cast<DataPacket *>(msg)){
         DataPacket *p = check_and_cast<DataPacket *>(msg);
-        printf("HOLD THE GOD DAMN PHONE\n");
         printf("%s",p->getDebugMessage());
     } else {
         printf("Need to broadcast!\n");

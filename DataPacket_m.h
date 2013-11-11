@@ -20,16 +20,23 @@
  * <pre>
  * packet DataPacket
  * {
- *     short temperature;
+ *     int uuid;
+ *     char busid;
  *     string debugMessage = "";
+ *     
+ *     short temperature;
+ *     
+ *     
  * }
  * </pre>
  */
 class DataPacket : public ::cPacket
 {
   protected:
-    short temperature_var;
+    int uuid_var;
+    char busid_var;
     opp_string debugMessage_var;
+    short temperature_var;
 
   private:
     void copy(const DataPacket& other);
@@ -48,10 +55,14 @@ class DataPacket : public ::cPacket
     virtual void parsimUnpack(cCommBuffer *b);
 
     // field getter/setter methods
-    virtual short getTemperature() const;
-    virtual void setTemperature(short temperature);
+    virtual int getUuid() const;
+    virtual void setUuid(int uuid);
+    virtual char getBusid() const;
+    virtual void setBusid(char busid);
     virtual const char * getDebugMessage() const;
     virtual void setDebugMessage(const char * debugMessage);
+    virtual short getTemperature() const;
+    virtual void setTemperature(short temperature);
 };
 
 inline void doPacking(cCommBuffer *b, DataPacket& obj) {obj.parsimPack(b);}

@@ -34,8 +34,10 @@ Register_Class(DataPacket);
 
 DataPacket::DataPacket(const char *name, int kind) : cPacket(name,kind)
 {
-    this->temperature_var = 0;
+    this->uuid_var = 0;
+    this->busid_var = 0;
     this->debugMessage_var = "";
+    this->temperature_var = 0;
 }
 
 DataPacket::DataPacket(const DataPacket& other) : cPacket(other)
@@ -57,32 +59,48 @@ DataPacket& DataPacket::operator=(const DataPacket& other)
 
 void DataPacket::copy(const DataPacket& other)
 {
-    this->temperature_var = other.temperature_var;
+    this->uuid_var = other.uuid_var;
+    this->busid_var = other.busid_var;
     this->debugMessage_var = other.debugMessage_var;
+    this->temperature_var = other.temperature_var;
 }
 
 void DataPacket::parsimPack(cCommBuffer *b)
 {
     cPacket::parsimPack(b);
-    doPacking(b,this->temperature_var);
+    doPacking(b,this->uuid_var);
+    doPacking(b,this->busid_var);
     doPacking(b,this->debugMessage_var);
+    doPacking(b,this->temperature_var);
 }
 
 void DataPacket::parsimUnpack(cCommBuffer *b)
 {
     cPacket::parsimUnpack(b);
-    doUnpacking(b,this->temperature_var);
+    doUnpacking(b,this->uuid_var);
+    doUnpacking(b,this->busid_var);
     doUnpacking(b,this->debugMessage_var);
+    doUnpacking(b,this->temperature_var);
 }
 
-short DataPacket::getTemperature() const
+int DataPacket::getUuid() const
 {
-    return temperature_var;
+    return uuid_var;
 }
 
-void DataPacket::setTemperature(short temperature)
+void DataPacket::setUuid(int uuid)
 {
-    this->temperature_var = temperature;
+    this->uuid_var = uuid;
+}
+
+char DataPacket::getBusid() const
+{
+    return busid_var;
+}
+
+void DataPacket::setBusid(char busid)
+{
+    this->busid_var = busid;
 }
 
 const char * DataPacket::getDebugMessage() const
@@ -93,6 +111,16 @@ const char * DataPacket::getDebugMessage() const
 void DataPacket::setDebugMessage(const char * debugMessage)
 {
     this->debugMessage_var = debugMessage;
+}
+
+short DataPacket::getTemperature() const
+{
+    return temperature_var;
+}
+
+void DataPacket::setTemperature(short temperature)
+{
+    this->temperature_var = temperature;
 }
 
 class DataPacketDescriptor : public cClassDescriptor
@@ -142,7 +170,7 @@ const char *DataPacketDescriptor::getProperty(const char *propertyname) const
 int DataPacketDescriptor::getFieldCount(void *object) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
-    return basedesc ? 2+basedesc->getFieldCount(object) : 2;
+    return basedesc ? 4+basedesc->getFieldCount(object) : 4;
 }
 
 unsigned int DataPacketDescriptor::getFieldTypeFlags(void *object, int field) const
@@ -156,8 +184,10 @@ unsigned int DataPacketDescriptor::getFieldTypeFlags(void *object, int field) co
     static unsigned int fieldTypeFlags[] = {
         FD_ISEDITABLE,
         FD_ISEDITABLE,
+        FD_ISEDITABLE,
+        FD_ISEDITABLE,
     };
-    return (field>=0 && field<2) ? fieldTypeFlags[field] : 0;
+    return (field>=0 && field<4) ? fieldTypeFlags[field] : 0;
 }
 
 const char *DataPacketDescriptor::getFieldName(void *object, int field) const
@@ -169,18 +199,22 @@ const char *DataPacketDescriptor::getFieldName(void *object, int field) const
         field -= basedesc->getFieldCount(object);
     }
     static const char *fieldNames[] = {
-        "temperature",
+        "uuid",
+        "busid",
         "debugMessage",
+        "temperature",
     };
-    return (field>=0 && field<2) ? fieldNames[field] : NULL;
+    return (field>=0 && field<4) ? fieldNames[field] : NULL;
 }
 
 int DataPacketDescriptor::findField(void *object, const char *fieldName) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     int base = basedesc ? basedesc->getFieldCount(object) : 0;
-    if (fieldName[0]=='t' && strcmp(fieldName, "temperature")==0) return base+0;
-    if (fieldName[0]=='d' && strcmp(fieldName, "debugMessage")==0) return base+1;
+    if (fieldName[0]=='u' && strcmp(fieldName, "uuid")==0) return base+0;
+    if (fieldName[0]=='b' && strcmp(fieldName, "busid")==0) return base+1;
+    if (fieldName[0]=='d' && strcmp(fieldName, "debugMessage")==0) return base+2;
+    if (fieldName[0]=='t' && strcmp(fieldName, "temperature")==0) return base+3;
     return basedesc ? basedesc->findField(object, fieldName) : -1;
 }
 
@@ -193,10 +227,12 @@ const char *DataPacketDescriptor::getFieldTypeString(void *object, int field) co
         field -= basedesc->getFieldCount(object);
     }
     static const char *fieldTypeStrings[] = {
-        "short",
+        "int",
+        "char",
         "string",
+        "short",
     };
-    return (field>=0 && field<2) ? fieldTypeStrings[field] : NULL;
+    return (field>=0 && field<4) ? fieldTypeStrings[field] : NULL;
 }
 
 const char *DataPacketDescriptor::getFieldProperty(void *object, int field, const char *propertyname) const
@@ -236,8 +272,10 @@ std::string DataPacketDescriptor::getFieldAsString(void *object, int field, int 
     }
     DataPacket *pp = (DataPacket *)object; (void)pp;
     switch (field) {
-        case 0: return long2string(pp->getTemperature());
-        case 1: return oppstring2string(pp->getDebugMessage());
+        case 0: return long2string(pp->getUuid());
+        case 1: return long2string(pp->getBusid());
+        case 2: return oppstring2string(pp->getDebugMessage());
+        case 3: return long2string(pp->getTemperature());
         default: return "";
     }
 }
@@ -252,8 +290,10 @@ bool DataPacketDescriptor::setFieldAsString(void *object, int field, int i, cons
     }
     DataPacket *pp = (DataPacket *)object; (void)pp;
     switch (field) {
-        case 0: pp->setTemperature(string2long(value)); return true;
-        case 1: pp->setDebugMessage((value)); return true;
+        case 0: pp->setUuid(string2long(value)); return true;
+        case 1: pp->setBusid(string2long(value)); return true;
+        case 2: pp->setDebugMessage((value)); return true;
+        case 3: pp->setTemperature(string2long(value)); return true;
         default: return false;
     }
 }
@@ -269,8 +309,10 @@ const char *DataPacketDescriptor::getFieldStructName(void *object, int field) co
     static const char *fieldStructNames[] = {
         NULL,
         NULL,
+        NULL,
+        NULL,
     };
-    return (field>=0 && field<2) ? fieldStructNames[field] : NULL;
+    return (field>=0 && field<4) ? fieldStructNames[field] : NULL;
 }
 
 void *DataPacketDescriptor::getFieldStructPointer(void *object, int field, int i) const
