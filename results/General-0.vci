@@ -1,15 +1,15 @@
                                                                 
 version 2
-run General-0-20131111-13:57:40-58801
+run General-0-20131112-11:32:01-77687
 attr configname General
-attr datetime 20131111-13:57:40
+attr datetime 20131112-11:32:01
 attr experiment General
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network LothianBusNet
-attr processid 58801
+attr processid 77687
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -101,3 +101,13 @@ vector 19  LothianBusNet.bus[0].udp  sentPk:vector(packetBytes)  ETV
 attr interpolationmode  none
 attr source  sentPk
 attr title  "packets sent, vector(packetBytes)"
+vector 1  LothianBusNet.ap.udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 2  LothianBusNet.ap.udp  passedUpPk:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets passed up, vector(count)"
+vector 18  LothianBusNet.ap.wlan.radio  lossRate:vector  ETV
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, vector"
