@@ -23,6 +23,7 @@
 #include "ModuleAccess.h"
 #include "NotificationBoard.h"
 #include "UDPSocket.h"
+#include <cstdlib>
 
 
 Define_Module(BusChat);
@@ -51,7 +52,7 @@ void BusChat::setupLowerLayer() {
     socket.bind(12345);
     socket.setBroadcast(true);
     cMessage *timer = new cMessage("broadcast");
-    scheduleAt(simTime() + id + 1, timer);
+    scheduleAt(simTime() + (rand() % 1), timer);
 }
 
 void BusChat::handleMessage(cMessage* msg) {
@@ -93,21 +94,24 @@ DataPacket* BusChat::generateMessage(char* debugString){
     msg->setTimestamp(simTime());
     msg->setTemperature(4);
     msg->setBusid(id);
+    msg->setUuid(rand());
+
     return msg;
 }
 
 void BusChat::sendMessage() {
 
-    printf("Bus %d SENDING MESSAGE\n",id);
+    char* m = (char*)malloc(50*sizeof(char));
+    sprintf(m,"Message from bus with id: %d\n",id);
 
-    cPacket* newMessage = new cPacket("Hurr");
-    socket.sendTo(newMessage, IPv4Address("192.168.0.3"),12345);
-    DataPacket *selfmsg = generateMessage((char*)"Hurr Durr");
+    DataPacket *selfmsg = generateMessage(m);
+
+    printf("Bus %d SENDING MESSAGE: %d\n",id,selfmsg->getUuid());
+
     //socket.sendTo(selfmsg, IPv4Address::LOOPBACK_ADDRESS,12345);
-
     socket.sendTo(selfmsg, IPv4Address::ALL_HOSTS_MCAST, 12345);
 
-    scheduleAt(simTime() + 10, new cMessage("broadcast"));
+    scheduleAt(simTime() + 1, new cMessage("broadcast"));
 }
 
 void BusChat::handlePositionUpdate() {

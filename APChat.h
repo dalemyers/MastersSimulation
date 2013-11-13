@@ -47,6 +47,7 @@ class APChat : public cSimpleModule, protected cListener, public ILifecycle
         }
         virtual void initialize(int stage);
         virtual void handleMessage(cMessage* msg);
+        int id;
 
     protected:
         bool debug;

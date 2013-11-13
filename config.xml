@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--THIS SEEMS TO BE IGNORED-->
 <root>
 	<AnalogueModels>
-		<AnalogueModel type="SimplePathlossModel">
+		<AnalogueModel type="RayleighModel">
 	    	<parameter name="alpha" type="double" value="4.0"/>
 	    	<parameter name="carrierFrequency" type="double" value="2.412e+9"/>
 	    </AnalogueModel>

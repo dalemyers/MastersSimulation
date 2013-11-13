@@ -1,15 +1,15 @@
-                                                                
+file 4067395 1384351536                                         
 version 2
-run General-0-20131112-11:32:01-77687
+run General-0-20131113-13:49:58-83335
 attr configname General
-attr datetime 20131112-11:32:01
+attr datetime 20131113-13:49:58
 attr experiment General
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network LothianBusNet
-attr processid 77687
+attr processid 83335
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -54,6 +54,10 @@ attr title  "radio state (enum), vector"
 vector 38  LothianBusNet.bus[0].wlan.radio  channelNo:vector  ETV
 attr interpolationmode  sample-hold
 attr title  "channel no, vector"
+vector 19  LothianBusNet.bus[0].udp  sentPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, vector(packetBytes)"
 vector 13  LothianBusNet.ap.wlan.mac  rcvdPkFromHL:vector(packetBytes)  ETV
 attr interpolationmode  none
 attr source  packetReceivedFromUpper
@@ -83,6 +87,8 @@ vector 34  LothianBusNet.bus[0].wlan.mac  sentDownPk:vector(packetBytes)  ETV
 attr interpolationmode  none
 attr source  packetSentToLower
 attr title  "packets sent to lower layer, vector(packetBytes)"
+vector 29  LothianBusNet.bus[0].wlan.agent  acceptConfirm:vector  ETV
+attr title  "accepted confirms, vector"
 vector 46  LothianBusNet.ap.wlan.radio  snirVector  ETV
 vector 14  LothianBusNet.ap.wlan.mac  rcvdPkFromLL:vector(packetBytes)  ETV
 attr interpolationmode  none
@@ -92,15 +98,6 @@ vector 11  LothianBusNet.ap.wlan.mac  passedUpPk:vector(packetBytes)  ETV
 attr interpolationmode  none
 attr source  packetSentToUpper
 attr title  "packets passed to higher layer, vector(packetBytes)"
-vector 29  LothianBusNet.bus[0].wlan.agent  acceptConfirm:vector  ETV
-attr title  "accepted confirms, vector"
-vector 40  LothianBusNet.bus[0].wlan.radio  lossRate:vector  ETV
-attr interpolationmode  backward-sample-hold
-attr title  "packet loss rate, vector"
-vector 19  LothianBusNet.bus[0].udp  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
 vector 1  LothianBusNet.ap.udp  rcvdPk:vector(packetBytes)  ETV
 attr interpolationmode  none
 attr source  rcvdPk
@@ -108,6 +105,43 @@ attr title  "packets received, vector(packetBytes)"
 vector 2  LothianBusNet.ap.udp  passedUpPk:vector(count)  ETV
 attr interpolationmode  none
 attr title  "packets passed up, vector(count)"
+vector 40  LothianBusNet.bus[0].wlan.radio  lossRate:vector  ETV
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, vector"
 vector 18  LothianBusNet.ap.wlan.radio  lossRate:vector  ETV
 attr interpolationmode  backward-sample-hold
 attr title  "packet loss rate, vector"
+vector 30  LothianBusNet.bus[0].wlan.agent  dropConfirm:vector  ETV
+attr title  "dropped confirms, vector"
+1	5138 1169 634 34919 1.003546250206 91.001754650182 46 8 8 368 2944
+2	6307 1206 634 34919 1.003546250206 91.001754650182 46 1 46 1081 33511
+9	7513 8 0 0 0 0 1 0 0 0 0
+11	7521 5431 111 45133 0.564891300615 163.454740481193 198 34 70 8936 443304
+12	12952 115814 15 59893 0.059312461638 252.059312461638 4130 14 78 255844 18189480
+13	128766 77189 14 59892 0.059284461638 252.059284461638 2719 34 78 206858 15924380
+14	205955 18904 111 45133 0.564891300615 163.454740481193 693 14 70 26084 1220616
+15	224859 16 0 0 0 0 1 11000000 11000000 11000000 1.21e+14
+16	224875 9 0 0 0 0 1 0 0 0 0
+17	224884 260214 0 59897 0 252.059816461638 9663 0 2 8968 17228
+18	485098 342 1955 32189 3.152130981819 86.756675854465 13 0 0 0 0
+19	485440 3658 9 59887 0 252 253 8 8 2024 16192
+28	489098 16775 37 59902 0.164644050691 252.104353823434 607 1 4 784 1384
+29	505873 3555 101 42201 0.564644050691 144.354353823434 134 1 4 292 842
+30	509428 13199 9123 59902 21.509818721264 252.104353823434 472 1 4 491 541
+31	522627 9 0 0 0 0 1 0 0 0 0
+33	522636 15035 21 42762 0.059818711562 149.059822813962 546 34 78 37956 2784360
+34	537671 61580 55 59867 0.264672050691 251.954381823434 2229 14 70 85498 3886092
+35	599251 19225 54 59866 0.264644050691 251.954353823434 697 34 70 28902 1244308
+36	618476 28943 21 42762 0.059818711562 149.059822813962 1057 14 78 55078 3584004
+37	647419 16 0 0 0 0 1 11000000 11000000 11000000 1.21e+14
+38	647435 9 0 0 0 0 1 0 0 0 0
+39	647444 175064 0 59871 0 251.954733823434 6595 0 2 5532 9990
+40	822508 555 1497 39256 2.759818712184 123.0598214019 21 0 0 0 0
+41	823063 1468144 0 59900 0 252.060051461638 54218 0 7 144956 550112
+42	2291207 520428 0 59897 0 252.059816461638 19326 0 2 17936 34456
+44	2811635 88045 26 59884 0.159284461638 251.960078461638 2141 0 17989.33375786 14664467.866029 119532466034.53
+46	2899680 38 110 110 0.564891300615 0.564891300615 1 29.549029374883 29.549029374883 29.549029374883 873.14513699768
+47	2899718 791360 0 59874 0 251.955013823434 29680 0 7 78364 292488
+48	3691078 350128 0 59871 0 251.954733823434 13190 0 2 11064 19980
+50	4041206 26112 29 59866 0.159314711562 251.954353823434 893 0 3199.999892 684391.24185787 978402392.06954
+52	4067318 77 20 33690 0.059818711562 88.859819540035 2 25.157165732484 25.99768344108 51.154849173563 1308.7625319942

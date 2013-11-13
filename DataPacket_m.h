@@ -22,7 +22,7 @@
  * {
  *     int uuid;
  *     char busid;
- *     string debugMessage = "";
+ *     string debugMessage;
  *     
  *     short temperature;
  *     

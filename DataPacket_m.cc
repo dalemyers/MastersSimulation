@@ -36,7 +36,7 @@ DataPacket::DataPacket(const char *name, int kind) : cPacket(name,kind)
 {
     this->uuid_var = 0;
     this->busid_var = 0;
-    this->debugMessage_var = "";
+    this->debugMessage_var = 0;
     this->temperature_var = 0;
 }
 

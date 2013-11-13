@@ -38,6 +38,8 @@ void APChat::initialize(int stage) {
     }
     else if (stage == 3) {
         debug = par("debug");
+        cModule* p = this->getParentModule();
+        id = p->par("id");
 
         mobilityStateChangedSignal = registerSignal("mobilityStateChanged");
         //traci = TraCIMobilityAccess().get();
@@ -73,7 +75,7 @@ void APChat::handleLowerMsg(cMessage* msg) {
     printf("AP HANDLING LOWER MESSAGE\n");
     if(dynamic_cast<DataPacket *>(msg)){
         DataPacket *p = check_and_cast<DataPacket *>(msg);
-        printf("%s",p->getDebugMessage());
+        printf("AP %d RECEIVED MESSAGE %d FROM BUS %d\n",id,p->getUuid(),p->getBusid());
     } else {
         printf("Need to broadcast!\n");
         sendMessage();

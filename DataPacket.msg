@@ -3,7 +3,7 @@ packet DataPacket
 {
     int uuid;
     char busid;
-    string debugMessage = "";
+    string debugMessage;
     
     short temperature;
     //TODO Add in more metrics here

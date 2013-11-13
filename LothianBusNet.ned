@@ -23,6 +23,10 @@ network LothianBusNet
 
             @display("p=6200,7000");
         }
+        
+        //ap2: AP {
+        //    @display("p=7000,5000");
+        //}
         bus[numHosts]: Bus;
         
         //host[numHosts]: Host80211 {
