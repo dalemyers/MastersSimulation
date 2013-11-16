@@ -37,8 +37,6 @@ void BusChat::initialize(int stage) {
         id = p->par("id");
 
         mobilityStateChangedSignal = registerSignal("mobilityStateChanged");
-        //traci = TraCIMobilityAccess().get();
-        //traci->subscribe(mobilityStateChangedSignal, this);
 
         sentMessage = false;
 
@@ -52,7 +50,7 @@ void BusChat::setupLowerLayer() {
     socket.bind(12345);
     socket.setBroadcast(true);
     cMessage *timer = new cMessage("broadcast");
-    scheduleAt(simTime() + (rand() % 1), timer);
+    scheduleAt(simTime() + (rand() % 1) + 3, timer);
 }
 
 void BusChat::handleMessage(cMessage* msg) {
@@ -69,23 +67,19 @@ void BusChat::handleSelfMsg(cMessage* msg) {
         printf("GOT A DATA PACKET\n");
         printf("%s",p->getDebugMessage());
     } else {
-        printf("Need to broadcast!\n");
+        //printf("Need to broadcast!\n");
         sendMessage();
     }
+    delete msg;
 }
 
 void BusChat::handleLowerMsg(cMessage* msg) {
-    printf("%d, HANDLING LOWER MESSAGE -> %s\n",id,"msg");
+    //printf("%d, HANDLING LOWER MESSAGE -> %s\n",id,"msg");
     delete msg;
 }
 
 void BusChat::receiveSignal(cComponent *source, simsignal_t signalID, cObject *obj) {
     Enter_Method_Silent();
-    printf("RECEIVED MESSAGE\n");
-    if (signalID == mobilityStateChangedSignal) {
-        printf("MESSAGE WAS MOBILITY STATE CHANGE\n");
-        handlePositionUpdate();
-    }
 }
 
 DataPacket* BusChat::generateMessage(char* debugString){
@@ -108,7 +102,7 @@ void BusChat::sendMessage() {
 
     printf("Bus %d SENDING MESSAGE: %d\n",id,selfmsg->getUuid());
 
-    //socket.sendTo(selfmsg, IPv4Address::LOOPBACK_ADDRESS,12345);
+    //socket.sendTo(selfmsg, IPv4Address("192.168.0.3"),12345);
     socket.sendTo(selfmsg, IPv4Address::ALL_HOSTS_MCAST, 12345);
 
     scheduleAt(simTime() + 1, new cMessage("broadcast"));

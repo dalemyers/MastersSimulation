@@ -7,21 +7,14 @@ import inet.networklayer.ipv4.RoutingTable;
 import inet.transport.udp.UDP;
 import inet.nodes.inet.NetworkLayer;
 import inet.linklayer.ieee80211.Ieee80211Nic;
-import inet.linklayer.IWiredNic;
 
-module AP extends inet.nodes.wireless.AccessPoint
+module Sink extends inet.nodes.inet.StandardHost
 {
     parameters:
         @node();
         @labels(node);
-        @display("i=device/accesspoint");
-        double x @unit("") = default(0); // the starting position
-        double y @unit("") = default(0); // the starting position
-        int id = default(0); // the id of this AP
-
-	submodules:
-
-		
+		@display("i=device/pc2");
+	
 
 }
 

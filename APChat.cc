@@ -29,24 +29,10 @@ Define_Module(APChat);
 
 void APChat::initialize(int stage) {
     cSimpleModule::initialize(stage);
-    if (stage == 1)
-    {
-        bool isOperational;
-        isOperational = true;
-        if (!isOperational)
-            throw cRuntimeError("This module doesn't support starting in node DOWN state");
-    }
-    else if (stage == 3) {
+    if (stage == 3) {
         debug = par("debug");
         cModule* p = this->getParentModule();
         id = p->par("id");
-
-        mobilityStateChangedSignal = registerSignal("mobilityStateChanged");
-        //traci = TraCIMobilityAccess().get();
-        //traci->subscribe(mobilityStateChangedSignal, this);
-
-        sentMessage = false;
-
         setupLowerLayer();
     }
 }
@@ -68,39 +54,22 @@ void APChat::handleMessage(cMessage* msg) {
 }
 
 void APChat::handleSelfMsg(cMessage* msg) {
-    printf("AP Handle Self Message");
+    //printf("AP Handle Self Message");
 }
 
 void APChat::handleLowerMsg(cMessage* msg) {
-    printf("AP HANDLING LOWER MESSAGE\n");
+    //printf("AP HANDLING LOWER MESSAGE\n");
     if(dynamic_cast<DataPacket *>(msg)){
         DataPacket *p = check_and_cast<DataPacket *>(msg);
         printf("AP %d RECEIVED MESSAGE %d FROM BUS %d\n",id,p->getUuid(),p->getBusid());
-    } else {
-        printf("Need to broadcast!\n");
-        sendMessage();
     }
-
 }
 
 void APChat::receiveSignal(cComponent *source, simsignal_t signalID, cObject *obj) {
     Enter_Method_Silent();
-    printf("AP RECEIVED MESSAGE\n");
+    /*printf("AP RECEIVED MESSAGE\n");
     if (signalID == mobilityStateChangedSignal) {
         printf("AP MESSAGE WAS MOBILITY STATE CHANGE\n");
         handlePositionUpdate();
-    }
-}
-
-void APChat::sendMessage() {
-    printf("AP SENDING MESSAGE\n");
-    sentMessage = true;
-
-    cPacket* newMessage = new cPacket();
-
-    socket.sendTo(newMessage, IPv4Address::ALL_HOSTS_MCAST, 12345);
-}
-
-void APChat::handlePositionUpdate() {
-    if (!sentMessage) sendMessage();
+    }*/
 }

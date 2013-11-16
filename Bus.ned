@@ -8,6 +8,8 @@ import inet.transport.udp.UDP;
 import inet.nodes.inet.NetworkLayer;
 import inet.linklayer.ieee80211.Ieee80211Nic;
 
+import ned.DatarateChannel; 
+
 module Bus
 {
     parameters:
@@ -24,9 +26,6 @@ module Bus
         notificationBoard: NotificationBoard {
             parameters:
                 @display("p=181,111");
-        }
-        ac_wlan: HostAutoConfigurator {
-            @display("p=61,181");
         }
         interfaceTable: InterfaceTable {
             parameters:
@@ -64,7 +63,7 @@ module Bus
                 @display("p=181,229;q=queue");
         }
     connections allowunconnected:
-        udp.appOut++ --> app.udp$i;
+        udp.appOut++ --> DatarateChannel --> app.udp$i;
         udp.appIn++ <-- app.udp$o;
 
         udp.ipOut --> networkLayer.udpIn;

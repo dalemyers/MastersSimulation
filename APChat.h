@@ -25,11 +25,8 @@
 #include "UDPSocket.h"
 #include "ILifecycle.h"
 #include "LifecycleOperation.h"
-#include "mobility/models/TraCIMobility.h"
 
-/**
- * Small IVC Demo
- */
+
 class APChat : public cSimpleModule, protected cListener, public ILifecycle
 {
     public:
@@ -51,17 +48,12 @@ class APChat : public cSimpleModule, protected cListener, public ILifecycle
 
     protected:
         bool debug;
-        bool sentMessage;
         UDPSocket socket;
-        simsignal_t mobilityStateChangedSignal;
 
     protected:
         void setupLowerLayer();
         virtual void handleSelfMsg(cMessage* apMsg);
         virtual void handleLowerMsg(cMessage* apMsg);
-
-        virtual void sendMessage();
-        virtual void handlePositionUpdate();
 };
 
 #endif
