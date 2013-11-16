@@ -102,8 +102,8 @@ void BusChat::sendMessage() {
 
     printf("Bus %d SENDING MESSAGE: %d\n",id,selfmsg->getUuid());
 
-    //socket.sendTo(selfmsg, IPv4Address("192.168.0.3"),12345);
-    socket.sendTo(selfmsg, IPv4Address::ALL_HOSTS_MCAST, 12345);
+    socket.sendTo(selfmsg, IPv4Address("10.0.2.1"),12345);
+    //socket.sendTo(selfmsg, IPv4Address::ALL_HOSTS_MCAST, 12345);
 
     scheduleAt(simTime() + 1, new cMessage("broadcast"));
 }

@@ -1,122 +1,115 @@
 version 2
-run General-0-20131113-13:49:58-83335
+run General-0-20131116-19:07:52-57070
 attr configname General
-attr datetime 20131113-13:49:58
+attr datetime 20131116-19:07:52
 attr experiment General
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network LothianBusNet
-attr processid 83335
+attr processid 57070
 attr repetition 0
 attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
 
-scalar LothianBusNet.ap.udp 	droppedPkBadChecksum:count 	0
-attr interpolationmode  none
-attr title  "packets dropped (checksum error), count"
-scalar LothianBusNet.ap.udp 	droppedPkWrongPort:count 	0
-attr interpolationmode  none
-attr title  "packets dropped (wrong port), count"
-scalar LothianBusNet.ap.udp 	passedUpPk:count 	46
-attr interpolationmode  none
-attr title  "packets passed up, count"
-scalar LothianBusNet.ap.udp 	rcvdPk:count 	46
-attr interpolationmode  none
-attr source  rcvdPk
-attr title  "packets received, count"
-scalar LothianBusNet.ap.udp 	rcvdPk:sum(packetBytes) 	368
-attr interpolationmode  none
-attr source  rcvdPk
-attr title  "packets received, sum(packetBytes)"
-scalar LothianBusNet.ap.udp 	sentPk:count 	0
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, count"
-scalar LothianBusNet.ap.udp 	sentPk:sum(packetBytes) 	0
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, sum(packetBytes)"
-scalar LothianBusNet.ap.networkLayer.arp 	failedResolution:count 	0
-attr title  "ARP failed resolutions, count"
-scalar LothianBusNet.ap.networkLayer.arp 	initiatedResolution:count 	0
-attr title  "ARP initiated resolutions, count"
-scalar LothianBusNet.ap.networkLayer.arp 	sentReplies:count 	0
-attr title  "ARP replies sent, count"
-scalar LothianBusNet.ap.networkLayer.arp 	sentReq:count 	0
-attr title  "ARP request sent, count"
-scalar LothianBusNet.ap.wlan.mgmt 	dropPkByQueue:count 	0
+scalar LothianBusNet.ap.ethg$o[0].channel 	throughput:last 	383.82259288353
+attr source  sumPerDuration(packetBits(messageSent))
+attr unit  bps
+scalar LothianBusNet.sink.ethg$o[0].channel 	throughput:last 	191.91055345164
+attr source  sumPerDuration(packetBits(messageSent))
+attr unit  bps
+scalar LothianBusNet.router.ethg$o[0].channel 	throughput:last 	191.99536941901
+attr source  sumPerDuration(packetBits(messageSent))
+attr unit  bps
+scalar LothianBusNet.router.ethg$o[1].channel 	throughput:last 	383.82036391747
+attr source  sumPerDuration(packetBits(messageSent))
+attr unit  bps
+scalar LothianBusNet.ap.relayUnit 	"processed frames" 	3
+scalar LothianBusNet.ap.relayUnit 	"dropped frames" 	0
+scalar LothianBusNet.ap.relayUnit 	droppedBytes:count 	0
+attr title  "Dropped bytes, count"
+scalar LothianBusNet.ap.relayUnit 	droppedBytes:sum 	0
+attr title  "Dropped bytes, sum"
+scalar LothianBusNet.ap.relayUnit 	processedBytes:count 	0
+attr title  "Processed bytes, count"
+scalar LothianBusNet.ap.relayUnit 	processedBytes:sum 	0
+attr title  "Processed bytes, sum"
+scalar LothianBusNet.ap.relayUnit 	usedBufferBytes:max 	nan
+attr title  "Used buffer bytes, max"
+scalar LothianBusNet.ap.relayUnit 	usedBufferBytes:timeavg 	nan
+attr title  "Used buffer bytes, timeavg"
+scalar LothianBusNet.ap.wlan[0].mgmt 	dropPkByQueue:count 	0
 attr interpolationmode  none
 attr source  dropPkByQueue
 attr title  "packets dropped by queue, count"
-scalar LothianBusNet.ap.wlan.mgmt 	dropPkByQueue:sum(packetBytes) 	0
+scalar LothianBusNet.ap.wlan[0].mgmt 	dropPkByQueue:sum(packetBytes) 	0
 attr interpolationmode  none
 attr source  dropPkByQueue
 attr title  "packets dropped by queue, sum(packetBytes)"
-scalar LothianBusNet.ap.wlan.mgmt 	dataQueueLen:max 	0
+scalar LothianBusNet.ap.wlan[0].mgmt 	dataQueueLen:max 	0
 attr interpolationmode  sample-hold
 attr title  "data queue length, max"
-scalar LothianBusNet.ap.wlan.mgmt 	dataQueueLen:timeavg 	0
+scalar LothianBusNet.ap.wlan[0].mgmt 	dataQueueLen:timeavg 	0
 attr interpolationmode  sample-hold
 attr title  "data queue length, timeavg"
-scalar LothianBusNet.ap.wlan.mac 	"number of received packets" 	499
-scalar LothianBusNet.ap.wlan.mac 	"number of collisions" 	0
-scalar LothianBusNet.ap.wlan.mac 	"number of internal collisions" 	0
-scalar LothianBusNet.ap.wlan.mac 	"number of retry for AC 0" 	912
-scalar LothianBusNet.ap.wlan.mac 	"sent and received bits" 	1598864
-scalar LothianBusNet.ap.wlan.mac 	"sent packet within AC 0" 	0
-scalar LothianBusNet.ap.wlan.mac 	"sent in TXOP " 	0
-scalar LothianBusNet.ap.wlan.mac 	"sentWithoutRetry AC 0" 	0
-scalar LothianBusNet.ap.wlan.mac 	"numGivenUp AC 0" 	152
-scalar LothianBusNet.ap.wlan.mac 	"numDropped AC 0" 	0
-scalar LothianBusNet.ap.wlan.mac 	rcvdPkFromLL:count 	693
+scalar LothianBusNet.ap.wlan[0].mac 	"number of received packets" 	5
+scalar LothianBusNet.ap.wlan[0].mac 	"number of collisions" 	0
+scalar LothianBusNet.ap.wlan[0].mac 	"number of internal collisions" 	0
+scalar LothianBusNet.ap.wlan[0].mac 	"number of retry for AC 0" 	0
+scalar LothianBusNet.ap.wlan[0].mac 	"sent and received bits" 	21440
+scalar LothianBusNet.ap.wlan[0].mac 	"sent packet within AC 0" 	5
+scalar LothianBusNet.ap.wlan[0].mac 	"sent in TXOP " 	0
+scalar LothianBusNet.ap.wlan[0].mac 	"sentWithoutRetry AC 0" 	5
+scalar LothianBusNet.ap.wlan[0].mac 	"numGivenUp AC 0" 	0
+scalar LothianBusNet.ap.wlan[0].mac 	"numDropped AC 0" 	0
+scalar LothianBusNet.ap.wlan[0].mac 	rcvdPkFromLL:count 	11
 attr interpolationmode  none
 attr source  packetReceivedFromLower
 attr title  "packets received from lower layer, count"
-scalar LothianBusNet.ap.wlan.mac 	rcvdPkFromLL:sum(packetBytes) 	26084
+scalar LothianBusNet.ap.wlan[0].mac 	rcvdPkFromLL:sum(packetBytes) 	362
 attr interpolationmode  none
 attr source  packetReceivedFromLower
 attr title  "packets received from lower layer, sum(packetBytes)"
-scalar LothianBusNet.ap.wlan.mac 	rcvdPkFromHL:count 	2719
+scalar LothianBusNet.ap.wlan[0].mac 	rcvdPkFromHL:count 	36
 attr interpolationmode  none
 attr source  packetReceivedFromUpper
 attr title  "packets received from higher layer, count"
-scalar LothianBusNet.ap.wlan.mac 	rcvdPkFromHL:sum(packetBytes) 	206858
+scalar LothianBusNet.ap.wlan[0].mac 	rcvdPkFromHL:sum(packetBytes) 	2680
 attr interpolationmode  none
 attr source  packetReceivedFromUpper
 attr title  "packets received from higher layer, sum(packetBytes)"
-scalar LothianBusNet.ap.wlan.mac 	sentDownPk:count 	4130
+scalar LothianBusNet.ap.wlan[0].mac 	sentDownPk:count 	41
 attr interpolationmode  none
 attr source  packetSentToLower
 attr title  "packets sent to lower layer, count"
-scalar LothianBusNet.ap.wlan.mac 	sentDownPk:sum(packetBytes) 	255844
+scalar LothianBusNet.ap.wlan[0].mac 	sentDownPk:sum(packetBytes) 	2750
 attr interpolationmode  none
 attr source  packetSentToLower
 attr title  "packets sent to lower layer, sum(packetBytes)"
-scalar LothianBusNet.ap.wlan.mac 	passedUpPk:count 	198
+scalar LothianBusNet.ap.wlan[0].mac 	passedUpPk:count 	6
 attr interpolationmode  none
 attr source  packetSentToUpper
 attr title  "packets passed to higher layer, count"
-scalar LothianBusNet.ap.wlan.mac 	passedUpPk:sum(packetBytes) 	8936
+scalar LothianBusNet.ap.wlan[0].mac 	passedUpPk:sum(packetBytes) 	292
 attr interpolationmode  none
 attr source  packetSentToUpper
 attr title  "packets passed to higher layer, sum(packetBytes)"
-scalar LothianBusNet.ap.wlan.radio 	lossRate:min 	0
+scalar LothianBusNet.ap.wlan[0].radio 	lossRate:min 	nan
 attr interpolationmode  backward-sample-hold
 attr title  "packet loss rate, min"
-scalar LothianBusNet.ap.wlan.radio 	lossRate:max 	0
+scalar LothianBusNet.ap.wlan[0].radio 	lossRate:max 	nan
 attr interpolationmode  backward-sample-hold
 attr title  "packet loss rate, max"
-scalar LothianBusNet.ap.wlan.radio 	lossRate:timeavg 	0
+scalar LothianBusNet.ap.wlan[0].radio 	lossRate:timeavg 	nan
 attr interpolationmode  backward-sample-hold
 attr title  "packet loss rate, timeavg"
-scalar LothianBusNet.ap.wlan.radio 	radioState:count 	9663
+scalar LothianBusNet.ap.wlan[0].radio 	radioState:count 	105
 attr interpolationmode  sample-hold
 attr title  "radio state (enum), count"
-statistic LothianBusNet.ap.wlan.radio 	channelNo:histogram
+statistic LothianBusNet.ap.wlan[0].radio 	channelNo:histogram
 field count 1
 field mean 0
 field stddev nan
@@ -158,17 +151,525 @@ bin	0.4	0
 bin	0.43333333333333	0
 bin	0.46666666666667	0
 bin	0.5	0
-scalar LothianBusNet.ap.wlan.radio 	bitrate:min 	11000000
+scalar LothianBusNet.ap.wlan[0].radio 	bitrate:min 	54000000
 attr interpolationmode  sample-hold
 attr title  "tx bitrate, min"
 attr unit  bps
-scalar LothianBusNet.ap.wlan.radio 	bitrate:max 	11000000
+scalar LothianBusNet.ap.wlan[0].radio 	bitrate:max 	54000000
 attr interpolationmode  sample-hold
 attr title  "tx bitrate, max"
 attr unit  bps
-scalar LothianBusNet.ap.wlan.radio 	bitrate:timeavg 	11000000
+scalar LothianBusNet.ap.wlan[0].radio 	bitrate:timeavg 	54000000
 attr interpolationmode  sample-hold
 attr title  "tx bitrate, timeavg"
+attr unit  bps
+scalar LothianBusNet.ap.eth[0].mac 	"simulated time" 	3.001645178292
+scalar LothianBusNet.ap.eth[0].mac 	full-duplex 	1
+scalar LothianBusNet.ap.eth[0].mac 	"frames/sec sent" 	0.66630127187053
+scalar LothianBusNet.ap.eth[0].mac 	"frames/sec rcvd" 	0.33315063593526
+scalar LothianBusNet.ap.eth[0].mac 	"bits/sec sent" 	341.14625119771
+scalar LothianBusNet.ap.eth[0].mac 	"bits/sec rcvd" 	170.57312559886
+scalar LothianBusNet.ap.eth[0].mac 	"rx channel idle (%)" 	99.999808105234
+scalar LothianBusNet.ap.eth[0].mac 	"rx channel utilization (%)" 	0.00019189476629871
+scalar LothianBusNet.ap.eth[0].mac 	droppedPkNotForUs:count 	0
+attr interpolationmode  none
+attr source  dropPkNotForUs
+attr title  "packets dropped/not for us, count"
+scalar LothianBusNet.ap.eth[0].mac 	droppedPkNotForUs:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkNotForUs
+attr title  "packets dropped/not for us, sum(packetBytes)"
+scalar LothianBusNet.ap.eth[0].mac 	droppedPkBitError:count 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, count"
+scalar LothianBusNet.ap.eth[0].mac 	droppedPkBitError:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, sum(packetBytes)"
+scalar LothianBusNet.ap.eth[0].mac 	droppedPkIfaceDown:count 	0
+attr interpolationmode  none
+attr source  dropPkIfaceDown
+attr title  "packets dropped/interface down, count"
+scalar LothianBusNet.ap.eth[0].mac 	droppedPkIfaceDown:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkIfaceDown
+attr title  "packets dropped/interface down, sum(packetBytes)"
+scalar LothianBusNet.ap.eth[0].mac 	rxPkFromHL:count 	2
+attr interpolationmode  none
+attr source  rxPkFromHL
+attr title  "packet bytes from higher layer, count"
+scalar LothianBusNet.ap.eth[0].mac 	rxPkFromHL:sum(packetBytes) 	128
+attr interpolationmode  none
+attr source  rxPkFromHL
+attr title  "packet bytes from higher layer, sum(packetBytes)"
+scalar LothianBusNet.ap.eth[0].mac 	rxPausePkUnits:count 	0
+attr interpolationmode  none
+attr title  "pause units received, count"
+scalar LothianBusNet.ap.eth[0].mac 	rxPausePkUnits:sum 	0
+attr interpolationmode  none
+attr title  "pause units received, sum"
+scalar LothianBusNet.ap.eth[0].mac 	txPausePkUnits:count 	0
+attr interpolationmode  none
+attr title  "pause units sent, count"
+scalar LothianBusNet.ap.eth[0].mac 	txPausePkUnits:sum 	0
+attr interpolationmode  none
+attr title  "pause units sent, sum"
+scalar LothianBusNet.ap.eth[0].mac 	rxPkOk:count 	1
+attr interpolationmode  none
+attr source  rxPkOk
+attr title  "packets received OK, count"
+scalar LothianBusNet.ap.eth[0].mac 	rxPkOk:sum(packetBytes) 	64
+attr interpolationmode  none
+attr source  rxPkOk
+attr title  "packets received OK, sum(packetBytes)"
+scalar LothianBusNet.ap.eth[0].mac 	txPk:count 	2
+attr interpolationmode  none
+attr source  txPk
+attr title  "packets transmitted, count"
+scalar LothianBusNet.ap.eth[0].mac 	txPk:sum(packetBytes) 	128
+attr interpolationmode  none
+attr source  txPk
+attr title  "packets transmitted, sum(packetBytes)"
+scalar LothianBusNet.ap.eth[0].mac 	passedUpPk:count 	1
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, count"
+scalar LothianBusNet.ap.eth[0].mac 	passedUpPk:sum(packetBytes) 	64
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, sum(packetBytes)"
+scalar LothianBusNet.sink.networkLayer.arp 	failedResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar LothianBusNet.sink.networkLayer.arp 	initiatedResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar LothianBusNet.sink.networkLayer.arp 	sentReplies:count 	0
+attr title  "ARP replies sent, count"
+scalar LothianBusNet.sink.networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar LothianBusNet.sink.lo0.lo 	droppedPkBitError:count 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, count"
+scalar LothianBusNet.sink.lo0.lo 	droppedPkBitError:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, sum(packetBytes)"
+scalar LothianBusNet.sink.lo0.lo 	rcvdPkFromHL:count 	0
+attr interpolationmode  none
+attr source  packetReceivedFromUpper
+attr title  "packets received from higher layer, count"
+scalar LothianBusNet.sink.lo0.lo 	rcvdPkFromHL:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  packetReceivedFromUpper
+attr title  "packets received from higher layer, sum(packetBytes)"
+scalar LothianBusNet.sink.lo0.lo 	passedUpPk:count 	0
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, count"
+scalar LothianBusNet.sink.lo0.lo 	passedUpPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, sum(packetBytes)"
+scalar LothianBusNet.sink.eth[0].mac 	"simulated time" 	3.001645178292
+scalar LothianBusNet.sink.eth[0].mac 	full-duplex 	1
+scalar LothianBusNet.sink.eth[0].mac 	"frames/sec sent" 	0.33315063593526
+scalar LothianBusNet.sink.eth[0].mac 	"frames/sec rcvd" 	0.66630127187053
+scalar LothianBusNet.sink.eth[0].mac 	"bits/sec sent" 	170.57312559886
+scalar LothianBusNet.sink.eth[0].mac 	"bits/sec rcvd" 	341.14625119771
+scalar LothianBusNet.sink.eth[0].mac 	"rx channel idle (%)" 	99.999616210467
+scalar LothianBusNet.sink.eth[0].mac 	"rx channel utilization (%)" 	0.00038378953259742
+scalar LothianBusNet.sink.eth[0].mac 	droppedPkNotForUs:count 	0
+attr interpolationmode  none
+attr source  dropPkNotForUs
+attr title  "packets dropped/not for us, count"
+scalar LothianBusNet.sink.eth[0].mac 	droppedPkNotForUs:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkNotForUs
+attr title  "packets dropped/not for us, sum(packetBytes)"
+scalar LothianBusNet.sink.eth[0].mac 	droppedPkBitError:count 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, count"
+scalar LothianBusNet.sink.eth[0].mac 	droppedPkBitError:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, sum(packetBytes)"
+scalar LothianBusNet.sink.eth[0].mac 	droppedPkIfaceDown:count 	0
+attr interpolationmode  none
+attr source  dropPkIfaceDown
+attr title  "packets dropped/interface down, count"
+scalar LothianBusNet.sink.eth[0].mac 	droppedPkIfaceDown:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkIfaceDown
+attr title  "packets dropped/interface down, sum(packetBytes)"
+scalar LothianBusNet.sink.eth[0].mac 	rxPkFromHL:count 	1
+attr interpolationmode  none
+attr source  rxPkFromHL
+attr title  "packet bytes from higher layer, count"
+scalar LothianBusNet.sink.eth[0].mac 	rxPkFromHL:sum(packetBytes) 	64
+attr interpolationmode  none
+attr source  rxPkFromHL
+attr title  "packet bytes from higher layer, sum(packetBytes)"
+scalar LothianBusNet.sink.eth[0].mac 	rxPausePkUnits:count 	0
+attr interpolationmode  none
+attr title  "pause units received, count"
+scalar LothianBusNet.sink.eth[0].mac 	rxPausePkUnits:sum 	0
+attr interpolationmode  none
+attr title  "pause units received, sum"
+scalar LothianBusNet.sink.eth[0].mac 	txPausePkUnits:count 	0
+attr interpolationmode  none
+attr title  "pause units sent, count"
+scalar LothianBusNet.sink.eth[0].mac 	txPausePkUnits:sum 	0
+attr interpolationmode  none
+attr title  "pause units sent, sum"
+scalar LothianBusNet.sink.eth[0].mac 	rxPkOk:count 	2
+attr interpolationmode  none
+attr source  rxPkOk
+attr title  "packets received OK, count"
+scalar LothianBusNet.sink.eth[0].mac 	rxPkOk:sum(packetBytes) 	128
+attr interpolationmode  none
+attr source  rxPkOk
+attr title  "packets received OK, sum(packetBytes)"
+scalar LothianBusNet.sink.eth[0].mac 	txPk:count 	1
+attr interpolationmode  none
+attr source  txPk
+attr title  "packets transmitted, count"
+scalar LothianBusNet.sink.eth[0].mac 	txPk:sum(packetBytes) 	64
+attr interpolationmode  none
+attr source  txPk
+attr title  "packets transmitted, sum(packetBytes)"
+scalar LothianBusNet.sink.eth[0].mac 	passedUpPk:count 	2
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, count"
+scalar LothianBusNet.sink.eth[0].mac 	passedUpPk:sum(packetBytes) 	128
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, sum(packetBytes)"
+scalar LothianBusNet.sink.eth[0].encap 	pauseSent:count 	0
+attr title  "pause sent, count"
+scalar LothianBusNet.sink.eth[0].encap 	pauseSent:sum 	0
+attr title  "pause sent, sum"
+scalar LothianBusNet.sink.eth[0].encap 	decapPk:count 	2
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, count"
+scalar LothianBusNet.sink.eth[0].encap 	decapPk:sum(packetBytes) 	56
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, sum(packetBytes)"
+scalar LothianBusNet.sink.eth[0].encap 	encapPk:count 	1
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, count"
+scalar LothianBusNet.sink.eth[0].encap 	encapPk:sum(packetBytes) 	28
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, sum(packetBytes)"
+scalar LothianBusNet.sink.udpApp[0] 	rcvdPk:count 	1
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar LothianBusNet.sink.udpApp[0] 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+statistic LothianBusNet.sink.udpApp[0] 	endToEndDelay:histogram
+field count 1
+field mean 0.001409873719
+field stddev nan
+field sum 0.001409873719
+field sqrsum 1.9877439035269e-06
+field min 0.001409873719
+field max 0.001409873719
+attr interpolationmode  none
+attr source  messageAge(rcvdPk)
+attr title  "end-to-end delay, histogram"
+attr unit  s
+bin	-INF	0
+bin	-0.498590126281	0
+bin	-0.46525679294767	0
+bin	-0.43192345961433	0
+bin	-0.398590126281	0
+bin	-0.36525679294767	0
+bin	-0.33192345961433	0
+bin	-0.298590126281	0
+bin	-0.26525679294767	0
+bin	-0.23192345961433	0
+bin	-0.198590126281	0
+bin	-0.16525679294767	0
+bin	-0.13192345961433	0
+bin	-0.098590126281	0
+bin	-0.065256792947667	0
+bin	-0.031923459614333	0
+bin	0.001409873719	1
+bin	0.034743207052333	0
+bin	0.068076540385667	0
+bin	0.101409873719	0
+bin	0.13474320705233	0
+bin	0.16807654038567	0
+bin	0.201409873719	0
+bin	0.23474320705233	0
+bin	0.26807654038567	0
+bin	0.301409873719	0
+bin	0.33474320705233	0
+bin	0.36807654038567	0
+bin	0.401409873719	0
+bin	0.43474320705233	0
+bin	0.46807654038567	0
+bin	0.501409873719	0
+scalar LothianBusNet.sink.udp 	droppedPkBadChecksum:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (checksum error), count"
+scalar LothianBusNet.sink.udp 	droppedPkWrongPort:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (wrong port), count"
+scalar LothianBusNet.sink.udp 	passedUpPk:count 	1
+attr interpolationmode  none
+attr title  "packets passed up, count"
+scalar LothianBusNet.sink.udp 	sentPk:count 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar LothianBusNet.sink.udp 	sentPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar LothianBusNet.sink.udp 	rcvdPk:count 	1
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar LothianBusNet.sink.udp 	rcvdPk:sum(packetBytes) 	8
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+scalar LothianBusNet.router.networkLayer.arp 	failedResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar LothianBusNet.router.networkLayer.arp 	initiatedResolution:count 	1
+attr title  "ARP initiated resolutions, count"
+scalar LothianBusNet.router.networkLayer.arp 	sentReplies:count 	0
+attr title  "ARP replies sent, count"
+scalar LothianBusNet.router.networkLayer.arp 	sentReq:count 	1
+attr title  "ARP request sent, count"
+scalar LothianBusNet.router.lo0.lo 	droppedPkBitError:count 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, count"
+scalar LothianBusNet.router.lo0.lo 	droppedPkBitError:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, sum(packetBytes)"
+scalar LothianBusNet.router.lo0.lo 	rcvdPkFromHL:count 	0
+attr interpolationmode  none
+attr source  packetReceivedFromUpper
+attr title  "packets received from higher layer, count"
+scalar LothianBusNet.router.lo0.lo 	rcvdPkFromHL:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  packetReceivedFromUpper
+attr title  "packets received from higher layer, sum(packetBytes)"
+scalar LothianBusNet.router.lo0.lo 	passedUpPk:count 	0
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, count"
+scalar LothianBusNet.router.lo0.lo 	passedUpPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, sum(packetBytes)"
+scalar LothianBusNet.router.eth[0].mac 	"simulated time" 	3.001645178292
+scalar LothianBusNet.router.eth[0].mac 	full-duplex 	1
+scalar LothianBusNet.router.eth[0].mac 	"frames/sec sent" 	0.33315063593526
+scalar LothianBusNet.router.eth[0].mac 	"frames/sec rcvd" 	0.66630127187053
+scalar LothianBusNet.router.eth[0].mac 	"bits/sec sent" 	170.57312559886
+scalar LothianBusNet.router.eth[0].mac 	"bits/sec rcvd" 	341.14625119771
+scalar LothianBusNet.router.eth[0].mac 	"rx channel idle (%)" 	99.999616210467
+scalar LothianBusNet.router.eth[0].mac 	"rx channel utilization (%)" 	0.00038378953259742
+scalar LothianBusNet.router.eth[0].mac 	droppedPkNotForUs:count 	0
+attr interpolationmode  none
+attr source  dropPkNotForUs
+attr title  "packets dropped/not for us, count"
+scalar LothianBusNet.router.eth[0].mac 	droppedPkNotForUs:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkNotForUs
+attr title  "packets dropped/not for us, sum(packetBytes)"
+scalar LothianBusNet.router.eth[0].mac 	droppedPkBitError:count 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, count"
+scalar LothianBusNet.router.eth[0].mac 	droppedPkBitError:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, sum(packetBytes)"
+scalar LothianBusNet.router.eth[0].mac 	droppedPkIfaceDown:count 	0
+attr interpolationmode  none
+attr source  dropPkIfaceDown
+attr title  "packets dropped/interface down, count"
+scalar LothianBusNet.router.eth[0].mac 	droppedPkIfaceDown:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkIfaceDown
+attr title  "packets dropped/interface down, sum(packetBytes)"
+scalar LothianBusNet.router.eth[0].mac 	rxPkFromHL:count 	1
+attr interpolationmode  none
+attr source  rxPkFromHL
+attr title  "packet bytes from higher layer, count"
+scalar LothianBusNet.router.eth[0].mac 	rxPkFromHL:sum(packetBytes) 	64
+attr interpolationmode  none
+attr source  rxPkFromHL
+attr title  "packet bytes from higher layer, sum(packetBytes)"
+scalar LothianBusNet.router.eth[0].mac 	rxPausePkUnits:count 	0
+attr interpolationmode  none
+attr title  "pause units received, count"
+scalar LothianBusNet.router.eth[0].mac 	rxPausePkUnits:sum 	0
+attr interpolationmode  none
+attr title  "pause units received, sum"
+scalar LothianBusNet.router.eth[0].mac 	txPausePkUnits:count 	0
+attr interpolationmode  none
+attr title  "pause units sent, count"
+scalar LothianBusNet.router.eth[0].mac 	txPausePkUnits:sum 	0
+attr interpolationmode  none
+attr title  "pause units sent, sum"
+scalar LothianBusNet.router.eth[0].mac 	rxPkOk:count 	2
+attr interpolationmode  none
+attr source  rxPkOk
+attr title  "packets received OK, count"
+scalar LothianBusNet.router.eth[0].mac 	rxPkOk:sum(packetBytes) 	128
+attr interpolationmode  none
+attr source  rxPkOk
+attr title  "packets received OK, sum(packetBytes)"
+scalar LothianBusNet.router.eth[0].mac 	txPk:count 	1
+attr interpolationmode  none
+attr source  txPk
+attr title  "packets transmitted, count"
+scalar LothianBusNet.router.eth[0].mac 	txPk:sum(packetBytes) 	64
+attr interpolationmode  none
+attr source  txPk
+attr title  "packets transmitted, sum(packetBytes)"
+scalar LothianBusNet.router.eth[0].mac 	passedUpPk:count 	2
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, count"
+scalar LothianBusNet.router.eth[0].mac 	passedUpPk:sum(packetBytes) 	128
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, sum(packetBytes)"
+scalar LothianBusNet.router.eth[0].encap 	pauseSent:count 	0
+attr title  "pause sent, count"
+scalar LothianBusNet.router.eth[0].encap 	pauseSent:sum 	0
+attr title  "pause sent, sum"
+scalar LothianBusNet.router.eth[0].encap 	decapPk:count 	2
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, count"
+scalar LothianBusNet.router.eth[0].encap 	decapPk:sum(packetBytes) 	56
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, sum(packetBytes)"
+scalar LothianBusNet.router.eth[0].encap 	encapPk:count 	1
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, count"
+scalar LothianBusNet.router.eth[0].encap 	encapPk:sum(packetBytes) 	28
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, sum(packetBytes)"
+scalar LothianBusNet.router.eth[1].mac 	"simulated time" 	3.001645178292
+scalar LothianBusNet.router.eth[1].mac 	full-duplex 	1
+scalar LothianBusNet.router.eth[1].mac 	"frames/sec sent" 	0.66630127187053
+scalar LothianBusNet.router.eth[1].mac 	"frames/sec rcvd" 	0.33315063593526
+scalar LothianBusNet.router.eth[1].mac 	"bits/sec sent" 	341.14625119771
+scalar LothianBusNet.router.eth[1].mac 	"bits/sec rcvd" 	170.57312559886
+scalar LothianBusNet.router.eth[1].mac 	"rx channel idle (%)" 	99.999808105234
+scalar LothianBusNet.router.eth[1].mac 	"rx channel utilization (%)" 	0.00019189476629871
+scalar LothianBusNet.router.eth[1].mac 	droppedPkNotForUs:count 	0
+attr interpolationmode  none
+attr source  dropPkNotForUs
+attr title  "packets dropped/not for us, count"
+scalar LothianBusNet.router.eth[1].mac 	droppedPkNotForUs:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkNotForUs
+attr title  "packets dropped/not for us, sum(packetBytes)"
+scalar LothianBusNet.router.eth[1].mac 	droppedPkBitError:count 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, count"
+scalar LothianBusNet.router.eth[1].mac 	droppedPkBitError:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, sum(packetBytes)"
+scalar LothianBusNet.router.eth[1].mac 	droppedPkIfaceDown:count 	0
+attr interpolationmode  none
+attr source  dropPkIfaceDown
+attr title  "packets dropped/interface down, count"
+scalar LothianBusNet.router.eth[1].mac 	droppedPkIfaceDown:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkIfaceDown
+attr title  "packets dropped/interface down, sum(packetBytes)"
+scalar LothianBusNet.router.eth[1].mac 	rxPkFromHL:count 	2
+attr interpolationmode  none
+attr source  rxPkFromHL
+attr title  "packet bytes from higher layer, count"
+scalar LothianBusNet.router.eth[1].mac 	rxPkFromHL:sum(packetBytes) 	128
+attr interpolationmode  none
+attr source  rxPkFromHL
+attr title  "packet bytes from higher layer, sum(packetBytes)"
+scalar LothianBusNet.router.eth[1].mac 	rxPausePkUnits:count 	0
+attr interpolationmode  none
+attr title  "pause units received, count"
+scalar LothianBusNet.router.eth[1].mac 	rxPausePkUnits:sum 	0
+attr interpolationmode  none
+attr title  "pause units received, sum"
+scalar LothianBusNet.router.eth[1].mac 	txPausePkUnits:count 	0
+attr interpolationmode  none
+attr title  "pause units sent, count"
+scalar LothianBusNet.router.eth[1].mac 	txPausePkUnits:sum 	0
+attr interpolationmode  none
+attr title  "pause units sent, sum"
+scalar LothianBusNet.router.eth[1].mac 	rxPkOk:count 	1
+attr interpolationmode  none
+attr source  rxPkOk
+attr title  "packets received OK, count"
+scalar LothianBusNet.router.eth[1].mac 	rxPkOk:sum(packetBytes) 	64
+attr interpolationmode  none
+attr source  rxPkOk
+attr title  "packets received OK, sum(packetBytes)"
+scalar LothianBusNet.router.eth[1].mac 	txPk:count 	2
+attr interpolationmode  none
+attr source  txPk
+attr title  "packets transmitted, count"
+scalar LothianBusNet.router.eth[1].mac 	txPk:sum(packetBytes) 	128
+attr interpolationmode  none
+attr source  txPk
+attr title  "packets transmitted, sum(packetBytes)"
+scalar LothianBusNet.router.eth[1].mac 	passedUpPk:count 	1
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, count"
+scalar LothianBusNet.router.eth[1].mac 	passedUpPk:sum(packetBytes) 	64
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, sum(packetBytes)"
+scalar LothianBusNet.router.eth[1].encap 	pauseSent:count 	0
+attr title  "pause sent, count"
+scalar LothianBusNet.router.eth[1].encap 	pauseSent:sum 	0
+attr title  "pause sent, sum"
+scalar LothianBusNet.router.eth[1].encap 	decapPk:count 	1
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, count"
+scalar LothianBusNet.router.eth[1].encap 	decapPk:sum(packetBytes) 	28
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, sum(packetBytes)"
+scalar LothianBusNet.router.eth[1].encap 	encapPk:count 	2
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, count"
+scalar LothianBusNet.router.eth[1].encap 	encapPk:sum(packetBytes) 	56
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, sum(packetBytes)"
+scalar LothianBusNet.bus[0].udp.appOut[0].channel 	throughput:last 	nan
+attr source  sumPerDuration(packetBits(messageSent))
 attr unit  bps
 scalar LothianBusNet.bus[0].udp 	droppedPkBadChecksum:count 	0
 attr interpolationmode  none
@@ -179,6 +680,14 @@ attr title  "packets dropped (wrong port), count"
 scalar LothianBusNet.bus[0].udp 	passedUpPk:count 	0
 attr interpolationmode  none
 attr title  "packets passed up, count"
+scalar LothianBusNet.bus[0].udp 	sentPk:count 	1
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar LothianBusNet.bus[0].udp 	sentPk:sum(packetBytes) 	8
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
 scalar LothianBusNet.bus[0].udp 	rcvdPk:count 	0
 attr interpolationmode  none
 attr source  rcvdPk
@@ -187,27 +696,19 @@ scalar LothianBusNet.bus[0].udp 	rcvdPk:sum(packetBytes) 	0
 attr interpolationmode  none
 attr source  rcvdPk
 attr title  "packets received, sum(packetBytes)"
-scalar LothianBusNet.bus[0].udp 	sentPk:count 	253
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, count"
-scalar LothianBusNet.bus[0].udp 	sentPk:sum(packetBytes) 	2024
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, sum(packetBytes)"
 scalar LothianBusNet.bus[0].networkLayer.arp 	failedResolution:count 	0
 attr title  "ARP failed resolutions, count"
-scalar LothianBusNet.bus[0].networkLayer.arp 	initiatedResolution:count 	0
+scalar LothianBusNet.bus[0].networkLayer.arp 	initiatedResolution:count 	1
 attr title  "ARP initiated resolutions, count"
 scalar LothianBusNet.bus[0].networkLayer.arp 	sentReplies:count 	0
 attr title  "ARP replies sent, count"
-scalar LothianBusNet.bus[0].networkLayer.arp 	sentReq:count 	0
+scalar LothianBusNet.bus[0].networkLayer.arp 	sentReq:count 	1
 attr title  "ARP request sent, count"
-scalar LothianBusNet.bus[0].wlan.agent 	dropConfirm:count 	472
+scalar LothianBusNet.bus[0].wlan.agent 	dropConfirm:count 	0
 attr title  "dropped confirms, count"
-scalar LothianBusNet.bus[0].wlan.agent 	acceptConfirm:count 	134
+scalar LothianBusNet.bus[0].wlan.agent 	acceptConfirm:count 	3
 attr title  "accepted confirms, count"
-scalar LothianBusNet.bus[0].wlan.agent 	sentRequest:count 	607
+scalar LothianBusNet.bus[0].wlan.agent 	sentRequest:count 	3
 attr title  "sent requests, count"
 scalar LothianBusNet.bus[0].wlan.mgmt 	dropPkByQueue:count 	0
 attr interpolationmode  none
@@ -223,58 +724,58 @@ attr title  "data queue length, max"
 scalar LothianBusNet.bus[0].wlan.mgmt 	dataQueueLen:timeavg 	0
 attr interpolationmode  sample-hold
 attr title  "data queue length, timeavg"
-scalar LothianBusNet.bus[0].wlan.mac 	"number of received packets" 	416
+scalar LothianBusNet.bus[0].wlan.mac 	"number of received packets" 	5
 scalar LothianBusNet.bus[0].wlan.mac 	"number of collisions" 	0
 scalar LothianBusNet.bus[0].wlan.mac 	"number of internal collisions" 	0
-scalar LothianBusNet.bus[0].wlan.mac 	"number of retry for AC 0" 	1116
-scalar LothianBusNet.bus[0].wlan.mac 	"sent and received bits" 	163520
-scalar LothianBusNet.bus[0].wlan.mac 	"sent packet within AC 0" 	0
+scalar LothianBusNet.bus[0].wlan.mac 	"number of retry for AC 0" 	0
+scalar LothianBusNet.bus[0].wlan.mac 	"sent and received bits" 	2336
+scalar LothianBusNet.bus[0].wlan.mac 	"sent packet within AC 0" 	5
 scalar LothianBusNet.bus[0].wlan.mac 	"sent in TXOP " 	0
-scalar LothianBusNet.bus[0].wlan.mac 	"sentWithoutRetry AC 0" 	0
-scalar LothianBusNet.bus[0].wlan.mac 	"numGivenUp AC 0" 	186
+scalar LothianBusNet.bus[0].wlan.mac 	"sentWithoutRetry AC 0" 	5
+scalar LothianBusNet.bus[0].wlan.mac 	"numGivenUp AC 0" 	0
 scalar LothianBusNet.bus[0].wlan.mac 	"numDropped AC 0" 	0
-scalar LothianBusNet.bus[0].wlan.mac 	rcvdPkFromLL:count 	1057
+scalar LothianBusNet.bus[0].wlan.mac 	rcvdPkFromLL:count 	41
 attr interpolationmode  none
 attr source  packetReceivedFromLower
 attr title  "packets received from lower layer, count"
-scalar LothianBusNet.bus[0].wlan.mac 	rcvdPkFromLL:sum(packetBytes) 	55078
+scalar LothianBusNet.bus[0].wlan.mac 	rcvdPkFromLL:sum(packetBytes) 	2750
 attr interpolationmode  none
 attr source  packetReceivedFromLower
 attr title  "packets received from lower layer, sum(packetBytes)"
-scalar LothianBusNet.bus[0].wlan.mac 	rcvdPkFromHL:count 	697
+scalar LothianBusNet.bus[0].wlan.mac 	rcvdPkFromHL:count 	6
 attr interpolationmode  none
 attr source  packetReceivedFromUpper
 attr title  "packets received from higher layer, count"
-scalar LothianBusNet.bus[0].wlan.mac 	rcvdPkFromHL:sum(packetBytes) 	28902
+scalar LothianBusNet.bus[0].wlan.mac 	rcvdPkFromHL:sum(packetBytes) 	292
 attr interpolationmode  none
 attr source  packetReceivedFromUpper
 attr title  "packets received from higher layer, sum(packetBytes)"
-scalar LothianBusNet.bus[0].wlan.mac 	sentDownPk:count 	2229
+scalar LothianBusNet.bus[0].wlan.mac 	sentDownPk:count 	11
 attr interpolationmode  none
 attr source  packetSentToLower
 attr title  "packets sent to lower layer, count"
-scalar LothianBusNet.bus[0].wlan.mac 	sentDownPk:sum(packetBytes) 	85498
+scalar LothianBusNet.bus[0].wlan.mac 	sentDownPk:sum(packetBytes) 	362
 attr interpolationmode  none
 attr source  packetSentToLower
 attr title  "packets sent to lower layer, sum(packetBytes)"
-scalar LothianBusNet.bus[0].wlan.mac 	passedUpPk:count 	546
+scalar LothianBusNet.bus[0].wlan.mac 	passedUpPk:count 	35
 attr interpolationmode  none
 attr source  packetSentToUpper
 attr title  "packets passed to higher layer, count"
-scalar LothianBusNet.bus[0].wlan.mac 	passedUpPk:sum(packetBytes) 	37956
+scalar LothianBusNet.bus[0].wlan.mac 	passedUpPk:sum(packetBytes) 	2610
 attr interpolationmode  none
 attr source  packetSentToUpper
 attr title  "packets passed to higher layer, sum(packetBytes)"
-scalar LothianBusNet.bus[0].wlan.radio 	lossRate:min 	0
+scalar LothianBusNet.bus[0].wlan.radio 	lossRate:min 	nan
 attr interpolationmode  backward-sample-hold
 attr title  "packet loss rate, min"
-scalar LothianBusNet.bus[0].wlan.radio 	lossRate:max 	0
+scalar LothianBusNet.bus[0].wlan.radio 	lossRate:max 	nan
 attr interpolationmode  backward-sample-hold
 attr title  "packet loss rate, max"
-scalar LothianBusNet.bus[0].wlan.radio 	lossRate:timeavg 	0
+scalar LothianBusNet.bus[0].wlan.radio 	lossRate:timeavg 	nan
 attr interpolationmode  backward-sample-hold
 attr title  "packet loss rate, timeavg"
-scalar LothianBusNet.bus[0].wlan.radio 	radioState:count 	6595
+scalar LothianBusNet.bus[0].wlan.radio 	radioState:count 	105
 attr interpolationmode  sample-hold
 attr title  "radio state (enum), count"
 statistic LothianBusNet.bus[0].wlan.radio 	channelNo:histogram
@@ -319,15 +820,15 @@ bin	0.4	0
 bin	0.43333333333333	0
 bin	0.46666666666667	0
 bin	0.5	0
-scalar LothianBusNet.bus[0].wlan.radio 	bitrate:min 	11000000
+scalar LothianBusNet.bus[0].wlan.radio 	bitrate:min 	54000000
 attr interpolationmode  sample-hold
 attr title  "tx bitrate, min"
 attr unit  bps
-scalar LothianBusNet.bus[0].wlan.radio 	bitrate:max 	11000000
+scalar LothianBusNet.bus[0].wlan.radio 	bitrate:max 	54000000
 attr interpolationmode  sample-hold
 attr title  "tx bitrate, max"
 attr unit  bps
-scalar LothianBusNet.bus[0].wlan.radio 	bitrate:timeavg 	11000000
+scalar LothianBusNet.bus[0].wlan.radio 	bitrate:timeavg 	54000000
 attr interpolationmode  sample-hold
 attr title  "tx bitrate, timeavg"
 attr unit  bps

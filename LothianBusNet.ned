@@ -3,6 +3,8 @@ package org.mixim.examples.Buses;
 import inet.world.radio.ChannelControl;
 import ned.DatarateChannel;
 import inet.networklayer.autorouting.ipv4.IPv4NetworkConfigurator;
+import inet.nodes.inet.Router;
+import inet.nodes.ethernet.Eth100M;
 
 network LothianBusNet
 {
@@ -14,13 +16,6 @@ network LothianBusNet
         double playgroundHeight @unit("m") = default(20000m); // the N-S size of playground
         int numHosts; // total number of hosts in the network   
 
-	types:
-	    channel ethline extends DatarateChannel
-        {
-            delay = 50ns;
-            datarate = 100Mbps;
-        }
-
     submodules:
         channelControl: ChannelControl {
             parameters:
@@ -28,14 +23,18 @@ network LothianBusNet
         }
         
         configurator: IPv4NetworkConfigurator {
-            @display("p=0,100");
+            parameters:
+                assignDisjunctSubnetAddresses = false;
+            	@display("p=0,100");
         }
         ap: AP {
-
             @display("p=6700,6800");
         }
         sink : Sink{
             @display("p=6700,7000;i=device/server_l");
+        }
+		router: Router {
+            @display("p=6600,6900");
         }
         
         //ap2: AP {
@@ -48,7 +47,8 @@ network LothianBusNet
         //}
 
     connections allowunconnected:
-        sink.ethg++ <--> ethline <--> ap.ethg++;
+        ap.ethg++ <--> Eth100M <--> router.ethg++;
+        sink.ethg++ <--> Eth100M <--> router.ethg++;
 }
 
 
