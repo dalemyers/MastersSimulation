@@ -1,3 +1,4 @@
 # Partial Tkenv config file -- see $HOME/.tkenvrc as well
+inspector "LothianBusNet" "LothianBusNet" "2" "1330x847+5+27:normal"
 inspector "GoogleEarthNet" "GoogleEarthNet" "2" "704x614+5+27:normal"
 

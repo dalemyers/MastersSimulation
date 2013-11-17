@@ -6,6 +6,12 @@ import inet.networklayer.autorouting.ipv4.IPv4NetworkConfigurator;
 import inet.nodes.inet.Router;
 import inet.nodes.ethernet.Eth100M;
 
+channel Eth100M100km extends Eth100M{
+    @display("ls=,0");
+    length = 100000m;
+    
+}
+
 network LothianBusNet
 {
     parameters:
@@ -16,6 +22,7 @@ network LothianBusNet
         double playgroundHeight @unit("m") = default(20000m); // the N-S size of playground
         int numHosts; // total number of hosts in the network  
         int numAps = default(1); //total number of APs 
+        
 
     submodules:
         channelControl: ChannelControl {
@@ -39,7 +46,7 @@ network LothianBusNet
 
     connections allowunconnected:
         for i=0..numAps-1 {
-        	ap[i].ethg++ <--> Eth100M <--> router.ethg++;
+        	ap[i].ethg++ <--> Eth100M100km <--> router.ethg++;
         }
         sink.ethg++ <--> Eth100M <--> router.ethg++;
 }
