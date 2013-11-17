@@ -14,7 +14,8 @@ network LothianBusNet
         double playgroundLongitude = default(-3.4); // geographic position of the playground's north-west corner
         double playgroundWidth @unit("m") = default(30000m);  // the E-W size of playground 
         double playgroundHeight @unit("m") = default(20000m); // the N-S size of playground
-        int numHosts; // total number of hosts in the network   
+        int numHosts; // total number of hosts in the network  
+        int numAps = default(1); //total number of APs 
 
     submodules:
         channelControl: ChannelControl {
@@ -27,27 +28,19 @@ network LothianBusNet
                 assignDisjunctSubnetAddresses = false;
             	@display("p=0,100");
         }
-        ap: AP {
-            @display("p=6700,6800");
-        }
+        ap[numAps]: AP;
         sink : Sink{
             @display("p=6700,7000;i=device/server_l");
         }
 		router: Router {
             @display("p=6600,6900");
         }
-        
-        //ap2: AP {
-        //    @display("p=7000,5000");
-        //}
         bus[numHosts]: Bus;
-        
-        //host[numHosts]: Host80211 {
-        //    @display("p=137,95");
-        //}
 
     connections allowunconnected:
-        ap.ethg++ <--> Eth100M <--> router.ethg++;
+        for i=0..numAps-1 {
+        	ap[i].ethg++ <--> Eth100M <--> router.ethg++;
+        }
         sink.ethg++ <--> Eth100M <--> router.ethg++;
 }
 

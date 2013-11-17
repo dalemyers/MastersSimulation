@@ -50,7 +50,7 @@ void BusChat::setupLowerLayer() {
     socket.bind(12345);
     socket.setBroadcast(true);
     cMessage *timer = new cMessage("broadcast");
-    scheduleAt(simTime() + (rand() % 1) + 3, timer);
+    scheduleAt(simTime() + 3, timer);
 }
 
 void BusChat::handleMessage(cMessage* msg) {

@@ -19,7 +19,6 @@ module AP extends inet.nodes.wireless.AccessPoint
         double y @unit("") = default(0); // the starting position
         int id = default(0); // the id of this AP
 
-	submodules:
 
 		
 
