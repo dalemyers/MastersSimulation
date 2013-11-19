@@ -32,6 +32,7 @@ void BusChat::initialize(int stage) {
     cSimpleModule::initialize(stage);
     id = 0;
     if (stage == 3) {
+        packetCounter = 0;
         debug = par("debug");
         cModule* p = this->getParentModule();
         id = p->par("id");
@@ -88,7 +89,7 @@ DataPacket* BusChat::generateMessage(char* debugString){
     msg->setTimestamp(simTime());
     msg->setTemperature(4);
     msg->setBusid(id);
-    msg->setUuid(rand());
+    msg->setUuid(packetCounter++);
 
     return msg;
 }
@@ -105,7 +106,7 @@ void BusChat::sendMessage() {
     socket.sendTo(selfmsg, IPv4Address("10.0.2.1"),12345);
     //socket.sendTo(selfmsg, IPv4Address::ALL_HOSTS_MCAST, 12345);
 
-    scheduleAt(simTime() + 1, new cMessage("broadcast"));
+    scheduleAt(simTime() + 0.01, new cMessage("broadcast"));
 }
 
 void BusChat::handlePositionUpdate() {

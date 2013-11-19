@@ -53,6 +53,7 @@ class BusChat : public cSimpleModule, protected cListener, public ILifecycle
     protected:
         bool debug;
         bool sentMessage;
+        int packetCounter;
         UDPSocket socket;
         simsignal_t mobilityStateChangedSignal;
         int id;
