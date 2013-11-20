@@ -1,0 +1,12 @@
+DataTable.SCALAR.Config\ name.visible=false
+DataTable.SCALAR.Config\ name.width=64
+DataTable.SCALAR.Folder.visible=false
+DataTable.SCALAR.Folder.width=164
+DataTable.SCALAR.Module.width=289
+DataTable.SCALAR.Name.width=212
+DataTable.SCALAR.Run\ id.visible=false
+DataTable.SCALAR.Run\ number.visible=false
+DataTable.SCALAR.Value.width=91
+DataTable.VECTOR.Module.width=227
+DataTable.VECTOR.Name.width=224
+eclipse.preferences.version=1

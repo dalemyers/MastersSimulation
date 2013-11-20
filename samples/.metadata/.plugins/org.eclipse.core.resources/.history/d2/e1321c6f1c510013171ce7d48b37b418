@@ -1,0 +1,12 @@
+package inet.examples.Buses;
+
+import inet.mobility.IMobility;
+
+simple BusMobility like IMobility
+{
+    parameters:
+        @display("i=abstract/person");
+        double timeStep @unit("s") = default(1s); // the time granularity of movement calculation
+}
+
+

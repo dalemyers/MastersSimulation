@@ -1,0 +1,323 @@
+file 51562 1384865370                                           
+version 2
+run General-0-20131119-12:48:21-92974
+attr configname General
+attr datetime 20131119-12:48:21
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network LothianBusNet
+attr processid 92974
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 3  LothianBusNet.ap[0].wlan[0].mgmt  dataQueueLen:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "data queue length, vector"
+vector 88  LothianBusNet.bus[0].wlan[0].mgmt  dataQueueLen:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "data queue length, vector"
+vector 100  LothianBusNet.ap[0].wlan[0].mac  RadioState  ETV
+attr enum  "IDLE=0, OFF=4, RECV=1, SLEEP=3, TRANSMIT=2"
+attr enumname  RadioState
+vector 99  LothianBusNet.ap[0].wlan[0].mac  State  ETV
+attr enum  "BACKOFF=3, DEFER=1, IDLE=0, RECEIVE=8, WAITACK=4, WAITAIFS=2, WAITCTS=6, WAITMULTICAST=5, WAITSIFS=7"
+attr enumname  Ieee80211Mac
+vector 106  LothianBusNet.bus[0].wlan[0].mac  RadioState  ETV
+attr enum  "IDLE=0, OFF=4, RECV=1, SLEEP=3, TRANSMIT=2"
+attr enumname  RadioState
+vector 105  LothianBusNet.bus[0].wlan[0].mac  State  ETV
+attr enum  "BACKOFF=3, DEFER=1, IDLE=0, RECEIVE=8, WAITACK=4, WAITAIFS=2, WAITCTS=6, WAITMULTICAST=5, WAITSIFS=7"
+attr enumname  Ieee80211Mac
+vector 9  LothianBusNet.ap[0].wlan[0].radio  bitrate:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, vector"
+attr unit  bps
+vector 11  LothianBusNet.ap[0].wlan[0].radio  radioState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), vector"
+vector 10  LothianBusNet.ap[0].wlan[0].radio  channelNo:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "channel no, vector"
+vector 94  LothianBusNet.bus[0].wlan[0].radio  bitrate:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, vector"
+attr unit  bps
+vector 96  LothianBusNet.bus[0].wlan[0].radio  radioState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), vector"
+vector 95  LothianBusNet.bus[0].wlan[0].radio  channelNo:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "channel no, vector"
+vector 7  LothianBusNet.ap[0].wlan[0].mac  rcvdPkFromHL:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetReceivedFromUpper
+attr title  "packets received from higher layer, vector(packetBytes)"
+vector 6  LothianBusNet.ap[0].wlan[0].mac  sentDownPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetSentToLower
+attr title  "packets sent to lower layer, vector(packetBytes)"
+vector 110  LothianBusNet.bus[0].wlan[0].radio  snirVector  ETV
+vector 93  LothianBusNet.bus[0].wlan[0].mac  rcvdPkFromLL:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetReceivedFromLower
+attr title  "packets received from lower layer, vector(packetBytes)"
+vector 90  LothianBusNet.bus[0].wlan[0].mac  passedUpPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, vector(packetBytes)"
+vector 102  LothianBusNet.ap[0].wlan[0].mac  "throughput AC0"  ETV
+vector 108  LothianBusNet.bus[0].wlan[0].mac  "throughput AC0"  ETV
+vector 85  LothianBusNet.bus[0].wlan[0].agent  sentRequest:vector  ETV
+attr title  "sent requests, vector"
+vector 92  LothianBusNet.bus[0].wlan[0].mac  rcvdPkFromHL:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetReceivedFromUpper
+attr title  "packets received from higher layer, vector(packetBytes)"
+vector 91  LothianBusNet.bus[0].wlan[0].mac  sentDownPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetSentToLower
+attr title  "packets sent to lower layer, vector(packetBytes)"
+vector 104  LothianBusNet.ap[0].wlan[0].radio  snirVector  ETV
+vector 8  LothianBusNet.ap[0].wlan[0].mac  rcvdPkFromLL:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetReceivedFromLower
+attr title  "packets received from lower layer, vector(packetBytes)"
+vector 5  LothianBusNet.ap[0].wlan[0].mac  passedUpPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, vector(packetBytes)"
+vector 103  LothianBusNet.ap[0].wlan[0].mac  "Mac delay AC0"  ETV
+vector 101  LothianBusNet.ap[0].wlan[0].mac  "jitter AC0"  ETV
+vector 86  LothianBusNet.bus[0].wlan[0].agent  acceptConfirm:vector  ETV
+attr title  "accepted confirms, vector"
+vector 109  LothianBusNet.bus[0].wlan[0].mac  "Mac delay AC0"  ETV
+vector 107  LothianBusNet.bus[0].wlan[0].mac  "jitter AC0"  ETV
+vector 77  LothianBusNet.bus[0].tcpApp[0]  numActiveSessions:vector  ETV
+attr interpolationmode  sample-hold
+attr source  sum(connect)
+attr title  "number of active sessions, vector"
+vector 150  LothianBusNet.bus[0].tcp  tcpRcvQueueBytes  ETV
+vector 137  LothianBusNet.bus[0].tcp  "advertised window"  ETV
+vector 136  LothianBusNet.bus[0].tcp  "receive window"  ETV
+vector 139  LothianBusNet.bus[0].tcp  "sent ack"  ETV
+vector 78  LothianBusNet.bus[0].networkLayer.arp  sentReq:vector  ETV
+attr title  "ARP request sent, vector"
+vector 80  LothianBusNet.bus[0].networkLayer.arp  initiatedResolution:vector  ETV
+attr title  "ARP initiated resolutions, vector"
+vector 98  LothianBusNet.ap[0].relayUnit  "buffer level"  ETV
+vector 18  LothianBusNet.ap[0].eth[0].mac  rxPkFromHL:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rxPkFromHL
+attr title  "packet bytes from higher layer, vector(packetBytes)"
+vector 13  LothianBusNet.ap[0].eth[0].mac  txPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  txPk
+attr title  "packets transmitted, vector(packetBytes)"
+vector 51  LothianBusNet.router.eth[0].mac  rxPkOk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rxPkOk
+attr title  "packets received OK, vector(packetBytes)"
+vector 52  LothianBusNet.router.eth[0].mac  passedUpPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, vector(packetBytes)"
+vector 60  LothianBusNet.router.eth[0].encap  decapPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, vector(packetBytes)"
+vector 59  LothianBusNet.router.eth[0].encap  encapPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, vector(packetBytes)"
+vector 55  LothianBusNet.router.eth[0].mac  rxPkFromHL:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rxPkFromHL
+attr title  "packet bytes from higher layer, vector(packetBytes)"
+vector 50  LothianBusNet.router.eth[0].mac  txPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  txPk
+attr title  "packets transmitted, vector(packetBytes)"
+vector 14  LothianBusNet.ap[0].eth[0].mac  rxPkOk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rxPkOk
+attr title  "packets received OK, vector(packetBytes)"
+vector 15  LothianBusNet.ap[0].eth[0].mac  passedUpPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, vector(packetBytes)"
+vector 43  LothianBusNet.router.networkLayer.arp  sentReq:vector  ETV
+attr title  "ARP request sent, vector"
+vector 45  LothianBusNet.router.networkLayer.arp  initiatedResolution:vector  ETV
+attr title  "ARP initiated resolutions, vector"
+vector 71  LothianBusNet.router.eth[1].encap  encapPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, vector(packetBytes)"
+vector 67  LothianBusNet.router.eth[1].mac  rxPkFromHL:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rxPkFromHL
+attr title  "packet bytes from higher layer, vector(packetBytes)"
+vector 62  LothianBusNet.router.eth[1].mac  txPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  txPk
+attr title  "packets transmitted, vector(packetBytes)"
+vector 32  LothianBusNet.sink.eth[0].mac  rxPkOk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rxPkOk
+attr title  "packets received OK, vector(packetBytes)"
+vector 33  LothianBusNet.sink.eth[0].mac  passedUpPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, vector(packetBytes)"
+vector 41  LothianBusNet.sink.eth[0].encap  decapPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, vector(packetBytes)"
+vector 40  LothianBusNet.sink.eth[0].encap  encapPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, vector(packetBytes)"
+vector 36  LothianBusNet.sink.eth[0].mac  rxPkFromHL:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rxPkFromHL
+attr title  "packet bytes from higher layer, vector(packetBytes)"
+vector 31  LothianBusNet.sink.eth[0].mac  txPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  txPk
+attr title  "packets transmitted, vector(packetBytes)"
+vector 63  LothianBusNet.router.eth[1].mac  rxPkOk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rxPkOk
+attr title  "packets received OK, vector(packetBytes)"
+vector 64  LothianBusNet.router.eth[1].mac  passedUpPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, vector(packetBytes)"
+vector 72  LothianBusNet.router.eth[1].encap  decapPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, vector(packetBytes)"
+vector 116  LothianBusNet.sink.tcp  "rcvd seq"  ETV
+vector 117  LothianBusNet.sink.tcp  "rcvd ack"  ETV
+vector 113  LothianBusNet.sink.tcp  "advertised window"  ETV
+vector 111  LothianBusNet.sink.tcp  "send window"  ETV
+vector 126  LothianBusNet.sink.tcp  tcpRcvQueueBytes  ETV
+vector 112  LothianBusNet.sink.tcp  "receive window"  ETV
+vector 115  LothianBusNet.sink.tcp  "sent ack"  ETV
+vector 140  LothianBusNet.bus[0].tcp  "rcvd seq"  ETV
+vector 141  LothianBusNet.bus[0].tcp  "rcvd ack"  ETV
+vector 135  LothianBusNet.bus[0].tcp  "send window"  ETV
+vector 75  LothianBusNet.bus[0].tcpApp[0]  sentPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, vector(packetBytes)"
+vector 138  LothianBusNet.bus[0].tcp  "sent seq"  ETV
+vector 142  LothianBusNet.bus[0].tcp  "unacked bytes"  ETV
+vector 118  LothianBusNet.sink.tcp  "unacked bytes"  ETV
+vector 119  LothianBusNet.sink.tcp  "rcvd dupAcks"  ETV
+vector 22  LothianBusNet.sink.tcpApp[0]  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 23  LothianBusNet.sink.tcpApp[0]  endToEndDelay:vector  ETV
+attr interpolationmode  none
+attr source  messageAge(rcvdPk)
+attr title  "end-to-end delay, vector"
+attr unit  s
+vector 154  LothianBusNet.bus[0].tcp  "measured RTT"  ETV
+vector 155  LothianBusNet.bus[0].tcp  "smoothed RTT"  ETV
+vector 156  LothianBusNet.bus[0].tcp  RTTVAR  ETV
+vector 157  LothianBusNet.bus[0].tcp  RTO  ETV
+vector 152  LothianBusNet.bus[0].tcp  cwnd  ETV
+vector 143  LothianBusNet.bus[0].tcp  "rcvd dupAcks"  ETV
+3	11366 8 0 0 0 0 1 0 0 0 0
+5	11374 190 51 458 0.265024603544 1.003417108328 8 34 282 672 104392
+6	11564 709 5 579 0.059312461638 1.459312461638 30 14 86 1776 127864
+7	12273 543 4 578 0.059284461638 1.459284461638 23 34 86 1678 126492
+8	12816 354 51 526 0.265024603544 1.004798942136 15 14 282 770 105764
+9	13170 15 0 0 0 0 1 54000000 54000000 54000000 2.916e+15
+10	13185 9 0 0 0 0 1 0 0 0 0
+11	13194 2134 0 583 0 1.459816461638 91 0 2 75 135
+13	15328 100 281 473 1.000072306904 1.003436948328 4 64 240 432 69888
+14	15428 75 310 507 1.001078066904 1.004469848328 3 64 64 192 12288
+15	15503 75 310 507 1.001078066904 1.004469848328 3 64 64 192 12288
+18	15578 100 280 462 1.000066546904 1.003417108328 4 64 240 432 69888
+22	15678 26 491 491 1.003958278328 1.003958278328 1 200 200 200 40000
+23	15704 24 491 491 1.003958278328 1.003958278328 1 0 0 0 0
+31	15728 75 368 497 1.001990490712 1.003964038328 3 64 64 192 12288
+32	15803 100 361 487 1.001984730712 1.003958278328 4 64 258 450 78852
+33	15903 100 361 487 1.001984730712 1.003958278328 4 64 258 450 78852
+36	16003 75 366 495 1.001984730712 1.003958278328 3 64 64 192 12288
+40	16078 75 365 494 1.001984730712 1.003958278328 3 28 44 112 4320
+41	16153 100 362 488 1.001984730712 1.003958278328 4 28 240 352 61920
+43	16253 24 357 357 1.001978920712 1.001978920712 1 1 1 1 1
+45	16277 24 357 357 1.001978920712 1.001978920712 1 1 1 1 1
+50	16301 75 300 505 1.000578066904 1.003969848328 3 64 64 192 12288
+51	16376 100 294 480 1.000572306904 1.003936948328 4 64 240 432 69888
+52	16476 100 294 480 1.000572306904 1.003936948328 4 64 240 432 69888
+55	16576 75 299 503 1.000572306904 1.003964088328 3 64 64 192 12288
+59	16651 75 298 502 1.000572306904 1.003964088328 3 28 44 112 4320
+60	16726 100 295 481 1.000572306904 1.003936948328 4 28 240 352 61920
+62	16826 100 360 486 1.001984680712 1.003958228328 4 64 258 450 78852
+63	16926 75 369 498 1.001990540712 1.003964088328 3 64 64 192 12288
+64	17001 75 369 498 1.001990540712 1.003964088328 3 64 64 192 12288
+67	17076 100 359 485 1.001978920712 1.003936948328 4 64 258 450 78852
+71	17176 100 358 484 1.001978920712 1.003936948328 4 28 240 352 61920
+72	17276 75 370 499 1.001990540712 1.003964088328 3 28 44 112 4320
+75	17351 26 411 411 1.002578467616 1.002578467616 1 200 200 200 40000
+77	17377 11 263 263 1 1 1 1 1 1 1
+78	17388 11 267 267 1 1 1 1 1 1 1
+80	17399 11 267 267 1 1 1 1 1 1 1
+85	17410 71 27 169 0.164644050691 0.565857262103 3 1 4 7 21
+86	17481 72 108 206 0.564644050691 0.566709367809 3 1 4 7 21
+88	17553 9 0 0 0 0 1 0 0 0 0
+90	17562 544 11 585 0.059817014491 1.459817008542 22 34 86 1608 121592
+91	18106 368 45 521 0.264672050691 1.004550395232 15 14 282 770 105764
+92	18474 187 44 419 0.264644050691 1.002578467616 8 34 282 672 104392
+93	18661 744 11 585 0.059817014491 1.459817008542 30 14 86 1776 127864
+94	19405 16 0 0 0 0 1 54000000 54000000 54000000 2.916e+15
+95	19421 9 0 0 0 0 1 0 0 0 0
+96	19430 2139 0 584 0 1.459817008542 91 0 2 60 90
+98	21569 342 277 509 1.000066546904 1.004469848328 14 0 240 624 82176
+99	21911 10216 0 587 0 1.459844461638 434 0 7 1115 4353
+100	32127 4450 0 583 0 1.459816461638 182 0 2 150 270
+101	36577 85 75 534 0.359816461638 1.059816461638 3 0 0.000175 0.000179 3.0641e-08
+102	36662 462 16 576 0.159284461638 1.360024461638 12 3132.1527526804 36933.85337897 122253.59247285 2264172335.322
+103	37124 262 67 526 0.26534970925 1.004798942136 7 0.000325093808 0.000754105706 0.003220704248 1.6673874262669e-06
+104	37386 38 50 50 0.265024603544 0.265024603544 1 34.233072843458 34.233072843458 34.233072843458 1171.9032763055
+105	37424 7700 0 585 0 1.459817008542 314 0 7 590 2350
+106	45124 4460 0 584 0 1.459817008542 182 0 2 120 180
+107	49584 70 231 545 0.759313014491 1.159313008542 2 0.000447 0.000772093808 0.001219093808 7.9593784835194e-07
+108	49654 274 19 581 0.159313014491 1.459313008542 10 0 26112.1175105 32207.477818476 704587570.68763
+109	49928 266 126 477 0.564965156397 1.003675655232 7 0.000321105706 0.001097187616 0.004300786158 3.0703152070569e-06
+110	50194 38 10 10 0.059817014491 0.059817014491 1 34.233072843458 34.233072843458 34.233072843458 1171.9032763055
+111	50232 55 380 467 1.001996350712 1.00341858452 2 7504 7504 15008 112620032
+112	50287 56 380 490 1.001996350712 1.003958278328 2 7504 7504 15008 112620032
+113	50343 90 380 490 1.001996350712 1.003958278328 3 257505 257705 772715 199029517075
+115	50433 60 380 490 1.001996350712 1.003958278328 2 250001 250201 500202 125101040402
+116	50493 89 380 490 1.001996350712 1.003958278328 3 250000 250001 750002 187501000002
+117	50582 84 380 490 1.001996350712 1.003958278328 3 0 250500 501000 125500500000
+118	50666 24 467 467 1.00341858452 1.00341858452 1 0 0 0 0
+119	50690 25 490 490 1.003958278328 1.003958278328 1 0 0 0 0
+126	50715 75 380 490 1.001996350712 1.003958278328 3 0 0 0 0
+135	50790 56 409 520 1.002578467616 1.004540395232 2 7504 7504 15008 112620032
+136	50846 71 265 413 1 1.002578467616 3 7504 7504 22512 168930048
+137	50917 105 265 413 1 1.002578467616 4 7504 258004 781516 199754502064
+138	51022 30 413 413 1.002578467616 1.002578467616 1 250001 250001 250001 62500500001
+139	51052 72 265 413 1 1.002578467616 3 0 250500 501000 125500500000
+140	51124 60 409 520 1.002578467616 1.004540395232 2 250499 250500 500999 125499999001
+141	51184 60 409 520 1.002578467616 1.004540395232 2 250001 250201 500202 125101040402
+142	51244 52 413 520 1.002578467616 1.004540395232 2 0 200 200 40000
+143	51296 25 520 520 1.004540395232 1.004540395232 1 0 0 0 0
+150	51321 62 265 413 1 1.002578467616 3 0 0 0 0
+152	51383 28 520 520 1.004540395232 1.004540395232 1 1072 1072 1072 1149184
+154	51411 38 520 520 1.004540395232 1.004540395232 1 0.001961927616 0.001961927616 0.001961927616 3.8491599704234e-06
+155	51449 38 520 520 1.004540395232 1.004540395232 1 0.000245240952 0.000245240952 0.000245240952 6.0143124537866e-08
+156	51487 38 520 520 1.004540395232 1.004540395232 1 0.656495240952 0.656495240952 0.656495240952 0.43098600139262
+157	51525 37 520 520 1.004540395232 1.004540395232 1 2.62622620476 2.62622620476 2.62622620476 6.8970640785681

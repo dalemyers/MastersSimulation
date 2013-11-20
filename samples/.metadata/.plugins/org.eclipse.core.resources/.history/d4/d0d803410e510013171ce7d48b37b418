@@ -1,0 +1,10 @@
+
+package org.mixim.examples.Buses;
+
+import inet.applications.tcp.TCPBasicClientApp;
+
+simple BusChatTCP extends TCPBasicClientApp
+{
+    
+}
+

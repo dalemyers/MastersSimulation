@@ -1,0 +1,9 @@
+0000000000000000000000000000000000000000 f6487c844ab5b3e6448e6db9ff4effd77cee40ea Vel0x <DaleMyers19@gmail.com> 1383953448 +0000	clone: from git@bitbucket.org:Vel0x/bus-simulation.git
+f6487c844ab5b3e6448e6db9ff4effd77cee40ea 03e754fbc7bf80d52aa3151acbcb5eeb6b71bb7e Vel0x <DaleMyers19@gmail.com> 1384119341 +0000	commit: Works with broadcast currently
+03e754fbc7bf80d52aa3151acbcb5eeb6b71bb7e 24d57aea104ac690899a9207e881c88d8f2834fb Vel0x <DaleMyers19@gmail.com> 1384178559 +0000	commit: Some tidying and a single bus
+24d57aea104ac690899a9207e881c88d8f2834fb eee1e7a594ac72ff07107fa96006435b438b5a92 Vel0x <DaleMyers19@gmail.com> 1384256101 +0000	commit: Doesn't crash any more
+eee1e7a594ac72ff07107fa96006435b438b5a92 debd504e575453f207cb5a53ed34061d46e743ca Vel0x <DaleMyers19@gmail.com> 1384351566 +0000	commit: Uses Rayleigh fading now
+debd504e575453f207cb5a53ed34061d46e743ca 47e955a946965a7daa1fd4c15e32b75e9b80bfd4 Vel0x <DaleMyers19@gmail.com> 1384622060 +0000	commit: Added sink node, and IPv4 configuration
+47e955a946965a7daa1fd4c15e32b75e9b80bfd4 d6af49260a5f93aaf0e1cbc7a13528ed8df97356 Vel0x <DaleMyers19@gmail.com> 1384629158 +0000	commit: Routing works now
+d6af49260a5f93aaf0e1cbc7a13528ed8df97356 99e3c7ae4b63253fe59a77e409b77d6ab4288043 Vel0x <DaleMyers19@gmail.com> 1384703785 +0000	commit: APs are now in place
+99e3c7ae4b63253fe59a77e409b77d6ab4288043 9542e645be3863d6d5b40c0a882c0e2a7a669e28 Vel0x <DaleMyers19@gmail.com> 1384714473 +0000	commit: Has a 100km ethernet link to simulate delay to server

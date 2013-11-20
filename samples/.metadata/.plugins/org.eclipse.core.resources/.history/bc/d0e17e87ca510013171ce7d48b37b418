@@ -1,0 +1,12 @@
+
+packet DataPacket
+{
+    int uuid;
+    char busid;
+    string debugMessage;
+    bool serverClose;
+    
+    short temperature;
+    //TODO Add in more metrics here
+    
+}

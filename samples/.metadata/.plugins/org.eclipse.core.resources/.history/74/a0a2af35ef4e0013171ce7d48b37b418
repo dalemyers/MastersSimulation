@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<config>
+    <interface hosts='bus[*]' names='eth0' address='10.0.1.x' netmask='255.255.255.0'/>
+    <interface among='sink' address='10.0.2.x' netmask='255.255.255.0'/>
+    <route hosts='bus[*]' gateway='*' destination='10.0.2.0' netmask='255.255.255.0' interface='wlan0' />
+    <route hosts='sink' gateway='router>accessPoint' destination='10.0.2.0' netmask='255.255.255.0' />
+    <route hosts='wiredHost2' gateway='router>wiredHost2' destination='10.0.1.0' netmask='255.255.255.0' />
+</config>

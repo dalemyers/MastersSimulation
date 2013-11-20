@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<config>
+	<interface hosts='sink' interface='eth0' address='10.0.0.1' netmask='255.x.x.x'/>
+	<interface hosts='**' address='10.x.x.x' netmask='255.x.x.x'/>
+	<wireless hosts='**'/>
+</config>

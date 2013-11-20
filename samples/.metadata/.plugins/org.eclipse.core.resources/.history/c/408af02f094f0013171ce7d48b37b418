@@ -1,0 +1,10 @@
+package org.mixim.examples.Buses;
+
+simple APPositioner
+{
+    parameters:
+        @display("i=abstract/person");
+        double timeStep @unit("s") = default(1s); // the time granularity of movement calculation
+}
+
+

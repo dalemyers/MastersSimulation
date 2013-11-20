@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="23" version="2.0">
+<workbenchAdvisor/>
+<window height="871" maximized="true" width="1425" x="0" y="23">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout>
+<coolItem id="group.file" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="134" y="22"/>
+<coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="100" y="22"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="62" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="32" y="22"/>
+<coolItem id="org.omnetpp.neddoc.toolbars.neddocToolbar" itemType="typeToolBarContribution" x="32" y="22"/>
+<coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="264" y="22"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="152" y="22"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.omnetpp.scave.editors.ScaveEditor" itemType="typePlaceholder" x="346" y="22"/>
+<coolItem id="org.omnetpp.msg.editor.MsgEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.cdt.ui.editor.CEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.omnetpp.ned.editor" itemType="typeToolBarContribution" x="104" y="22"/>
+<coolItem id="org.omnetpp.inifile.editor.editors.InifileEditor" itemType="typeToolBarContribution" x="76" y="22"/>
+<coolItem id="org.eclipse.cdt.make.editor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="group.help" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
+</coolbarLayout>
+<page aggregateWorkingSetId="Aggregate for window 1383949681241" focus="true" label="Workspace - Simulation">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
+<part id="9"/>
+<part id="10"/>
+<part id="11"/>
+<part id="12"/>
+<part id="13"/>
+<part id="14"/>
+<part id="15"/>
+<part id="16"/>
+<part id="17"/>
+<part id="18"/>
+<part id="19"/>
+<part id="20"/>
+<part id="21"/>
+<part id="22"/>
+<part id="23"/>
+<part id="24"/>
+<part id="25"/>
+<part id="26"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor activePart="true" focus="true" id="org.omnetpp.inifile.editor.editors.InifileEditor" name="omnetpp.ini" partName="omnetpp.ini" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/MiXiM/examples/Buses/omnetpp.ini" title="omnetpp.ini" tooltip="MiXiM/examples/Buses/omnetpp.ini" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/MiXiM/examples/Buses/omnetpp.ini"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="BusChat.cc" partName="BusChat.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/MiXiM/examples/Buses/BusChat.cc" title="BusChat.cc" tooltip="MiXiM/examples/Buses/BusChat.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/MiXiM/examples/Buses/BusChat.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="64" selectionOffset="1188" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="APChatTCP.cc" partName="APChatTCP.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/APChatTCP.cc" title="APChatTCP.cc" tooltip="inet/src/applications/tcpapp/APChatTCP.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/APChatTCP.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2350" selectionTopPixel="812"/>
+</editor>
+<editor id="org.omnetpp.ned.editor" name="BusChatTCP.ned" partName="BusChatTCP.ned" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/BusChatTCP.ned" title="BusChatTCP.ned" tooltip="inet/src/applications/tcpapp/BusChatTCP.ned" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/BusChatTCP.ned"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="APChatTCP.h" partName="APChatTCP.h" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/APChatTCP.h" title="APChatTCP.h" tooltip="inet/src/applications/tcpapp/APChatTCP.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/APChatTCP.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="867" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="BusChatTCP.cc" partName="BusChatTCP.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/BusChatTCP.cc" title="BusChatTCP.cc" tooltip="inet/src/applications/tcpapp/BusChatTCP.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/BusChatTCP.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4273" selectionTopPixel="1644"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="BusChatTCP.h" partName="BusChatTCP.h" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/BusChatTCP.h" title="BusChatTCP.h" tooltip="inet/src/applications/tcpapp/BusChatTCP.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/BusChatTCP.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1123" selectionTopPixel="15"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="BusChatTCPLower.cc" partName="BusChatTCPLower.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/BusChatTCPLower.cc" title="BusChatTCPLower.cc" tooltip="inet/src/applications/tcpapp/BusChatTCPLower.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/BusChatTCPLower.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="9" selectionOffset="1436" selectionTopPixel="1355"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="BusChatTCPLower.h" partName="BusChatTCPLower.h" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/BusChatTCPLower.h" title="BusChatTCPLower.h" tooltip="inet/src/applications/tcpapp/BusChatTCPLower.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/BusChatTCPLower.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2324" selectionTopPixel="739"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="BusChat.h" partName="BusChat.h" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/MiXiM/examples/Buses/BusChat.h" title="BusChat.h" tooltip="MiXiM/examples/Buses/BusChat.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/MiXiM/examples/Buses/BusChat.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1939" selectionTopPixel="330"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TCPBasicClientApp.cc" partName="TCPBasicClientApp.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/TCPBasicClientApp.cc" title="TCPBasicClientApp.cc" tooltip="inet/src/applications/tcpapp/TCPBasicClientApp.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/TCPBasicClientApp.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3614" selectionTopPixel="1089"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TCPBasicClientApp.h" partName="TCPBasicClientApp.h" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/TCPBasicClientApp.h" title="TCPBasicClientApp.h" tooltip="inet/src/applications/tcpapp/TCPBasicClientApp.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/TCPBasicClientApp.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TCPGenericCliAppBase.cc" partName="TCPGenericCliAppBase.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/TCPGenericCliAppBase.cc" title="TCPGenericCliAppBase.cc" tooltip="inet/src/applications/tcpapp/TCPGenericCliAppBase.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/TCPGenericCliAppBase.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2965" selectionTopPixel="1215"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TCPGenericCliAppBase.h" partName="TCPGenericCliAppBase.h" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/TCPGenericCliAppBase.h" title="TCPGenericCliAppBase.h" tooltip="inet/src/applications/tcpapp/TCPGenericCliAppBase.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/TCPGenericCliAppBase.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="38" selectionOffset="2300" selectionTopPixel="737"/>
+</editor>
+<editor id="org.omnetpp.msg.editor.MsgEditor" name="GenericAppMsg.msg" partName="GenericAppMsg.msg" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/GenericAppMsg.msg" title="GenericAppMsg.msg" tooltip="inet/src/applications/tcpapp/GenericAppMsg.msg" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/GenericAppMsg.msg"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1513" selectionTopPixel="197"/>
+</editor>
+<editor id="org.omnetpp.ned.editor" name="APChatTCP.ned" partName="APChatTCP.ned" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/APChatTCP.ned" title="APChatTCP.ned" tooltip="inet/src/applications/tcpapp/APChatTCP.ned" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/APChatTCP.ned"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TCPCommand_m.h" partName="TCPCommand_m.h" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/transport/contract/TCPCommand_m.h" title="TCPCommand_m.h" tooltip="inet/src/transport/contract/TCPCommand_m.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/transport/contract/TCPCommand_m.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="6" selectionOffset="2481" selectionTopPixel="1380"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TelnetApp.cc" partName="TelnetApp.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/TelnetApp.cc" title="TelnetApp.cc" tooltip="inet/src/applications/tcpapp/TelnetApp.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/TelnetApp.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3808" selectionTopPixel="1436"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TCPConnectionUtil.cc" partName="TCPConnectionUtil.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/transport/tcp/TCPConnectionUtil.cc" title="TCPConnectionUtil.cc" tooltip="inet/src/transport/tcp/TCPConnectionUtil.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/transport/tcp/TCPConnectionUtil.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="16" selectionOffset="2576" selectionTopPixel="1035"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TCPEchoApp.cc" partName="TCPEchoApp.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/TCPEchoApp.cc" title="TCPEchoApp.cc" tooltip="inet/src/applications/tcpapp/TCPEchoApp.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/TCPEchoApp.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="10" selectionOffset="2618" selectionTopPixel="1215"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TCPGenericSrvApp.cc" partName="TCPGenericSrvApp.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/TCPGenericSrvApp.cc" title="TCPGenericSrvApp.cc" tooltip="inet/src/applications/tcpapp/TCPGenericSrvApp.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/TCPGenericSrvApp.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="10" selectionOffset="3134" selectionTopPixel="1275"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TCPSessionApp.cc" partName="TCPSessionApp.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/TCPSessionApp.cc" title="TCPSessionApp.cc" tooltip="inet/src/applications/tcpapp/TCPSessionApp.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/TCPSessionApp.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="10" selectionOffset="2071" selectionTopPixel="975"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TCPSinkApp.cc" partName="TCPSinkApp.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/TCPSinkApp.cc" title="TCPSinkApp.cc" tooltip="inet/src/applications/tcpapp/TCPSinkApp.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/TCPSinkApp.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="10" selectionOffset="1961" selectionTopPixel="645"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TCPCommand_m.cc" partName="TCPCommand_m.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/transport/contract/TCPCommand_m.cc" title="TCPCommand_m.cc" tooltip="inet/src/transport/contract/TCPCommand_m.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/transport/contract/TCPCommand_m.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="615" selectionOffset="1431" selectionTopPixel="525"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="HttpBrowser.cc" partName="HttpBrowser.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/httptools/HttpBrowser.cc" title="HttpBrowser.cc" tooltip="inet/src/applications/httptools/HttpBrowser.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/httptools/HttpBrowser.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="14" selectionOffset="9428" selectionTopPixel="3533"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="cownedobject.h" partName="cownedobject.h" title="cownedobject.h" tooltip="/Users/Velox/Downloads/omnetpp-4.3.1/include/cownedobject.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" path="/Users/Velox/Downloads/omnetpp-4.3.1/include/cownedobject.h" project="inet"/>
+<editorState selectionHorizontalPixel="0" selectionLength="14" selectionOffset="11108" selectionTopPixel="4605"/>
+</editor>
+<editor id="org.omnetpp.ned.editor" name="TCPBasicClientApp.ned" partName="TCPBasicClientApp.ned" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/TCPBasicClientApp.ned" title="TCPBasicClientApp.ned" tooltip="inet/src/applications/tcpapp/TCPBasicClientApp.ned" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/TCPBasicClientApp.ned"/>
+</editor>
+</editors>
+<views>
+<view id="org.omnetpp.inifile.ModuleHierarchy" partName="Module Hierarchy"/>
+<view id="org.eclipse.search.ui.views.SearchView" partName="Search">
+<viewState isPinned="false">
+<view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
+</viewState>
+</view>
+<view id="org.eclipse.debug.ui.DebugView" partName="Debug">
+<viewState/>
+</view>
+<view id="org.eclipse.cdt.debug.ui.executablesView" partName="Executables">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.VariableView" partName="Variables">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks"/>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
+<viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.cdt.ui.cview.groupincludes="false" org.eclipse.cdt.ui.cview.groupmacros="false" org.eclipse.cdt.ui.editor.CUChildren="true" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
+</view>
+<view id="org.eclipse.ui.views.PropertySheet" partName="Properties">
+<viewState/>
+</view>
+<view id="org.eclipse.cdt.ui.callHierarchy" partName="Call Hierarchy">
+<viewState showFilesInLabels="false" variableFilter="false"/>
+</view>
+<view id="org.eclipse.ui.views.ProblemView" partName="Problems">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Warnings (60 items)"/>
+<category IMemento.internal.id="Errors"/>
+</expanded>
+<columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="105" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.resourceField="105" org.eclipse.ui.ide.severityAndDescriptionField="489"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="org.omnetpp.inifile.NedInheritance" partName="NED Inheritance"/>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
+<view id="org.omnetpp.inifile.ModuleParameters" partName="NED Parameters">
+<viewState/>
+</view>
+<view id="org.eclipse.help.ui.HelpView" partName="Help">
+<viewState pageId="all-topics-page"/>
+</view>
+</views>
+<perspectives activePart="org.eclipse.cdt.ui.callHierarchy" activePerspective="org.omnetpp.main.OmnetppPerspective">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.omnetpp.ide.PerspectiveFactory" id="org.omnetpp.main.OmnetppPerspective" label="Simulation"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.omnetpp.ned.ActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.views.PropertySheet"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.ui.views.ProgressView"/>
+<show_view_action id="org.omnetpp.inifile.ModuleParameters"/>
+<show_view_action id="org.omnetpp.inifile.ModuleHierarchy"/>
+<show_view_action id="org.omnetpp.inifile.NedInheritance"/>
+<show_view_action id="org.omnetpp.scave.DatasetView"/>
+<show_view_action id="org.omnetpp.scave.VectorBrowserView"/>
+<show_view_action id="org.omnetpp.sequencechart.editors.SequenceChartView"/>
+<show_view_action id="org.omnetpp.eventlogtable.editors.EventLogTableView"/>
+<new_wizard_action id="org.omnetpp.main.wizards.NewOmnetppProject"/>
+<new_wizard_action id="org.omnetpp.cdt.wizards.NewOmnetppCCProject"/>
+<new_wizard_action id="org.omnetpp.ned.editor.wizards.NewSimulation"/>
+<new_wizard_action id="org.omnetpp.ned.editor.wizards.NewSimpleModule"/>
+<new_wizard_action id="org.omnetpp.ned.editor.wizards.NewCompoundModule"/>
+<new_wizard_action id="org.omnetpp.ned.editor.wizards.NewNetwork"/>
+<new_wizard_action id="org.omnetpp.ned.editor.wizards.NewNedFile"/>
+<new_wizard_action id="org.omnetpp.msg.editor.wizards.NewMsgFile"/>
+<new_wizard_action id="org.omnetpp.inifile.editor.wizards.NewIniFile"/>
+<new_wizard_action id="org.omnetpp.scave.wizards.NewScaveFile"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.file"/>
+<new_wizard_action id="org.eclipse.ui.editors.wizards.UntitledTextFileWizard"/>
+<new_wizard_action id="org.omnetpp.common.wizards.NewWizard"/>
+<new_wizard_action id="org.omnetpp.cdt.wizards.NewOmnetppClass"/>
+<perspective_action id="org.eclipse.cdt.ui.CPerspective"/>
+<perspective_action id="org.eclipse.ui.resourcePerspective"/>
+<perspective_action id="org.omnetpp.main.OmnetppPerspective"/>
+<hide_toolbar_item_id id="org.eclipse.debug.ui.commands.RunToLine"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.omnetpp.inifile.ModuleHierarchy"/>
+<view id="org.omnetpp.inifile.ModuleParameters"/>
+<view id="org.omnetpp.inifile.NedInheritance"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.PropertySheet"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<view id="org.eclipse.help.ui.HelpView"/>
+<view id="org.eclipse.search.ui.views.SearchView"/>
+<view id="org.eclipse.cdt.ui.callHierarchy"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="left">
+<folder activePageID="org.eclipse.ui.navigator.ProjectExplorer" appearance="2" expanded="2">
+<page content="org.eclipse.ui.navigator.ProjectExplorer" label="Project Explorer"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@2b2c81" ratio="0.803359" ratioLeft="1148" ratioRight="281" relationship="2" relative="left">
+<folder activePageID="org.eclipse.cdt.ui.callHierarchy" appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="Help"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
+<page content="org.eclipse.cdt.ui.callHierarchy" label="Call Hierarchy"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+</presentation>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.24104804" ratioLeft="276" ratioRight="869" relationship="2" relative="left"/>
+<info folder="true" part="bottom" ratio="0.66412216" ratioLeft="522" ratioRight="264" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="org.omnetpp.inifile.ModuleHierarchy" label="Module Hierarchy"/>
+<page content="org.omnetpp.inifile.ModuleParameters" label="NED Parameters"/>
+<page content="org.omnetpp.inifile.NedInheritance" label="NED Inheritance"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.omnetpp.main.NewVersionView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="leftbottom" ratio="0.49926794" ratioLeft="341" ratioRight="342" relationship="4" relative="left">
+<folder activePageID="org.eclipse.ui.views.PropertySheet" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.eclipse.debug.internal.ui.DebugPerspectiveFactory" id="org.eclipse.debug.ui.DebugPerspective" label="Debug"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.omnetpp.ned.ActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.cdt.debug.ui.debugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
+<show_view_action id="org.eclipse.debug.ui.DebugView"/>
+<show_view_action id="org.eclipse.debug.ui.VariableView"/>
+<show_view_action id="org.eclipse.debug.ui.BreakpointView"/>
+<show_view_action id="org.eclipse.debug.ui.ExpressionView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.cdt.debug.ui.SignalsView"/>
+<show_view_action id="org.eclipse.debug.ui.RegisterView"/>
+<show_view_action id="org.eclipse.debug.ui.ModuleView"/>
+<show_view_action id="org.eclipse.debug.ui.MemoryView"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="org.eclipse.cdt.debug.ui.executablesView"/>
+<show_view_action id="org.eclipse.cdt.dsf.gdb.ui.tracecontrol.view"/>
+<show_view_action id="org.eclipse.cdt.dsf.debug.ui.disassembly.view"/>
+<show_view_action id="org.eclipse.pde.runtime.LogView"/>
+<perspective_action id="org.eclipse.cdt.ui.CPerspective"/>
+<perspective_action id="org.omnetpp.main.OmnetppPerspective"/>
+<hide_toolbar_item_id id="org.eclipse.debug.ui.commands.RunToLine"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.cdt.debug.ui.executablesView"/>
+<view id="org.eclipse.debug.ui.DebugView"/>
+<view id="org.eclipse.debug.ui.VariableView"/>
+<view id="org.eclipse.debug.ui.BreakpointView"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<view id="org.eclipse.help.ui.HelpView"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@530b56" ratio="0.75" ratioLeft="1074" ratioRight="358" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.help.ui.HelpView" appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="Help"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+<page content="org.eclipse.debug.ui.MemoryView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.7490494" ratioLeft="591" ratioRight="198" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="org.eclipse.cdt.debug.ui.executablesView" label="Executables"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+</presentation>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.44839254" ratioLeft="265" ratioRight="326" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.75" ratioLeft="1074" ratioRight="358" relationship="2" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<page content="org.eclipse.cdt.dsf.gdb.ui.tracecontrol.view" label="LabelNotFound"/>
+<page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.5" ratioLeft="716" ratioRight="716" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
+<page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
+<page content="org.eclipse.debug.ui.ExpressionView" label="LabelNotFound"/>
+<page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
+<page content="org.eclipse.cdt.debug.ui.SignalsView" label="LabelNotFound"/>
+<page content="org.eclipse.debug.ui.ModuleView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.inifile.editor.editors.InifileEditor" path="/MiXiM/examples/Buses/omnetpp.ini"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/tcpapp/APChatTCP.cc"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.msg.editor.MsgEditor" path="/inet/src/applications/tcpapp/GenericAppMsg.msg"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor" path="/inet/src/applications/tcpapp/BusChatTCP.ned"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor" path="/inet/src/applications/tcpapp/APChatTCP.ned"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/transport/contract/TCPCommand_m.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor" path="/inet/src/applications/tcpapp/TCPEchoApp.ned"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor" path="/inet/src/applications/tcpapp/TelnetApp.ned"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor" path="/inet/src/applications/tcpapp/TCPBasicClientApp.ned"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor" path="/inet/src/applications/sctpapp/SCTPClient.ned"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor" path="/inet/src/applications/dhcp/DHCPClient.ned"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/tcpapp/BusChatTCP.cc"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/tcpapp/BusChatTCPLower.cc"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/tcpapp/TCPBasicClientApp.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/tcpapp/TCPBasicClientApp.cc"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/tcpapp/TCPGenericCliAppBase.cc"/>
+</editors>
+<item historyLabel="omnetpp.ini" index="0"/>
+<item historyLabel="APChatTCP.cc" index="1">
+<position info="not_deleted" x="2630" y="0"/>
+</item>
+<item historyLabel="omnetpp.ini" index="0"/>
+<item historyLabel="APChatTCP.cc" index="1">
+<position info="not_deleted" x="2233" y="0"/>
+</item>
+<item historyLabel="omnetpp.ini" index="0"/>
+<item historyLabel="APChatTCP.cc" index="1">
+<position info="not_deleted" x="2233" y="0"/>
+</item>
+<item historyLabel="APChatTCP.cc" index="1">
+<position info="not_deleted" x="2438" y="0"/>
+</item>
+<item historyLabel="omnetpp.ini" index="0"/>
+<item historyLabel="APChatTCP.cc" index="1">
+<position info="not_deleted" x="2438" y="0"/>
+</item>
+<item historyLabel="GenericAppMsg.msg" index="2">
+<position info="not_deleted" x="1513" y="0"/>
+</item>
+<item historyLabel="omnetpp.ini" index="0"/>
+<item historyLabel="APChatTCP.cc" index="1">
+<position info="not_deleted" x="2506" y="0"/>
+</item>
+<item historyLabel="omnetpp.ini" index="0"/>
+<item historyLabel="APChatTCP.cc" index="1">
+<position info="not_deleted" x="2630" y="0"/>
+</item>
+<item historyLabel="BusChatTCP.ned" index="3"/>
+<item historyLabel="APChatTCP.ned" index="4"/>
+<item historyLabel="omnetpp.ini" index="0"/>
+<item historyLabel="APChatTCP.cc" index="1">
+<position info="not_deleted" x="2083" y="0"/>
+</item>
+<item historyLabel="TCPCommand_m.h" index="5">
+<position info="not_deleted" x="2481" y="6"/>
+</item>
+<item historyLabel="APChatTCP.ned" index="4"/>
+<item historyLabel="BusChatTCP.ned" index="3"/>
+<item historyLabel="APChatTCP.cc" index="1">
+<position info="not_deleted" x="2823" y="0"/>
+</item>
+<item historyLabel="omnetpp.ini" index="0"/>
+<item historyLabel="APChatTCP.cc" index="1">
+<position info="not_deleted" x="2823" y="0"/>
+</item>
+<item historyLabel="TCPEchoApp.ned" index="6"/>
+<item historyLabel="TelnetApp.ned" index="7"/>
+<item historyLabel="TCPBasicClientApp.ned" index="8"/>
+<item historyLabel="SCTPClient.ned" index="9"/>
+<item historyLabel="DHCPClient.ned" index="10"/>
+<item historyLabel="SCTPClient.ned" index="9"/>
+<item historyLabel="TCPBasicClientApp.ned" index="8"/>
+<item historyLabel="TelnetApp.ned" index="7"/>
+<item historyLabel="omnetpp.ini" index="0"/>
+<item historyLabel="APChatTCP.cc" index="1">
+<position info="not_deleted" x="2350" y="0"/>
+</item>
+<item historyLabel="omnetpp.ini" index="0"/>
+<item historyLabel="BusChatTCP.ned" index="3"/>
+<item historyLabel="BusChatTCP.cc" index="11">
+<position info="not_deleted" x="4273" y="0"/>
+</item>
+<item historyLabel="BusChatTCPLower.cc" index="12">
+<position info="not_deleted" x="1436" y="9"/>
+</item>
+<item historyLabel="omnetpp.ini" index="0"/>
+<item historyLabel="APChatTCP.ned" index="4"/>
+<item historyLabel="omnetpp.ini" index="0"/>
+<item historyLabel="BusChatTCP.ned" index="3"/>
+<item historyLabel="TCPBasicClientApp.h" index="13">
+<position info="not_deleted" x="3" y="0"/>
+</item>
+<item historyLabel="TCPBasicClientApp.cc" index="14">
+<position info="not_deleted" x="3614" y="0"/>
+</item>
+<item historyLabel="TCPGenericCliAppBase.cc" index="15">
+<position info="not_deleted" x="2965" y="0"/>
+</item>
+<item historyLabel="omnetpp.ini" index="0"/>
+<item historyLabel="TCPBasicClientApp.ned" index="8"/>
+<item historyLabel="omnetpp.ini" index="0"/>
+<item historyLabel="TCPBasicClientApp.ned" index="8"/>
+<item active="true" historyLabel="omnetpp.ini" index="0"/>
+</navigationHistory>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor.launcher" name="TCPBasicClientApp.ned" tooltip="inet/src/applications/tcpapp/TCPBasicClientApp.ned">
+<persistable path="/inet/src/applications/tcpapp/TCPBasicClientApp.ned"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor.launcher" name="DHCPClient.ned" tooltip="inet/src/applications/dhcp/DHCPClient.ned">
+<persistable path="/inet/src/applications/dhcp/DHCPClient.ned"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor.launcher" name="SCTPClient.ned" tooltip="inet/src/applications/sctpapp/SCTPClient.ned">
+<persistable path="/inet/src/applications/sctpapp/SCTPClient.ned"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor.launcher" name="TelnetApp.ned" tooltip="inet/src/applications/tcpapp/TelnetApp.ned">
+<persistable path="/inet/src/applications/tcpapp/TelnetApp.ned"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor.launcher" name="TCPEchoApp.ned" tooltip="inet/src/applications/tcpapp/TCPEchoApp.ned">
+<persistable path="/inet/src/applications/tcpapp/TCPEchoApp.ned"/>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="cownedobject.h" tooltip="/Users/Velox/Downloads/omnetpp-4.3.1/include/cownedobject.h">
+<persistable path="/Users/Velox/Downloads/omnetpp-4.3.1/include/cownedobject.h" project="inet"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="GenericAppMsg_m.h" tooltip="inet/src/applications/tcpapp/GenericAppMsg_m.h">
+<persistable path="/inet/src/applications/tcpapp/GenericAppMsg_m.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="GenericAppMsg_m.cc" tooltip="inet/src/applications/tcpapp/GenericAppMsg_m.cc">
+<persistable path="/inet/src/applications/tcpapp/GenericAppMsg_m.cc"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="cmessage.cc" tooltip="/Users/Velox/Downloads/omnetpp-4.3.1/src/sim/cmessage.cc">
+<persistable uri="file:/Users/Velox/Downloads/omnetpp-4.3.1/src/sim/cmessage.cc"/>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="cmessage.h" tooltip="/Users/Velox/Downloads/omnetpp-4.3.1/include/cmessage.h">
+<persistable path="/Users/Velox/Downloads/omnetpp-4.3.1/include/cmessage.h" project="inet"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="tcpstate.png" tooltip="inet/src/transport/tcp/tcpstate.png">
+<persistable path="/inet/src/transport/tcp/tcpstate.png"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="HttpBrowser.cc" tooltip="inet/src/applications/httptools/HttpBrowser.cc">
+<persistable path="/inet/src/applications/httptools/HttpBrowser.cc"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="TCPCommand_m.cc" tooltip="inet/src/transport/contract/TCPCommand_m.cc">
+<persistable path="/inet/src/transport/contract/TCPCommand_m.cc"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="TCPSocket.cc" tooltip="inet/src/transport/contract/TCPSocket.cc">
+<persistable path="/inet/src/transport/contract/TCPSocket.cc"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="TCPSinkApp.cc" tooltip="inet/src/applications/tcpapp/TCPSinkApp.cc">
+<persistable path="/inet/src/applications/tcpapp/TCPSinkApp.cc"/>
+</file>
+</mruList>
+</workbench>

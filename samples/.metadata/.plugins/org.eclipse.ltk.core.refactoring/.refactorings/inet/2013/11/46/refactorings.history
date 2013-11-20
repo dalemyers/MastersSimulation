@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;inet/examples/wireless/wiredandwirelesshostswithaptest/WiredAndWirelessHostsWithAP.ned&apos; to &apos;WiredAndWirelessHostsWithAPTest.ned&apos;" description="Rename resource &apos;WiredAndWirelessHostsWithAP.ned&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="examples/wireless/wiredandwirelesshostswithaptest/WiredAndWirelessHostsWithAP.ned" name="WiredAndWirelessHostsWithAPTest.ned" stamp="1384627888462" updateReferences="true"/>
+</session>

@@ -1,0 +1,19 @@
+
+#ifndef __INET_BUSCHATTCP_H
+#define __INET_BUSCHATTCP_H
+
+#include "INETDefs.h"
+
+#include "TCPBasicClientApp.h"
+#include "ILifecycle.h"
+
+/**
+ * An example request-reply based client application.
+ */
+class INET_API BusChatTCP : public TCPBasicClientApp, public ILifecycle
+{
+
+};
+
+#endif
+
