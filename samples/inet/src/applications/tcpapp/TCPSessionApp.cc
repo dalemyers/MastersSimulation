@@ -129,8 +129,7 @@ cPacket* TCPSessionApp::genDataMsg(long sendBytes)
         case TCP_TRANSFER_BYTECOUNT:
         case TCP_TRANSFER_OBJECT:
         {
-            cPacket *msg = NULL;
-            msg = new cPacket("data1");
+            GenericAppMsg *msg = new GenericAppMsg("data1");
             msg->setByteLength(sendBytes);
             return msg;
         }

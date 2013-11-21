@@ -16,6 +16,7 @@
 
 #include "INETDefs.h"
 #include "TCPSocket.h"
+#include "DataPacket_m.h"
 
 /**
  * Base class for clients app for TCP-based request-reply protocols or apps.
@@ -37,6 +38,7 @@ class INET_API TCPGenericCliAppBase : public cSimpleModule, public TCPSocket::Ca
     int packetsRcvd;
     int bytesSent;
     int bytesRcvd;
+    int seqNumber;
 
     //statistics:
     static simsignal_t connectSignal;

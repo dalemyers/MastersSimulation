@@ -1,6 +1,8 @@
-11:36:25 **** Incremental Build of configuration gcc-debug for project inet ****
+22:24:11 **** Incremental Build of configuration gcc-debug for project inet ****
 make MODE=debug CONFIGNAME=gcc-debug all 
 cd src && make
+applications/udpapp/UDPBasicApp.cc
+Creating shared library: ../out/gcc-debug/src/libinet.dylib
 
-11:36:25 Build Finished (took 234ms)
+22:24:14 Build Finished (took 3s.425ms)
 

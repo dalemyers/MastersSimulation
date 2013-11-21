@@ -46,6 +46,8 @@ void TCPBasicClientApp::initialize(int stage)
     WATCH(numRequestsToSend);
     WATCH(earlySend);
 
+    sequenceNumber = 0;
+
     startTime = par("startTime");
     stopTime = par("stopTime");
     if (stopTime >= SIMTIME_ZERO && stopTime < startTime)
@@ -123,17 +125,16 @@ void TCPBasicClientApp::handleTimer(cMessage *msg)
             EV << "starting session\n";
             connect(); // active OPEN
 
-            // significance of earlySend: if true, data will be sent already
-            // in the ACK of SYN, otherwise only in a separate packet (but still
-            // immediately)
-            if (earlySend)
-                sendRequest();
             break;
 
         case MSGKIND_SEND:
             printf("Sending Message\n");
            sendRequest();
            numRequestsToSend--;
+           if(numRequestsToSend > 0){
+               scheduleAt(simTime()+0.0005,msg);
+           }
+           printf("Num: %d\n",numRequestsToSend);
            // no scheduleAt(): next request will be sent when reply to this one
            // arrives (see socketDataArrived())
            break;
@@ -150,12 +151,13 @@ void TCPBasicClientApp::socketEstablished(int connId, void *ptr)
 
     // determine number of requests in this session
     numRequestsToSend = (long) par("numRequestsPerSession");
+    printf("Original Requests to Send: %d\n",numRequestsToSend);
     if (numRequestsToSend < 1)
         numRequestsToSend = 1;
 
-    // perform first request if not already done (next one will be sent when reply arrives)
-    if (!earlySend)
-        sendRequest();
+    cMessage *sendMsg = new cMessage("timeout");
+    sendMsg->setKind(MSGKIND_SEND);
+    scheduleAt(simTime()+0.001,sendMsg);
 
     numRequestsToSend--;
 }

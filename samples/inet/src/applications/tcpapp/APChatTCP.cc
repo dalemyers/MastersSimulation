@@ -72,7 +72,7 @@ void APChatTCP::handleMessage(cMessage *msg)
         //printf("Received packet");
         if(dynamic_cast<GenericAppMsg *>(msg)){
             GenericAppMsg *m = check_and_cast<GenericAppMsg *>(msg);
-            printf("generic message: \n");
+            printf("Bus: %d\n",m->getBusid());
         } else if(dynamic_cast<DataPacket *>(msg)){
             DataPacket *p = check_and_cast<DataPacket *>(msg);
             printf("SINK RECEIVED MESSAGE %d FROM BUS %d\n",p->getUuid(),p->getBusid());

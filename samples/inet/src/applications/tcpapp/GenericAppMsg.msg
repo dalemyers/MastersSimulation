@@ -40,7 +40,10 @@ packet GenericAppMsg
     bool serverClose;        // with TCP: if true, server should close the
                              // connection after sending the reply
     
-    short temperature;
+    short busid;
+    int sequenceNumber;
+    
+    //Don't need any other data really as we don't actually care about temperature, pressure, position, etc.
 }
 
 

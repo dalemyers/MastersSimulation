@@ -21,11 +21,13 @@
 #define __INET_UDPBASICAPP_H
 
 #include <vector>
+#include <queue>
 
 #include "INETDefs.h"
 
 #include "AppBase.h"
 #include "UDPSocket.h"
+#include "DataPacket_m.h"
 
 
 /**
@@ -34,14 +36,20 @@
 class INET_API UDPBasicApp : public AppBase
 {
   protected:
-    enum SelfMsgKinds { START = 1, SEND, STOP };
+    enum SelfMsgKinds { START = 1, SEND, STOP, TIMEOUT };
 
     UDPSocket socket;
     int localPort, destPort;
     std::vector<IPvXAddress> destAddresses;
+    std::queue<DataPacket*> packetQueue;
     simtime_t startTime;
     simtime_t stopTime;
     cMessage *selfMsg;
+    cMessage *addData;
+    cMessage *timeoutMsg;
+    int lastSend;
+    int sequenceNumber;
+    int id;
 
     // statistics
     int numSent;
@@ -65,9 +73,9 @@ class INET_API UDPBasicApp : public AppBase
     virtual void initialize(int stage);
     virtual void handleMessageWhenUp(cMessage *msg);
     virtual void finish();
-
+    DataPacket* copyPacket(DataPacket* p);
+    DataPacket* generateMessage(char* debugString);
     virtual void processStart();
-    virtual void processSend();
     virtual void processStop();
 
     //AppBase:

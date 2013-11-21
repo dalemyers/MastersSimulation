@@ -23,6 +23,7 @@
 #include "IPvXAddressResolver.h"
 #include "NodeOperations.h"
 #include "UDPControlInfo_m.h"
+#include "DataPacket_m.h"
 
 
 Define_Module(UDPBasicApp);
@@ -50,6 +51,8 @@ void UDPBasicApp::initialize(int stage)
     {
         numSent = 0;
         numReceived = 0;
+        sequenceNumber = 0;
+        lastSend = -1;
         WATCH(numSent);
         WATCH(numReceived);
         sentPkSignal = registerSignal("sentPk");
@@ -62,6 +65,11 @@ void UDPBasicApp::initialize(int stage)
         if (stopTime >= SIMTIME_ZERO && stopTime < startTime)
             error("Invalid startTime/stopTime parameters");
         selfMsg = new cMessage("sendTimer");
+        addData = new cMessage("addData");
+        timeoutMsg = new cMessage("timeout");
+
+        cModule* p = this->getParentModule();
+        id = p->par("id");
     }
 }
 
@@ -107,22 +115,50 @@ IPvXAddress UDPBasicApp::chooseDestAddr()
     return destAddresses[k];
 }
 
+DataPacket* UDPBasicApp::copyPacket(DataPacket * p){
+    printf("Copy packet\n");
+    DataPacket* msg = new DataPacket();
+    msg->setDebugMessage(p->getDebugMessage());
+    msg->setTimestamp(p->getTimestamp());
+    msg->setTemperature(p->getTemperature());
+    msg->setBusid(p->getBusid());
+    msg->setUuid(p->getUuid());
+    return msg;
+}
+
+DataPacket* UDPBasicApp::generateMessage(char* debugString){
+    printf("Generating packet\n");
+    DataPacket* msg = new DataPacket();
+    msg->setDebugMessage(debugString);
+    msg->setTimestamp(simTime());
+    msg->setTemperature(4);
+    msg->setBusid(id);
+    msg->setUuid(sequenceNumber++);
+    return msg;
+}
+
 void UDPBasicApp::sendPacket()
 {
-    char msgName[32];
-    sprintf(msgName, "UDPBasicAppData-%d", numSent);
-    cPacket *payload = new cPacket(msgName);
-    payload->setByteLength(par("messageLength").longValue());
-
-    IPvXAddress destAddr = chooseDestAddr();
-
-    emit(sentPkSignal, payload);
-    socket.sendTo(payload, destAddr, destPort);
-    numSent++;
+    printf("sendPacket()\n");
+    if(!packetQueue.empty()){
+        DataPacket *p = copyPacket(packetQueue.front());
+        printf("Sending packet with sequence %d\n",p->getUuid());
+        IPvXAddress destAddr = chooseDestAddr();
+        lastSend = p->getUuid();
+        p->removeControlInfo();
+        emit(sentPkSignal, p);
+        socket.sendTo(p, destAddr, destPort);
+        numSent++;
+        scheduleAt(simTime()+0.5,timeoutMsg);
+        printf("Timeout scheduled in 0.5s\n");
+    } else {
+        printf("Packet queue empty\n");
+    }
 }
 
 void UDPBasicApp::processStart()
 {
+    printf("processStart()\n");
     socket.setOutputGate(gate("udpOut"));
     socket.bind(localPort);
     setSocketOptions();
@@ -140,61 +176,54 @@ void UDPBasicApp::processStart()
             destAddresses.push_back(result);
     }
 
-    if (!destAddresses.empty())
-    {
-        selfMsg->setKind(SEND);
-        processSend();
-    }
-    else
-    {
-        if (stopTime >= SIMTIME_ZERO)
-        {
-            selfMsg->setKind(STOP);
-            scheduleAt(stopTime, selfMsg);
-        }
-    }
 }
 
-void UDPBasicApp::processSend()
-{
-    sendPacket();
-    simtime_t d = simTime() + par("sendInterval").doubleValue();
-    if (stopTime < SIMTIME_ZERO || d < stopTime)
-    {
-        selfMsg->setKind(SEND);
-        scheduleAt(d, selfMsg);
-    }
-    else
-    {
-        selfMsg->setKind(STOP);
-        scheduleAt(stopTime, selfMsg);
-    }
-}
 
 void UDPBasicApp::processStop()
 {
     socket.close();
 }
 
+
 void UDPBasicApp::handleMessageWhenUp(cMessage *msg)
 {
+    printf("handleMessage\n");
     if (msg->isSelfMessage())
     {
-        ASSERT(msg == selfMsg);
-        switch (selfMsg->getKind()) {
-            case START: processStart(); break;
-            case SEND:  processSend(); break;
-            case STOP:  processStop(); break;
-            default: throw cRuntimeError("Invalid kind %d in self message", (int)selfMsg->getKind());
+        printf("isSelfMessage()\n");
+        if(msg == selfMsg){
+            printf("Got self message\n");
+            switch (selfMsg->getKind()) {
+                case START:     processStart(); break;
+                case SEND:      sendPacket(); break;
+                case STOP:      processStop(); break;
+                default: throw cRuntimeError("Invalid kind %d in self message", (int)selfMsg->getKind());
+            }
+        } else if (msg == addData) {
+            printf("Adding data\n");
+            DataPacket *p = generateMessage((char*)"debugstr");
+            packetQueue.push(p);
+            if(packetQueue.size() == 1){
+                sendPacket();
+            }
+            scheduleAt(simTime()+1,addData);
+            printf("Adding data in 1 second\n");
+        } else if (msg == timeoutMsg){
+            printf("Packet timed out. Resending\n");
+            sendPacket();
+        } else {
+            printf("GOT WEIRD MESSAGE\n");
         }
     }
     else if (msg->getKind() == UDP_I_DATA)
     {
+        printf("DATA\n");
         // process incoming packet
         processPacket(PK(msg));
     }
     else if (msg->getKind() == UDP_I_ERROR)
     {
+        printf("Error\n");
         EV << "Ignoring UDP error report\n";
         delete msg;
     }
@@ -213,35 +242,66 @@ void UDPBasicApp::handleMessageWhenUp(cMessage *msg)
 
 void UDPBasicApp::processPacket(cPacket *pk)
 {
+    printf("processPacket()\n");
     emit(rcvdPkSignal, pk);
     EV << "Received packet: " << UDPSocket::getReceivedPacketInfo(pk) << endl;
-    delete pk;
     numReceived++;
+    if(dynamic_cast<DataPacket *>(pk)){
+        DataPacket *p = check_and_cast<DataPacket *>(pk);
+        printf("Got packet response: %d\n",p->getUuid());
+        if(p->getUuid() == lastSend){
+            cancelEvent(timeoutMsg);
+            printf("Was valid sequence. Timeout cancelled.\n");
+            if (selfMsg){
+                cancelEvent(selfMsg);
+                printf("cancelled self message\n");
+            }
+            DataPacket *old = packetQueue.front();
+            packetQueue.pop();
+            delete old;
+            sendPacket();
+        } else {
+            printf("Incorrect sequence number: %d. Ignoring. \n",p->getUuid());
+        }
+    }
+    delete pk;
 }
 
 bool UDPBasicApp::startApp(IDoneCallback *doneCallback)
 {
+    printf("startApp()\n");
     simtime_t start = std::max(startTime, simTime());
     if ((stopTime < SIMTIME_ZERO) || (start < stopTime) || (start == stopTime && startTime == stopTime))
     {
         selfMsg->setKind(START);
         scheduleAt(start, selfMsg);
+        printf("Scheduled start\n");
     }
+    scheduleAt(start+1, addData);
+    printf("Scheduled first data gather\n");
     return true;
 }
 
 bool UDPBasicApp::stopApp(IDoneCallback *doneCallback)
 {
-    if (selfMsg)
+    printf("stopApp()\n");
+    if (selfMsg){
         cancelEvent(selfMsg);
+        cancelEvent(timeoutMsg);
+        cancelEvent(addData);
+    }
     //TODO if(socket.isOpened()) socket.close();
     return true;
 }
 
 bool UDPBasicApp::crashApp(IDoneCallback *doneCallback)
 {
-    if (selfMsg)
+    printf("crashApp()\n");
+    if (selfMsg){
         cancelEvent(selfMsg);
+        cancelEvent(timeoutMsg);
+        cancelEvent(addData);
+    }
     return true;
 }
 

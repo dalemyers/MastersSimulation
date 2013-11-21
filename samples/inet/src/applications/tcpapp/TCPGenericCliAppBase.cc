@@ -28,7 +28,7 @@ void TCPGenericCliAppBase::initialize(int stage)
     if (stage != 3)
         return;
 
-    numSessions = numBroken = packetsSent = packetsRcvd = bytesSent = bytesRcvd = 0;
+    numSessions = numBroken = packetsSent = packetsRcvd = bytesSent = bytesRcvd = seqNumber = 0;
 
     //statistics
     connectSignal = registerSignal("connect");
@@ -96,10 +96,16 @@ void TCPGenericCliAppBase::close()
 
 void TCPGenericCliAppBase::sendPacket(int numBytes, int expectedReplyBytes, bool serverClose)
 {
+    /*DataPacket *msg = new DataPacket("daasdasata");
+    msg->setBusid(2123);
+    msg->setUuid(999);*/
+
     GenericAppMsg *msg = new GenericAppMsg("daasdasata");
     msg->setByteLength(numBytes);
     msg->setExpectedReplyLength(expectedReplyBytes);
     msg->setServerClose(serverClose);
+    msg->setBusid(0);
+    msg->setSequenceNumber(seqNumber++);
 
     emit(sentPkSignal, msg);
     socket.send(msg);

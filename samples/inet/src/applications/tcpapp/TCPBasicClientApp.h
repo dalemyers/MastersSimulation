@@ -32,6 +32,7 @@ class INET_API TCPBasicClientApp : public TCPGenericCliAppBase, public ILifecycl
     int numRequestsToSend; // requests to send in this session
     simtime_t startTime;
     simtime_t stopTime;
+    int sequenceNumber;
 
     /** Utility: sends a request to the server */
     virtual void sendRequest();

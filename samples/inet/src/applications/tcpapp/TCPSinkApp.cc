@@ -17,6 +17,7 @@
 #include "ModuleAccess.h"
 #include "NodeStatus.h"
 #include "TCPSocket.h"
+#include "GenericAppMsg_m.h"
 
 
 
@@ -64,10 +65,16 @@ void TCPSinkApp::handleMessage(cMessage *msg)
     }
     else if (msg->getKind() == TCP_I_DATA || msg->getKind() == TCP_I_URGENT_DATA)
     {
-        printf("Received packet");
+        printf("Received packet\n");
         cPacket *pk = PK(msg);
         long packetLength = pk->getByteLength();
         bytesRcvd += packetLength;
+
+        if(dynamic_cast<GenericAppMsg *>(msg)){
+            GenericAppMsg *m = check_and_cast<GenericAppMsg *>(msg);
+            printf("Bus: %d Seq: %d\n",m->getBusid(),m->getSequenceNumber());
+        }
+
         emit(rcvdPkSignal, pk);
         delete msg;
 

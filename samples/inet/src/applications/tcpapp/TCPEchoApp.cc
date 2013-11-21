@@ -18,6 +18,7 @@
 #include "TCPCommand_m.h"
 #include "ModuleAccess.h"
 #include "NodeOperations.h"
+#include "GenericAppMsg_m.h"
 
 Define_Module(TCPEchoApp);
 
@@ -105,6 +106,13 @@ void TCPEchoApp::handleMessage(cMessage *msg)
         cPacket *pkt = check_and_cast<cPacket *>(msg);
         emit(rcvdPkSignal, pkt);
         bytesRcvd += pkt->getByteLength();
+
+        printf("Bytes received: %ll\n",bytesRcvd);
+
+        if(dynamic_cast<GenericAppMsg *>(msg)){
+            GenericAppMsg *m = check_and_cast<GenericAppMsg *>(msg);
+            printf("Received packet from bus: %d with seq num: %d\n",m->getBusid(),m->getSequenceNumber());
+        }
 
         if (echoFactor == 0)
         {
