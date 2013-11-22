@@ -1,10 +1,6 @@
-15:37:12 **** Incremental Build of configuration gcc-debug for project inet ****
+20:06:15 **** Incremental Build of configuration gcc-debug for project inet ****
 make MODE=debug CONFIGNAME=gcc-debug all 
 cd src && make
-applications/udpapp/UDPEchoApp.cc
-applications/udpapp/UDPEchoApp.cc: In member function 'virtual void UDPEchoApp::handleMessageWhenUp(cMessage*)':
-applications/udpapp/UDPEchoApp.cc:60: warning: deprecated conversion from string constant to 'char*'
-Creating shared library: ../out/gcc-debug/src/libinet.dylib
 
-15:37:17 Build Finished (took 4s.498ms)
+20:06:16 Build Finished (took 237ms)
 
