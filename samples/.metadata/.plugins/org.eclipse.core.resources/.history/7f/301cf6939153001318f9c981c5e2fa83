@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<config>
+        <interface hosts='bus[*]' address='10.0.1.x' netmask='255.255.255.0'/>
+        <interface hosts='switch' names='*' address='10.0.1.x' netmask='255.255.255.0'/>
+		<interface hosts='sinkRouter' names='*' address='10.0.1.x' netmask='255.255.255.0'/>
+        <interface among='sinkRouter switch sink' address='10.0.2.x' netmask='255.255.255.0'/>
+        <route hosts='bus[*]' gateway='switch>ap[*]' destination='10.0.2.0' netmask='255.255.255.0' interface='wlan0' />
+		<route hosts='ap[*]' gateway='sinkRouter>switch' destination='10.0.2.0' netmask='255.255.255.0' interface='wlan0' />
+        <route hosts='sink' gateway='sinkRouter>sink' destination='10.0.1.0' netmask='255.255.255.0' />
+    </config>

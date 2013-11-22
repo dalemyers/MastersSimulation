@@ -41,20 +41,18 @@ network LothianBusNet
         sink: Sink {
             @display("p=6700,7000;i=device/server_l");
         }
-        router[numAps]: Router {
-            @display("p=6600,6900");
-        }
-        sinkRouter: Router {
+        router: Router {
             @display("p=6600,6900");
         }
         bus[numHosts]: Bus;
+        etherSwitch: EtherSwitch {
+            @display("p=360,208;b=59,51");
+        }
     connections allowunconnected:
         for i=0..numAps-1 {
-            ap[i].ethg++ <--> Eth100M100km <--> router[i].ethg++;
-            sinkRouter.ethg++ <--> Eth100M <--> router[i].ethg++;
+            ap[i].ethg++ <--> Eth100M100km <--> etherSwitch.ethg++;
         }
-		sink.ethg++ <--> Eth100M <--> sinkRouter.ethg++;
-        
+        sink.ethg++ <--> Eth100M <--> router.ethg++;
 }
 
 

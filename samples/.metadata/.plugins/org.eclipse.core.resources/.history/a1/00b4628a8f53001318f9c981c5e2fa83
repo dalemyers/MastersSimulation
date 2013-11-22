@@ -44,16 +44,12 @@ network LothianBusNet
         router[numAps]: Router {
             @display("p=6600,6900");
         }
-        sinkRouter: Router {
-            @display("p=6600,6900");
-        }
         bus[numHosts]: Bus;
     connections allowunconnected:
         for i=0..numAps-1 {
             ap[i].ethg++ <--> Eth100M100km <--> router[i].ethg++;
-            sinkRouter.ethg++ <--> Eth100M <--> router[i].ethg++;
+            sink.ethg++ <--> Eth100M <--> router[i].ethg++;
         }
-		sink.ethg++ <--> Eth100M <--> sinkRouter.ethg++;
         
 }
 

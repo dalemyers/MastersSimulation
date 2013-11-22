@@ -6,5 +6,5 @@
         <interface among='sinkRouter router[*] sink' address='10.0.2.x' netmask='255.255.255.0'/>
         <route hosts='bus[*]' gateway='router[*]>ap[*]' destination='10.0.2.0' netmask='255.255.255.0' interface='wlan0' />
 		<route hosts='ap[*]' gateway='sinkRouter>router[*]' destination='10.0.2.0' netmask='255.255.255.0' interface='wlan0' />
-        <route hosts='sink' gateway='sinkRouter>sink' destination='10.0.1.0' netmask='255.255.255.0' />
+        <route hosts='sink' gateway='router[*]>sink' destination='10.0.1.0' netmask='255.255.255.0' />
     </config>

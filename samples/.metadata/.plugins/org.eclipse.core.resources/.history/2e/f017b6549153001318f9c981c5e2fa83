@@ -41,7 +41,7 @@ network LothianBusNet
         sink: Sink {
             @display("p=6700,7000;i=device/server_l");
         }
-        router[numAps]: Router {
+        switch[numAps]: EtherSwitch {
             @display("p=6600,6900");
         }
         sinkRouter: Router {

@@ -25085,9 +25085,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 716
-Bus: 0, Packet: 436, Timediff: 716
-Bus: 0, Packet: 436, Timediff: 716
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25095,7 +25092,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 716
 handleMessage
 isSelfMessage()
 Adding data
@@ -25108,7 +25104,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 717
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25116,28 +25111,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 717
-handleMessage
-isSelfMessage()
-Adding data
-Generating packet
-Adding data in 1 second
-handleMessage
-isSelfMessage()
-Packet timed out. Resending
-sendPacket()
-Copy packet
-Sending packet with sequence 436
-Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 718
-handleMessage
-isSelfMessage()
-Packet timed out. Resending
-sendPacket()
-Copy packet
-Sending packet with sequence 436
-Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 718
 handleMessage
 isSelfMessage()
 Adding data
@@ -25150,7 +25123,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 719
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25158,28 +25130,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 719
-handleMessage
-isSelfMessage()
-Adding data
-Generating packet
-Adding data in 1 second
-handleMessage
-isSelfMessage()
-Packet timed out. Resending
-sendPacket()
-Copy packet
-Sending packet with sequence 436
-Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 720
-handleMessage
-isSelfMessage()
-Packet timed out. Resending
-sendPacket()
-Copy packet
-Sending packet with sequence 436
-Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 720
 handleMessage
 isSelfMessage()
 Adding data
@@ -25192,7 +25142,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 721
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25200,7 +25149,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 721
 handleMessage
 isSelfMessage()
 Adding data
@@ -25213,7 +25161,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 722
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25221,7 +25168,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 722
 handleMessage
 isSelfMessage()
 Adding data
@@ -25234,7 +25180,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 723
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25242,7 +25187,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 723
 handleMessage
 isSelfMessage()
 Adding data
@@ -25255,7 +25199,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 724
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25263,7 +25206,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 724
 handleMessage
 isSelfMessage()
 Adding data
@@ -25276,7 +25218,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 725
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25284,7 +25225,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 725
 handleMessage
 isSelfMessage()
 Adding data
@@ -25297,7 +25237,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 726
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25305,7 +25244,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 726
 handleMessage
 isSelfMessage()
 Adding data
@@ -25318,7 +25256,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 727
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25326,7 +25263,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 727
 handleMessage
 isSelfMessage()
 Adding data
@@ -25339,7 +25275,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 728
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25347,7 +25282,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 728
 handleMessage
 isSelfMessage()
 Adding data
@@ -25360,7 +25294,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 729
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25368,7 +25301,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 729
 handleMessage
 isSelfMessage()
 Adding data
@@ -25381,7 +25313,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 730
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25389,7 +25320,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 730
 handleMessage
 isSelfMessage()
 Adding data
@@ -25402,7 +25332,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 731
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25410,7 +25339,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 731
 handleMessage
 isSelfMessage()
 Adding data
@@ -25423,7 +25351,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 732
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25431,7 +25358,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 732
 handleMessage
 isSelfMessage()
 Adding data
@@ -25444,7 +25370,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 733
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25452,7 +25377,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 733
 handleMessage
 isSelfMessage()
 Adding data
@@ -25465,7 +25389,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 734
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25473,7 +25396,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 734
 handleMessage
 isSelfMessage()
 Adding data
@@ -25486,7 +25408,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 735
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25494,7 +25415,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 735
 handleMessage
 isSelfMessage()
 Adding data
@@ -25507,7 +25427,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 736
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25515,7 +25434,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 736
 handleMessage
 isSelfMessage()
 Adding data
@@ -25528,7 +25446,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 737
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25536,7 +25453,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 737
 handleMessage
 isSelfMessage()
 Adding data
@@ -25549,7 +25465,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 738
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25557,7 +25472,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 738
 handleMessage
 isSelfMessage()
 Adding data
@@ -25570,7 +25484,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 739
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25578,7 +25491,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 739
 handleMessage
 isSelfMessage()
 Adding data
@@ -25591,7 +25503,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 740
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25599,7 +25510,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 740
 handleMessage
 isSelfMessage()
 Adding data
@@ -25612,7 +25522,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 741
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25620,7 +25529,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 741
 handleMessage
 isSelfMessage()
 Adding data
@@ -25633,7 +25541,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 742
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25641,7 +25548,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 742
 handleMessage
 isSelfMessage()
 Adding data
@@ -25654,7 +25560,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 743
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25662,7 +25567,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 743
 handleMessage
 isSelfMessage()
 Adding data
@@ -25675,7 +25579,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 744
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25683,7 +25586,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 744
 handleMessage
 isSelfMessage()
 Adding data
@@ -25696,7 +25598,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 745
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25704,7 +25605,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 745
 handleMessage
 isSelfMessage()
 Adding data
@@ -25717,7 +25617,6 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 746
 handleMessage
 isSelfMessage()
 Packet timed out. Resending
@@ -25725,102 +25624,4 @@ sendPacket()
 Copy packet
 Sending packet with sequence 436
 Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 746
-handleMessage
-isSelfMessage()
-Adding data
-Generating packet
-Adding data in 1 second
-handleMessage
-isSelfMessage()
-Packet timed out. Resending
-sendPacket()
-Copy packet
-Sending packet with sequence 436
-Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 747
-handleMessage
-isSelfMessage()
-Packet timed out. Resending
-sendPacket()
-Copy packet
-Sending packet with sequence 436
-Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 747
-handleMessage
-isSelfMessage()
-Adding data
-Generating packet
-Adding data in 1 second
-handleMessage
-isSelfMessage()
-Packet timed out. Resending
-sendPacket()
-Copy packet
-Sending packet with sequence 436
-Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 748
-handleMessage
-isSelfMessage()
-Packet timed out. Resending
-sendPacket()
-Copy packet
-Sending packet with sequence 436
-Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 748
-handleMessage
-isSelfMessage()
-Adding data
-Generating packet
-Adding data in 1 second
-handleMessage
-isSelfMessage()
-Packet timed out. Resending
-sendPacket()
-Copy packet
-Sending packet with sequence 436
-Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 749
-handleMessage
-isSelfMessage()
-Packet timed out. Resending
-sendPacket()
-Copy packet
-Sending packet with sequence 436
-Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 749
-handleMessage
-isSelfMessage()
-Adding data
-Generating packet
-Adding data in 1 second
-handleMessage
-isSelfMessage()
-Packet timed out. Resending
-sendPacket()
-Copy packet
-Sending packet with sequence 436
-Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 750
-handleMessage
-isSelfMessage()
-Packet timed out. Resending
-sendPacket()
-Copy packet
-Sending packet with sequence 436
-Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 750
-handleMessage
-isSelfMessage()
-Adding data
-Generating packet
-Adding data in 1 second
-handleMessage
-isSelfMessage()
-Packet timed out. Resending
-sendPacket()
-Copy packet
-Sending packet with sequence 436
-Timeout scheduled in 0.5s
-Bus: 0, Packet: 436, Timediff: 751
 stopApp()
