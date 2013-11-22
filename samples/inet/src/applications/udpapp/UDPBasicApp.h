@@ -28,6 +28,7 @@
 #include "AppBase.h"
 #include "UDPSocket.h"
 #include "DataPacket_m.h"
+#include "Logger.h"
 
 
 /**

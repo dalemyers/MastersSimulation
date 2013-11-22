@@ -23,6 +23,7 @@
 
 #include "AppBase.h"
 #include "UDPSocket.h"
+#include "Logger.h"
 
 /**
  * UDP application. See NED for more info.

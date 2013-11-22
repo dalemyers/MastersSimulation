@@ -18,6 +18,7 @@
 
 #include "UDPEchoApp.h"
 #include "UDPControlInfo_m.h"
+#include "DataPacket_m.h"
 
 
 Define_Module(UDPEchoApp);
@@ -51,18 +52,26 @@ void UDPEchoApp::handleMessageWhenUp(cMessage *msg)
     else if (msg->getKind() == UDP_I_DATA)
     {
         cPacket *pk = PK(msg);
-        // statistics
-        numEchoed++;
-        emit(pkSignal, pk);
 
-        // determine its source address/port
-        UDPDataIndication *ctrl = check_and_cast<UDPDataIndication *>(pk->removeControlInfo());
-        IPvXAddress srcAddress = ctrl->getSrcAddr();
-        int srcPort = ctrl->getSrcPort();
-        delete ctrl;
+        if(dynamic_cast<DataPacket *>(pk)){
+            DataPacket *p = check_and_cast<DataPacket *>(pk);
+            simtime_t diff = simTime() - p->getTimestamp();
+            int seconds = diff.inUnit(SIMTIME_S);
+            Logger::getInstance().fprintf("Bus: %d, Packet: %d, Timediff: %d\n",p->getBusid(),p->getUuid(),seconds);
 
-        // send back
-        socket.sendTo(pk, srcAddress, srcPort);
+            // statistics
+            numEchoed++;
+            emit(pkSignal, pk);
+
+            // determine its source address/port
+            UDPDataIndication *ctrl = check_and_cast<UDPDataIndication *>(pk->removeControlInfo());
+            IPvXAddress srcAddress = ctrl->getSrcAddr();
+            int srcPort = ctrl->getSrcPort();
+            delete ctrl;
+
+            // send back
+            socket.sendTo(pk, srcAddress, srcPort);
+        }
 
         if (ev.isGUI())
             updateDisplay();

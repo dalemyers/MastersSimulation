@@ -116,7 +116,7 @@ IPvXAddress UDPBasicApp::chooseDestAddr()
 }
 
 DataPacket* UDPBasicApp::copyPacket(DataPacket * p){
-    printf("Copy packet\n");
+    Logger::getInstance().fprintf("Copy packet\n");
     DataPacket* msg = new DataPacket();
     msg->setDebugMessage(p->getDebugMessage());
     msg->setTimestamp(p->getTimestamp());
@@ -127,7 +127,7 @@ DataPacket* UDPBasicApp::copyPacket(DataPacket * p){
 }
 
 DataPacket* UDPBasicApp::generateMessage(char* debugString){
-    printf("Generating packet\n");
+    Logger::getInstance().fprintf("Generating packet\n");
     DataPacket* msg = new DataPacket();
     msg->setDebugMessage(debugString);
     msg->setTimestamp(simTime());
@@ -139,10 +139,10 @@ DataPacket* UDPBasicApp::generateMessage(char* debugString){
 
 void UDPBasicApp::sendPacket()
 {
-    printf("sendPacket()\n");
+    Logger::getInstance().fprintf("sendPacket()\n");
     if(!packetQueue.empty()){
         DataPacket *p = copyPacket(packetQueue.front());
-        printf("Sending packet with sequence %d\n",p->getUuid());
+        Logger::getInstance().fprintf("Sending packet with sequence %d\n",p->getUuid());
         IPvXAddress destAddr = chooseDestAddr();
         lastSend = p->getUuid();
         p->removeControlInfo();
@@ -150,15 +150,15 @@ void UDPBasicApp::sendPacket()
         socket.sendTo(p, destAddr, destPort);
         numSent++;
         scheduleAt(simTime()+0.5,timeoutMsg);
-        printf("Timeout scheduled in 0.5s\n");
+        Logger::getInstance().fprintf("Timeout scheduled in 0.5s\n");
     } else {
-        printf("Packet queue empty\n");
+        Logger::getInstance().fprintf("Packet queue empty\n");
     }
 }
 
 void UDPBasicApp::processStart()
 {
-    printf("processStart()\n");
+    Logger::getInstance().fprintf("processStart()\n");
     socket.setOutputGate(gate("udpOut"));
     socket.bind(localPort);
     setSocketOptions();
@@ -187,12 +187,12 @@ void UDPBasicApp::processStop()
 
 void UDPBasicApp::handleMessageWhenUp(cMessage *msg)
 {
-    printf("handleMessage\n");
+    Logger::getInstance().fprintf("handleMessage\n");
     if (msg->isSelfMessage())
     {
-        printf("isSelfMessage()\n");
+        Logger::getInstance().fprintf("isSelfMessage()\n");
         if(msg == selfMsg){
-            printf("Got self message\n");
+            Logger::getInstance().fprintf("Got self message\n");
             switch (selfMsg->getKind()) {
                 case START:     processStart(); break;
                 case SEND:      sendPacket(); break;
@@ -200,30 +200,30 @@ void UDPBasicApp::handleMessageWhenUp(cMessage *msg)
                 default: throw cRuntimeError("Invalid kind %d in self message", (int)selfMsg->getKind());
             }
         } else if (msg == addData) {
-            printf("Adding data\n");
+            Logger::getInstance().fprintf("Adding data\n");
             DataPacket *p = generateMessage((char*)"debugstr");
             packetQueue.push(p);
             if(packetQueue.size() == 1){
                 sendPacket();
             }
             scheduleAt(simTime()+1,addData);
-            printf("Adding data in 1 second\n");
+            Logger::getInstance().fprintf("Adding data in 1 second\n");
         } else if (msg == timeoutMsg){
-            printf("Packet timed out. Resending\n");
+            Logger::getInstance().fprintf("Packet timed out. Resending\n");
             sendPacket();
         } else {
-            printf("GOT WEIRD MESSAGE\n");
+            Logger::getInstance().fprintf("GOT WEIRD MESSAGE\n");
         }
     }
     else if (msg->getKind() == UDP_I_DATA)
     {
-        printf("DATA\n");
+        Logger::getInstance().fprintf("DATA\n");
         // process incoming packet
         processPacket(PK(msg));
     }
     else if (msg->getKind() == UDP_I_ERROR)
     {
-        printf("Error\n");
+        Logger::getInstance().fprintf("Error\n");
         EV << "Ignoring UDP error report\n";
         delete msg;
     }
@@ -242,49 +242,50 @@ void UDPBasicApp::handleMessageWhenUp(cMessage *msg)
 
 void UDPBasicApp::processPacket(cPacket *pk)
 {
-    printf("processPacket()\n");
+    Logger::getInstance().fprintf("processPacket()\n");
     emit(rcvdPkSignal, pk);
     EV << "Received packet: " << UDPSocket::getReceivedPacketInfo(pk) << endl;
     numReceived++;
     if(dynamic_cast<DataPacket *>(pk)){
         DataPacket *p = check_and_cast<DataPacket *>(pk);
-        printf("Got packet response: %d\n",p->getUuid());
+        Logger::getInstance().fprintf("Got packet response: %d\n",p->getUuid());
         if(p->getUuid() == lastSend){
             cancelEvent(timeoutMsg);
-            printf("Was valid sequence. Timeout cancelled.\n");
+            Logger::getInstance().fprintf("Was valid sequence. Timeout cancelled.\n");
             if (selfMsg){
                 cancelEvent(selfMsg);
-                printf("cancelled self message\n");
+                Logger::getInstance().fprintf("cancelled self message\n");
             }
             DataPacket *old = packetQueue.front();
             packetQueue.pop();
             delete old;
             sendPacket();
         } else {
-            printf("Incorrect sequence number: %d. Ignoring. \n",p->getUuid());
+            Logger::getInstance().fprintf("Incorrect sequence number: %d. Ignoring. \n",p->getUuid());
         }
+        p = NULL;
     }
     delete pk;
 }
 
 bool UDPBasicApp::startApp(IDoneCallback *doneCallback)
 {
-    printf("startApp()\n");
+    Logger::getInstance().fprintf("startApp()\n");
     simtime_t start = std::max(startTime, simTime());
     if ((stopTime < SIMTIME_ZERO) || (start < stopTime) || (start == stopTime && startTime == stopTime))
     {
         selfMsg->setKind(START);
         scheduleAt(start, selfMsg);
-        printf("Scheduled start\n");
+        Logger::getInstance().fprintf("Scheduled start\n");
     }
     scheduleAt(start+1, addData);
-    printf("Scheduled first data gather\n");
+    Logger::getInstance().fprintf("Scheduled first data gather\n");
     return true;
 }
 
 bool UDPBasicApp::stopApp(IDoneCallback *doneCallback)
 {
-    printf("stopApp()\n");
+    Logger::getInstance().fprintf("stopApp()\n");
     if (selfMsg){
         cancelEvent(selfMsg);
         cancelEvent(timeoutMsg);
@@ -296,7 +297,7 @@ bool UDPBasicApp::stopApp(IDoneCallback *doneCallback)
 
 bool UDPBasicApp::crashApp(IDoneCallback *doneCallback)
 {
-    printf("crashApp()\n");
+    Logger::getInstance().fprintf("crashApp()\n");
     if (selfMsg){
         cancelEvent(selfMsg);
         cancelEvent(timeoutMsg);
