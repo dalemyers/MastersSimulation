@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="24" version="2.0">
+<workbench progressCount="30" version="2.0">
 <workbenchAdvisor/>
 <window height="871" maximized="true" width="1425" x="0" y="23">
 <fastViewData fastViewLocation="1024"/>
@@ -15,7 +15,7 @@
 <coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="32" y="22"/>
 <coolItem id="org.omnetpp.neddoc.toolbars.neddocToolbar" itemType="typeToolBarContribution" x="32" y="22"/>
 <coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="264" y="22"/>
+<coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="152" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
@@ -99,6 +99,9 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Warnings (60 items)"/>
+</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="105" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.resourceField="105" org.eclipse.ui.ide.severityAndDescriptionField="489"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -121,7 +124,7 @@
 <viewState pageId="all-topics-page"/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.ui.navigator.ProjectExplorer" activePerspective="org.omnetpp.main.OmnetppPerspective">
+<perspectives activePart="org.omnetpp.scave.editors.ScaveEditor" activePerspective="org.omnetpp.main.OmnetppPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.omnetpp.ide.PerspectiveFactory" id="org.omnetpp.main.OmnetppPerspective" label="Simulation"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -285,38 +288,27 @@
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.eclipse.help.ui.HelpView"/>
 <fastViewBars/>
-<layout>
-<mainWindow>
-<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
-<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@530b56" ratio="0.75" ratioLeft="1074" ratioRight="358" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.help.ui.HelpView" appearance="2" expanded="2">
-<page content="org.eclipse.help.ui.HelpView" label="Help"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@530b56" ratio="0.75" ratioLeft="1074" ratioRight="358" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.help.ui.HelpView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="Help"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.MemoryView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.7490494" ratioLeft="591" ratioRight="198" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
-<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.7490494" ratioLeft="591" ratioRight="198" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.cdt.debug.ui.executablesView" label="Executables"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
@@ -324,26 +316,20 @@
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.44839254" ratioLeft="265" ratioRight="326" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
-<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.75" ratioLeft="1074" ratioRight="358" relationship="2" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.75" ratioLeft="1074" ratioRight="358" relationship="2" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.cdt.dsf.gdb.ui.tracecontrol.view" label="LabelNotFound"/>
 <page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.5" ratioLeft="716" ratioRight="716" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">
-<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.5" ratioLeft="716" ratioRight="716" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
 <page content="org.eclipse.debug.ui.ExpressionView" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
 <page content="org.eclipse.cdt.debug.ui.SignalsView" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.ModuleView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 <part id="1"/>
 </presentation>
 </folder>
@@ -358,7 +344,6 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/udpapp/UDPBasicApp.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/udpapp/UDPBasicApp.cc"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.inifile.editor.editors.InifileEditor" path="/MiXiM/examples/Buses/omnetpp.ini"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/MiXiM/examples/Buses/configurator.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor" path="/MiXiM/examples/Buses/LothianBusNet.ned"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor" path="/inet/src/applications/udpapp/UDPBasicApp.ned"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor" path="/inet/src/applications/udpapp/UDPBasicApp.ned"/>
@@ -367,14 +352,9 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/udpapp/UDPBasicApp.cc"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/AppBase.cc"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.scave.editors.ScaveEditor" path="/MiXiM/examples/Buses/General.anf"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.inifile.editor.editors.InifileEditor" path="/MiXiM/examples/Buses/omnetpp.ini"/>
 </editors>
-<item historyLabel="configurator.xml" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="UDPBasicApp.cc" index="1">
-<position info="not_deleted" x="1509" y="0"/>
-</item>
-<item historyLabel="LothianBusNet.ned" index="4"/>
+<item historyLabel="LothianBusNet.ned" index="3"/>
 <item historyLabel="UDPBasicApp.cc" index="1">
 <position info="not_deleted" x="2118" y="0"/>
 </item>
@@ -384,7 +364,7 @@
 <item historyLabel="UDPBasicApp.cc" index="1">
 <position info="not_deleted" x="2257" y="0"/>
 </item>
-<item historyLabel="UDPBasicApp.ned" index="5"/>
+<item historyLabel="UDPBasicApp.ned" index="4"/>
 <item historyLabel="omnetpp.ini" index="2"/>
 <item historyLabel="UDPBasicApp.cc" index="1">
 <position info="not_deleted" x="1943" y="0"/>
@@ -398,98 +378,104 @@
 <item historyLabel="omnetpp.ini" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="UDPBasicApp.ned" index="6"/>
+<item historyLabel="UDPBasicApp.ned" index="5"/>
 <item historyLabel="omnetpp.ini" index="2"/>
-<item historyLabel="UDPBasicApp.h" index="7">
+<item historyLabel="UDPBasicApp.h" index="6">
 <position info="not_deleted" x="1504" y="7"/>
 </item>
-<item historyLabel="UDPBasicBurst.cc" index="8">
+<item historyLabel="UDPBasicBurst.cc" index="7">
 <position info="not_deleted" x="3" y="0"/>
 </item>
-<item historyLabel="UDPBasicApp.h" index="7">
+<item historyLabel="UDPBasicApp.h" index="6">
 <position info="not_deleted" x="1388" y="7"/>
 </item>
 <item historyLabel="omnetpp.ini" index="2"/>
-<item historyLabel="UDPBasicApp.cc" index="9">
+<item historyLabel="UDPBasicApp.cc" index="8">
 <position info="not_deleted" x="1943" y="0"/>
 </item>
-<item historyLabel="UDPBasicApp.cc" index="9">
+<item historyLabel="UDPBasicApp.cc" index="8">
 <position info="not_deleted" x="9885" y="0"/>
 </item>
-<item historyLabel="UDPBasicApp.cc" index="9">
+<item historyLabel="UDPBasicApp.cc" index="8">
 <position info="not_deleted" x="10135" y="0"/>
 </item>
 <item historyLabel="omnetpp.ini" index="2"/>
-<item historyLabel="UDPBasicApp.cc" index="9">
+<item historyLabel="UDPBasicApp.cc" index="8">
 <position info="not_deleted" x="10135" y="0"/>
 </item>
 <item historyLabel="omnetpp.ini" index="2"/>
-<item historyLabel="UDPBasicApp.cc" index="9">
+<item historyLabel="UDPBasicApp.cc" index="8">
 <position info="not_deleted" x="10135" y="0"/>
 </item>
-<item historyLabel="UDPBasicApp.cc" index="9">
+<item historyLabel="UDPBasicApp.cc" index="8">
 <position/>
 </item>
-<item historyLabel="UDPBasicApp.cc" index="9">
+<item historyLabel="UDPBasicApp.cc" index="8">
 <position info="not_deleted" x="9982" y="0"/>
 </item>
 <item historyLabel="omnetpp.ini" index="2"/>
-<item historyLabel="UDPBasicApp.cc" index="9">
+<item historyLabel="UDPBasicApp.cc" index="8">
 <position info="not_deleted" x="9982" y="0"/>
 </item>
 <item historyLabel="omnetpp.ini" index="2"/>
-<item historyLabel="UDPBasicApp.cc" index="9">
+<item historyLabel="UDPBasicApp.cc" index="8">
 <position info="not_deleted" x="9355" y="0"/>
 </item>
 <item historyLabel="omnetpp.ini" index="2"/>
-<item historyLabel="UDPBasicApp.cc" index="9">
+<item historyLabel="UDPBasicApp.cc" index="8">
 <position info="not_deleted" x="9355" y="0"/>
 </item>
-<item historyLabel="UDPBasicApp.cc" index="9">
+<item historyLabel="UDPBasicApp.cc" index="8">
 <position info="not_deleted" x="9702" y="0"/>
 </item>
 <item historyLabel="omnetpp.ini" index="2"/>
-<item historyLabel="UDPBasicApp.cc" index="9">
+<item historyLabel="UDPBasicApp.cc" index="8">
 <position info="not_deleted" x="9854" y="0"/>
 </item>
-<item historyLabel="AppBase.cc" index="10">
+<item historyLabel="AppBase.cc" index="9">
 <position info="not_deleted" x="1939" y="0"/>
 </item>
 <item historyLabel="omnetpp.ini" index="2"/>
-<item historyLabel="UDPBasicApp.cc" index="9">
+<item historyLabel="UDPBasicApp.cc" index="8">
 <position info="not_deleted" x="9854" y="0"/>
 </item>
-<item historyLabel="UDPBasicApp.cc" index="9">
+<item historyLabel="UDPBasicApp.cc" index="8">
 <position info="not_deleted" x="9806" y="0"/>
 </item>
-<item historyLabel="UDPBasicApp.cc" index="9">
+<item historyLabel="UDPBasicApp.cc" index="8">
 <position info="not_deleted" x="9839" y="0"/>
 </item>
-<item historyLabel="UDPBasicApp.cc" index="9">
+<item historyLabel="UDPBasicApp.cc" index="8">
 <position info="not_deleted" x="9703" y="27"/>
 </item>
 <item historyLabel="omnetpp.ini" index="2"/>
-<item historyLabel="UDPBasicApp.cc" index="9">
+<item historyLabel="UDPBasicApp.cc" index="8">
 <position info="not_deleted" x="9897" y="0"/>
 </item>
 <item historyLabel="omnetpp.ini" index="2"/>
-<item historyLabel="General.anf Inputs" index="11">
+<item historyLabel="General.anf Inputs" index="10">
 <position PageID="Inputs" Text="General.anf Inputs">
 <PageMemento/>
 </position>
 </item>
-<item historyLabel="General.anf Inputs" index="11">
+<item historyLabel="General.anf Inputs" index="10">
 <position PageID="Inputs" Text="General.anf Inputs">
 <PageMemento/>
 </position>
 </item>
 <item historyLabel="omnetpp.ini" index="2"/>
-<item historyLabel="General.anf Inputs" index="11">
+<item historyLabel="General.anf Inputs" index="10">
 <position PageID="Inputs" Text="General.anf Inputs">
 <PageMemento/>
 </position>
 </item>
-<item active="true" historyLabel="General.anf Inputs" index="11">
+<item historyLabel="General.anf Inputs" index="10">
+<position PageID="Inputs" Text="General.anf Inputs">
+<PageMemento/>
+</position>
+</item>
+<item historyLabel="omnetpp.ini" index="11"/>
+<item active="true" historyLabel="General.anf Inputs" index="10">
 <position PageID="Inputs" Text="General.anf Inputs">
 <PageMemento/>
 </position>

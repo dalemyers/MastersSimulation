@@ -1,9 +1,0 @@
-package org.mixim.examples.Buses;
-
-simple APPositioner
-{
-    parameters:
-        @display("i=abstract/person");
-}
-
-
