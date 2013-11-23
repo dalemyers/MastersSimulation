@@ -57,7 +57,7 @@ void UDPEchoApp::handleMessageWhenUp(cMessage *msg)
             DataPacket *p = check_and_cast<DataPacket *>(pk);
             simtime_t diff = simTime() - p->getTimestamp();
             int seconds = diff.inUnit(SIMTIME_S);
-            Logger::getInstance().info("Bus: %d, Packet: %d, Timediff: %d\n",p->getBusid(),p->getUuid(),seconds);
+            Logger::getInstance().fprintf("Bus: %d, Packet: %d, Timediff: %d\n",p->getBusid(),p->getUuid(),seconds);
 
             // statistics
             numEchoed++;

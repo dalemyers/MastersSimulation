@@ -39,14 +39,6 @@ UDPBasicApp::UDPBasicApp()
 UDPBasicApp::~UDPBasicApp()
 {
     cancelAndDelete(selfMsg);
-    cancelAndDelete(timeoutMsg);
-    cancelAndDelete(addData);
-    Logger::getInstance().info("Bus %d ending with %d packets in queue\n",id,packetQueue.size());
-    while(packetQueue.size() > 0){
-        DataPacket *p = packetQueue.front();
-        packetQueue.pop();
-        delete p;
-    }
 }
 
 void UDPBasicApp::initialize(int stage)
@@ -57,19 +49,15 @@ void UDPBasicApp::initialize(int stage)
     // address auto-assignment takes place etc.
     if (stage == 0)
     {
-        Logger::getInstance().setLevel(Logger::INFO);
         numSent = 0;
-        numDropped = 0;
         numReceived = 0;
         sequenceNumber = 0;
         lastSend = -1;
         WATCH(numSent);
-        WATCH(numDropped);
         WATCH(numReceived);
         sentPkSignal = registerSignal("sentPk");
         rcvdPkSignal = registerSignal("rcvdPk");
 
-        queueSize = par("queueSize");
         localPort = par("localPort");
         destPort = par("destPort");
         startTime = par("startTime").doubleValue();
@@ -87,8 +75,7 @@ void UDPBasicApp::initialize(int stage)
 
 void UDPBasicApp::finish()
 {
-    recordScalar("packets generated", numSent);
-    recordScalar("packets dropped",numDropped);
+    recordScalar("packets sent", numSent);
     recordScalar("packets received", numReceived);
     AppBase::finish();
 }
@@ -129,7 +116,7 @@ IPvXAddress UDPBasicApp::chooseDestAddr()
 }
 
 DataPacket* UDPBasicApp::copyPacket(DataPacket * p){
-    Logger::getInstance().trace("Copy packet\n");
+    Logger::getInstance().fprintf("Copy packet\n");
     DataPacket* msg = new DataPacket();
     msg->setDebugMessage(p->getDebugMessage());
     msg->setTimestamp(p->getTimestamp());
@@ -140,7 +127,7 @@ DataPacket* UDPBasicApp::copyPacket(DataPacket * p){
 }
 
 DataPacket* UDPBasicApp::generateMessage(char* debugString){
-    Logger::getInstance().trace("Generating packet\n");
+    Logger::getInstance().fprintf("Generating packet\n");
     DataPacket* msg = new DataPacket();
     msg->setDebugMessage(debugString);
     msg->setTimestamp(simTime());
@@ -152,25 +139,26 @@ DataPacket* UDPBasicApp::generateMessage(char* debugString){
 
 void UDPBasicApp::sendPacket()
 {
-    Logger::getInstance().trace("sendPacket()\n");
+    Logger::getInstance().fprintf("sendPacket()\n");
     if(!packetQueue.empty()){
         DataPacket *p = copyPacket(packetQueue.front());
-        Logger::getInstance().info("Bus %d Sending packet with sequence %d\n",id,p->getUuid());
+        Logger::getInstance().fprintf("Sending packet with sequence %d\n",p->getUuid());
         IPvXAddress destAddr = chooseDestAddr();
         lastSend = p->getUuid();
         p->removeControlInfo();
         emit(sentPkSignal, p);
         socket.sendTo(p, destAddr, destPort);
+        numSent++;
         scheduleAt(simTime()+0.5,timeoutMsg);
-        Logger::getInstance().trace("Timeout scheduled in 0.5s\n");
+        Logger::getInstance().fprintf("Timeout scheduled in 0.5s\n");
     } else {
-        Logger::getInstance().trace("Packet queue empty\n");
+        Logger::getInstance().fprintf("Packet queue empty\n");
     }
 }
 
 void UDPBasicApp::processStart()
 {
-    Logger::getInstance().trace("processStart()\n");
+    Logger::getInstance().fprintf("processStart()\n");
     socket.setOutputGate(gate("udpOut"));
     socket.bind(localPort);
     setSocketOptions();
@@ -196,33 +184,15 @@ void UDPBasicApp::processStop()
     socket.close();
 }
 
-void UDPBasicApp::addPacketToQueue(DataPacket *p){
-    Logger::getInstance().info("Bus %d generated packet\n",id);
-    numSent++;
-    packetQueue.push(p);
-    if(queueSize != -1){
-        if(packetQueue.size() > queueSize){
-            DataPacket *old = packetQueue.front();
-            packetQueue.pop();
-            delete old;
-            numDropped++;
-            Logger::getInstance().info("Bus %d dropped packet\n",id);
-        }
-    }
-    if(packetQueue.size() == 1){
-        sendPacket();
-    }
-}
-
 
 void UDPBasicApp::handleMessageWhenUp(cMessage *msg)
 {
-    Logger::getInstance().trace("handleMessage\n");
+    Logger::getInstance().fprintf("handleMessage\n");
     if (msg->isSelfMessage())
     {
-        Logger::getInstance().trace("isSelfMessage()\n");
+        Logger::getInstance().fprintf("isSelfMessage()\n");
         if(msg == selfMsg){
-            Logger::getInstance().trace("Got self message\n");
+            Logger::getInstance().fprintf("Got self message\n");
             switch (selfMsg->getKind()) {
                 case START:     processStart(); break;
                 case SEND:      sendPacket(); break;
@@ -230,27 +200,30 @@ void UDPBasicApp::handleMessageWhenUp(cMessage *msg)
                 default: throw cRuntimeError("Invalid kind %d in self message", (int)selfMsg->getKind());
             }
         } else if (msg == addData) {
-            Logger::getInstance().trace("Adding data\n");
+            Logger::getInstance().fprintf("Adding data\n");
             DataPacket *p = generateMessage((char*)"debugstr");
-            addPacketToQueue(p);
+            packetQueue.push(p);
+            if(packetQueue.size() == 1){
+                sendPacket();
+            }
             scheduleAt(simTime()+1,addData);
-            Logger::getInstance().trace("Adding data in 1 second\n");
+            Logger::getInstance().fprintf("Adding data in 1 second\n");
         } else if (msg == timeoutMsg){
-            Logger::getInstance().trace("Packet timed out. Resending\n");
+            Logger::getInstance().fprintf("Packet timed out. Resending\n");
             sendPacket();
         } else {
-            Logger::getInstance().error("GOT WEIRD MESSAGE\n");
+            Logger::getInstance().fprintf("GOT WEIRD MESSAGE\n");
         }
     }
     else if (msg->getKind() == UDP_I_DATA)
     {
-        Logger::getInstance().trace("DATA\n");
+        Logger::getInstance().fprintf("DATA\n");
         // process incoming packet
         processPacket(PK(msg));
     }
     else if (msg->getKind() == UDP_I_ERROR)
     {
-        Logger::getInstance().error("Error\n");
+        Logger::getInstance().fprintf("Error\n");
         EV << "Ignoring UDP error report\n";
         delete msg;
     }
@@ -269,26 +242,26 @@ void UDPBasicApp::handleMessageWhenUp(cMessage *msg)
 
 void UDPBasicApp::processPacket(cPacket *pk)
 {
-    Logger::getInstance().trace("processPacket()\n");
+    Logger::getInstance().fprintf("processPacket()\n");
     emit(rcvdPkSignal, pk);
     EV << "Received packet: " << UDPSocket::getReceivedPacketInfo(pk) << endl;
     numReceived++;
     if(dynamic_cast<DataPacket *>(pk)){
         DataPacket *p = check_and_cast<DataPacket *>(pk);
-        Logger::getInstance().trace("Got packet response: %d\n",p->getUuid());
+        Logger::getInstance().fprintf("Got packet response: %d\n",p->getUuid());
         if(p->getUuid() == lastSend){
             cancelEvent(timeoutMsg);
-            Logger::getInstance().trace("Was valid sequence. Timeout cancelled.\n");
+            Logger::getInstance().fprintf("Was valid sequence. Timeout cancelled.\n");
             if (selfMsg){
                 cancelEvent(selfMsg);
-                Logger::getInstance().trace("cancelled self message\n");
+                Logger::getInstance().fprintf("cancelled self message\n");
             }
             DataPacket *old = packetQueue.front();
             packetQueue.pop();
             delete old;
             sendPacket();
         } else {
-            Logger::getInstance().trace("Incorrect sequence number: %d. Ignoring. \n",p->getUuid());
+            Logger::getInstance().fprintf("Incorrect sequence number: %d. Ignoring. \n",p->getUuid());
         }
         p = NULL;
     }
@@ -297,22 +270,22 @@ void UDPBasicApp::processPacket(cPacket *pk)
 
 bool UDPBasicApp::startApp(IDoneCallback *doneCallback)
 {
-    Logger::getInstance().trace("startApp()\n");
+    Logger::getInstance().fprintf("startApp()\n");
     simtime_t start = std::max(startTime, simTime());
     if ((stopTime < SIMTIME_ZERO) || (start < stopTime) || (start == stopTime && startTime == stopTime))
     {
         selfMsg->setKind(START);
         scheduleAt(start, selfMsg);
-        Logger::getInstance().trace("Scheduled start\n");
+        Logger::getInstance().fprintf("Scheduled start\n");
     }
     scheduleAt(start+1, addData);
-    Logger::getInstance().trace("Scheduled first data gather\n");
+    Logger::getInstance().fprintf("Scheduled first data gather\n");
     return true;
 }
 
 bool UDPBasicApp::stopApp(IDoneCallback *doneCallback)
 {
-    Logger::getInstance().trace("stopApp()\n");
+    Logger::getInstance().fprintf("stopApp()\n");
     if (selfMsg){
         cancelEvent(selfMsg);
         cancelEvent(timeoutMsg);
@@ -324,7 +297,7 @@ bool UDPBasicApp::stopApp(IDoneCallback *doneCallback)
 
 bool UDPBasicApp::crashApp(IDoneCallback *doneCallback)
 {
-    Logger::getInstance().trace("crashApp()\n");
+    Logger::getInstance().fprintf("crashApp()\n");
     if (selfMsg){
         cancelEvent(selfMsg);
         cancelEvent(timeoutMsg);

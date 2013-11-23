@@ -15,9 +15,7 @@
 
 #include "Logger.h"
 
-
 Logger::Logger() {
-    level = TRACE;
     myfile.open("log.txt");
 }
 
@@ -30,62 +28,17 @@ Logger& Logger::getInstance(){
     return instance;
 }
 
-void Logger::setLevel(int l){
-    level = l;
-}
 
-void Logger::trace(char* format, ...){
+void Logger::fprintf(char* format, ...){
     char* msg;
     va_list args;
     va_start( args, format );
     vasprintf(&msg, format, args );
     va_end( args );
-    if(level <= TRACE){
-        filelog(msg);
-    }
-}
 
-void Logger::info(char* format, ...){
-    char* msg;
-    va_list args;
-    va_start( args, format );
-    vasprintf(&msg, format, args );
-    va_end( args );
-    if(level <= INFO){
-        filelog(msg);
-    }
-}
-
-void Logger::error(char* format, ...){
-    char* msg;
-    va_list args;
-    va_start( args, format );
-    vasprintf(&msg, format, args );
-    va_end( args );
-    if(level <= ERROR){
-        filelog(msg);
-    }
-}
-
-void Logger::fatal(char* format, ...){
-    char* msg;
-    va_list args;
-    va_start( args, format );
-    vasprintf(&msg, format, args );
-    va_end( args );
-    if(level <= FATAL){
-        filelog(msg);
-    }
-}
-
-void Logger::filelog(char* format, ...){
-    char* msg;
-    va_list args;
-    va_start( args, format );
-    vasprintf(&msg, format, args );
-    va_end( args );
     printf("%s",msg);
     log(msg);
+
 }
 
 void Logger::log(char* s){

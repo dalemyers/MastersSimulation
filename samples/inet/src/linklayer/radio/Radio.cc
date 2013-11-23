@@ -1004,16 +1004,15 @@ void Radio::updateDisplayString() {
         double sensitivity_limit = cc->getInterferenceRange(myRadioRef);
         d.removeTag("r1");
         d.insertTag("r1");
-        //d.setTagArg("r1", 0, (long) sensitivity_limit);
-       // d.setTagArg("r1", 2, "gray");
+        d.setTagArg("r1", 0, (long) sensitivity_limit);
+        d.setTagArg("r1", 2, "gray");
         d.removeTag("r2");
         d.insertTag("r2");
         if (doubleRayCoverage)
             d.setTagArg("r2", 0, (long) calcDistDoubleRay());
         else
             d.setTagArg("r2", 0, (long) calcDistFreeSpace());
-        std::string ringColour = par("ringColour").stdstringValue();
-        d.setTagArg("r2", 2, ringColour.c_str());
+        d.setTagArg("r2", 2, "blue");
     }
     if (updateString==NULL && updateStringInterval>0)
         updateString = new cMessage("refresh timer");

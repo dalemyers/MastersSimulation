@@ -24,21 +24,11 @@
 class Logger
 {
     public:
-
-        static const int TRACE = 0;
-        static const int INFO = 1;
-        static const int ERROR = 2;
-        static const int FATAL = 3;
-
         static Logger& getInstance();
-        void trace(char* s, ...);
-        void info(char* s, ...);
-        void error(char* s, ...);
-        void fatal(char* s, ...);
-        void setLevel(int level);
+        void log(char* s);
+        void fprintf(char* s, ...);
     private:
         std::ofstream myfile;
-        int level;
         Logger();                   // Constructor? (the {} brackets) are needed here.
         ~Logger();
         // Dont forget to declare these two. You want to make sure they
@@ -46,8 +36,6 @@ class Logger
         // your singleton appearing.
         Logger(Logger const&);              // Don't Implement
         void operator=(Logger const&); // Don't implement
-        void log(char* s);
-        void filelog(char* s, ...);
 };
 
 #endif /* LOGGER_H_ */
