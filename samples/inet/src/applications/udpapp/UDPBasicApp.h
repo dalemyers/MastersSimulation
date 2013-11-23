@@ -51,10 +51,12 @@ class INET_API UDPBasicApp : public AppBase
     int lastSend;
     int sequenceNumber;
     int id;
+    int queueSize;
 
     // statistics
     int numSent;
     int numReceived;
+    int numDropped;
 
     static simsignal_t sentPkSignal;
     static simsignal_t rcvdPkSignal;
@@ -78,6 +80,7 @@ class INET_API UDPBasicApp : public AppBase
     DataPacket* generateMessage(char* debugString);
     virtual void processStart();
     virtual void processStop();
+    void addPacketToQueue(DataPacket *p);
 
     //AppBase:
     bool startApp(IDoneCallback *doneCallback);

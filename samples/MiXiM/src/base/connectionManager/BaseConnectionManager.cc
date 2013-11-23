@@ -337,8 +337,10 @@ bool BaseConnectionManager::registerNic(cModule*                 nic,
 
 	if(drawMIR && pHostModule) {
 		cDisplayString& Displ = pHostModule->getDisplayString();
-		if (!Displ.containsTag("r"))
+		if (!Displ.containsTag("r")){
 			Displ.setTagArg("r", 0, maxInterferenceDistance);
+			Displ.setTagArg("r", 1, (long)0);
+		}
 	}
 
 	return sendDirect;

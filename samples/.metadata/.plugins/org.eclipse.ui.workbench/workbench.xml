@@ -15,7 +15,7 @@
 <coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="32" y="22"/>
 <coolItem id="org.omnetpp.neddoc.toolbars.neddocToolbar" itemType="typeToolBarContribution" x="32" y="22"/>
 <coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="264" y="22"/>
+<coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="214" y="22"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="152" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
@@ -25,7 +25,7 @@
 <coolItem id="org.omnetpp.ned.editor" itemType="typeToolBarContribution" x="104" y="22"/>
 <coolItem id="org.omnetpp.inifile.editor.editors.InifileEditor" itemType="typeToolBarContribution" x="76" y="22"/>
 <coolItem id="org.eclipse.cdt.make.editor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
@@ -52,6 +52,15 @@
 <part id="14"/>
 <part id="15"/>
 <part id="16"/>
+<part id="17"/>
+<part id="18"/>
+<part id="19"/>
+<part id="20"/>
+<part id="21"/>
+<part id="22"/>
+<part id="23"/>
+<part id="24"/>
+<part id="25"/>
 </presentation>
 </folder>
 </info>
@@ -59,71 +68,105 @@
 <editor id="org.omnetpp.inifile.editor.editors.InifileEditor" name="omnetpp.ini" partName="omnetpp.ini" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/MiXiM/examples/Buses/omnetpp.ini" title="omnetpp.ini" tooltip="MiXiM/examples/Buses/omnetpp.ini" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/MiXiM/examples/Buses/omnetpp.ini"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="BusChatTCP.cc" partName="BusChatTCP.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/BusChatTCP.cc" title="BusChatTCP.cc" tooltip="inet/src/applications/tcpapp/BusChatTCP.cc" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/BusChatTCP.cc"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4273" selectionTopPixel="1740"/>
+<editor id="org.omnetpp.ned.editor" name="LothianBusNet.ned" partName="LothianBusNet.ned" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/MiXiM/examples/Buses/LothianBusNet.ned" title="LothianBusNet.ned" tooltip="MiXiM/examples/Buses/LothianBusNet.ned" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/MiXiM/examples/Buses/LothianBusNet.ned"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TCPBasicClientApp.cc" partName="TCPBasicClientApp.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/TCPBasicClientApp.cc" title="TCPBasicClientApp.cc" tooltip="inet/src/applications/tcpapp/TCPBasicClientApp.cc" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/TCPBasicClientApp.cc"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6534" selectionTopPixel="2745"/>
+<editor id="org.omnetpp.ned.editor" name="IPv4NetworkConfigurator.ned" partName="IPv4NetworkConfigurator.ned" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/networklayer/autorouting/ipv4/IPv4NetworkConfigurator.ned" title="IPv4NetworkConfigurator.ned" tooltip="inet/src/networklayer/autorouting/ipv4/IPv4NetworkConfigurator.ned" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/networklayer/autorouting/ipv4/IPv4NetworkConfigurator.ned"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TCPGenericCliAppBase.cc" partName="TCPGenericCliAppBase.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/TCPGenericCliAppBase.cc" title="TCPGenericCliAppBase.cc" tooltip="inet/src/applications/tcpapp/TCPGenericCliAppBase.cc" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/TCPGenericCliAppBase.cc"/>
-<editorState selectionHorizontalPixel="0" selectionLength="13" selectionOffset="4246" selectionTopPixel="0"/>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="configurator.xml" partName="configurator.xml" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/MiXiM/examples/Buses/configurator.xml" title="configurator.xml" tooltip="MiXiM/examples/Buses/configurator.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/MiXiM/examples/Buses/configurator.xml"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="474" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TCPEchoApp.cc" partName="TCPEchoApp.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/TCPEchoApp.cc" title="TCPEchoApp.cc" tooltip="inet/src/applications/tcpapp/TCPEchoApp.cc" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/TCPEchoApp.cc"/>
-<editorState selectionHorizontalPixel="0" selectionLength="42" selectionOffset="2844" selectionTopPixel="1395"/>
+<editor id="org.omnetpp.ned.editor" name="MultiRadio.ned" partName="MultiRadio.ned" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/examples/wireless/multiradio/MultiRadio.ned" title="MultiRadio.ned" tooltip="inet/examples/wireless/multiradio/MultiRadio.ned" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/examples/wireless/multiradio/MultiRadio.ned"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="APChatTCP.cc" partName="APChatTCP.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/APChatTCP.cc" title="APChatTCP.cc" tooltip="inet/src/applications/tcpapp/APChatTCP.cc" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/APChatTCP.cc"/>
-<editorState selectionHorizontalPixel="0" selectionLength="165" selectionOffset="2204" selectionTopPixel="812"/>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="network_switched.xml" partName="network_switched.xml" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/examples/wireless/multiradio/network_switched.xml" title="network_switched.xml" tooltip="inet/examples/wireless/multiradio/network_switched.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/examples/wireless/multiradio/network_switched.xml"/>
+<editorState selectionHorizontalPixel="0" selectionLength="46" selectionOffset="165" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TCPGenericCliAppBase.h" partName="TCPGenericCliAppBase.h" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/TCPGenericCliAppBase.h" title="TCPGenericCliAppBase.h" tooltip="inet/src/applications/tcpapp/TCPGenericCliAppBase.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/TCPGenericCliAppBase.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1085" selectionTopPixel="811"/>
+<editor id="org.omnetpp.ned.editor" name="Router.ned" partName="Router.ned" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/nodes/inet/Router.ned" title="Router.ned" tooltip="inet/src/nodes/inet/Router.ned" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/nodes/inet/Router.ned"/>
 </editor>
-<editor id="org.eclipse.ui.DefaultTextEditor" name="README" partName="README" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/examples/inet/tcpsack/README" title="README" tooltip="inet/examples/inet/tcpsack/README" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/examples/inet/tcpsack/README"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editor id="org.omnetpp.ned.editor" name="UDPBasicApp.ned" partName="UDPBasicApp.ned" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/udpapp/UDPBasicApp.ned" title="UDPBasicApp.ned" tooltip="inet/src/applications/udpapp/UDPBasicApp.ned" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/udpapp/UDPBasicApp.ned"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TCPSessionApp.cc" partName="TCPSessionApp.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/TCPSessionApp.cc" title="TCPSessionApp.cc" tooltip="inet/src/applications/tcpapp/TCPSessionApp.cc" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/TCPSessionApp.cc"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6413" selectionTopPixel="3467"/>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="UDPBasicApp.cc" partName="UDPBasicApp.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/udpapp/UDPBasicApp.cc" title="UDPBasicApp.cc" tooltip="inet/src/applications/udpapp/UDPBasicApp.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/udpapp/UDPBasicApp.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1252" selectionTopPixel="0"/>
 </editor>
-<editor id="org.omnetpp.inifile.editor.editors.InifileEditor" name="omnetpp.ini" partName="omnetpp.ini" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/examples/inet/tcpsack/omnetpp.ini" title="omnetpp.ini" tooltip="inet/examples/inet/tcpsack/omnetpp.ini" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/examples/inet/tcpsack/omnetpp.ini"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="UDPBasicApp.h" partName="UDPBasicApp.h" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/udpapp/UDPBasicApp.h" title="UDPBasicApp.h" tooltip="inet/src/applications/udpapp/UDPBasicApp.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/udpapp/UDPBasicApp.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1572" selectionTopPixel="206"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TCPSinkApp.cc" partName="TCPSinkApp.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/TCPSinkApp.cc" title="TCPSinkApp.cc" tooltip="inet/src/applications/tcpapp/TCPSinkApp.cc" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/TCPSinkApp.cc"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2394" selectionTopPixel="690"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="cwatch.h" partName="cwatch.h" title="cwatch.h" tooltip="/Users/Velox/Downloads/omnetpp-4.3.1/include/cwatch.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" path="/Users/Velox/Downloads/omnetpp-4.3.1/include/cwatch.h" project="inet"/>
+<editorState selectionHorizontalPixel="0" selectionLength="5" selectionOffset="9427" selectionTopPixel="4695"/>
 </editor>
-<editor id="org.omnetpp.ned.editor" name="ClientServer.ned" partName="ClientServer.ned" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/examples/inet/tcpclientserver/ClientServer.ned" title="ClientServer.ned" tooltip="inet/examples/inet/tcpclientserver/ClientServer.ned" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/examples/inet/tcpclientserver/ClientServer.ned"/>
+<editor id="org.omnetpp.ned.editor" name="NodeBase.ned" partName="NodeBase.ned" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/nodes/inet/NodeBase.ned" title="NodeBase.ned" tooltip="inet/src/nodes/inet/NodeBase.ned" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/nodes/inet/NodeBase.ned"/>
 </editor>
-<editor id="org.omnetpp.inifile.editor.editors.InifileEditor" name="omnetpp.ini" partName="omnetpp.ini" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/examples/inet/tcpclientserver/omnetpp.ini" title="omnetpp.ini" tooltip="inet/examples/inet/tcpclientserver/omnetpp.ini" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/examples/inet/tcpclientserver/omnetpp.ini"/>
+<editor id="org.omnetpp.ned.editor" name="IWirelessNic.ned" partName="IWirelessNic.ned" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/linklayer/IWirelessNic.ned" title="IWirelessNic.ned" tooltip="inet/src/linklayer/IWirelessNic.ned" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/linklayer/IWirelessNic.ned"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TCPBasicClientApp.h" partName="TCPBasicClientApp.h" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/TCPBasicClientApp.h" title="TCPBasicClientApp.h" tooltip="inet/src/applications/tcpapp/TCPBasicClientApp.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/TCPBasicClientApp.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1143" selectionTopPixel="0"/>
+<editor id="org.omnetpp.ned.editor" name="AP.ned" partName="AP.ned" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/MiXiM/examples/Buses/AP.ned" title="AP.ned" tooltip="MiXiM/examples/Buses/AP.ned" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/MiXiM/examples/Buses/AP.ned"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TCPSocket.cc" partName="TCPSocket.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/transport/contract/TCPSocket.cc" title="TCPSocket.cc" tooltip="inet/src/transport/contract/TCPSocket.cc" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/transport/contract/TCPSocket.cc"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5608" selectionTopPixel="830"/>
+<editor id="org.omnetpp.ned.editor" name="AccessPoint.ned" partName="AccessPoint.ned" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/nodes/wireless/AccessPoint.ned" title="AccessPoint.ned" tooltip="inet/src/nodes/wireless/AccessPoint.ned" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/nodes/wireless/AccessPoint.ned"/>
 </editor>
-<editor id="org.omnetpp.ned.editor" name="TCPBasicClientApp.ned" partName="TCPBasicClientApp.ned" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/tcpapp/TCPBasicClientApp.ned" title="TCPBasicClientApp.ned" tooltip="inet/src/applications/tcpapp/TCPBasicClientApp.ned" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/tcpapp/TCPBasicClientApp.ned"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Ieee80211MgmtAP.cc" partName="Ieee80211MgmtAP.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/linklayer/ieee80211/mgmt/Ieee80211MgmtAP.cc" title="Ieee80211MgmtAP.cc" tooltip="inet/src/linklayer/ieee80211/mgmt/Ieee80211MgmtAP.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/linklayer/ieee80211/mgmt/Ieee80211MgmtAP.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="2" selectionOffset="892" selectionTopPixel="4247"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="TCPSocket.h" partName="TCPSocket.h" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/transport/contract/TCPSocket.h" title="TCPSocket.h" tooltip="inet/src/transport/contract/TCPSocket.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/transport/contract/TCPSocket.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="13" selectionOffset="5155" selectionTopPixel="4949"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="BusMobility.cc" partName="BusMobility.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/MiXiM/examples/Buses/BusMobility.cc" title="BusMobility.cc" tooltip="MiXiM/examples/Buses/BusMobility.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/MiXiM/examples/Buses/BusMobility.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="13" selectionOffset="2107" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="BaseConnectionManager.cc" partName="BaseConnectionManager.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/MiXiM/src/base/connectionManager/BaseConnectionManager.cc" title="BaseConnectionManager.cc" tooltip="MiXiM/src/base/connectionManager/BaseConnectionManager.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/MiXiM/src/base/connectionManager/BaseConnectionManager.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="10538" selectionTopPixel="4905"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="cdisplaystring.h" partName="cdisplaystring.h" title="cdisplaystring.h" tooltip="/Users/Velox/Downloads/omnetpp-4.3.1/include/cdisplaystring.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" path="/Users/Velox/Downloads/omnetpp-4.3.1/include/cdisplaystring.h" project="MiXiM"/>
+<editorState selectionHorizontalPixel="0" selectionLength="9" selectionOffset="6914" selectionTopPixel="3105"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="BaseConnectionManager.h" partName="BaseConnectionManager.h" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/MiXiM/src/base/connectionManager/BaseConnectionManager.h" title="BaseConnectionManager.h" tooltip="MiXiM/src/base/connectionManager/BaseConnectionManager.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/MiXiM/src/base/connectionManager/BaseConnectionManager.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="23" selectionOffset="5659" selectionTopPixel="3060"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Logger.cc" partName="Logger.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/udpapp/Logger.cc" title="Logger.cc" tooltip="inet/src/applications/udpapp/Logger.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/udpapp/Logger.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1012" selectionTopPixel="240"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Ieee80211Mac.cc" partName="Ieee80211Mac.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/linklayer/ieee80211/mac/Ieee80211Mac.cc" title="Ieee80211Mac.cc" tooltip="inet/src/linklayer/ieee80211/mac/Ieee80211Mac.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/linklayer/ieee80211/mac/Ieee80211Mac.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Ieee80211Mac.h" partName="Ieee80211Mac.h" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/linklayer/ieee80211/mac/Ieee80211Mac.h" title="Ieee80211Mac.h" tooltip="inet/src/linklayer/ieee80211/mac/Ieee80211Mac.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/linklayer/ieee80211/mac/Ieee80211Mac.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2103" selectionTopPixel="401"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="WirelessMacBase.h" partName="WirelessMacBase.h" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/linklayer/common/WirelessMacBase.h" title="WirelessMacBase.h" tooltip="inet/src/linklayer/common/WirelessMacBase.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/linklayer/common/WirelessMacBase.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="15" selectionOffset="1379" selectionTopPixel="73"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Radio.cc" partName="Radio.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/linklayer/radio/Radio.cc" title="Radio.cc" tooltip="inet/src/linklayer/radio/Radio.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/linklayer/radio/Radio.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="36130" selectionTopPixel="14790"/>
+</editor>
+<editor id="org.omnetpp.ned.editor" name="Radio.ned" partName="Radio.ned" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/linklayer/radio/Radio.ned" title="Radio.ned" tooltip="inet/src/linklayer/radio/Radio.ned" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/linklayer/radio/Radio.ned"/>
 </editor>
 </editors>
 <views>
+<view id="org.eclipse.ui.views.ProgressView" partName="Progress">
+<viewState/>
+</view>
 <view id="org.omnetpp.inifile.ModuleHierarchy" partName="Module Hierarchy"/>
 <view id="org.eclipse.search.ui.views.SearchView" partName="Search">
 <viewState isPinned="false">
+<view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
 <view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
 </viewState>
 </view>
@@ -191,6 +234,7 @@
 <alwaysOnActionSet id="org.omnetpp.ned.ActionSet"/>
 <alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
 <alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
 <show_view_action id="org.eclipse.ui.views.ContentOutline"/>
 <show_view_action id="org.eclipse.ui.views.PropertySheet"/>
 <show_view_action id="org.eclipse.ui.views.ProblemView"/>
@@ -230,11 +274,13 @@
 <view id="org.omnetpp.inifile.ModuleParameters"/>
 <view id="org.omnetpp.inifile.NedInheritance"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.ProgressView"/>
 <view id="org.eclipse.ui.views.PropertySheet"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.eclipse.help.ui.HelpView"/>
 <view id="org.eclipse.search.ui.views.SearchView"/>
 <view id="org.eclipse.cdt.ui.callHierarchy"/>
+<view id="org.eclipse.debug.ui.DebugView"/>
 <fastViewBars/>
 <layout>
 <mainWindow>
@@ -248,16 +294,18 @@
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@2b2c81" ratio="0.8292512" ratioLeft="1185" ratioRight="244" relationship="2" relative="left">
-<folder activePageID="org.eclipse.cdt.ui.callHierarchy" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.search.ui.views.SearchView" appearance="2" expanded="2">
 <page content="org.eclipse.help.ui.HelpView" label="Help"/>
 <page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
 <page content="org.eclipse.cdt.ui.callHierarchy" label="Call Hierarchy"/>
+<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
+<part id="3"/>
 </presentation>
 </folder>
 </info>
@@ -269,16 +317,17 @@
 <page content="org.omnetpp.inifile.ModuleParameters" label="NED Parameters"/>
 <page content="org.omnetpp.inifile.NedInheritance" label="NED Inheritance"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.ui.views.ProgressView" label="Progress"/>
 <page content="org.omnetpp.main.NewVersionView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
-<page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
 <part id="4"/>
+<part id="5"/>
 </presentation>
 </folder>
 </info>
@@ -412,139 +461,129 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.inifile.editor.editors.InifileEditor" path="/MiXiM/examples/Buses/omnetpp.ini"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/tcpapp/TCPBasicClientApp.cc"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/tcpapp/TCPEchoApp.cc"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/tcpapp/TCPSinkApp.cc"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/tcpapp/TCPGenericCliAppBase.cc"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.msg.editor.MsgEditor" path="/inet/src/applications/tcpapp/GenericAppMsg.msg"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/transport/contract/TCPSocket.cc"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor" path="/inet/src/applications/tcpapp/TCPBasicClientApp.ned"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/tcpapp/TCPGenericCliAppBase.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/transport/contract/TCPSocket.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/udpapp/Logger.cc"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor" path="/MiXiM/examples/Buses/Bus.ned"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor" path="/inet/src/nodes/inet/WirelessHost.ned"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor" path="/inet/src/nodes/inet/StandardHost.ned"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor" path="/inet/src/nodes/inet/NodeBase.ned"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor" path="/MiXiM/examples/Buses/LothianBusNet.ned"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor" path="/inet/src/nodes/wireless/AccessPoint.ned"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/linklayer/ieee80211/mgmt/Ieee80211MgmtAP.cc"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/MiXiM/examples/Buses/BusMobility.cc"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/MiXiM/src/base/connectionManager/BaseConnectionManager.cc"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.inifile.editor.editors.InifileEditor" path="/inet/examples/wireless/multiradio/omnetpp.ini"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/linklayer/ieee80211/mac/Ieee80211Mac.cc"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/linklayer/ieee80211/mac/Ieee80211Mac.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/linklayer/common/WirelessMacBase.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/linklayer/radio/Radio.cc"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor" path="/inet/src/linklayer/radio/Radio.ned"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/udpapp/UDPBasicApp.cc"/>
 </editors>
-<item historyLabel="TCPGenericCliAppBase.cc" index="4">
-<position info="not_deleted" x="2725" y="10"/>
+<item historyLabel="WirelessHost.ned" index="3"/>
+<item historyLabel="StandardHost.ned" index="4"/>
+<item historyLabel="Bus.ned" index="2"/>
+<item historyLabel="WirelessHost.ned" index="3"/>
+<item historyLabel="StandardHost.ned" index="4"/>
+<item historyLabel="Bus.ned" index="2"/>
+<item historyLabel="NodeBase.ned" index="5"/>
+<item historyLabel="omnetpp.ini" index="0"/>
+<item historyLabel="LothianBusNet.ned" index="6"/>
+<item historyLabel="AccessPoint.ned" index="7"/>
+<item historyLabel="Ieee80211MgmtAP.cc" index="8">
+<position info="not_deleted" x="892" y="2"/>
 </item>
 <item historyLabel="omnetpp.ini" index="0"/>
-<item historyLabel="TCPSinkApp.cc" index="3">
-<position info="not_deleted" x="2394" y="0"/>
+<item historyLabel="Ieee80211MgmtAP.cc" index="8">
+<position info="not_deleted" x="892" y="2"/>
+</item>
+<item historyLabel="BusMobility.cc" index="9">
+<position info="not_deleted" x="2107" y="13"/>
+</item>
+<item historyLabel="BaseConnectionManager.cc" index="10">
+<position info="not_deleted" x="10538" y="0"/>
+</item>
+<item historyLabel="omnetpp.ini" index="11"/>
+<item historyLabel="BaseConnectionManager.cc" index="10">
+<position info="not_deleted" x="10538" y="0"/>
 </item>
 <item historyLabel="omnetpp.ini" index="0"/>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="4171" y="0"/>
+<item historyLabel="BaseConnectionManager.cc" index="10">
+<position info="not_deleted" x="10538" y="0"/>
 </item>
 <item historyLabel="omnetpp.ini" index="0"/>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="4171" y="0"/>
+<item historyLabel="BaseConnectionManager.cc" index="10">
+<position info="not_deleted" x="10538" y="0"/>
 </item>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="4052" y="0"/>
+<item historyLabel="Logger.cc" index="1">
+<position info="not_deleted" x="1012" y="0"/>
 </item>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="3640" y="0"/>
+<item historyLabel="Ieee80211Mac.cc" index="12">
+<position info="not_deleted" x="3" y="0"/>
 </item>
-<item historyLabel="omnetpp.ini" index="0"/>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="3640" y="0"/>
+<item historyLabel="Ieee80211Mac.h" index="13">
+<position info="not_deleted" x="2103" y="0"/>
 </item>
-<item historyLabel="omnetpp.ini" index="0"/>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="3640" y="0"/>
+<item historyLabel="WirelessMacBase.h" index="14">
+<position info="not_deleted" x="1379" y="15"/>
 </item>
-<item historyLabel="omnetpp.ini" index="0"/>
-<item historyLabel="GenericAppMsg.msg" index="5">
-<position info="not_deleted" x="1515" y="0"/>
+<item historyLabel="Radio.cc" index="15">
+<position info="not_deleted" x="35745" y="0"/>
 </item>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="3640" y="0"/>
+<item historyLabel="Radio.ned" index="16"/>
+<item historyLabel="Ieee80211Mac.cc" index="12">
+<position info="not_deleted" x="3" y="0"/>
 </item>
-<item historyLabel="TCPEchoApp.cc" index="2">
-<position info="not_deleted" x="2887" y="0"/>
+<item historyLabel="Logger.cc" index="1">
+<position info="not_deleted" x="1012" y="0"/>
 </item>
 <item historyLabel="omnetpp.ini" index="0"/>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="3640" y="0"/>
+<item historyLabel="Radio.cc" index="15">
+<position info="not_deleted" x="35745" y="0"/>
 </item>
-<item historyLabel="TCPEchoApp.cc" index="2">
-<position info="not_deleted" x="2791" y="0"/>
-</item>
-<item historyLabel="GenericAppMsg.msg" index="5">
-<position info="not_deleted" x="1515" y="0"/>
-</item>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="3640" y="0"/>
+<item historyLabel="Radio.cc" index="15">
+<position info="not_deleted" x="35549" y="0"/>
 </item>
 <item historyLabel="omnetpp.ini" index="0"/>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="3640" y="0"/>
+<item historyLabel="Radio.cc" index="15">
+<position info="not_deleted" x="36051" y="0"/>
 </item>
-<item historyLabel="TCPSocket.cc" index="6">
-<position info="not_deleted" x="5608" y="0"/>
+<item historyLabel="Radio.cc" index="15">
+<position info="not_deleted" x="36034" y="0"/>
 </item>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="6442" y="0"/>
+<item historyLabel="Radio.cc" index="15">
+<position info="not_deleted" x="35967" y="0"/>
 </item>
-<item historyLabel="omnetpp.ini" index="0"/>
-<item historyLabel="TCPEchoApp.cc" index="2">
-<position info="not_deleted" x="2871" y="0"/>
-</item>
-<item historyLabel="omnetpp.ini" index="0"/>
-<item historyLabel="TCPSocket.cc" index="6">
-<position info="not_deleted" x="5608" y="0"/>
-</item>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="5857" y="0"/>
+<item historyLabel="Radio.cc" index="15">
+<position info="not_deleted" x="36327" y="0"/>
 </item>
 <item historyLabel="omnetpp.ini" index="0"/>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="5857" y="0"/>
+<item historyLabel="Radio.cc" index="15">
+<position info="not_deleted" x="36232" y="0"/>
 </item>
-<item historyLabel="GenericAppMsg.msg" index="5">
-<position info="not_deleted" x="1515" y="0"/>
-</item>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="5857" y="0"/>
-</item>
-<item historyLabel="TCPGenericCliAppBase.cc" index="4">
-<position info="not_deleted" x="3188" y="0"/>
-</item>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="5857" y="0"/>
-</item>
-<item historyLabel="TCPEchoApp.cc" index="2">
-<position info="not_deleted" x="2871" y="0"/>
-</item>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="6534" y="0"/>
-</item>
-<item historyLabel="TCPGenericCliAppBase.cc" index="4">
-<position info="not_deleted" x="3188" y="0"/>
-</item>
-<item historyLabel="TCPBasicClientApp.ned" index="7"/>
 <item historyLabel="omnetpp.ini" index="0"/>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="6534" y="0"/>
+<item historyLabel="Radio.cc" index="15">
+<position info="not_deleted" x="36130" y="0"/>
 </item>
-<item historyLabel="TCPGenericCliAppBase.cc" index="4">
-<position info="not_deleted" x="3188" y="0"/>
+<item historyLabel="omnetpp.ini" index="0"/>
+<item historyLabel="Ieee80211Mac.cc" index="12">
+<position info="not_deleted" x="3" y="0"/>
 </item>
-<item historyLabel="TCPGenericCliAppBase.h" index="8">
-<position info="not_deleted" x="1085" y="0"/>
+<item historyLabel="WirelessMacBase.h" index="14">
+<position info="not_deleted" x="1379" y="15"/>
 </item>
-<item historyLabel="TCPSocket.h" index="9">
-<position info="not_deleted" x="4757" y="17"/>
+<item historyLabel="omnetpp.ini" index="0"/>
+<item historyLabel="UDPBasicApp.cc" index="17">
+<position info="not_deleted" x="6146" y="0"/>
 </item>
-<item historyLabel="TCPGenericCliAppBase.h" index="8">
-<position info="not_deleted" x="1085" y="0"/>
+<item historyLabel="UDPBasicApp.cc" index="17">
+<position info="not_deleted" x="1511" y="0"/>
 </item>
-<item historyLabel="TCPGenericCliAppBase.cc" index="4">
-<position info="not_deleted" x="4246" y="13"/>
+<item historyLabel="omnetpp.ini" index="0"/>
+<item historyLabel="UDPBasicApp.cc" index="17">
+<position info="not_deleted" x="1511" y="0"/>
 </item>
-<item historyLabel="TCPGenericCliAppBase.h" index="8">
-<position info="not_deleted" x="1085" y="0"/>
-</item>
-<item active="true" historyLabel="TCPSocket.h" index="9">
-<position info="not_deleted" x="4757" y="17"/>
+<item active="true" historyLabel="UDPBasicApp.cc" index="17">
+<position info="not_deleted" x="1377" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -563,50 +602,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="TCPSocket.h" tooltip="inet/src/transport/contract/TCPSocket.h">
-<persistable path="/inet/src/transport/contract/TCPSocket.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor.launcher" name="Radio.ned" tooltip="inet/src/linklayer/radio/Radio.ned">
+<persistable path="/inet/src/linklayer/radio/Radio.ned"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor.launcher" name="TCPBasicClientApp.ned" tooltip="inet/src/applications/tcpapp/TCPBasicClientApp.ned">
-<persistable path="/inet/src/applications/tcpapp/TCPBasicClientApp.ned"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Radio.cc" tooltip="inet/src/linklayer/radio/Radio.cc">
+<persistable path="/inet/src/linklayer/radio/Radio.cc"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="TCPSocket.cc" tooltip="inet/src/transport/contract/TCPSocket.cc">
-<persistable path="/inet/src/transport/contract/TCPSocket.cc"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="WirelessMacBase.h" tooltip="inet/src/linklayer/common/WirelessMacBase.h">
+<persistable path="/inet/src/linklayer/common/WirelessMacBase.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="TCPBasicClientApp.h" tooltip="inet/src/applications/tcpapp/TCPBasicClientApp.h">
-<persistable path="/inet/src/applications/tcpapp/TCPBasicClientApp.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Ieee80211Mac.h" tooltip="inet/src/linklayer/ieee80211/mac/Ieee80211Mac.h">
+<persistable path="/inet/src/linklayer/ieee80211/mac/Ieee80211Mac.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.inifile.editor.editors.InifileEditor" name="omnetpp.ini" tooltip="inet/examples/inet/tcpclientserver/omnetpp.ini">
-<persistable path="/inet/examples/inet/tcpclientserver/omnetpp.ini"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Ieee80211Mac.cc" tooltip="inet/src/linklayer/ieee80211/mac/Ieee80211Mac.cc">
+<persistable path="/inet/src/linklayer/ieee80211/mac/Ieee80211Mac.cc"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor.launcher" name="ClientServer.ned" tooltip="inet/examples/inet/tcpclientserver/ClientServer.ned">
-<persistable path="/inet/examples/inet/tcpclientserver/ClientServer.ned"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Logger.cc" tooltip="inet/src/applications/udpapp/Logger.cc">
+<persistable path="/inet/src/applications/udpapp/Logger.cc"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="TCPSinkApp.cc" tooltip="inet/src/applications/tcpapp/TCPSinkApp.cc">
-<persistable path="/inet/src/applications/tcpapp/TCPSinkApp.cc"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="BaseConnectionManager.h" tooltip="MiXiM/src/base/connectionManager/BaseConnectionManager.h">
+<persistable path="/MiXiM/src/base/connectionManager/BaseConnectionManager.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor.launcher" name="TCPSinkApp.ned" tooltip="inet/src/applications/tcpapp/TCPSinkApp.ned">
-<persistable path="/inet/src/applications/tcpapp/TCPSinkApp.ned"/>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="cdisplaystring.h" tooltip="/Users/Velox/Downloads/omnetpp-4.3.1/include/cdisplaystring.h">
+<persistable path="/Users/Velox/Downloads/omnetpp-4.3.1/include/cdisplaystring.h" project="MiXiM"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.inifile.editor.editors.InifileEditor" name="omnetpp.ini" tooltip="inet/examples/inet/tcpsack/omnetpp.ini">
-<persistable path="/inet/examples/inet/tcpsack/omnetpp.ini"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="BaseConnectionManager.cc" tooltip="MiXiM/src/base/connectionManager/BaseConnectionManager.cc">
+<persistable path="/MiXiM/src/base/connectionManager/BaseConnectionManager.cc"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="TCPSessionApp.cc" tooltip="inet/src/applications/tcpapp/TCPSessionApp.cc">
-<persistable path="/inet/src/applications/tcpapp/TCPSessionApp.cc"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="BusMobility.cc" tooltip="MiXiM/examples/Buses/BusMobility.cc">
+<persistable path="/MiXiM/examples/Buses/BusMobility.cc"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor.launcher" name="TCPSessionApp.ned" tooltip="inet/src/applications/tcpapp/TCPSessionApp.ned">
-<persistable path="/inet/src/applications/tcpapp/TCPSessionApp.ned"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Ieee80211MgmtAP.cc" tooltip="inet/src/linklayer/ieee80211/mgmt/Ieee80211MgmtAP.cc">
+<persistable path="/inet/src/linklayer/ieee80211/mgmt/Ieee80211MgmtAP.cc"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="README" tooltip="inet/examples/inet/tcpsack/README">
-<persistable path="/inet/examples/inet/tcpsack/README"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor.launcher" name="AccessPoint.ned" tooltip="inet/src/nodes/wireless/AccessPoint.ned">
+<persistable path="/inet/src/nodes/wireless/AccessPoint.ned"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor.launcher" name="tcpSack.ned" tooltip="inet/examples/inet/tcpsack/tcpSack.ned">
-<persistable path="/inet/examples/inet/tcpsack/tcpSack.ned"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor.launcher" name="AP.ned" tooltip="MiXiM/examples/Buses/AP.ned">
+<persistable path="/MiXiM/examples/Buses/AP.ned"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="TCPGenericCliAppBase.h" tooltip="inet/src/applications/tcpapp/TCPGenericCliAppBase.h">
-<persistable path="/inet/src/applications/tcpapp/TCPGenericCliAppBase.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor.launcher" name="IWirelessNic.ned" tooltip="inet/src/linklayer/IWirelessNic.ned">
+<persistable path="/inet/src/linklayer/IWirelessNic.ned"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="APChatTCP.cc" tooltip="inet/src/applications/tcpapp/APChatTCP.cc">
-<persistable path="/inet/src/applications/tcpapp/APChatTCP.cc"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor.launcher" name="NodeBase.ned" tooltip="inet/src/nodes/inet/NodeBase.ned">
+<persistable path="/inet/src/nodes/inet/NodeBase.ned"/>
 </file>
 </mruList>
 </workbench>

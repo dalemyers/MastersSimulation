@@ -13,26 +13,26 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="socketFailure" key="selection"/>
+		<item value="radioModel" key="selection"/>
 		<list key="findhistory">
-			<item value="socketFailure"/>
-			<item value="reconnectInterval"/>
-			<item value="numRequestsToSend"/>
-			<item value="scheduleAt"/>
-			<item value="timeoutMsg"/>
-			<item value="dataTrans"/>
-			<item value="bytesSent"/>
-			<item value="packetsSent"/>
+			<item value="radioModel"/>
+			<item value="setTa"/>
+			<item value="setT"/>
+			<item value="&quot;r"/>
+			<item value="numRec"/>
+			<item value="numSent"/>
+			<item value="fprintf"/>
+			<item value="fprintftra"/>
 		</list>
 		<list key="replacehistory">
+			<item value="info"/>
+			<item value="trace"/>
+			<item value="Logger::getInstance().fprintf"/>
 			<item value="BusChatTCPLower"/>
 			<item value="BusChatTCP"/>
 			<item value="APChatTCP"/>
 			<item value="TCPBusChat"/>
 			<item value="x = -3"/>
-			<item value="y = 55"/>
-			<item value="APPositioner"/>
-			<item value="BusMgmtSTA"/>
 		</list>
 	</section>
 </section>
