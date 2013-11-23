@@ -41,7 +41,7 @@ UDPBasicApp::~UDPBasicApp()
     cancelAndDelete(selfMsg);
     cancelAndDelete(timeoutMsg);
     cancelAndDelete(addData);
-    Logger::getInstance().info("Bus %d ending with %d packets in queue\n",id,packetQueue.size());
+    Logger::getInstance().trace("Bus %d has %d packets left in queue\n",id,packetQueue.size());
     while(packetQueue.size() > 0){
         DataPacket *p = packetQueue.front();
         packetQueue.pop();

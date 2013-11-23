@@ -3,36 +3,36 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="289" key="DIALOG_WIDTH"/>
 		<item value="131" key="DIALOG_Y_ORIGIN"/>
-		<item value="978" key="DIALOG_X_ORIGIN"/>
 		<item value="417" key="DIALOG_HEIGHT"/>
+		<item value="978" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Lucida Grande|13.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="radioModel" key="selection"/>
+		<item value="queueSize" key="selection"/>
 		<list key="findhistory">
-			<item value="radioModel"/>
-			<item value="setTa"/>
-			<item value="setT"/>
-			<item value="&quot;r"/>
-			<item value="numRec"/>
-			<item value="numSent"/>
-			<item value="fprintf"/>
-			<item value="fprintftra"/>
+			<item value="queueSize"/>
+			<item value="socketFailure"/>
+			<item value="reconnectInterval"/>
+			<item value="numRequestsToSend"/>
+			<item value="scheduleAt"/>
+			<item value="timeoutMsg"/>
+			<item value="dataTrans"/>
+			<item value="bytesSent"/>
 		</list>
 		<list key="replacehistory">
-			<item value="info"/>
-			<item value="trace"/>
-			<item value="Logger::getInstance().fprintf"/>
 			<item value="BusChatTCPLower"/>
 			<item value="BusChatTCP"/>
 			<item value="APChatTCP"/>
 			<item value="TCPBusChat"/>
 			<item value="x = -3"/>
+			<item value="y = 55"/>
+			<item value="APPositioner"/>
+			<item value="BusMgmtSTA"/>
 		</list>
 	</section>
 </section>

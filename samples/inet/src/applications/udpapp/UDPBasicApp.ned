@@ -54,7 +54,7 @@ simple UDPBasicApp like IUDPApp
         string multicastInterface = default("");  // if not empty, set the multicast output interface option on the socket (interface name expected)
         bool receiveBroadcast = default(false); // if true, makes the socket receive broadcast packets
         bool joinLocalMulticastGroups = default(false); // if true, makes the socket receive packets from all multicast groups set on local interfaces
-        int queueSize = default(-1); //-1 means infinite
+        int queueSize = default(-1); //-1 means an infinite queue
         @display("i=block/app");
         @signal[sentPk](type=cPacket);
         @signal[rcvdPk](type=cPacket);

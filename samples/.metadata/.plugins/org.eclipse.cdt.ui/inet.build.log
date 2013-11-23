@@ -1,49 +1,6 @@
-12:45:52 **** Incremental Build of configuration gcc-debug for project inet ****
+13:05:36 **** Incremental Build of configuration gcc-debug for project inet ****
 make MODE=debug CONFIGNAME=gcc-debug all 
 cd src && make
-applications/udpapp/UDPBasicApp.cc
-applications/udpapp/UDPBasicApp.cc: In destructor 'virtual UDPBasicApp::~UDPBasicApp()':
-applications/udpapp/UDPBasicApp.cc:44: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc: In member function 'DataPacket* UDPBasicApp::copyPacket(DataPacket*)':
-applications/udpapp/UDPBasicApp.cc:132: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc: In member function 'DataPacket* UDPBasicApp::generateMessage(char*)':
-applications/udpapp/UDPBasicApp.cc:143: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc: In member function 'virtual void UDPBasicApp::sendPacket()':
-applications/udpapp/UDPBasicApp.cc:155: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc:158: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc:165: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc:167: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc: In member function 'virtual void UDPBasicApp::processStart()':
-applications/udpapp/UDPBasicApp.cc:173: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc: In member function 'void UDPBasicApp::addPacketToQueue(DataPacket*)':
-applications/udpapp/UDPBasicApp.cc:200: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc:204: warning: comparison between signed and unsigned integer expressions
-applications/udpapp/UDPBasicApp.cc:209: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc: In member function 'virtual void UDPBasicApp::handleMessageWhenUp(cMessage*)':
-applications/udpapp/UDPBasicApp.cc:220: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc:223: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc:225: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc:233: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc:237: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc:239: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc:242: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc:247: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc:253: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc: In member function 'virtual void UDPBasicApp::processPacket(cPacket*)':
-applications/udpapp/UDPBasicApp.cc:272: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc:278: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc:281: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc:284: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc:291: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc: In member function 'virtual bool UDPBasicApp::startApp(IDoneCallback*)':
-applications/udpapp/UDPBasicApp.cc:300: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc:306: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc:309: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc: In member function 'virtual bool UDPBasicApp::stopApp(IDoneCallback*)':
-applications/udpapp/UDPBasicApp.cc:315: warning: deprecated conversion from string constant to 'char*'
-applications/udpapp/UDPBasicApp.cc: In member function 'virtual bool UDPBasicApp::crashApp(IDoneCallback*)':
-applications/udpapp/UDPBasicApp.cc:327: warning: deprecated conversion from string constant to 'char*'
-Creating shared library: ../out/gcc-debug/src/libinet.dylib
 
-12:45:56 Build Finished (took 3s.599ms)
+13:05:36 Build Finished (took 227ms)
 
