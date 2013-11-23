@@ -305,7 +305,11 @@ bool UDPBasicApp::startApp(IDoneCallback *doneCallback)
         scheduleAt(start, selfMsg);
         Logger::getInstance().trace("Scheduled start\n");
     }
-    scheduleAt(start+1, addData);
+    int randomInt = rand();
+    float randomFloat = (float)randomInt;
+    float randMax = (float)RAND_MAX;
+    float randomTime = randomFloat/randMax;
+    scheduleAt(start+randomTime, addData);
     Logger::getInstance().trace("Scheduled first data gather\n");
     return true;
 }
