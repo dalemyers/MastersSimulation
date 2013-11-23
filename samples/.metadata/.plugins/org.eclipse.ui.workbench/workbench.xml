@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="23" version="2.0">
+<workbench progressCount="26" version="2.0">
 <workbenchAdvisor/>
 <window height="871" maximized="true" width="1425" x="0" y="23">
 <fastViewData fastViewLocation="1024"/>
@@ -11,7 +11,7 @@
 <coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="134" y="22"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="100" y="22"/>
-<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="84" y="22"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="62" y="22"/>
 <coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="32" y="22"/>
 <coolItem id="org.omnetpp.neddoc.toolbars.neddocToolbar" itemType="typeToolBarContribution" x="32" y="22"/>
 <coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -22,10 +22,10 @@
 <coolItem id="org.omnetpp.scave.editors.ScaveEditor" itemType="typePlaceholder" x="346" y="22"/>
 <coolItem id="org.omnetpp.msg.editor.MsgEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.cdt.ui.editor.CEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.omnetpp.ned.editor" itemType="typePlaceholder" x="104" y="22"/>
-<coolItem id="org.omnetpp.inifile.editor.editors.InifileEditor" itemType="typePlaceholder" x="76" y="22"/>
+<coolItem id="org.omnetpp.ned.editor" itemType="typeToolBarContribution" x="104" y="22"/>
+<coolItem id="org.omnetpp.inifile.editor.editors.InifileEditor" itemType="typeToolBarContribution" x="76" y="22"/>
 <coolItem id="org.eclipse.cdt.make.editor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
@@ -37,17 +37,40 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="Logger.cc" partName="Logger.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/udpapp/Logger.cc" title="Logger.cc" tooltip="inet/src/applications/udpapp/Logger.cc" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/udpapp/Logger.cc"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3" selectionTopPixel="32"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="921" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="UDPBasicApp.h" partName="UDPBasicApp.h" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/udpapp/UDPBasicApp.h" title="UDPBasicApp.h" tooltip="inet/src/applications/udpapp/UDPBasicApp.h" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="UDPBasicApp.h" partName="UDPBasicApp.h" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/udpapp/UDPBasicApp.h" title="UDPBasicApp.h" tooltip="inet/src/applications/udpapp/UDPBasicApp.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/udpapp/UDPBasicApp.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3" selectionTopPixel="315"/>
+<editorState selectionHorizontalPixel="0" selectionLength="7" selectionOffset="1504" selectionTopPixel="347"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="UDPBasicBurst.cc" partName="UDPBasicBurst.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/udpapp/UDPBasicBurst.cc" title="UDPBasicBurst.cc" tooltip="inet/src/applications/udpapp/UDPBasicBurst.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/udpapp/UDPBasicBurst.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="UDPBasicApp.cc" partName="UDPBasicApp.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/udpapp/UDPBasicApp.cc" title="UDPBasicApp.cc" tooltip="inet/src/applications/udpapp/UDPBasicApp.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/udpapp/UDPBasicApp.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1943" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.omnetpp.inifile.editor.editors.InifileEditor" name="omnetpp.ini" partName="omnetpp.ini" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/MiXiM/examples/Buses/omnetpp.ini" title="omnetpp.ini" tooltip="MiXiM/examples/Buses/omnetpp.ini" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/MiXiM/examples/Buses/omnetpp.ini"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="UDPEchoApp.cc" partName="UDPEchoApp.cc" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/udpapp/UDPEchoApp.cc" title="UDPEchoApp.cc" tooltip="inet/src/applications/udpapp/UDPEchoApp.cc" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/udpapp/UDPEchoApp.cc"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1851" selectionTopPixel="333"/>
+</editor>
+<editor id="org.omnetpp.ned.editor" name="UDPBasicApp.ned" partName="UDPBasicApp.ned" path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/udpapp/UDPBasicApp.ned" title="UDPBasicApp.ned" tooltip="inet/src/applications/udpapp/UDPBasicApp.ned" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/inet/src/applications/udpapp/UDPBasicApp.ned"/>
 </editor>
 </editors>
 <views>
@@ -103,7 +126,7 @@
 <viewState pageId="all-topics-page"/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="org.omnetpp.main.OmnetppPerspective">
+<perspectives activePart="org.omnetpp.inifile.editor.editors.InifileEditor" activePerspective="org.omnetpp.main.OmnetppPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.omnetpp.ide.PerspectiveFactory" id="org.omnetpp.main.OmnetppPerspective" label="Simulation"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -189,7 +212,7 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.24104804" ratioLeft="276" ratioRight="869" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.66412216" ratioLeft="522" ratioRight="264" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.omnetpp.inifile.ModuleParameters" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.omnetpp.inifile.ModuleHierarchy" label="Module Hierarchy"/>
 <page content="org.omnetpp.inifile.ModuleParameters" label="NED Parameters"/>
@@ -324,8 +347,6 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/tcpapp/TCPBasicClientApp.cc"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/tcpapp/TCPEchoApp.cc"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/tcpapp/TCPGenericCliAppBase.cc"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.msg.editor.MsgEditor" path="/inet/src/applications/tcpapp/GenericAppMsg.msg"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/transport/contract/TCPSocket.cc"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor" path="/inet/src/applications/tcpapp/TCPBasicClientApp.ned"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/tcpapp/TCPGenericCliAppBase.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/transport/contract/TCPSocket.h"/>
@@ -335,73 +356,17 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/transport/contract/TCPSocket.cc"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/udpapp/Logger.cc"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/udpapp/UDPBasicApp.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/udpapp/Logger.cc"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/udpapp/UDPBasicApp.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/udpapp/UDPBasicBurst.cc"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/udpapp/UDPBasicApp.cc"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.inifile.editor.editors.InifileEditor" path="/MiXiM/examples/Buses/omnetpp.ini"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/inet/src/applications/udpapp/UDPEchoApp.cc"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/MiXiM/examples/Buses/configurator.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor" path="/MiXiM/examples/Buses/LothianBusNet.ned"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor" path="/inet/src/applications/udpapp/UDPBasicApp.ned"/>
 </editors>
 <item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="4052" y="0"/>
-</item>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="3640" y="0"/>
-</item>
-<item historyLabel="omnetpp.ini" index="0"/>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="3640" y="0"/>
-</item>
-<item historyLabel="omnetpp.ini" index="0"/>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="3640" y="0"/>
-</item>
-<item historyLabel="omnetpp.ini" index="0"/>
-<item historyLabel="GenericAppMsg.msg" index="4">
-<position info="not_deleted" x="1515" y="0"/>
-</item>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="3640" y="0"/>
-</item>
-<item historyLabel="TCPEchoApp.cc" index="2">
-<position info="not_deleted" x="2887" y="0"/>
-</item>
-<item historyLabel="omnetpp.ini" index="0"/>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="3640" y="0"/>
-</item>
-<item historyLabel="TCPEchoApp.cc" index="2">
-<position info="not_deleted" x="2791" y="0"/>
-</item>
-<item historyLabel="GenericAppMsg.msg" index="4">
-<position info="not_deleted" x="1515" y="0"/>
-</item>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="3640" y="0"/>
-</item>
-<item historyLabel="omnetpp.ini" index="0"/>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="3640" y="0"/>
-</item>
-<item historyLabel="TCPSocket.cc" index="5">
-<position info="not_deleted" x="5608" y="0"/>
-</item>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="6442" y="0"/>
-</item>
-<item historyLabel="omnetpp.ini" index="0"/>
-<item historyLabel="TCPEchoApp.cc" index="2">
-<position info="not_deleted" x="2871" y="0"/>
-</item>
-<item historyLabel="omnetpp.ini" index="0"/>
-<item historyLabel="TCPSocket.cc" index="5">
-<position info="not_deleted" x="5608" y="0"/>
-</item>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="5857" y="0"/>
-</item>
-<item historyLabel="omnetpp.ini" index="0"/>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
-<position info="not_deleted" x="5857" y="0"/>
-</item>
-<item historyLabel="GenericAppMsg.msg" index="4">
-<position info="not_deleted" x="1515" y="0"/>
-</item>
-<item historyLabel="TCPBasicClientApp.cc" index="1">
 <position info="not_deleted" x="5857" y="0"/>
 </item>
 <item historyLabel="TCPGenericCliAppBase.cc" index="3">
@@ -419,7 +384,7 @@
 <item historyLabel="TCPGenericCliAppBase.cc" index="3">
 <position info="not_deleted" x="3188" y="0"/>
 </item>
-<item historyLabel="TCPBasicClientApp.ned" index="6"/>
+<item historyLabel="TCPBasicClientApp.ned" index="4"/>
 <item historyLabel="omnetpp.ini" index="0"/>
 <item historyLabel="TCPBasicClientApp.cc" index="1">
 <position info="not_deleted" x="6534" y="0"/>
@@ -427,39 +392,108 @@
 <item historyLabel="TCPGenericCliAppBase.cc" index="3">
 <position info="not_deleted" x="3188" y="0"/>
 </item>
-<item historyLabel="TCPGenericCliAppBase.h" index="7">
+<item historyLabel="TCPGenericCliAppBase.h" index="5">
 <position info="not_deleted" x="1085" y="0"/>
 </item>
-<item historyLabel="TCPSocket.h" index="8">
+<item historyLabel="TCPSocket.h" index="6">
 <position info="not_deleted" x="4757" y="17"/>
 </item>
-<item historyLabel="TCPGenericCliAppBase.h" index="7">
+<item historyLabel="TCPGenericCliAppBase.h" index="5">
 <position info="not_deleted" x="1085" y="0"/>
 </item>
 <item historyLabel="TCPGenericCliAppBase.cc" index="3">
 <position info="not_deleted" x="4246" y="13"/>
 </item>
-<item historyLabel="TCPGenericCliAppBase.h" index="7">
+<item historyLabel="TCPGenericCliAppBase.h" index="5">
 <position info="not_deleted" x="1085" y="0"/>
 </item>
-<item historyLabel="TCPSocket.h" index="8">
+<item historyLabel="TCPSocket.h" index="6">
 <position info="not_deleted" x="12031" y="0"/>
 </item>
-<item historyLabel="omnetpp.ini" index="9"/>
-<item historyLabel="omnetpp.ini" index="10"/>
-<item historyLabel="omnetpp.ini" index="9"/>
-<item historyLabel="TCPBasicClientApp.cc" index="11">
+<item historyLabel="omnetpp.ini" index="7"/>
+<item historyLabel="omnetpp.ini" index="8"/>
+<item historyLabel="omnetpp.ini" index="7"/>
+<item historyLabel="TCPBasicClientApp.cc" index="9">
 <position info="not_deleted" x="6534" y="0"/>
 </item>
-<item historyLabel="TCPSocket.cc" index="12">
+<item historyLabel="TCPSocket.cc" index="10">
 <position info="not_deleted" x="5608" y="0"/>
+</item>
+<item historyLabel="Logger.cc" index="11">
+<position info="not_deleted" x="3" y="0"/>
+</item>
+<item historyLabel="UDPBasicApp.h" index="12">
+<position info="not_deleted" x="1396" y="0"/>
 </item>
 <item historyLabel="Logger.cc" index="13">
 <position info="not_deleted" x="3" y="0"/>
 </item>
-<item active="true" historyLabel="UDPBasicApp.h" index="14">
+<item historyLabel="Logger.cc" index="13">
+<position info="not_deleted" x="921" y="0"/>
+</item>
+<item historyLabel="UDPBasicApp.h" index="14">
+<position info="not_deleted" x="3" y="0"/>
+</item>
+<item historyLabel="UDPBasicBurst.cc" index="15">
+<position info="not_deleted" x="3" y="0"/>
+</item>
+<item historyLabel="UDPBasicApp.cc" index="16">
 <position info="not_deleted" x="0" y="0"/>
 </item>
+<item historyLabel="UDPBasicApp.cc" index="16">
+<position info="not_deleted" x="1375" y="0"/>
+</item>
+<item historyLabel="UDPBasicApp.cc" index="16">
+<position info="not_deleted" x="1406" y="0"/>
+</item>
+<item historyLabel="UDPBasicApp.cc" index="16">
+<position info="not_deleted" x="1509" y="0"/>
+</item>
+<item historyLabel="UDPBasicApp.cc" index="16">
+<position info="not_deleted" x="1509" y="0"/>
+</item>
+<item historyLabel="UDPBasicApp.h" index="14">
+<position info="not_deleted" x="3" y="0"/>
+</item>
+<item historyLabel="omnetpp.ini" index="17"/>
+<item historyLabel="UDPEchoApp.cc" index="18">
+<position info="not_deleted" x="1851" y="0"/>
+</item>
+<item historyLabel="omnetpp.ini" index="17"/>
+<item historyLabel="UDPBasicApp.h" index="14">
+<position info="not_deleted" x="3" y="0"/>
+</item>
+<item historyLabel="UDPBasicApp.cc" index="16">
+<position info="not_deleted" x="1509" y="0"/>
+</item>
+<item historyLabel="configurator.xml" index="19">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="UDPBasicApp.cc" index="16">
+<position info="not_deleted" x="1509" y="0"/>
+</item>
+<item historyLabel="LothianBusNet.ned" index="20"/>
+<item historyLabel="UDPBasicApp.cc" index="16">
+<position info="not_deleted" x="2118" y="0"/>
+</item>
+<item historyLabel="UDPBasicApp.h" index="14">
+<position info="not_deleted" x="3" y="0"/>
+</item>
+<item historyLabel="UDPBasicApp.cc" index="16">
+<position info="not_deleted" x="2257" y="0"/>
+</item>
+<item historyLabel="UDPBasicApp.ned" index="21"/>
+<item historyLabel="omnetpp.ini" index="17"/>
+<item historyLabel="UDPBasicApp.cc" index="16">
+<position info="not_deleted" x="1943" y="0"/>
+</item>
+<item historyLabel="UDPBasicApp.h" index="14">
+<position info="not_deleted" x="1504" y="7"/>
+</item>
+<item historyLabel="UDPBasicApp.cc" index="16">
+<position info="not_deleted" x="1943" y="0"/>
+</item>
+<item active="true" historyLabel="omnetpp.ini" index="17"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -477,6 +511,27 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor.launcher" name="UDPBasicApp.ned" tooltip="inet/src/applications/udpapp/UDPBasicApp.ned">
+<persistable path="/inet/src/applications/udpapp/UDPBasicApp.ned"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor.launcher" name="LothianBusNet.ned" tooltip="MiXiM/examples/Buses/LothianBusNet.ned">
+<persistable path="/MiXiM/examples/Buses/LothianBusNet.ned"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="configurator.xml" tooltip="MiXiM/examples/Buses/configurator.xml">
+<persistable path="/MiXiM/examples/Buses/configurator.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="UDPEchoApp.cc" tooltip="inet/src/applications/udpapp/UDPEchoApp.cc">
+<persistable path="/inet/src/applications/udpapp/UDPEchoApp.cc"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.inifile.editor.editors.InifileEditor" name="omnetpp.ini" tooltip="MiXiM/examples/Buses/omnetpp.ini">
+<persistable path="/MiXiM/examples/Buses/omnetpp.ini"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="UDPBasicApp.cc" tooltip="inet/src/applications/udpapp/UDPBasicApp.cc">
+<persistable path="/inet/src/applications/udpapp/UDPBasicApp.cc"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="UDPBasicBurst.cc" tooltip="inet/src/applications/udpapp/UDPBasicBurst.cc">
+<persistable path="/inet/src/applications/udpapp/UDPBasicBurst.cc"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="UDPBasicApp.h" tooltip="inet/src/applications/udpapp/UDPBasicApp.h">
 <persistable path="/inet/src/applications/udpapp/UDPBasicApp.h"/>
 </file>
@@ -500,27 +555,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor.launcher" name="ClientServer.ned" tooltip="inet/examples/inet/tcpclientserver/ClientServer.ned">
 <persistable path="/inet/examples/inet/tcpclientserver/ClientServer.ned"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="TCPSinkApp.cc" tooltip="inet/src/applications/tcpapp/TCPSinkApp.cc">
-<persistable path="/inet/src/applications/tcpapp/TCPSinkApp.cc"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor.launcher" name="TCPSinkApp.ned" tooltip="inet/src/applications/tcpapp/TCPSinkApp.ned">
-<persistable path="/inet/src/applications/tcpapp/TCPSinkApp.ned"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.inifile.editor.editors.InifileEditor" name="omnetpp.ini" tooltip="inet/examples/inet/tcpsack/omnetpp.ini">
-<persistable path="/inet/examples/inet/tcpsack/omnetpp.ini"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="TCPSessionApp.cc" tooltip="inet/src/applications/tcpapp/TCPSessionApp.cc">
-<persistable path="/inet/src/applications/tcpapp/TCPSessionApp.cc"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor.launcher" name="TCPSessionApp.ned" tooltip="inet/src/applications/tcpapp/TCPSessionApp.ned">
-<persistable path="/inet/src/applications/tcpapp/TCPSessionApp.ned"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="README" tooltip="inet/examples/inet/tcpsack/README">
-<persistable path="/inet/examples/inet/tcpsack/README"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.omnetpp.ned.editor.launcher" name="tcpSack.ned" tooltip="inet/examples/inet/tcpsack/tcpSack.ned">
-<persistable path="/inet/examples/inet/tcpsack/tcpSack.ned"/>
 </file>
 </mruList>
 </workbench>

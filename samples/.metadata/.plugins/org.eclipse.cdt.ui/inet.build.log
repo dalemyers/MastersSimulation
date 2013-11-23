@@ -1,6 +1,6 @@
-20:06:15 **** Incremental Build of configuration gcc-debug for project inet ****
+13:05:36 **** Incremental Build of configuration gcc-debug for project inet ****
 make MODE=debug CONFIGNAME=gcc-debug all 
 cd src && make
 
-20:06:16 Build Finished (took 237ms)
+13:05:36 Build Finished (took 227ms)
 
