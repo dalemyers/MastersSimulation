@@ -203,10 +203,11 @@ void UDPBasicApp::addPacketToQueue(DataPacket *p){
     if(queueSize != -1){
         if(packetQueue.size() > queueSize){
             DataPacket *old = packetQueue.front();
+            Logger::getInstance().info("Bus %d dropped packet %d\n",id,old->getUuid());
             packetQueue.pop();
             delete old;
             numDropped++;
-            Logger::getInstance().info("Bus %d dropped packet\n",id);
+
         }
     }
     if(packetQueue.size() == 1){
