@@ -69,6 +69,8 @@ void UDPBasicApp::initialize(int stage)
         sentPkSignal = registerSignal("sentPk");
         rcvdPkSignal = registerSignal("rcvdPk");
 
+        logLocation = (char*)par("logLocation").stringValue();
+        Logger::getInstance().setLocation(logLocation);
         queueSize = par("queueSize");
         localPort = par("localPort");
         destPort = par("destPort");

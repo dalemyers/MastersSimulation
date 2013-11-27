@@ -52,6 +52,7 @@ class INET_API UDPBasicApp : public AppBase
     int sequenceNumber;
     int id;
     int queueSize;
+    char* logLocation;
 
     // statistics
     int numSent;

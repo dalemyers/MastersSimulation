@@ -29,7 +29,7 @@
 <includePath path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/MiXiM/examples/Mac80211/results"/>
 <includePath path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/MiXiM/examples/CSMAMac"/>
 <includePath path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/MiXiM/examples/Buses"/>
-<includePath path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/MiXiM/examples/Buses/results" removed="true"/>
+<includePath path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/MiXiM/examples/Buses/results"/>
 <includePath path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/MiXiM/src"/>
 <includePath path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/MiXiM/src/modules"/>
 <includePath path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/MiXiM/src/modules/utility"/>
