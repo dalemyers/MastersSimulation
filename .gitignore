@@ -2,3 +2,6 @@
 out/*
 samples/.metadata/*
 log.txt
+*.o
+*.vci
+*/doc/*
