@@ -36,6 +36,7 @@ class Logger
         void error(char* s, ...);
         void fatal(char* s, ...);
         void setLevel(int level);
+        void setLocation(char* location);
     private:
         std::ofstream myfile;
         int level;

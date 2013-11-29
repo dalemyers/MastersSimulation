@@ -2,7 +2,7 @@
 packet DataPacket
 {
     int uuid;
-    char busid;
+    unsigned char busid;
     string debugMessage;
     bool serverClose;
     

@@ -69,6 +69,8 @@ void UDPBasicApp::initialize(int stage)
         sentPkSignal = registerSignal("sentPk");
         rcvdPkSignal = registerSignal("rcvdPk");
 
+        logLocation = (char*)par("logLocation").stringValue();
+        Logger::getInstance().setLocation(logLocation);
         queueSize = par("queueSize");
         localPort = par("localPort");
         destPort = par("destPort");
@@ -203,10 +205,11 @@ void UDPBasicApp::addPacketToQueue(DataPacket *p){
     if(queueSize != -1){
         if(packetQueue.size() > queueSize){
             DataPacket *old = packetQueue.front();
+            Logger::getInstance().info("Bus %d dropped packet %d\n",id,old->getUuid());
             packetQueue.pop();
             delete old;
             numDropped++;
-            Logger::getInstance().info("Bus %d dropped packet\n",id);
+
         }
     }
     if(packetQueue.size() == 1){

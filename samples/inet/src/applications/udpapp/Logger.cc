@@ -34,6 +34,11 @@ void Logger::setLevel(int l){
     level = l;
 }
 
+void Logger::setLocation(char* loc){
+    myfile.close();
+    myfile.open(loc);
+}
+
 void Logger::trace(char* format, ...){
     char* msg;
     va_list args;
