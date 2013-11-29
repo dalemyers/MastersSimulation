@@ -1,4 +1,4 @@
-21:59:11 **** Incremental Build of configuration gcc-debug for project MiXiM ****
+11:36:37 **** Incremental Build of configuration gcc-debug for project MiXiM ****
 make MODE=debug CONFIGNAME=gcc-debug all 
 make makefiles-using-inet
 cd src && opp_makemake -f --deep --make-so -o mixim -O out -Xinet_stub -I$\(INET_PROJ\)/src/linklayer/ethernet -I$\(INET_PROJ\)/src/linklayer/ieee80211/radio -I$\(INET_PROJ\)/src/networklayer/common -I$\(INET_PROJ\)/src/networklayer/icmpv6 -I$\(INET_PROJ\)/src -I$\(INET_PROJ\)/src/world/obstacles -I$\(INET_PROJ\)/src/mobility/models -I$\(INET_PROJ\)/src/networklayer/xmipv6 -I$\(INET_PROJ\)/src/mobility -I$\(INET_PROJ\)/src/networklayer/contract -I$\(INET_PROJ\)/src/networklayer/manetrouting/base -I$\(INET_PROJ\)/src/linklayer/ieee80211/mgmt -I$\(INET_PROJ\)/src/util -I$\(INET_PROJ\)/src/transport/contract -I$\(INET_PROJ\)/src/linklayer/radio/propagation -I$\(INET_PROJ\)/src/linklayer/ieee80211/radio/errormodel -I$\(INET_PROJ\)/src/world/powercontrol -I$\(INET_PROJ\)/src/linklayer/radio -I$\(INET_PROJ\)/src/util/headerserializers/tcp -I$\(INET_PROJ\)/src/networklayer/ipv4 -I$\(INET_PROJ\)/src/util/headerserializers/ipv4 -I$\(INET_PROJ\)/src/base -I$\(INET_PROJ\)/src/util/headerserializers -I$\(INET_PROJ\)/src/world/radio -I$\(INET_PROJ\)/src/linklayer/ieee80211/mac -I$\(INET_PROJ\)/src/networklayer/ipv6 -I$\(INET_PROJ\)/src/transport/sctp -I$\(INET_PROJ\)/src/util/headerserializers/udp -I$\(INET_PROJ\)/src/networklayer/ipv6tunneling -I$\(INET_PROJ\)/src/battery/models -I$\(INET_PROJ\)/src/applications/pingapp -I$\(INET_PROJ\)/src/linklayer/contract -I$\(INET_PROJ\)/src/util/headerserializers/sctp -I$\(INET_PROJ\)/src/transport/tcp_common -I$\(INET_PROJ\)/src/networklayer/arp -I$\(INET_PROJ\)/src/transport/udp -L$\(INET_PROJ\)/out/$\(CONFIGNAME\)/src -linet -lsqlite3 -DMIXIM_INET -DINET_IMPORT -KINET_PROJ=../../inet
@@ -20,5 +20,5 @@ Creating executable: ../out/gcc-debug//examples/miximexamples
 cd tests && make
 Creating executable: ../out/gcc-debug//tests/miximtests
 
-21:59:13 Build Finished (took 2s.873ms)
+11:36:40 Build Finished (took 2s.827ms)
 

@@ -201,6 +201,7 @@
 <includePath path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/generic"/>
 <includePath path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/ethernet"/>
 <includePath path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/inet/src/applications/dhcp"/>
+<includePath path="/Users/Velox/Downloads/omnetpp-4.3.1/samples/MiXiM/examples/Buses/omnetppini"/>
 <definedSymbol symbol="__STDC__=1"/>
 <definedSymbol symbol="__cplusplus=1"/>
 <definedSymbol symbol="__STDC_HOSTED__=1"/>
