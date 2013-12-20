@@ -5,3 +5,4 @@ MiXiM/out/
 MiXiM/tests/Makefile
 inet/doc/
 MiXiM/.csettings/
+*.sqlite

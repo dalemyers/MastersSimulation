@@ -67,6 +67,7 @@ INCLUDE_PATH = \
     -Ibmac \
     -IBuses \
     -IBuses/omnetppini \
+    -IBuses/results \
     -ICSMAMac \
     -Iieee802154a \
     -Iieee802154a/channels \
@@ -187,6 +188,7 @@ clean:
 	$(Q)-rm -f bmac/*_m.cc bmac/*_m.h
 	$(Q)-rm -f Buses/*_m.cc Buses/*_m.h
 	$(Q)-rm -f Buses/omnetppini/*_m.cc Buses/omnetppini/*_m.h
+	$(Q)-rm -f Buses/results/*_m.cc Buses/results/*_m.h
 	$(Q)-rm -f CSMAMac/*_m.cc CSMAMac/*_m.h
 	$(Q)-rm -f ieee802154a/*_m.cc ieee802154a/*_m.h
 	$(Q)-rm -f ieee802154a/channels/*_m.cc ieee802154a/channels/*_m.h
@@ -204,7 +206,7 @@ cleanall: clean
 
 depend:
 	$(qecho) Creating dependencies...
-	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES)  ./*.cc analogueModels/*.cc baseNetwork/*.cc bmac/*.cc Buses/*.cc Buses/omnetppini/*.cc CSMAMac/*.cc ieee802154a/*.cc ieee802154a/channels/*.cc ieee802154a/channels/noshadow/*.cc ieee802154a/channels/shadow/*.cc ieee802154a/receivers/*.cc ieee802154Narrow/*.cc lmac/*.cc Mac80211/*.cc multiConnectionManager/*.cc WSNRouting/*.cc
+	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES)  ./*.cc analogueModels/*.cc baseNetwork/*.cc bmac/*.cc Buses/*.cc Buses/omnetppini/*.cc Buses/results/*.cc CSMAMac/*.cc ieee802154a/*.cc ieee802154a/channels/*.cc ieee802154a/channels/noshadow/*.cc ieee802154a/channels/shadow/*.cc ieee802154a/receivers/*.cc ieee802154Narrow/*.cc lmac/*.cc Mac80211/*.cc multiConnectionManager/*.cc WSNRouting/*.cc
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/analogueModels/RandomFreqTimeModel.o: analogueModels/RandomFreqTimeModel.cc \
