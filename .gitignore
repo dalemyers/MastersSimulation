@@ -1,7 +1,7 @@
-*.sqlite
-out/*
-samples/.metadata/*
-log.txt
-*.o
 *.vci
-*/doc/*
+.metadata/
+MiXiM/doc/
+MiXiM/out/
+MiXiM/tests/Makefile
+inet/doc/
+MiXiM/.csettings/
