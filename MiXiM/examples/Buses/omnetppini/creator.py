@@ -21,9 +21,11 @@ for x in [1,2,3,4,5]:
         with open(fname,'w') as fw:
             for line in flines:
                 fw.write(line)
-            fw.write("**.numAps = ${numaps=10,20,30,40,50}\n\r")
-            fw.write("**.bus[*].udpApp[0].queueSize = ${queuesize=10,30,100,2000}\n\r")
-            fw.write("**.bus[*].udpApp[0].logLocation = \"/root/AB${numaps}APQ${queuesize}-" + str(x) + ".txt\"\n\r")
+            fw.write("**.wlan[*].radio.TransmissionAntennaGainIndB  = 4dB\r\n")
+            fw.write("**.wlan[*].radio.ReceiveAntennaGainIndB = 4dB\r\n")
+            fw.write("**.wlan[*].radio.transmitterPower = ${transmitterpower=18mW,19mW,20mW,21mW,22mW}\r\n")
+            fw.write("*.channelControl.propagationModel = \"${model=RayleighModel,LogNormalShadowingModel}\"\r\n")
+            fw.write("**.bus[*].udpApp[0].logLocation = \"/root/AB50APQ2000P${transmitterpower}M${model}-" + str(x) + ".txt\"\n\r")
             fw.write("\n\r")
             ap_locations = get_ap_locations(x)
             for line in ap_locations:
