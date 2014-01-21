@@ -6,3 +6,4 @@ MiXiM/tests/Makefile
 inet/doc/
 MiXiM/.csettings/
 *.sqlite
+.DS_Store
