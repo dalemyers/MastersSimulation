@@ -7,3 +7,4 @@ inet/doc/
 MiXiM/.csettings/
 *.sqlite
 .DS_Store
+MiXiM/examples/Buses/omnetppini/R*.ini
