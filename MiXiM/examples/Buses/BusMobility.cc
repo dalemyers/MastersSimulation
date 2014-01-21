@@ -132,6 +132,8 @@ void BusMobility::handleMessage(cMessage *msg)
     this->getParentModule()->getDisplayString().setTagArg("p", 0, x);
     this->getParentModule()->getDisplayString().setTagArg("p", 1, y);
 
+    free(positions);
+
     // schedule next move
     scheduleAt(simTime()+timeStep, msg);
 }
@@ -149,6 +151,9 @@ int BusMobility::initializePositions(int currentPosition, int updateDelta)
             id,
             stimeStr,
             etimeStr);
+
+    free(stimeStr);
+    free(etimeStr);
 
     //printf("%s\n",sqlQuery);
 
@@ -193,6 +198,8 @@ int BusMobility::initializePositions(int currentPosition, int updateDelta)
     sqlite3_finalize(stmt);
     sqlite3_close(db);
 
+    free(sqlQuery);
+
     return currentPosition + 60;
 }
 
@@ -210,6 +217,7 @@ char* BusMobility::getTimeFromOffset(int offset){
        int hour    = tLocal.tm_hour;
        int minute  = tLocal.tm_min;
        int second  = tLocal.tm_sec;
+
 
        //YYYY-mm-dd hh:mm:ss
        char* timeStr = (char*)malloc(20*sizeof(char));

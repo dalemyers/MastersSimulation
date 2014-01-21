@@ -36,6 +36,7 @@ void Logger::setLevel(int l){
 
 void Logger::setLocation(char* loc){
     myfile.close();
+    logLocation = loc;
     myfile.open(loc);
 }
 
@@ -48,6 +49,7 @@ void Logger::trace(char* format, ...){
     if(level <= TRACE){
         filelog(msg);
     }
+    free(msg);
 }
 
 void Logger::info(char* format, ...){
@@ -59,6 +61,7 @@ void Logger::info(char* format, ...){
     if(level <= INFO){
         filelog(msg);
     }
+    free(msg);
 }
 
 void Logger::error(char* format, ...){
@@ -70,6 +73,7 @@ void Logger::error(char* format, ...){
     if(level <= ERROR){
         filelog(msg);
     }
+    free(msg);
 }
 
 void Logger::fatal(char* format, ...){
@@ -81,6 +85,7 @@ void Logger::fatal(char* format, ...){
     if(level <= FATAL){
         filelog(msg);
     }
+    free(msg);
 }
 
 void Logger::filelog(char* format, ...){
@@ -91,6 +96,7 @@ void Logger::filelog(char* format, ...){
     va_end( args );
     printf("%s",msg);
     log(msg);
+    free(msg);
 }
 
 void Logger::log(char* s){

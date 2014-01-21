@@ -38,6 +38,7 @@ class Logger
         void setLevel(int level);
         void setLocation(char* location);
     private:
+        char* logLocation;
         std::ofstream myfile;
         int level;
         Logger();                   // Constructor? (the {} brackets) are needed here.
