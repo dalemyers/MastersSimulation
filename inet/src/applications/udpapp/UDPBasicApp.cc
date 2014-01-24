@@ -350,10 +350,12 @@ void UDPBasicApp::processPacket(cPacket *pk)
                     cancelEvent(selfMsg);
                     Logger::getInstance().trace("cancelled self message\n");
                 }
-                DataPacket *old = packetQueue.front();
-                packetQueue.pop();
-                delete old;
-                sendPacket();
+                if(packetQueue.size() > 0){
+                    DataPacket *old = packetQueue.front();
+                    packetQueue.pop();
+                    delete old;
+                    sendPacket();
+                }
             } else {
                 if(p->getBusid() != id){
                     Logger::getInstance().trace("Bus %d received a response for bus %d\n",id,p->getBusid());
