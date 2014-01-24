@@ -19,9 +19,8 @@ module Bus extends inet.nodes.inet.WirelessHost
         double startX @unit("") = default(0); // the starting coordinates in meter
         double startY @unit("") = default(0); // the starting coordinates in meter
         int id = default(0); // the id of this bus
-
-    
-
+		numRadios = 2;
+		
 }
 
 

@@ -18,7 +18,8 @@
 
 
 #include "UDPBasicApp.h"
-
+#include "IPv4InterfaceData.h"
+#include "IInterfaceTable.h"
 #include "InterfaceTableAccess.h"
 #include "IPvXAddressResolver.h"
 #include "NodeOperations.h"
@@ -98,30 +99,37 @@ void UDPBasicApp::finish()
 void UDPBasicApp::setSocketOptions()
 {
     int timeToLive = par("timeToLive");
-    if (timeToLive != -1)
-        socket.setTimeToLive(timeToLive);
+    if (timeToLive != -1){
+        apSocket.setTimeToLive(timeToLive);
+        busSocket.setTimeToLive(timeToLive);
+    }
 
     int typeOfService = par("typeOfService");
-    if (typeOfService != -1)
-        socket.setTypeOfService(typeOfService);
+    if (typeOfService != -1){
+        apSocket.setTypeOfService(typeOfService);
+        busSocket.setTypeOfService(typeOfService);
+    }
 
     const char *multicastInterface = par("multicastInterface");
     if (multicastInterface[0])
     {
         IInterfaceTable *ift = InterfaceTableAccess().get(this);
         InterfaceEntry *ie = ift->getInterfaceByName(multicastInterface);
-        if (!ie)
+        if (!ie){
             throw cRuntimeError("Wrong multicastInterface setting: no interface named \"%s\"", multicastInterface);
-        socket.setMulticastOutputInterface(ie->getInterfaceId());
+        }
+        apSocket.setMulticastOutputInterface(ie->getInterfaceId());
+        busSocket.setMulticastOutputInterface(ie->getInterfaceId());
     }
 
-    bool receiveBroadcast = par("receiveBroadcast");
-    if (receiveBroadcast)
-        socket.setBroadcast(true);
+    apSocket.setBroadcast(false);
+    busSocket.setBroadcast(true);
 
-    bool joinLocalMulticastGroups = par("joinLocalMulticastGroups");
-    if (joinLocalMulticastGroups)
-        socket.joinLocalMulticastGroups();
+    apSocket.joinLocalMulticastGroups();
+    busSocket.joinLocalMulticastGroups();
+
+    busSocket.setMulticastOutputInterface(2);
+    apSocket.setMulticastOutputInterface(2);
 }
 
 IPvXAddress UDPBasicApp::chooseDestAddr()
@@ -162,7 +170,14 @@ void UDPBasicApp::sendPacket()
         lastSend = p->getUuid();
         p->removeControlInfo();
         emit(sentPkSignal, p);
-        socket.sendTo(p, destAddr, destPort);
+        apSocket.sendTo(p, destAddr, destPort,1);
+
+
+        DataPacket *q = generateMessage("Broadcast");
+        q->removeControlInfo();
+        busSocket.sendTo(q,broadcastAddress,destPort+1,20);
+
+
         scheduleAt(simTime()+0.5,timeoutMsg);
         Logger::getInstance().trace("Timeout scheduled in 0.5s\n");
     } else {
@@ -173,13 +188,33 @@ void UDPBasicApp::sendPacket()
 void UDPBasicApp::processStart()
 {
     Logger::getInstance().trace("processStart()\n");
-    socket.setOutputGate(gate("udpOut"));
-    socket.bind(localPort);
+
+    IInterfaceTable *inet_ift;
+    inet_ift = InterfaceTableAccess().get();
+
+    IPv4Address temp;
+
+    for (int32 i=0; i<inet_ift->getNumInterfaces(); ++i){
+        if (inet_ift->getInterface(i)->ipv4Data()!=NULL){
+            temp = inet_ift->getInterface(i)->ipv4Data()->getIPAddress();
+        }
+    }
+
+    apSocket.setOutputGate(gate("udpOut"));
+    apSocket.bind(localPort);
+    busSocket.setOutputGate(gate("udpOut"));
+    busSocket.bind(temp,localPort+1);
     setSocketOptions();
 
     const char *destAddrs = par("destAddresses");
     cStringTokenizer tokenizer(destAddrs);
     const char *token;
+
+    IPvXAddressResolver().tryResolve("224.0.0.1", broadcastAddress);
+    if(broadcastAddress.isUnspecified()){
+        EV << "cannot resolve broadcast address" << endl;
+        printf("FAIL\n");
+    }
 
     while ((token = tokenizer.nextToken()) != NULL) {
         IPvXAddress result;
@@ -195,7 +230,8 @@ void UDPBasicApp::processStart()
 
 void UDPBasicApp::processStop()
 {
-    socket.close();
+    apSocket.close();
+    busSocket.close();
 }
 
 void UDPBasicApp::addPacketToQueue(DataPacket *p){
