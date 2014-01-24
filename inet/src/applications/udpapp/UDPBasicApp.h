@@ -67,6 +67,7 @@ class INET_API UDPBasicApp : public AppBase
     // chooses random destination address
     virtual IPvXAddress chooseDestAddr();
     virtual void sendPacket();
+    virtual void sendResponsePacket(DataPacket* p);
     virtual void processPacket(cPacket *msg);
     virtual void setSocketOptions();
 
@@ -80,6 +81,7 @@ class INET_API UDPBasicApp : public AppBase
     virtual void handleMessageWhenUp(cMessage *msg);
     virtual void finish();
     DataPacket* copyPacket(DataPacket* p);
+    DataPacket* createBroadcastPacket(DataPacket * p);
     DataPacket* generateMessage(char* debugString);
     virtual void processStart();
     virtual void processStop();

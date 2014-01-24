@@ -55,6 +55,7 @@ void UDPEchoApp::handleMessageWhenUp(cMessage *msg)
 
         if(dynamic_cast<DataPacket *>(pk)){
             DataPacket *p = check_and_cast<DataPacket *>(pk);
+            p->setIsResponsePacket(true);
             simtime_t diff = simTime() - p->getTimestamp();
             int seconds = diff.inUnit(SIMTIME_S);
             Logger::getInstance().info("Bus: %u, Packet: %d, Timediff: %d\n",p->getBusid(),p->getUuid(),seconds);
@@ -70,7 +71,7 @@ void UDPEchoApp::handleMessageWhenUp(cMessage *msg)
             delete ctrl;
 
             // send back
-            socket.sendTo(pk, srcAddress, srcPort);
+            socket.sendTo(p, srcAddress, srcPort);
         }
 
         if (ev.isGUI())

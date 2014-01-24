@@ -5,6 +5,8 @@ packet DataPacket
     unsigned char busid;
     string debugMessage;
     bool serverClose;
+    bool broadcastPacket;
+    bool isResponsePacket;
     
     
     ///Air Quality Measurements Here
@@ -15,6 +17,7 @@ packet DataPacket
     short o3concentration;
     short pm10concentration;
     short pm25concentration;
+    
 
     
 }

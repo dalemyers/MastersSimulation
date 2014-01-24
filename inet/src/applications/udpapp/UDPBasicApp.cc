@@ -26,6 +26,7 @@
 #include "UDPControlInfo_m.h"
 #include "DataPacket_m.h"
 
+#pragma GCC diagnostic ignored "-Wwrite-strings"
 
 Define_Module(UDPBasicApp);
 
@@ -58,7 +59,7 @@ void UDPBasicApp::initialize(int stage)
     // address auto-assignment takes place etc.
     if (stage == 0)
     {
-        Logger::getInstance().setLevel(Logger::INFO);
+        Logger::getInstance().setLevel(Logger::TRACE);
         numSent = 0;
         numDropped = 0;
         numReceived = 0;
@@ -138,6 +139,18 @@ IPvXAddress UDPBasicApp::chooseDestAddr()
     return destAddresses[k];
 }
 
+DataPacket* UDPBasicApp::createBroadcastPacket(DataPacket * p){
+    Logger::getInstance().trace("create Broadcast packet\n");
+    DataPacket* msg = new DataPacket();
+    msg->setDebugMessage("BROADCAST");
+    msg->setTimestamp(p->getTimestamp());
+    msg->setTemperature(p->getTemperature());
+    msg->setBusid(p->getBusid());
+    msg->setUuid(p->getUuid());
+    msg->setBroadcastPacket(true);
+    return msg;
+}
+
 DataPacket* UDPBasicApp::copyPacket(DataPacket * p){
     Logger::getInstance().trace("Copy packet\n");
     DataPacket* msg = new DataPacket();
@@ -146,6 +159,7 @@ DataPacket* UDPBasicApp::copyPacket(DataPacket * p){
     msg->setTemperature(p->getTemperature());
     msg->setBusid(p->getBusid());
     msg->setUuid(p->getUuid());
+    msg->setBroadcastPacket(false); //Should always be false unless explicitly set
     return msg;
 }
 
@@ -157,6 +171,7 @@ DataPacket* UDPBasicApp::generateMessage(char* debugString){
     msg->setTemperature(4);
     msg->setBusid(id);
     msg->setUuid(sequenceNumber++);
+    msg->setBroadcastPacket(false);
     return msg;
 }
 
@@ -170,12 +185,12 @@ void UDPBasicApp::sendPacket()
         lastSend = p->getUuid();
         p->removeControlInfo();
         emit(sentPkSignal, p);
-        apSocket.sendTo(p, destAddr, destPort,1);
+        apSocket.sendTo(p, destAddr, destPort);
 
 
-        DataPacket *q = generateMessage("Broadcast");
+        DataPacket *q = createBroadcastPacket(p);
         q->removeControlInfo();
-        busSocket.sendTo(q,broadcastAddress,destPort+1,20);
+        busSocket.sendTo(q,broadcastAddress,destPort+1);
 
 
         scheduleAt(simTime()+0.5,timeoutMsg);
@@ -183,6 +198,17 @@ void UDPBasicApp::sendPacket()
     } else {
         Logger::getInstance().trace("Packet queue empty\n");
     }
+}
+
+void UDPBasicApp::sendResponsePacket(DataPacket *p)
+{
+    Logger::getInstance().trace("sendResponsePacket()\n");
+    Logger::getInstance().info("Bus %d Sending response packet with sequence %d\n",id,p->getUuid());
+    p->removeControlInfo();
+    emit(sentPkSignal, p);
+    busSocket.sendTo(p,broadcastAddress,destPort+1);
+
+    //We don't bother checking anything. Duplicates can be found in the database.
 }
 
 void UDPBasicApp::processStart()
@@ -235,7 +261,7 @@ void UDPBasicApp::processStop()
 }
 
 void UDPBasicApp::addPacketToQueue(DataPacket *p){
-    Logger::getInstance().info("Bus %d generated packet\n",id);
+    Logger::getInstance().info("Bus %d adding packet to queue\n",id);
     numSent++;
     packetQueue.push(p);
     if(queueSize != -1){
@@ -273,9 +299,9 @@ void UDPBasicApp::handleMessageWhenUp(cMessage *msg)
             DataPacket *p = generateMessage((char*)"debugstr");
             addPacketToQueue(p);
             scheduleAt(simTime()+1,addData);
-            Logger::getInstance().trace("Adding data in 1 second\n");
+            Logger::getInstance().trace("Bus %d Adding data in 1 second\n",id);
         } else if (msg == timeoutMsg){
-            Logger::getInstance().trace("Packet timed out. Resending\n");
+            Logger::getInstance().trace("Bus %d Packet timed out. Resending\n",id);
             sendPacket();
         } else {
             Logger::getInstance().error("GOT WEIRD MESSAGE\n");
@@ -311,23 +337,46 @@ void UDPBasicApp::processPacket(cPacket *pk)
     Logger::getInstance().trace("processPacket()\n");
     emit(rcvdPkSignal, pk);
     EV << "Received packet: " << UDPSocket::getReceivedPacketInfo(pk) << endl;
-    numReceived++;
     if(dynamic_cast<DataPacket *>(pk)){
         DataPacket *p = check_and_cast<DataPacket *>(pk);
-        Logger::getInstance().trace("Got packet response: %d\n",p->getUuid());
-        if(p->getUuid() == lastSend){
-            cancelEvent(timeoutMsg);
-            Logger::getInstance().trace("Was valid sequence. Timeout cancelled.\n");
-            if (selfMsg){
-                cancelEvent(selfMsg);
-                Logger::getInstance().trace("cancelled self message\n");
+        if(p->getIsResponsePacket()){
+            Logger::getInstance().trace("Bus %d got response packet\n",id);
+            numReceived++;
+            if(p->getBusid() == id && p->getUuid() == lastSend){
+                //This is a response to one of our previous packets
+                cancelEvent(timeoutMsg);
+                Logger::getInstance().trace("Was valid sequence. Timeout cancelled.\n");
+                if (selfMsg){
+                    cancelEvent(selfMsg);
+                    Logger::getInstance().trace("cancelled self message\n");
+                }
+                DataPacket *old = packetQueue.front();
+                packetQueue.pop();
+                delete old;
+                sendPacket();
+            } else {
+                if(p->getBusid() != id){
+                    Logger::getInstance().trace("Bus %d received a response for bus %d\n",id,p->getBusid());
+                } else {
+                    Logger::getInstance().trace("Bus %d received a response with invalid sequence number.\n",id);
+                }
             }
-            DataPacket *old = packetQueue.front();
-            packetQueue.pop();
-            delete old;
-            sendPacket();
         } else {
-            Logger::getInstance().trace("Incorrect sequence number: %d. Ignoring. \n",p->getUuid());
+            //This is a data packet
+            if(p->getBroadcastPacket() && p->getBusid() != id){
+                Logger::getInstance().trace("Bus %d got a data packet from bus %d\n",id,p->getBusid());
+                DataPacket *storedPacket = copyPacket(p);
+                DataPacket *responsePacket = createBroadcastPacket(p);
+                responsePacket->setIsResponsePacket(true);
+                sendResponsePacket(responsePacket);
+                addPacketToQueue(storedPacket);
+            } else {
+                if(!p->getBroadcastPacket()){
+                    Logger::getInstance().trace("Bus %d received a data packet that was NOT a broadcast packet. THIS SHOULD NEVER HAPPEN.\n",id);
+                } else {
+                    Logger::getInstance().trace("Bus %d received its own data packet\n",id);
+                }
+            }
         }
         p = NULL;
     }
