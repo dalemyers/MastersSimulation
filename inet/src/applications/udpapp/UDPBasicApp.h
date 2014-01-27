@@ -54,7 +54,10 @@ class INET_API UDPBasicApp : public AppBase
     int sequenceNumber;
     int id;
     int queueSize;
+    std::queue<int> aptimes;
     char* logLocation;
+    int apTimeStart;
+    int apTimeEnd;
 
     // statistics
     int numSent;
@@ -83,6 +86,8 @@ class INET_API UDPBasicApp : public AppBase
     DataPacket* copyPacket(DataPacket* p);
     DataPacket* createBroadcastPacket(DataPacket * p);
     DataPacket* generateMessage(char* debugString);
+    int calculateTimeToAP();
+    void updateTimer();
     virtual void processStart();
     virtual void processStop();
     void addPacketToQueue(DataPacket *p);

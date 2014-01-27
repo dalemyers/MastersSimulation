@@ -21,6 +21,7 @@ module Bus extends inet.nodes.inet.WirelessHost
         int id = default(0); // the id of this bus
 		numRadios = 2;
 		
+		
 }
 
 

@@ -25,6 +25,8 @@
 #include "NodeOperations.h"
 #include "UDPControlInfo_m.h"
 #include "DataPacket_m.h"
+#include <utility>
+#include <string>
 
 #pragma GCC diagnostic ignored "-Wwrite-strings"
 
@@ -43,7 +45,7 @@ UDPBasicApp::~UDPBasicApp()
     cancelAndDelete(selfMsg);
     cancelAndDelete(timeoutMsg);
     cancelAndDelete(addData);
-    Logger::getInstance().trace("Bus %d has %d packets left in queue\n",id,packetQueue.size());
+    Logger::getInstance().trace("Bus %d | %d packets left in queue\n",id,packetQueue.size());
     while(packetQueue.size() > 0){
         DataPacket *p = packetQueue.front();
         packetQueue.pop();
@@ -139,32 +141,63 @@ IPvXAddress UDPBasicApp::chooseDestAddr()
     return destAddresses[k];
 }
 
+void UDPBasicApp::updateTimer(){
+    Logger::getInstance().trace("Bus %d | Updating timer\n",id);
+    int currentTimeInSeconds = simTime().inUnit(SIMTIME_S);
+    if(apTimeEnd <= currentTimeInSeconds){
+        Logger::getInstance().trace("Bus %d | Moved out of range of AP\n",id);
+        apTimeStart = aptimes.front();
+        aptimes.pop();
+        apTimeEnd = aptimes.front();
+        aptimes.pop();
+    }
+    if(apTimeStart <= currentTimeInSeconds && apTimeEnd > currentTimeInSeconds){
+        Logger::getInstance().trace("Bus %d | In range of AP\n",id);
+    } else {
+        Logger::getInstance().trace("Bus %d | Time to AP: %d\n",id,calculateTimeToAP());
+    }
+}
+
+int UDPBasicApp::calculateTimeToAP(){
+    int currentTimeInSeconds = simTime().inUnit(SIMTIME_S);
+    Logger::getInstance().trace("Bus %d | Current time: %d\n",id,currentTimeInSeconds);
+    if(currentTimeInSeconds >= apTimeStart && currentTimeInSeconds < apTimeEnd){
+        return 0;
+    }
+    int calculatedTimeToAP = apTimeStart - currentTimeInSeconds;
+    Logger::getInstance().trace("Bus %d | Calculated time to AP: %d\n",id,calculatedTimeToAP);
+    return calculatedTimeToAP;
+}
+
 DataPacket* UDPBasicApp::createBroadcastPacket(DataPacket * p){
-    Logger::getInstance().trace("create Broadcast packet\n");
+    Logger::getInstance().trace("Bus %d | Create Broadcast packet\n",id);
     DataPacket* msg = new DataPacket();
     msg->setDebugMessage("BROADCAST");
     msg->setTimestamp(p->getTimestamp());
     msg->setTemperature(p->getTemperature());
-    msg->setBusid(p->getBusid());
+    msg->setBusid(p->getSendingBusid());
     msg->setUuid(p->getUuid());
     msg->setBroadcastPacket(true);
+    msg->setIsFromAp(false);
+    msg->setTimeToAp(calculateTimeToAP());
     return msg;
 }
 
 DataPacket* UDPBasicApp::copyPacket(DataPacket * p){
-    Logger::getInstance().trace("Copy packet\n");
+    Logger::getInstance().trace("Bus %d | Copy packet\n",id);
     DataPacket* msg = new DataPacket();
     msg->setDebugMessage(p->getDebugMessage());
     msg->setTimestamp(p->getTimestamp());
     msg->setTemperature(p->getTemperature());
-    msg->setBusid(p->getBusid());
+    msg->setBusid(p->getSendingBusid());
     msg->setUuid(p->getUuid());
     msg->setBroadcastPacket(false); //Should always be false unless explicitly set
+    msg->setTimeToAp(calculateTimeToAP());
     return msg;
 }
 
 DataPacket* UDPBasicApp::generateMessage(char* debugString){
-    Logger::getInstance().trace("Generating packet\n");
+    Logger::getInstance().trace("Bus %d | Generating packet\n",id);
     DataPacket* msg = new DataPacket();
     msg->setDebugMessage(debugString);
     msg->setTimestamp(simTime());
@@ -177,33 +210,37 @@ DataPacket* UDPBasicApp::generateMessage(char* debugString){
 
 void UDPBasicApp::sendPacket()
 {
-    Logger::getInstance().trace("sendPacket()\n");
+    Logger::getInstance().trace("Bus %d | sendPacket()\n",id);
     if(!packetQueue.empty()){
         DataPacket *p = copyPacket(packetQueue.front());
-        Logger::getInstance().info("Bus %d Sending packet with sequence %d\n",id,p->getUuid());
+        Logger::getInstance().info("Bus %d | Sending packet with sequence %d, origin id %d\n",id,p->getUuid(),p->getBusid());
         IPvXAddress destAddr = chooseDestAddr();
         lastSend = p->getUuid();
+        p->setSendingBusid(id);
         p->removeControlInfo();
         emit(sentPkSignal, p);
         apSocket.sendTo(p, destAddr, destPort);
 
-
-        DataPacket *q = createBroadcastPacket(p);
-        q->removeControlInfo();
-        busSocket.sendTo(q,broadcastAddress,destPort+1);
+        //Only send if we are going to run out of space before we get to the next AP
+        if(queueSize - packetQueue.size() > calculateTimeToAP()){
+            DataPacket *q = createBroadcastPacket(p);
+            q->setSendingBusid(id);
+            q->removeControlInfo();
+            busSocket.sendTo(q,broadcastAddress,destPort+1);
+        }
 
 
         scheduleAt(simTime()+0.5,timeoutMsg);
-        Logger::getInstance().trace("Timeout scheduled in 0.5s\n");
     } else {
-        Logger::getInstance().trace("Packet queue empty\n");
+        Logger::getInstance().trace("Bus %d | Packet queue empty\n",id);
     }
 }
 
 void UDPBasicApp::sendResponsePacket(DataPacket *p)
 {
-    Logger::getInstance().trace("sendResponsePacket()\n");
-    Logger::getInstance().info("Bus %d Sending response packet with sequence %d\n",id,p->getUuid());
+    Logger::getInstance().trace("Bus %d | sendResponsePacket()\n",id);
+    Logger::getInstance().info("Bus %d | Sending response packet with sequence %d\n",id,p->getUuid());
+    p->setSendingBusid(id);
     p->removeControlInfo();
     emit(sentPkSignal, p);
     busSocket.sendTo(p,broadcastAddress,destPort+1);
@@ -213,7 +250,7 @@ void UDPBasicApp::sendResponsePacket(DataPacket *p)
 
 void UDPBasicApp::processStart()
 {
-    Logger::getInstance().trace("processStart()\n");
+    Logger::getInstance().trace("Bus %d | processStart()\n",id);
 
     IInterfaceTable *inet_ift;
     inet_ift = InterfaceTableAccess().get();
@@ -233,7 +270,7 @@ void UDPBasicApp::processStart()
     setSocketOptions();
 
     const char *destAddrs = par("destAddresses");
-    cStringTokenizer tokenizer(destAddrs);
+    cStringTokenizer iptokenizer(destAddrs);
     const char *token;
 
     IPvXAddressResolver().tryResolve("224.0.0.1", broadcastAddress);
@@ -242,7 +279,7 @@ void UDPBasicApp::processStart()
         printf("FAIL\n");
     }
 
-    while ((token = tokenizer.nextToken()) != NULL) {
+    while ((token = iptokenizer.nextToken()) != NULL) {
         IPvXAddress result;
         IPvXAddressResolver().tryResolve(token, result);
         if (result.isUnspecified())
@@ -251,6 +288,13 @@ void UDPBasicApp::processStart()
             destAddresses.push_back(result);
     }
 
+    const char* positionstr = par("positions");
+    cStringTokenizer lltokenizer(positionstr);
+
+    while ((token = lltokenizer.nextToken()) != NULL) {
+        int t = atoi(token);
+        aptimes.push(t);
+    }
 }
 
 
@@ -261,17 +305,16 @@ void UDPBasicApp::processStop()
 }
 
 void UDPBasicApp::addPacketToQueue(DataPacket *p){
-    Logger::getInstance().info("Bus %d adding packet to queue\n",id);
+    Logger::getInstance().info("Bus %d | Adding packet to queue\n",id);
     numSent++;
     packetQueue.push(p);
     if(queueSize != -1){
         if(packetQueue.size() > queueSize){
             DataPacket *old = packetQueue.front();
-            Logger::getInstance().info("Bus %d dropped packet %d\n",id,old->getUuid());
+            Logger::getInstance().info("Bus %d | Dropped packet %d from bus %d\n",id,old->getUuid(),old->getSendingBusid());
             packetQueue.pop();
             delete old;
             numDropped++;
-
         }
     }
     if(packetQueue.size() == 1){
@@ -282,40 +325,41 @@ void UDPBasicApp::addPacketToQueue(DataPacket *p){
 
 void UDPBasicApp::handleMessageWhenUp(cMessage *msg)
 {
-    Logger::getInstance().trace("handleMessage\n");
+    Logger::getInstance().trace("Bus %d | handleMessage\n", id);
     if (msg->isSelfMessage())
     {
-        Logger::getInstance().trace("isSelfMessage()\n");
+        Logger::getInstance().trace("Bud %d | isSelfMessage()\n", id);
         if(msg == selfMsg){
-            Logger::getInstance().trace("Got self message\n");
+            Logger::getInstance().trace("Bus %d | Got self message\n",id);
             switch (selfMsg->getKind()) {
                 case START:     processStart(); break;
                 case SEND:      sendPacket(); break;
                 case STOP:      processStop(); break;
-                default: throw cRuntimeError("Invalid kind %d in self message", (int)selfMsg->getKind());
+                default: throw cRuntimeError("Bus %d | Invalid kind %d in self message", id, (int)selfMsg->getKind());
             }
         } else if (msg == addData) {
-            Logger::getInstance().trace("Adding data\n");
+            Logger::getInstance().trace("Bus %d | Adding data\n",id);
+            updateTimer();
             DataPacket *p = generateMessage((char*)"debugstr");
             addPacketToQueue(p);
             scheduleAt(simTime()+1,addData);
-            Logger::getInstance().trace("Bus %d Adding data in 1 second\n",id);
+            Logger::getInstance().trace("Bus %d | Adding data in 1 second\n",id);
         } else if (msg == timeoutMsg){
-            Logger::getInstance().trace("Bus %d Packet timed out. Resending\n",id);
+            Logger::getInstance().trace("Bus %d | Packet timed out. Resending\n",id);
             sendPacket();
         } else {
-            Logger::getInstance().error("GOT WEIRD MESSAGE\n");
+            Logger::getInstance().error("Bus %d | GOT WEIRD MESSAGE\n", id);
         }
     }
     else if (msg->getKind() == UDP_I_DATA)
     {
-        Logger::getInstance().trace("DATA\n");
+        Logger::getInstance().trace("Bus %d | DATA\n", id);
         // process incoming packet
         processPacket(PK(msg));
     }
     else if (msg->getKind() == UDP_I_ERROR)
     {
-        Logger::getInstance().error("Error\n");
+        Logger::getInstance().error("Bus %d | Error\n", id);
         EV << "Ignoring UDP error report\n";
         delete msg;
     }
@@ -334,21 +378,22 @@ void UDPBasicApp::handleMessageWhenUp(cMessage *msg)
 
 void UDPBasicApp::processPacket(cPacket *pk)
 {
-    Logger::getInstance().trace("processPacket()\n");
+    Logger::getInstance().trace("Bus %d | processPacket()\n",id);
     emit(rcvdPkSignal, pk);
     EV << "Received packet: " << UDPSocket::getReceivedPacketInfo(pk) << endl;
     if(dynamic_cast<DataPacket *>(pk)){
         DataPacket *p = check_and_cast<DataPacket *>(pk);
+        Logger::getInstance().trace("Bus %d | Packet -> (UUID,BusId,timeToAP),(%d,%d,%d)\n",id,p->getUuid(),p->getSendingBusid(),p->getTimeToAp());
         if(p->getIsResponsePacket()){
-            Logger::getInstance().trace("Bus %d got response packet\n",id);
+            Logger::getInstance().trace("Bus %d | Got response packet\n",id);
             numReceived++;
-            if(p->getBusid() == id && p->getUuid() == lastSend){
+            if(p->getSendingBusid() == id && p->getUuid() == lastSend){
                 //This is a response to one of our previous packets
                 cancelEvent(timeoutMsg);
-                Logger::getInstance().trace("Was valid sequence. Timeout cancelled.\n");
+                Logger::getInstance().trace("Bus %d | Was valid sequence. Timeout cancelled.\n",id);
                 if (selfMsg){
                     cancelEvent(selfMsg);
-                    Logger::getInstance().trace("cancelled self message\n");
+                    Logger::getInstance().trace("Bus %d | Cancelled self message\n",id);
                 }
                 if(packetQueue.size() > 0){
                     DataPacket *old = packetQueue.front();
@@ -357,26 +402,36 @@ void UDPBasicApp::processPacket(cPacket *pk)
                     sendPacket();
                 }
             } else {
-                if(p->getBusid() != id){
-                    Logger::getInstance().trace("Bus %d received a response for bus %d\n",id,p->getBusid());
+                if(p->getSendingBusid() != id){
+                    Logger::getInstance().trace("Bus %d | Received a response for bus %d\n",id,p->getSendingBusid());
                 } else {
-                    Logger::getInstance().trace("Bus %d received a response with invalid sequence number.\n",id);
+                    Logger::getInstance().trace("Bus %d | Received a response with invalid sequence number.\n",id);
                 }
             }
         } else {
             //This is a data packet
-            if(p->getBroadcastPacket() && p->getBusid() != id){
-                Logger::getInstance().trace("Bus %d got a data packet from bus %d\n",id,p->getBusid());
-                DataPacket *storedPacket = copyPacket(p);
-                DataPacket *responsePacket = createBroadcastPacket(p);
-                responsePacket->setIsResponsePacket(true);
-                sendResponsePacket(responsePacket);
-                addPacketToQueue(storedPacket);
+            if(p->getBroadcastPacket() && p->getSendingBusid() != id){
+                Logger::getInstance().trace("Bus %d | Got a data packet from bus %d\n",id,p->getSendingBusid());
+                int timeToNextAp = calculateTimeToAP();
+
+                //Only accept a packet if we will get there before the other one and we have space.
+                //TODO Update this to optimise for packet loss
+                if((timeToNextAp < p->getTimeToAp()) && (queueSize - packetQueue.size() > calculateTimeToAP())){
+                    Logger::getInstance().info("Bus %d | Storing data packet from bus %d\n",id,p->getSendingBusid());
+                    DataPacket *storedPacket = copyPacket(p);
+                    DataPacket *responsePacket = createBroadcastPacket(p);
+                    responsePacket->setIsResponsePacket(true);
+                    sendResponsePacket(responsePacket);
+                    addPacketToQueue(storedPacket);
+                } else {
+                    Logger::getInstance().trace("Bus %d | Discarding data packet from bus %d\n",id,p->getSendingBusid());
+                    Logger::getInstance().trace("Bus %d | Time to AP: %d, Bus %d time to AP: %d\n",id,timeToNextAp,p->getSendingBusid(),p->getTimeToAp());
+                }
             } else {
                 if(!p->getBroadcastPacket()){
-                    Logger::getInstance().trace("Bus %d received a data packet that was NOT a broadcast packet. THIS SHOULD NEVER HAPPEN.\n",id);
+                    Logger::getInstance().trace("Bus %d | Received a data packet that was NOT a broadcast packet. THIS SHOULD NEVER HAPPEN.\n",id);
                 } else {
-                    Logger::getInstance().trace("Bus %d received its own data packet\n",id);
+                    Logger::getInstance().trace("Bus %d | Received its own data packet\n",id);
                 }
             }
         }
@@ -387,26 +442,26 @@ void UDPBasicApp::processPacket(cPacket *pk)
 
 bool UDPBasicApp::startApp(IDoneCallback *doneCallback)
 {
-    Logger::getInstance().trace("startApp()\n");
+    Logger::getInstance().trace("Bus %d | startApp()\n",id);
     simtime_t start = std::max(startTime, simTime());
     if ((stopTime < SIMTIME_ZERO) || (start < stopTime) || (start == stopTime && startTime == stopTime))
     {
         selfMsg->setKind(START);
         scheduleAt(start, selfMsg);
-        Logger::getInstance().trace("Scheduled start\n");
+        Logger::getInstance().trace("Bus %d | Scheduled start\n",id);
     }
     int randomInt = rand();
     float randomFloat = (float)randomInt;
     float randMax = (float)RAND_MAX;
     float randomTime = randomFloat/randMax;
     scheduleAt(start+randomTime, addData);
-    Logger::getInstance().trace("Scheduled first data gather\n");
+    Logger::getInstance().trace("Bus %d | Scheduled first data gather\n",id);
     return true;
 }
 
 bool UDPBasicApp::stopApp(IDoneCallback *doneCallback)
 {
-    Logger::getInstance().trace("stopApp()\n");
+    Logger::getInstance().trace("Bus %d | stopApp()\n",id);
     if (selfMsg){
         cancelEvent(selfMsg);
         cancelEvent(timeoutMsg);
@@ -418,7 +473,7 @@ bool UDPBasicApp::stopApp(IDoneCallback *doneCallback)
 
 bool UDPBasicApp::crashApp(IDoneCallback *doneCallback)
 {
-    Logger::getInstance().trace("crashApp()\n");
+    Logger::getInstance().trace("Bus %d | crashApp()\n",id);
     if (selfMsg){
         cancelEvent(selfMsg);
         cancelEvent(timeoutMsg);
