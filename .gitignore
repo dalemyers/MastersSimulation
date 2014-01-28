@@ -10,3 +10,4 @@ MiXiM/.csettings/
 MiXiM/examples/Buses/omnetppini/R*.ini
 MiXiM/examples/Buses/.tkenvlog
 MiXiM/examples/Buses/results/
+*.log
