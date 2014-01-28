@@ -88,6 +88,7 @@ void UDPBasicApp::initialize(int stage)
 
         cModule* p = this->getParentModule();
         id = p->par("id");
+        updateTimer();
     }
 }
 
@@ -175,7 +176,7 @@ DataPacket* UDPBasicApp::createBroadcastPacket(DataPacket * p){
     msg->setDebugMessage("BROADCAST");
     msg->setTimestamp(p->getTimestamp());
     msg->setTemperature(p->getTemperature());
-    msg->setBusid(p->getSendingBusid());
+    msg->setBusid(p->getBusid());
     msg->setUuid(p->getUuid());
     msg->setBroadcastPacket(true);
     msg->setIsFromAp(false);
@@ -189,7 +190,7 @@ DataPacket* UDPBasicApp::copyPacket(DataPacket * p){
     msg->setDebugMessage(p->getDebugMessage());
     msg->setTimestamp(p->getTimestamp());
     msg->setTemperature(p->getTemperature());
-    msg->setBusid(p->getSendingBusid());
+    msg->setBusid(p->getBusid());
     msg->setUuid(p->getUuid());
     msg->setBroadcastPacket(false); //Should always be false unless explicitly set
     msg->setTimeToAp(calculateTimeToAP());
@@ -222,7 +223,7 @@ void UDPBasicApp::sendPacket()
         apSocket.sendTo(p, destAddr, destPort);
 
         //Only send if we are going to run out of space before we get to the next AP
-        if(queueSize - packetQueue.size() > calculateTimeToAP()){
+        if(queueSize - packetQueue.size() < calculateTimeToAP()){
             DataPacket *q = createBroadcastPacket(p);
             q->setSendingBusid(id);
             q->removeControlInfo();
@@ -328,7 +329,7 @@ void UDPBasicApp::handleMessageWhenUp(cMessage *msg)
     Logger::getInstance().trace("Bus %d | handleMessage\n", id);
     if (msg->isSelfMessage())
     {
-        Logger::getInstance().trace("Bud %d | isSelfMessage()\n", id);
+        Logger::getInstance().trace("Bus %d | isSelfMessage()\n", id);
         if(msg == selfMsg){
             Logger::getInstance().trace("Bus %d | Got self message\n",id);
             switch (selfMsg->getKind()) {
@@ -385,7 +386,11 @@ void UDPBasicApp::processPacket(cPacket *pk)
         DataPacket *p = check_and_cast<DataPacket *>(pk);
         Logger::getInstance().trace("Bus %d | Packet -> (UUID,BusId,timeToAP),(%d,%d,%d)\n",id,p->getUuid(),p->getSendingBusid(),p->getTimeToAp());
         if(p->getIsResponsePacket()){
-            Logger::getInstance().trace("Bus %d | Got response packet\n",id);
+            if(p->getIsFromAp()){
+                Logger::getInstance().trace("Bus %d | Got response packet from AP\n",id);
+            } else {
+                Logger::getInstance().trace("Bus %d | Got response packet from bus\n",id);
+            }
             numReceived++;
             if(p->getSendingBusid() == id && p->getUuid() == lastSend){
                 //This is a response to one of our previous packets

@@ -55,24 +55,26 @@ void UDPEchoApp::handleMessageWhenUp(cMessage *msg)
 
         if(dynamic_cast<DataPacket *>(pk)){
             DataPacket *p = check_and_cast<DataPacket *>(pk);
-            p->setIsResponsePacket(true);
-            p->setIsFromAp(true);
-            simtime_t diff = simTime() - p->getTimestamp();
-            int seconds = diff.inUnit(SIMTIME_S);
-            Logger::getInstance().info("APRCV | Bus: %u, Packet: %d, Timediff: %d\n",p->getBusid(),p->getUuid(),seconds);
+            if(!p->getBroadcastPacket()){
+                p->setIsResponsePacket(true);
+                p->setIsFromAp(true);
+                simtime_t diff = simTime() - p->getTimestamp();
+                int seconds = diff.inUnit(SIMTIME_S);
+                Logger::getInstance().info("APRCV | Bus: %u, Packet: %d, From: %d, Timediff: %d\n",p->getBusid(),p->getUuid(),p->getSendingBusid(),seconds);
 
-            // statistics
-            numEchoed++;
-            emit(pkSignal, pk);
+                // statistics
+                numEchoed++;
+                emit(pkSignal, pk);
 
-            // determine its source address/port
-            UDPDataIndication *ctrl = check_and_cast<UDPDataIndication *>(pk->removeControlInfo());
-            IPvXAddress srcAddress = ctrl->getSrcAddr();
-            int srcPort = ctrl->getSrcPort();
-            delete ctrl;
+                // determine its source address/port
+                UDPDataIndication *ctrl = check_and_cast<UDPDataIndication *>(pk->removeControlInfo());
+                IPvXAddress srcAddress = ctrl->getSrcAddr();
+                int srcPort = ctrl->getSrcPort();
+                delete ctrl;
 
-            // send back
-            socket.sendTo(p, srcAddress, srcPort);
+                // send back
+                socket.sendTo(p, srcAddress, srcPort);
+            }
         }
 
         if (ev.isGUI())
