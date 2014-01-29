@@ -39,8 +39,6 @@ class INET_API UDPBasicApp : public AppBase
   protected:
     enum SelfMsgKinds { START = 1, SEND, STOP, TIMEOUT };
 
-     myQ;
-
     UDPSocket apSocket;
     UDPSocket busSocket;
     int localPort, destPort;
@@ -74,7 +72,7 @@ class INET_API UDPBasicApp : public AppBase
     // chooses random destination address
     virtual IPvXAddress chooseDestAddr();
     virtual void sendPacket();
-    virtual void sendResponsePacket(DataPacket* p);
+    virtual void broadcastResponsePacket(DataPacket* p);
     virtual void processPacket(cPacket *msg);
     virtual void setSocketOptions();
 

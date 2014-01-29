@@ -81,6 +81,8 @@ void UDPBasicApp::initialize(int stage)
         destPort = par("destPort");
         startTime = par("startTime").doubleValue();
         stopTime = par("stopTime").doubleValue();
+        apTimeStart = -2;
+        apTimeEnd = -1;
         if (stopTime >= SIMTIME_ZERO && stopTime < startTime)
             error("Invalid startTime/stopTime parameters");
         selfMsg = new cMessage("sendTimer");
@@ -90,7 +92,6 @@ void UDPBasicApp::initialize(int stage)
         cModule* p = this->getParentModule();
         id = p->par("id");
         insertInOrder = p->par("insertInOrder");
-        updateTimer();
     }
 }
 
@@ -230,7 +231,7 @@ void UDPBasicApp::sendPacket()
         apSocket.sendTo(p, destAddr, destPort);
 
         //Only send if we are going to run out of space before we get to the next AP (plus 5 minute error zone)
-        if((queueSize - packetQueue.size()) < (calculateTimeToAP() + 300)){
+        if((queueSize - packetQueue.size()) < calculateTimeToAP()){
             Logger::getInstance().info("Bus %-3d | Broadcasting packet with sequence %d, origin id %d\n",id,p->getUuid(),p->getBusid());
             DataPacket *q = createBroadcastPacket(p);
             q->setSendingBusid(id);
@@ -238,14 +239,14 @@ void UDPBasicApp::sendPacket()
             busSocket.sendTo(q,broadcastAddress,destPort+1);
         }
 
-
+        cancelEvent(timeoutMsg);
         scheduleAt(simTime()+0.5,timeoutMsg);
     } else {
         Logger::getInstance().trace("Bus %-3d | Packet queue empty\n",id);
     }
 }
 
-void UDPBasicApp::sendResponsePacket(DataPacket *p)
+void UDPBasicApp::broadcastResponsePacket(DataPacket *p)
 {
     Logger::getInstance().trace("Bus %-3d | sendResponsePacket()\n",id);
     Logger::getInstance().info("Bus %-3d | Sending response packet with sequence %d\n",id,p->getUuid());
@@ -304,6 +305,7 @@ void UDPBasicApp::processStart()
         int t = atoi(token);
         aptimes.push(t);
     }
+    updateTimer();
 }
 
 
@@ -317,7 +319,7 @@ void UDPBasicApp::addPacketToQueue(DataPacket *p){
     Logger::getInstance().trace("Bus %-3d | Adding packet to queue\n",id);
     numSent++;
 
-    if(insertInOrder){
+    if(p->getBusid() != id && insertInOrder){
         //Remove everything in the swap queue (just in case)
         while(swapQueue.size()){
             swapQueue.pop();
@@ -330,14 +332,18 @@ void UDPBasicApp::addPacketToQueue(DataPacket *p){
         }
 
         //Move everything back
-        while(packetQueue.size()){
-            DataPacket* q = swapQueue.front();
-            if(p != NULL && p->getTimestamp() < q->getTimestamp()){
-                packetQueue.push(p);
-                p = NULL;
+        if(packetQueue.size() == 0){
+            packetQueue.push(p);
+        } else {
+            while(packetQueue.size()){
+                DataPacket* q = swapQueue.front();
+                if(p != NULL && p->getTimestamp() < q->getTimestamp()){
+                    packetQueue.push(p);
+                    p = NULL;
+                }
+                packetQueue.push(q);
+                swapQueue.pop();
             }
-            packetQueue.push(q);
-            swapQueue.pop();
         }
     } else {
         packetQueue.push(p);
@@ -448,21 +454,25 @@ void UDPBasicApp::processPacket(cPacket *pk)
         } else {
             //This is a data packet
             if(p->getBroadcastPacket() && p->getSendingBusid() != id){
-                Logger::getInstance().trace("Bus %-3d | Got a data packet from Bus %-3d\n",id,p->getSendingBusid());
+                Logger::getInstance().info("Bus %-3d | Got a data packet from Bus %-3d\n",id,p->getSendingBusid());
                 int timeToNextAp = calculateTimeToAP();
 
                 //Only accept a packet if we will get there before the other one and we have space.
                 //TODO Update this to optimise for packet loss
-                if((timeToNextAp < p->getTimeToAp()) && ((queueSize - packetQueue.size()) > (calculateTimeToAP() + 120))){
-                    Logger::getInstance().info("Bus %-3d | Storing data packet from Bus %-3d\n",id,p->getSendingBusid());
-                    DataPacket *storedPacket = copyPacket(p);
-                    DataPacket *responsePacket = createBroadcastPacket(p);
-                    responsePacket->setIsResponsePacket(true);
-                    sendResponsePacket(responsePacket);
-                    addPacketToQueue(storedPacket);
+                if(timeToNextAp < p->getTimeToAp()){
+                    if(queueSize - packetQueue.size() > calculateTimeToAP()){
+                        Logger::getInstance().info("Bus %-3d | Storing data packet from Bus %-3d\n",id,p->getSendingBusid());
+                        DataPacket *storedPacket = copyPacket(p);
+                        DataPacket *responsePacket = createBroadcastPacket(p);
+                        responsePacket->setIsResponsePacket(true);
+                        broadcastResponsePacket(responsePacket);
+                        addPacketToQueue(storedPacket);
+                    } else {
+                        Logger::getInstance().info("Bus %-3d | Discarding data packet from Bus %-3d. Time to AP: %d, Bus %-3d time to AP: %d\n",id,p->getSendingBusid(), timeToNextAp,p->getSendingBusid(),p->getTimeToAp());
+                        Logger::getInstance().info("Bus %-3d | Discarding data packet from Bus %-3d. Time to AP: %d, Queue Capacity: %d\n",id,p->getSendingBusid(), timeToNextAp,queueSize - packetQueue.size());
+                    }
                 } else {
-                    Logger::getInstance().trace("Bus %-3d | Discarding data packet from Bus %-3d\n",id,p->getSendingBusid());
-                    Logger::getInstance().trace("Bus %-3d | Time to AP: %d, Bus %-3d time to AP: %d\n",id,timeToNextAp,p->getSendingBusid(),p->getTimeToAp());
+                    Logger::getInstance().info("Bus %-3d | Discarding data packet from Bus %-3d. Time to AP: %d, Bus %-3d time to AP: %d\n",id,p->getSendingBusid(), timeToNextAp,p->getSendingBusid(),p->getTimeToAp());
                 }
             } else {
                 if(!p->getBroadcastPacket()){
