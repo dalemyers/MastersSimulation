@@ -39,17 +39,21 @@ class INET_API UDPBasicApp : public AppBase
   protected:
     enum SelfMsgKinds { START = 1, SEND, STOP, TIMEOUT };
 
+     myQ;
+
     UDPSocket apSocket;
     UDPSocket busSocket;
     int localPort, destPort;
     std::vector<IPvXAddress> destAddresses;
     IPvXAddress broadcastAddress;
     std::queue<DataPacket*> packetQueue;
+    std::queue<DataPacket*> swapQueue;
     simtime_t startTime;
     simtime_t stopTime;
     cMessage *selfMsg;
     cMessage *addData;
     cMessage *timeoutMsg;
+    bool insertInOrder;
     int lastSend;
     int sequenceNumber;
     int id;

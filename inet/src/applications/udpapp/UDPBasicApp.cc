@@ -67,6 +67,7 @@ void UDPBasicApp::initialize(int stage)
         numReceived = 0;
         sequenceNumber = 0;
         lastSend = -1;
+        insertInOrder = false;
         WATCH(numSent);
         WATCH(numDropped);
         WATCH(numReceived);
@@ -88,6 +89,7 @@ void UDPBasicApp::initialize(int stage)
 
         cModule* p = this->getParentModule();
         id = p->par("id");
+        insertInOrder = p->par("insertInOrder");
         updateTimer();
     }
 }
@@ -227,8 +229,9 @@ void UDPBasicApp::sendPacket()
         emit(sentPkSignal, p);
         apSocket.sendTo(p, destAddr, destPort);
 
-        //Only send if we are going to run out of space before we get to the next AP (plus 10 minute error zone)
-        if((queueSize - packetQueue.size()) < (calculateTimeToAP() + 600)){
+        //Only send if we are going to run out of space before we get to the next AP (plus 5 minute error zone)
+        if((queueSize - packetQueue.size()) < (calculateTimeToAP() + 300)){
+            Logger::getInstance().info("Bus %-3d | Broadcasting packet with sequence %d, origin id %d\n",id,p->getUuid(),p->getBusid());
             DataPacket *q = createBroadcastPacket(p);
             q->setSendingBusid(id);
             q->removeControlInfo();
@@ -311,17 +314,41 @@ void UDPBasicApp::processStop()
 }
 
 void UDPBasicApp::addPacketToQueue(DataPacket *p){
-    Logger::getInstance().info("Bus %-3d | Adding packet to queue\n",id);
+    Logger::getInstance().trace("Bus %-3d | Adding packet to queue\n",id);
     numSent++;
-    packetQueue.push(p);
-    if(queueSize != -1){
-        if(packetQueue.size() > queueSize){
-            DataPacket *old = packetQueue.front();
-            Logger::getInstance().info("Bus %-3d | Dropped packet %d from Bus %-3d\n",id,old->getUuid(),old->getSendingBusid());
-            packetQueue.pop();
-            delete old;
-            numDropped++;
+
+    if(insertInOrder){
+        //Remove everything in the swap queue (just in case)
+        while(swapQueue.size()){
+            swapQueue.pop();
         }
+
+        //Move everything into the swap queue
+        while(packetQueue.size()){
+            swapQueue.push(packetQueue.front());
+            packetQueue.pop();
+        }
+
+        //Move everything back
+        while(packetQueue.size()){
+            DataPacket* q = swapQueue.front();
+            if(p != NULL && p->getTimestamp() < q->getTimestamp()){
+                packetQueue.push(p);
+                p = NULL;
+            }
+            packetQueue.push(q);
+            swapQueue.pop();
+        }
+    } else {
+        packetQueue.push(p);
+    }
+
+    if((queueSize != -1) && (packetQueue.size() > queueSize)){
+        DataPacket *old = packetQueue.front();
+        Logger::getInstance().info("Bus %-3d | Dropped packet %d from Bus %-3d\n",id,old->getUuid(),old->getSendingBusid());
+        packetQueue.pop();
+        delete old;
+        numDropped++;
     }
     if(packetQueue.size() == 1){
         sendPacket();
