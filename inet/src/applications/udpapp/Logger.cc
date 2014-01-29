@@ -14,6 +14,7 @@
 // 
 
 #include "Logger.h"
+#include <omnetpp.h>
 
 
 Logger::Logger() {
@@ -94,7 +95,9 @@ void Logger::filelog(char* format, ...){
     va_start( args, format );
     vasprintf(&msg, format, args );
     va_end( args );
-    printf("%s",msg);
+    int seconds = simTime().inUnit(SIMTIME_S);
+    int milliseconds = simTime().inUnit(SIMTIME_NS) - (seconds*1000000000);
+    printf("%05d.%09d | %s",seconds,milliseconds,msg);
     log(msg);
     free(msg);
 }
