@@ -42,8 +42,8 @@ simple Radio like IRadio
         string NoiseGenerator = default("");
         // generic FreeSpace model parameters
         double pathLossAlpha = default(2); // used by the path loss calculation
-        double TransmissionAntennaGainIndB @unit("dB") = default(4dB);  // Transmission Antenna Gain
-        double ReceiveAntennaGainIndB @unit("dB") = default(4dB);       // Receive Antenna Gain
+        double TransmissionAntennaGainIndB @unit("dB") = default(0dB);  // Transmission Antenna Gain
+        double ReceiveAntennaGainIndB @unit("dB") = default(0dB);       // Receive Antenna Gain
         double SystemLossFactor @unit("dB") = default(0dB);             // System Loss of Hardware
         // two ray model paramaeters
         double TransmiterAntennaHigh @unit("m") = default(1m);   // Transmitter Antenna High
