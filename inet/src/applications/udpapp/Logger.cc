@@ -97,9 +97,13 @@ void Logger::filelog(char* format, ...){
     va_end( args );
     int seconds = simTime().inUnit(SIMTIME_S);
     int milliseconds = simTime().inUnit(SIMTIME_NS) - (seconds*1000000000);
-    printf("%05d.%09d | %s",seconds,milliseconds,msg);
-    log(msg);
+    char* newformatstr = "%05d.%09d | %s";
+    char* timemsg = (char*)malloc(400);
+    sprintf(timemsg,newformatstr,seconds,milliseconds,msg);
+    printf("%s",timemsg);
+    log(timemsg);
     free(msg);
+    free(timemsg);
 }
 
 void Logger::log(char* s){
