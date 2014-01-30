@@ -3,6 +3,10 @@ import sys
 
 call(["rm", "omnetpp.ini"])
 call(["cp","omnetppini/" + sys.argv[1] , "omnetpp.ini"])
-for run in range(0,20):
+for run in range(0,10):
     print "Running",run
     call(["../miximexamples", "-r", str(run), "-u", "Cmdenv", "-n", "..:../../examples-inet:../../src/base:../../src/modules:../../../inet/examples:../../../inet/src", "-l", "../../src/mixim", "-l", "../../../inet/src/inet", "omnetpp.ini"])
+    print "Compressing log"
+    call(["tar","czvf",str(run) + ".tar","/root/*.txt"])
+    print "Deleting uncompressed log"
+    call(["rm","/root/*.txt"])

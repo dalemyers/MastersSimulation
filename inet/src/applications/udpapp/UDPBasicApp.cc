@@ -425,15 +425,15 @@ void UDPBasicApp::processPacket(cPacket *pk)
         Logger::getInstance().trace("Bus %-3d | Packet -> (UUID,BusId,timeToAP),(%d,%d,%d)\n",id,p->getUuid(),p->getSendingBusid(),p->getTimeToAp());
         if(p->getIsResponsePacket()){
             if(p->getIsFromAp()){
-                Logger::getInstance().trace("Bus %-3d | Got response packet from AP\n",id);
+                Logger::getInstance().info("Bus %-3d | Got response packet from AP\n",id);
             } else {
-                Logger::getInstance().trace("Bus %-3d | Got response packet from bus\n",id);
+                Logger::getInstance().info("Bus %-3d | Got response packet from bus\n",id);
             }
             numReceived++;
             if(p->getSendingBusid() == id && p->getUuid() == lastSend){
                 //This is a response to one of our previous packets
                 cancelEvent(timeoutMsg);
-                Logger::getInstance().trace("Bus %-3d | Was valid sequence. Timeout cancelled.\n",id);
+                Logger::getInstance().info("Bus %-3d | Was valid sequence. Timeout cancelled.\n",id);
                 if (selfMsg){
                     cancelEvent(selfMsg);
                     Logger::getInstance().trace("Bus %-3d | Cancelled self message\n",id);

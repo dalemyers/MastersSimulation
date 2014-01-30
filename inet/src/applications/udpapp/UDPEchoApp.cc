@@ -60,7 +60,7 @@ void UDPEchoApp::handleMessageWhenUp(cMessage *msg)
                 p->setIsFromAp(true);
                 simtime_t diff = simTime() - p->getTimestamp();
                 int seconds = diff.inUnit(SIMTIME_S);
-                Logger::getInstance().info("AP RECV | Bus: %u, Packet: %d, From: %d, Timediff: %d\n",p->getBusid(),p->getUuid(),p->getSendingBusid(),seconds);
+                Logger::getInstance().info("AP RECV | SendingBus: %u, Packet: %d, OriginBus: %d, Timediff: %d\n",p->getSendingBusid(),p->getUuid(),p->getBusid(),seconds);
 
                 // statistics
                 numEchoed++;
